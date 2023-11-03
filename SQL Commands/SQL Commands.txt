@@ -8,16 +8,15 @@ CREATE TABLE user_table (
     first_trail TINYINT(1) DEFAULT 0,
     second_trail TINYINT(1) DEFAULT 0,
     current_points INT DEFAULT 0,
-    checked_in_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_checked_in TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    last_checked_in DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 --Create NewsSample table
 CREATE TABLE NewsSample(
     news_id INT PRIMARY KEY AUTO_INCREMENT,
     news_title VARCHAR(100),
-    news_link VARCHAR(120),
+    news_link VARCHAR(150),
     news_date DATE
 );
 
@@ -63,13 +62,23 @@ INSERT INTO TriviaSample(question, options, answer) VALUES("Why are pollinators 
 INSERT INTO TriviaSample(question, options, answer) VALUES("Which of these species doesn't have a home in the forest?","Grizzly bear,Great hornbill,Cheetah,Ring tailed lemur","Cheetah");
 INSERT INTO TriviaSample(question, options, answer) VALUES("On land which animal only ever moves their hind legs together, however in the water they kick each leg independently to swim?","Rhinoceros,Kangaroo,Hornbill,Hippopotamus","Kangaroo");
 
+-- To update last_checked_in after a user with id 1 checked in
+UPDATE user_table SET last_checked_in = now() WHERE user_id = 1;
+
+-- To change password
+UPDATE user_table SET password = "new password" WHERE user_id = 1;
+
 -- SELECT all information from table
 SELECT * FROM user_table;
 SELECT * FROM NewsSample;
 SELECT * FROM TriviaSample;
 
+-- SELECT certain information from table
+SELECT current_points,last_checked_in FROM user_table;
+
 -- Select certain information from table
-SELECT question_id, question FROM TriviaSample ORDER BY question_id;
+SELECT question_id, question FROM TriviaSample;
+SELECT question FROM TriviaSample;
 
 -- Delete table
 DROP TABLE NewsSample;
