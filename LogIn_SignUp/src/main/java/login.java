@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class login {
-    public static byte[] getSHA(String input) throws NoSuchAlgorithmException
+    private static byte[] getSHA(String input) throws NoSuchAlgorithmException
     {
             // Static getInstance method is called with hashing SHA
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -31,7 +31,7 @@ public class login {
             return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
     
-    public static String toHexString(byte[] hash)
+    private static String toHexString(byte[] hash)
      {
              // Convert byte array into signum representation
              BigInteger number = new BigInteger(1, hash);
@@ -139,7 +139,7 @@ public class login {
         updateLast_checked_in(username);
     }
     
-    public static void updateLast_checked_in(String username){
+    private static void updateLast_checked_in(String username){
 
         // Get current date
         LocalDateTime dateTime = LocalDateTime.now();
