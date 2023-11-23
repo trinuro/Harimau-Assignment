@@ -19,7 +19,7 @@ import java.time.format.DateTimeFormatter;
 
 
 public class signup {
-    public static byte[] getSHA(String input) throws NoSuchAlgorithmException
+    private static byte[] getSHA(String input) throws NoSuchAlgorithmException
     {
             // Static getInstance method is called with hashing SHA
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -30,7 +30,7 @@ public class signup {
             return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
     
-    public static String toHexString(byte[] hash)
+    private static String toHexString(byte[] hash)
      {
              // Convert byte array into signum representation
              BigInteger number = new BigInteger(1, hash);
@@ -48,6 +48,10 @@ public class signup {
      }    
     
     public static boolean createNewUser(String email, String username, String password, String confirmPassword){
+        // This function creates a new user in database. 
+        // It accepts the email, username, password and confirm password string.
+        // It will return true if a user is succesfully created.
+        
         //Initialise variables
         String encryptedPassword;
         String database_email="", database_username="";

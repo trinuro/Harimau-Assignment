@@ -48,6 +48,10 @@ public class login {
              return hexString.toString();
      }    
     public static boolean checkPassword(String email, String username, String password) throws NoSuchAlgorithmException{
+        // This function will check whether the user password is the same as password in the database
+        // It receives three input: email, username and password
+        // It will return true if password is correct
+        
         String database_email="", database_hash="", userHash, registration_date="";
         
         // Get password hash stored in the database
@@ -93,6 +97,10 @@ public class login {
     }
     
     public static void checkIn(String username){
+        // This function checks in a user
+        // It will update the last checked in of user and give 1 mark to user if the user checked in for the first time
+        // Does not return anything
+        
         // Initialise variables
         String dateString, last_checked_in_date="";
         
