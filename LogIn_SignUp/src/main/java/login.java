@@ -67,7 +67,6 @@ public class login {
             database_email = rset.getString("email");
             database_hash = rset.getString("password");
             registration_date = rset.getString("registration_date");
-//            System.out.printf("%s; %s\n", database_email, database_hash);
             rowCount++;
         } 
         }catch(SQLException ex){
