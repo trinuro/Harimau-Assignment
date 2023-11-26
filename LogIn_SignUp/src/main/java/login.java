@@ -18,6 +18,8 @@ import java.text.ParseException;
 import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class login {
     private static byte[] getSHA(String input) throws NoSuchAlgorithmException
@@ -208,7 +210,7 @@ public class login {
     
     public static String getData(String username, String columnTitle){
         // This function returns data from database based on username and column title
-
+        
         String output="";
 
         
@@ -236,5 +238,45 @@ public class login {
         }    
         
         return output;
+    }
+    
+    public static long daysAfterRegistration(String username){
+        // This method receives a username and returns the number of days the user has logged in
+        // Returns a long variable
+        
+        LocalDate startDate, endDate;
+        // Ignore this. It is a bug
+        startDate = LocalDate.now();
+        
+        // Connect to database
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+            ){
+        // Create SQL query
+        String strSelect = String.format("SELECT registration_date FROM user_table WHERE username = \'%s\';",username);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get date the user registered
+        while(rset.next()){
+            String registrationDate = rset.getString("registration_date").split(" ")[0];
+            startDate = LocalDate.parse(registrationDate);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return 0;
+        }    
+        
+        //Get current date
+        endDate = LocalDate.now();
+        
+        return ChronoUnit.DAYS.between(startDate, endDate);
+        
     }
 }
