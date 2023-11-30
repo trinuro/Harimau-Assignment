@@ -18,9 +18,11 @@ import java.text.ParseException;
 import java.util.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class login {
-    public static byte[] getSHA(String input) throws NoSuchAlgorithmException
+    private static byte[] getSHA(String input) throws NoSuchAlgorithmException
     {
             // Static getInstance method is called with hashing SHA
             MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -31,7 +33,7 @@ public class login {
             return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
     
-    public static String toHexString(byte[] hash)
+    private static String toHexString(byte[] hash)
      {
              // Convert byte array into signum representation
              BigInteger number = new BigInteger(1, hash);
@@ -48,6 +50,10 @@ public class login {
              return hexString.toString();
      }    
     public static boolean checkPassword(String email, String username, String password) throws NoSuchAlgorithmException{
+        // This function will check whether the user password is the same as password in the database
+        // It receives three input: email, username and password
+        // It will return true if password is correct
+        
         String database_email="", database_hash="", userHash, registration_date="";
         
         // Get password hash stored in the database
@@ -92,6 +98,10 @@ public class login {
     }
     
     public static void checkIn(String username){
+        // This function checks in a user
+        // It will update the last checked in of user and give 1 mark to user if the user checked in for the first time
+        // Does not return anything
+        
         // Initialise variables
         String dateString, last_checked_in_date="";
         
@@ -138,7 +148,7 @@ public class login {
         updateLast_checked_in(username);
     }
     
-    public static void updateLast_checked_in(String username){
+    private static void updateLast_checked_in(String username){
 
         // Get current date
         LocalDateTime dateTime = LocalDateTime.now();
@@ -195,5 +205,77 @@ public class login {
             System.out.println("SQL failed! Find Khiew");
             ex.printStackTrace();
         }        
+    }
+    
+    public static String getData(String username, String columnTitle){
+        // This function returns data from database based on username and column title
+        
+        String output="";
+
+        
+        // Connect to database
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+            ){
+        // Create SQL query
+        String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get last_checked_in date from database
+        while(rset.next()){
+            output = rset.getString(columnTitle);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+        }    
+        
+        return output;
+    }
+    
+    public static long daysAfterRegistration(String username){
+        // This method receives a username and returns the number of days the user has logged in
+        // Returns a long variable
+        
+        LocalDate startDate, endDate;
+        // Ignore this. It is a bug
+        startDate = LocalDate.now();
+        
+        // Connect to database
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+            ){
+        // Create SQL query
+        String strSelect = String.format("SELECT registration_date FROM user_table WHERE username = \'%s\';",username);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get date the user registered
+        while(rset.next()){
+            String registrationDate = rset.getString("registration_date").split(" ")[0];
+            startDate = LocalDate.parse(registrationDate);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return 0;
+        }    
+        
+        //Get current date
+        endDate = LocalDate.now();
+        
+        return ChronoUnit.DAYS.between(startDate, endDate);
+        
     }
 }
