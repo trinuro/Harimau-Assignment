@@ -1,5 +1,10 @@
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,7 +17,7 @@ import java.util.Scanner;
  */
 public class store_donation {
     
-    public static void getMerchandise(double point){
+    public static void getMerchandise(double point,String userName){
         Scanner s=new Scanner(System.in);
         
         //example of prize of merchanidise
@@ -51,6 +56,14 @@ public class store_donation {
             {
                 //save to point database && merchandise history
                 point=point-prize[id]*amount;
+                System.out.println(userName+" orders "+amount+" merch-"+id+" to "+address);
+                try {
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt"));
+                    writer.write(userName+" orders "+amount+" merch-"+id+" to "+address);
+                    writer.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
             //not checking out, return to enter merchandise id
@@ -82,7 +95,7 @@ public class store_donation {
         }
     }
     
-    public static void getPlantATree(double point){
+    public static void getPlantATree(double point, String userName){
         Scanner s=new Scanner(System.in);
         
         //example of prize of tree
@@ -106,7 +119,16 @@ public class store_donation {
             {
                 //save to point database && plant a tree history
                 point=point-prizeTree;
+                System.out.println(userName+" plant a tree with the name \""+name+"\"");
+                try {
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt"));
+                    writer.write(userName+" plant a tree with the name \""+name+"\"");
+                    writer.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            
             //not checking out, return to enter tree name
             else if(checkOut==0)
             {
@@ -168,6 +190,13 @@ public class store_donation {
                 double donationToNGO=donation*0.9;
                 point=point+donation*10;
                 //save to donation database
+                try {
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt"));
+                    writer.write(userName+" has donated $ "+donationToNGO+" to "+NGO);
+                    writer.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 System.out.println(userName+" has donated $ "+donationToNGO+" to "+NGO);
             }
             
