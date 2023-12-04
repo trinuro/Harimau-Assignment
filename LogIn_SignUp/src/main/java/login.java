@@ -279,4 +279,44 @@ public class login {
         return ChronoUnit.DAYS.between(startDate, endDate);
         
     }
+    
+    public static String generateRecoveryPassword(String email){
+        // This method generates a recovery password from email
+        // Returns a recovery password if email exists
+        // Returns "" if email does not exist or database connection fails
+        // Each recovery password is valid for at most 1 hour and has a length of 10 characters
+        String userPassword ="";
+        
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+        // Create SQL query
+        String strSelect = String.format("SELECT password FROM user_table WHERE email = \'%s\';",email);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get last_checked_in date from database
+        while(rset.next()){
+            userPassword = rset.getString("password");
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return "";
+        }
+        String currentHour = String.valueOf(LocalDateTime.now().getHour());
+        String currentDate = String.valueOf(LocalDateTime.now()).substring(0,10);
+        // Hash passwordHash with current hour
+        String recoveryPassword = signup.hashPassword(currentHour, userPassword);
+        // Hash result with current date
+        recoveryPassword = signup.hashPassword(currentDate, userPassword).substring(0,10);
+        
+//        String recoveryPassword = signup.hashPassword(output, output)
+        return recoveryPassword;
+    }
 }
