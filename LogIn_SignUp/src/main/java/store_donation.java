@@ -58,7 +58,7 @@ public class store_donation {
                 point=point-prize[id]*amount;
                 System.out.println(userName+" orders "+amount+" merch-"+id+" to "+address);
                 try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt"));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt",true));
                     writer.write(userName+" orders "+amount+" merch-"+id+" to "+address);
                     writer.close();
                 } catch (IOException ex) {
@@ -121,7 +121,7 @@ public class store_donation {
                 point=point-prizeTree;
                 System.out.println(userName+" plant a tree with the name \""+name+"\"");
                 try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt"));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt",true));
                     writer.write(userName+" plant a tree with the name \""+name+"\"");
                     writer.close();
                 } catch (IOException ex) {
@@ -191,7 +191,7 @@ public class store_donation {
                 point=point+donation*10;
                 //save to donation database
                 try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt"));
+                    BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt",true));
                     writer.write(userName+" has donated $ "+donationToNGO+" to "+NGO);
                     writer.close();
                 } catch (IOException ex) {
