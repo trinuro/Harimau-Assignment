@@ -280,7 +280,7 @@ public class login {
         
     }
     
-    public static String generateRecoveryPassword(String email){
+    private static String generateRecoveryPassword(String email){
         // This method generates a recovery password from email
         // Returns a recovery password if email exists
         // Returns "" if email does not exist or database connection fails
@@ -302,6 +302,7 @@ public class login {
         // Get last_checked_in date from database
         while(rset.next()){
             userPassword = rset.getString("password");
+            System.out.println(userPassword);
             rowCount++;
         } 
         }catch(SQLException ex){
@@ -318,5 +319,60 @@ public class login {
         
 //        String recoveryPassword = signup.hashPassword(output, output)
         return recoveryPassword;
+    }
+    
+    public static boolean sendRecoveryEmail(String recipientEmail){
+        // This method sends a recovery email to the email address of recipient.
+        // This method returns true if email was sent successfully. Else, returns false
+        
+        String databaseEmail="";
+        String recoveryPw;
+        
+        // Try to retrieve email from database
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+        // Create SQL query
+        String strSelect = String.format("SELECT email FROM user_table WHERE email = \'%s\';",recipientEmail);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get last_checked_in date from database
+        while(rset.next()){
+            databaseEmail = rset.getString("email");
+            System.out.println(databaseEmail);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return false;
+        }
+        
+        // If email exists in database, generate recovery password 
+        if(recipientEmail.equals(databaseEmail)){
+            recoveryPw = login.generateRecoveryPassword(recipientEmail);
+        }else{
+            System.out.println("Email does not exists");
+            return false;
+        }
+
+        // Send recovery email to user
+        try{
+        String sender = Secrets.getSenderEmail();
+        String receiver = recipientEmail;
+        String subject = "Harimau Account Recovery";
+        String message = "Your recovery password is "+recoveryPw;
+        new HarimauGmailer().sendMail(sender, receiver, subject, message);
+            
+        }catch(Exception e){
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
 }
