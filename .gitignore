@@ -5,3 +5,5 @@
 /GenrateSQLQueryForTriviaSample/build/
 LogIn_SignUp/src/main/java/resources/nothing-to-see.json
 /LogIn_SignUp/src/main/java/Secrets.java
+LogIn_SignUp/target/classes/nothing-to-see.json
+LogIn_SignUp/target/classes/Secrets.class
