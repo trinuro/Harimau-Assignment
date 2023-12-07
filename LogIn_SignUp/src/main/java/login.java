@@ -208,7 +208,7 @@ public class login {
         }        
     }
     
-    public static String getData(String tableName, String username, String columnTitle){
+    public static String getUserData( String username, String columnTitle){
         // This function returns data from database based on table name, username and column title
         
         String output="";
@@ -220,7 +220,7 @@ public class login {
             Statement stmt = conn.createStatement();
             ){
         // Create SQL query
-        String strSelect = String.format("SELECT %s FROM %s WHERE username = \'%s\';",columnTitle,tableName,username);
+        String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
         System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
@@ -239,36 +239,7 @@ public class login {
         
         return output;
     }
-    
-//    public static String getDataFromTable(String tableName, String username, String columnName){
-//        String output="";
-//
-//
-//        // Connect to database
-//        try(
-//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-//            Statement stmt = conn.createStatement();
-//            ){
-//        // Create SQL query
-//        String strSelect = String.format("SELECT %s FROM %s WHERE username = \'%s\';",columnName, tableName,username);
-//        System.out.println("The SQL statement is "+strSelect);
-//
-//        // Execute query
-//        ResultSet rset = stmt.executeQuery(strSelect);
-//
-//        int rowCount = 0;
-//        // Get last_checked_in date from database
-//        while(rset.next()){
-//            output = rset.getString(columnName);
-//            rowCount++;
-//        } 
-//        }catch(SQLException ex){
-//            System.out.println("SQL query failed.");
-//            ex.printStackTrace();
-//        }    
-//
-//        return output;            
-//    }
+
     
     public static long daysAfterRegistration(String username){
         // This method receives a username and returns the number of days the user has logged in
