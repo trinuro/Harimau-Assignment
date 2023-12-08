@@ -56,6 +56,34 @@ public class Utilities {
         return output;            
     }
     
+    public static boolean buyMerch(String username, String merchName, String numberOfMerch, String deliveryAddress){
+        String userID = login.getUserData(username, "user_id");
+        if(userID.equals("")){
+            // Returns false if user does not exists
+            return false;
+        }
+        try(
+//          Create connection to database
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+
+        // SQL command to be executed
+        String sqlInsert = String.format("INSERT INTO MerchandiseOrder(buyer_id,merchandise_id,purchase_amount,delivery_address) VALUES(%s,\"%s\",\"%s\",\"%s\");", userID, merchName, numberOfMerch, deliveryAddress);
+        System.out.println("SQL Statement to be executed: "+sqlInsert);
+        // Insert information into database
+        int countInserted = stmt.executeUpdate(sqlInsert);
+        System.out.println(countInserted+" records inserted.");
+            
+        }catch(SQLException ex){
+            System.out.println("SQL failed! Find Khiew");
+            ex.printStackTrace();
+            return false;
+        }
+        
+        return true;
+    }
+    
     public static ArrayList<String> getTreePlantedData(String username){
         // This method accepts a username and returns all rows in tables about the user
         // Returns "" if user did not buy anything
