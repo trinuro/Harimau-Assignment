@@ -175,6 +175,9 @@ public class login {
     }
     
     public static void increasePoints(String username, int increment){
+        // This method receives username and increment as input. 
+        // It will search the database for this user and increase his/her marks by the increment.
+        
         int initialPoints=0;
         
         try(
@@ -207,8 +210,8 @@ public class login {
         }        
     }
     
-    public static String getData(String username, String columnTitle){
-        // This function returns data from database based on username and column title
+    public static String getUserData( String username, String columnTitle){
+        // This function returns data from database based on table name, username and column title
         
         String output="";
 
@@ -238,6 +241,7 @@ public class login {
         
         return output;
     }
+
     
     public static long daysAfterRegistration(String username){
         // This method receives a username and returns the number of days the user has logged in
@@ -277,5 +281,101 @@ public class login {
         
         return ChronoUnit.DAYS.between(startDate, endDate);
         
+    }
+    
+    private static String generateRecoveryPassword(String email){
+        // This method generates a recovery password from email
+        // Returns a recovery password if email exists
+        // Returns "" if email does not exist or database connection fails
+        // Each recovery password is valid for at most 1 hour and has a length of 10 characters
+        String userPassword ="";
+        
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+        // Create SQL query
+        String strSelect = String.format("SELECT password FROM user_table WHERE email = \'%s\';",email);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get last_checked_in date from database
+        while(rset.next()){
+            userPassword = rset.getString("password");
+            System.out.println(userPassword);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return "";
+        }
+        String currentHour = String.valueOf(LocalDateTime.now().getHour());
+        String currentDate = String.valueOf(LocalDateTime.now()).substring(0,10);
+        // Hash passwordHash with current hour
+        String recoveryPassword = signup.hashPassword(currentHour, userPassword);
+        // Hash result with current date
+        recoveryPassword = signup.hashPassword(currentDate, userPassword).substring(0,10);
+        
+//        String recoveryPassword = signup.hashPassword(output, output)
+        return recoveryPassword;
+    }
+    
+    public static boolean sendRecoveryEmail(String recipientEmail){
+        // This method sends a recovery email to the email address of recipient.
+        // This method returns true if email was sent successfully. Else, returns false
+        
+        String databaseEmail="";
+        String recoveryPw;
+        
+        // Try to retrieve email from database
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+        // Create SQL query
+        String strSelect = String.format("SELECT email FROM user_table WHERE email = \'%s\';",recipientEmail);
+        System.out.println("The SQL statement is "+strSelect);
+        
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get last_checked_in date from database
+        while(rset.next()){
+            databaseEmail = rset.getString("email");
+            System.out.println(databaseEmail);
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();
+            return false;
+        }
+        
+        // If email exists in database, generate recovery password 
+        if(recipientEmail.equals(databaseEmail)){
+            recoveryPw = login.generateRecoveryPassword(recipientEmail);
+        }else{
+            System.out.println("Email does not exists");
+            return false;
+        }
+
+        // Send recovery email to user
+        try{
+        String sender = Secrets.getSenderEmail();
+        String receiver = recipientEmail;
+        String subject = "Harimau Account Recovery";
+        String message = "Your recovery password is "+recoveryPw;
+        new HarimauGmailer().sendMail(sender, receiver, subject, message);
+            
+        }catch(Exception e){
+            System.out.println(e);
+            return false;
+        }
+        return true;
     }
 }

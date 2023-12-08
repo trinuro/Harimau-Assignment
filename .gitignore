@@ -3,5 +3,10 @@
 /GenerateSQLQuery/build/
 /GenrateSQLQueryForTriviaSample/nbproject/private/
 /GenrateSQLQueryForTriviaSample/build/
-LogIn_SignUp/target/
 LogIn_SignUp/TreePlantOrder.txt
+LogIn_SignUp/src/main/java/resources/nothing-to-see.json
+/LogIn_SignUp/src/main/java/Secrets.java
+LogIn_SignUp/target/classes/nothing-to-see.json
+LogIn_SignUp/target/classes/Secrets.class
+LogIn_SignUp/src/main/resources/nothing-to-see.json
+LogIn_SignUp/target/
