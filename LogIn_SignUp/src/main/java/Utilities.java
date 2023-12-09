@@ -221,4 +221,76 @@ public class Utilities {
         }
         return true;
     }
+    
+    public static String[] getNews(int newsIdentifier){
+        // This method returns a row given the position of news in NewsSample.txt
+        // This method returns a 3 element String array. 
+        // 1st element: title
+        // 2nd element: link
+        // 3rd element: date
+        
+        String[] output= new String[3];
+
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+            ){
+        // Create SQL query
+        String strSelect = String.format("SELECT news_title, news_link, news_date FROM NewsSample WHERE news_id=%d;",newsIdentifier);
+        System.out.println("The SQL statement is "+strSelect);
+
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get purchase history of a user from database
+        while(rset.next()){
+//            outputString = String.format("%s has donated %s to %s", rset.getString("username"), rset.getString("donation_amount"),rset.getString("organisation"));
+//            output.add(outputString);
+            output[0] = rset.getString("news_title");
+            output[1] = rset.getString("news_link");
+            output[2] = rset.getString("news_date");
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();   
+        }
+        return output;
+    }
+    
+        public static String[] getTrivia(int triviaNumber){
+        // This method returns a row given the position of news in TriviaSample.txt
+        // This method returns a 3 element String array. 
+        // 1st element: question
+        // 2nd element: options
+        // 3rd element: answers
+        
+        String[] output= new String[3];
+
+        try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+            ){
+        // Create SQL query
+        String strSelect = String.format("SELECT question, options, answer FROM TriviaSample WHERE question_id=%d;",triviaNumber);
+        System.out.println("The SQL statement is "+strSelect);
+
+        // Execute query
+        ResultSet rset = stmt.executeQuery(strSelect);
+
+        int rowCount = 0;
+        // Get questions, options and answer from the database
+        while(rset.next()){
+            output[0] = rset.getString("question");
+            output[1] = rset.getString("options");
+            output[2] = rset.getString("answer");
+            rowCount++;
+        } 
+        }catch(SQLException ex){
+            System.out.println("SQL query failed.");
+            ex.printStackTrace();   
+        }
+        return output;
+    }
 }
