@@ -123,4 +123,35 @@ public class Utilities {
 
         return output;            
     }
+    
+    public static boolean plantNewTree(String username, String treeName){
+        // This method receives username and tree name as input. 
+        // It will add a new entry into the trees table for that user.
+        
+        // Get user ID given username
+        String userID = login.getUserData(username, "user_id");
+        // Check whether user exists
+        if(userID.equals("")){
+            return false;
+        }
+        try(
+//          Create connection to database
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+
+        // SQL command to be executed
+        String sqlInsert = String.format("INSERT INTO trees(buyer_id, tree_name) VALUES(%s,\"%s\");", userID, treeName);
+        System.out.println("SQL Statement to be executed: "+sqlInsert);
+        // Insert information into database
+        int countInserted = stmt.executeUpdate(sqlInsert);
+        System.out.println(countInserted+" records inserted.");
+            
+        }catch(SQLException ex){
+            System.out.println("SQL failed! Find Khiew");
+            ex.printStackTrace();
+            return false;
+        }
+        return true;
+    }
 }

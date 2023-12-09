@@ -237,6 +237,7 @@ public class login {
         }catch(SQLException ex){
             System.out.println("SQL query failed.");
             ex.printStackTrace();
+            return "";
         }    
         
         return output;
