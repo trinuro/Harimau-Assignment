@@ -115,19 +115,20 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel3" min="-2" pref="119" max="-2" attributes="0"/>
                                       <Component id="jLabel2" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <Component id="username" alignment="0" pref="312" max="32767" attributes="0"/>
+                                      <Component id="usernameEnter" alignment="0" pref="312" max="32767" attributes="0"/>
                                       <Component id="jLabel4" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                           <Component id="back" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="signup" min="-2" max="-2" attributes="0"/>
+                                          <Component id="signupbtn" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="email" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="password" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cfPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="emailEnter" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="passwordEnter" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="cfPasswordEnter" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ifDetailsWrong" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -143,25 +144,27 @@
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="email" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="emailEnter" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="username" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="usernameEnter" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="password" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="passwordEnter" min="-2" pref="30" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cfPassword" min="-2" pref="31" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="cfPasswordEnter" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ifDetailsWrong" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="back" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="signup" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="signupbtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="352" max="32767" attributes="0"/>
+                          <EmptySpace pref="318" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -183,7 +186,7 @@
                     <Property name="text" type="java.lang.String" value="Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="email">
+                <Component class="javax.swing.JTextField" name="emailEnter">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -193,7 +196,7 @@
                     <Property name="text" type="java.lang.String" value="Username"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="username">
+                <Component class="javax.swing.JTextField" name="usernameEnter">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
@@ -203,7 +206,7 @@
                     <Property name="text" type="java.lang.String" value="Password"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="password">
+                <Component class="javax.swing.JPasswordField" name="passwordEnter">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -213,7 +216,7 @@
                     <Property name="text" type="java.lang.String" value="Comfirmed Password"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JPasswordField" name="cfPassword">
+                <Component class="javax.swing.JPasswordField" name="cfPasswordEnter">
                 </Component>
                 <Component class="javax.swing.JButton" name="back">
                   <Properties>
@@ -223,9 +226,23 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="signup">
+                <Component class="javax.swing.JButton" name="signupbtn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Sign Up"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupbtnActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="ifDetailsWrong">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Make sure your details are correctly filled"/>
                   </Properties>
                 </Component>
               </SubComponents>

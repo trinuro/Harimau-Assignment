@@ -30,15 +30,16 @@ public class signup_gui extends javax.swing.JFrame {
         front = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        emailEnter = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
+        usernameEnter = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
+        passwordEnter = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        cfPassword = new javax.swing.JPasswordField();
+        cfPasswordEnter = new javax.swing.JPasswordField();
         back = new javax.swing.JButton();
-        signup = new javax.swing.JButton();
+        signupbtn = new javax.swing.JButton();
+        ifDetailsWrong = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,7 +75,16 @@ public class signup_gui extends javax.swing.JFrame {
             }
         });
 
-        signup.setText("Sign Up");
+        signupbtn.setText("Sign Up");
+        signupbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signupbtnActionPerformed(evt);
+            }
+        });
+
+        ifDetailsWrong.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        ifDetailsWrong.setForeground(new java.awt.Color(255, 0, 0));
+        ifDetailsWrong.setText("Make sure your details are correctly filled");
 
         javax.swing.GroupLayout frontLayout = new javax.swing.GroupLayout(front);
         front.setLayout(frontLayout);
@@ -90,18 +100,19 @@ public class signup_gui extends javax.swing.JFrame {
                         .addGroup(frontLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
+                            .addComponent(usernameEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, frontLayout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addComponent(back)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(signup)
+                                .addComponent(signupbtn)
                                 .addGap(38, 38, 38))
-                            .addComponent(email)
-                            .addComponent(password)
-                            .addComponent(cfPassword))))
+                            .addComponent(emailEnter)
+                            .addComponent(passwordEnter)
+                            .addComponent(cfPasswordEnter)
+                            .addComponent(ifDetailsWrong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(469, Short.MAX_VALUE))
         );
         frontLayout.setVerticalGroup(
@@ -112,24 +123,26 @@ public class signup_gui extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usernameEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addComponent(cfPasswordEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ifDetailsWrong, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addGroup(frontLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back)
-                    .addComponent(signup))
-                .addContainerGap(352, Short.MAX_VALUE))
+                    .addComponent(signupbtn))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -178,6 +191,29 @@ public class signup_gui extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_backActionPerformed
 
+    private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
+        if(evt.getSource() == signupbtn){
+            String email = emailEnter.getText();
+            String username = usernameEnter.getText();
+            String password = passwordEnter.getText();
+            String cfPassword = cfPasswordEnter.getText();
+            boolean isUserCreated = signup.createNewUser(email, username, password, cfPassword);
+            if(isUserCreated == true){
+                login.checkIn(username);
+            }
+            else{
+                //return to sign up page
+                setVisible(false);
+                new signup_gui().setVisible(true);
+                
+                //or create a page say gt somgthing wrong
+                //can do a label which only visible when gt error
+                ifDetailsWrong.setVisible(true);
+                
+            }
+      }
+    }//GEN-LAST:event_signupbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -204,7 +240,7 @@ public class signup_gui extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(signup_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -216,17 +252,18 @@ public class signup_gui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back;
     private javax.swing.JPanel background;
-    private javax.swing.JPasswordField cfPassword;
-    private javax.swing.JTextField email;
+    private javax.swing.JPasswordField cfPasswordEnter;
+    private javax.swing.JTextField emailEnter;
     private javax.swing.JPanel front;
+    private javax.swing.JLabel ifDetailsWrong;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JButton signup;
-    private javax.swing.JTextField username;
+    private javax.swing.JPasswordField passwordEnter;
+    private javax.swing.JButton signupbtn;
+    private javax.swing.JTextField usernameEnter;
     // End of variables declaration//GEN-END:variables
 }
