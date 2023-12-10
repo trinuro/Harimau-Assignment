@@ -16,18 +16,15 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.2.0</version>
         </dependency>
-<<<<<<< HEAD
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE190</version>
         </dependency>
-=======
     <dependency>
       <groupId>com.google.apis</groupId>
       <artifactId>google-api-services-gmail</artifactId>
       <version>v1-rev20211108-1.32.1</version>
     </dependency>
->>>>>>> 0db4ae4f738c88c63ddf6a7d2d1ea284dbafcb9a
     </dependencies>
 </project>
