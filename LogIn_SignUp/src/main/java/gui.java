@@ -1,5 +1,7 @@
 
 
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,14 +11,13 @@
  *
  * @author user
  */
-public class gui extends javax.swing.JFrame {
 
-    /**
-     * Creates new form gui
-     */
+
+public class gui extends javax.swing.JFrame {
+    
     public gui() {
         initComponents();
-        
+        news1.setText("halo");
             
     }
     /**
@@ -40,6 +41,9 @@ public class gui extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btn_attemptQuiz = new javax.swing.JButton();
         p_news = new javax.swing.JPanel();
+        news1 = new javax.swing.JLabel();
+        news2 = new javax.swing.JLabel();
+        news3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         p_quiz = new javax.swing.JPanel();
@@ -51,11 +55,22 @@ public class gui extends javax.swing.JFrame {
         optionC = new javax.swing.JRadioButton();
         optionD = new javax.swing.JRadioButton();
         p_result = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_quizHistory = new javax.swing.JButton();
+        p_quizHistory = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         p_store = new javax.swing.JPanel();
+        store = new javax.swing.JPanel();
+        p_img_merchandise = new javax.swing.JPanel();
+        image_merchandise = new javax.swing.JLabel();
+        p_img_plantTree = new javax.swing.JPanel();
+        image_plantTree = new javax.swing.JLabel();
+        btn_merchandise = new javax.swing.JButton();
+        btn_plantTree = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         p_merchandise = new javax.swing.JPanel();
         p_object1 = new javax.swing.JPanel();
         image1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
         name_obj1 = new javax.swing.JLabel();
         quantity_obj1 = new javax.swing.JLabel();
         inputQuantity_obj1 = new javax.swing.JTextField();
@@ -64,8 +79,10 @@ public class gui extends javax.swing.JFrame {
         p_object2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btn_MbackToStore = new javax.swing.JButton();
         p_plantTree = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        btn_PbackToStore = new javax.swing.JButton();
         p_donation = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -188,11 +205,24 @@ public class gui extends javax.swing.JFrame {
         p_news.setLayout(p_newsLayout);
         p_newsLayout.setHorizontalGroup(
             p_newsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(p_newsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(p_newsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(news1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(news2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(news3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(419, Short.MAX_VALUE))
         );
         p_newsLayout.setVerticalGroup(
             p_newsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGroup(p_newsLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(news1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(news2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(news3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(324, Short.MAX_VALUE))
         );
 
         jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
@@ -215,12 +245,12 @@ public class gui extends javax.swing.JFrame {
                         .addGroup(p_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(p_news, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
             .addGroup(p_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(p_homeLayout.createSequentialGroup()
                     .addGap(565, 565, 565)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(565, Short.MAX_VALUE)))
+                    .addContainerGap(577, Short.MAX_VALUE)))
         );
         p_homeLayout.setVerticalGroup(
             p_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,12 +263,12 @@ public class gui extends javax.swing.JFrame {
                 .addGroup(p_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(p_news, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
             .addGroup(p_homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(p_homeLayout.createSequentialGroup()
                     .addGap(414, 414, 414)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(415, Short.MAX_VALUE)))
+                    .addContainerGap(433, Short.MAX_VALUE)))
         );
 
         parent_p.add(p_home, "card3");
@@ -266,6 +296,11 @@ public class gui extends javax.swing.JFrame {
         optionB.setText("jRadioButton2");
 
         optionC.setText("jRadioButton3");
+        optionC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionCActionPerformed(evt);
+            }
+        });
 
         optionD.setText("jRadioButton4");
 
@@ -313,13 +348,13 @@ public class gui extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jButton1.setBackground(new java.awt.Color(235, 243, 232));
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("History");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_quizHistory.setBackground(new java.awt.Color(235, 243, 232));
+        btn_quizHistory.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btn_quizHistory.setText("History");
+        btn_quizHistory.setBorder(null);
+        btn_quizHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_quizHistoryActionPerformed(evt);
             }
         });
 
@@ -336,8 +371,8 @@ public class gui extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(133, Short.MAX_VALUE))
+                        .addComponent(btn_quizHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         p_quizLayout.setVerticalGroup(
             p_quizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,33 +380,168 @@ public class gui extends javax.swing.JFrame {
                 .addGroup(p_quizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(p_quizLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_quizHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(p_quizLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(p_displayQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(409, Short.MAX_VALUE))
         );
 
         parent_p.add(p_quiz, "card2");
 
+        p_quizHistory.setBackground(new java.awt.Color(235, 243, 232));
+
+        jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel7.setText("Quiz History");
+
+        javax.swing.GroupLayout p_quizHistoryLayout = new javax.swing.GroupLayout(p_quizHistory);
+        p_quizHistory.setLayout(p_quizHistoryLayout);
+        p_quizHistoryLayout.setHorizontalGroup(
+            p_quizHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_quizHistoryLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1085, Short.MAX_VALUE))
+        );
+        p_quizHistoryLayout.setVerticalGroup(
+            p_quizHistoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_quizHistoryLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(819, Short.MAX_VALUE))
+        );
+
+        parent_p.add(p_quizHistory, "card6");
+
         p_store.setBackground(new java.awt.Color(235, 243, 232));
         p_store.setLayout(new java.awt.CardLayout());
+
+        store.setBackground(new java.awt.Color(235, 243, 232));
+
+        image_merchandise.setText("jLabel9");
+
+        javax.swing.GroupLayout p_img_merchandiseLayout = new javax.swing.GroupLayout(p_img_merchandise);
+        p_img_merchandise.setLayout(p_img_merchandiseLayout);
+        p_img_merchandiseLayout.setHorizontalGroup(
+            p_img_merchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_img_merchandiseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(image_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        p_img_merchandiseLayout.setVerticalGroup(
+            p_img_merchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_img_merchandiseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(image_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        image_plantTree.setText("jLabel10");
+
+        javax.swing.GroupLayout p_img_plantTreeLayout = new javax.swing.GroupLayout(p_img_plantTree);
+        p_img_plantTree.setLayout(p_img_plantTreeLayout);
+        p_img_plantTreeLayout.setHorizontalGroup(
+            p_img_plantTreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_img_plantTreeLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(image_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        p_img_plantTreeLayout.setVerticalGroup(
+            p_img_plantTreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p_img_plantTreeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(image_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        btn_merchandise.setBackground(new java.awt.Color(0, 0, 0));
+        btn_merchandise.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_merchandise.setForeground(new java.awt.Color(255, 255, 255));
+        btn_merchandise.setText("Merchandise");
+        btn_merchandise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_merchandiseActionPerformed(evt);
+            }
+        });
+
+        btn_plantTree.setBackground(new java.awt.Color(0, 0, 0));
+        btn_plantTree.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_plantTree.setForeground(new java.awt.Color(255, 255, 255));
+        btn_plantTree.setText("Plant a Tree");
+        btn_plantTree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_plantTreeActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel9.setText("Store");
+
+        javax.swing.GroupLayout storeLayout = new javax.swing.GroupLayout(store);
+        store.setLayout(storeLayout);
+        storeLayout.setHorizontalGroup(
+            storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storeLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(storeLayout.createSequentialGroup()
+                            .addComponent(p_img_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(p_img_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(storeLayout.createSequentialGroup()
+                            .addComponent(btn_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(38, 38, 38)
+                            .addComponent(btn_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(714, Short.MAX_VALUE))
+        );
+        storeLayout.setVerticalGroup(
+            storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(storeLayout.createSequentialGroup()
+                .addGroup(storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(storeLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(p_img_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, storeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(p_img_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(storeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_merchandise, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_plantTree, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(537, Short.MAX_VALUE))
+        );
+
+        p_store.add(store, "card4");
 
         p_merchandise.setBackground(new java.awt.Color(235, 243, 232));
 
         p_object1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel8.setText("jLabel8");
+
         javax.swing.GroupLayout image1Layout = new javax.swing.GroupLayout(image1);
         image1.setLayout(image1Layout);
         image1Layout.setHorizontalGroup(
             image1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 275, Short.MAX_VALUE)
+            .addGroup(image1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addContainerGap())
         );
         image1Layout.setVerticalGroup(
             image1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 255, Short.MAX_VALUE)
+            .addGroup(image1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         name_obj1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -478,6 +648,15 @@ public class gui extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel1.setText("Merchandise");
 
+        btn_MbackToStore.setBackground(new java.awt.Color(0, 0, 0));
+        btn_MbackToStore.setForeground(new java.awt.Color(255, 255, 255));
+        btn_MbackToStore.setText("<<");
+        btn_MbackToStore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MbackToStoreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p_merchandiseLayout = new javax.swing.GroupLayout(p_merchandise);
         p_merchandise.setLayout(p_merchandiseLayout);
         p_merchandiseLayout.setHorizontalGroup(
@@ -489,21 +668,26 @@ public class gui extends javax.swing.JFrame {
                         .addComponent(p_object1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(62, 62, 62)
                         .addComponent(p_object2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(539, Short.MAX_VALUE))
+                        .addContainerGap(551, Short.MAX_VALUE))
                     .addGroup(p_merchandiseLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_MbackToStore)
+                        .addGap(22, 22, 22))))
         );
         p_merchandiseLayout.setVerticalGroup(
             p_merchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_merchandiseLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(p_merchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(p_merchandiseLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_MbackToStore, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24)
                 .addGroup(p_merchandiseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(p_object2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(p_object1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
         p_store.add(p_merchandise, "card2");
@@ -513,6 +697,15 @@ public class gui extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
         jLabel3.setText("Plant a Tree");
 
+        btn_PbackToStore.setBackground(new java.awt.Color(0, 0, 0));
+        btn_PbackToStore.setForeground(new java.awt.Color(255, 255, 255));
+        btn_PbackToStore.setText("<<");
+        btn_PbackToStore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PbackToStoreActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout p_plantTreeLayout = new javax.swing.GroupLayout(p_plantTree);
         p_plantTree.setLayout(p_plantTreeLayout);
         p_plantTreeLayout.setHorizontalGroup(
@@ -520,14 +713,21 @@ public class gui extends javax.swing.JFrame {
             .addGroup(p_plantTreeLayout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1111, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1030, Short.MAX_VALUE)
+                .addComponent(btn_PbackToStore)
+                .addGap(21, 21, 21))
         );
         p_plantTreeLayout.setVerticalGroup(
             p_plantTreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_plantTreeLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(805, Short.MAX_VALUE))
+                .addGroup(p_plantTreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p_plantTreeLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(p_plantTreeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_PbackToStore, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(823, Short.MAX_VALUE))
         );
 
         p_store.add(p_plantTree, "card3");
@@ -546,14 +746,14 @@ public class gui extends javax.swing.JFrame {
             .addGroup(p_donationLayout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addComponent(jLabel4)
-                .addContainerGap(1176, Short.MAX_VALUE))
+                .addContainerGap(1188, Short.MAX_VALUE))
         );
         p_donationLayout.setVerticalGroup(
             p_donationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_donationLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel4)
-                .addContainerGap(814, Short.MAX_VALUE))
+                .addContainerGap(832, Short.MAX_VALUE))
         );
 
         parent_p.add(p_donation, "card5");
@@ -563,14 +763,14 @@ public class gui extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(p_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(parent_p, javax.swing.GroupLayout.DEFAULT_SIZE, 1348, Short.MAX_VALUE)
+            .addComponent(parent_p, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(p_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(parent_p, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE))
+                .addComponent(parent_p, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -582,6 +782,7 @@ public class gui extends javax.swing.JFrame {
         parent_p.add(p_home);
         parent_p.repaint();
         parent_p.revalidate();
+        
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_quizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quizActionPerformed
@@ -616,9 +817,12 @@ public class gui extends javax.swing.JFrame {
         parent_p.revalidate();
     }//GEN-LAST:event_btn_attemptQuizActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_quizHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quizHistoryActionPerformed
+        parent_p.removeAll();
+        parent_p.add(p_quizHistory);
+        parent_p.repaint();
+        parent_p.revalidate();
+    }//GEN-LAST:event_btn_quizHistoryActionPerformed
 
     private void inputQuantity_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputQuantity_obj1ActionPerformed
         // TODO add your handling code here:
@@ -627,6 +831,38 @@ public class gui extends javax.swing.JFrame {
     private void add_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_obj1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_obj1ActionPerformed
+
+    private void optionCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optionCActionPerformed
+
+    private void btn_merchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_merchandiseActionPerformed
+        parent_p.removeAll();
+        parent_p.add(p_merchandise);
+        parent_p.repaint();
+        parent_p.revalidate();
+    }//GEN-LAST:event_btn_merchandiseActionPerformed
+
+    private void btn_plantTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_plantTreeActionPerformed
+        parent_p.removeAll();
+        parent_p.add(p_plantTree);
+        parent_p.repaint();
+        parent_p.revalidate();
+    }//GEN-LAST:event_btn_plantTreeActionPerformed
+
+    private void btn_MbackToStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MbackToStoreActionPerformed
+        parent_p.removeAll();
+        parent_p.add(store);
+        parent_p.repaint();
+        parent_p.revalidate();
+    }//GEN-LAST:event_btn_MbackToStoreActionPerformed
+
+    private void btn_PbackToStoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PbackToStoreActionPerformed
+        parent_p.removeAll();
+        parent_p.add(store);
+        parent_p.repaint();
+        parent_p.revalidate();
+    }//GEN-LAST:event_btn_PbackToStoreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -654,36 +890,51 @@ public class gui extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        //</editor-fold>
+        
+//        signup.createNewUser(weiwei, HZW, 122, 122);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new gui().setVisible(true);
             }
         });
+        
     }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_obj1;
+    private javax.swing.JButton btn_MbackToStore;
+    private javax.swing.JButton btn_PbackToStore;
     private javax.swing.JButton btn_attemptQuiz;
     private javax.swing.JButton btn_donation;
     private javax.swing.JButton btn_home;
+    private javax.swing.JButton btn_merchandise;
+    private javax.swing.JButton btn_plantTree;
     private javax.swing.JButton btn_quiz;
+    private javax.swing.JButton btn_quizHistory;
     private javax.swing.JButton btn_store;
     private javax.swing.JPanel image1;
+    private javax.swing.JLabel image_merchandise;
+    private javax.swing.JLabel image_plantTree;
     private javax.swing.JTextField inputQuantity_obj1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel label_quizAttempt;
     private javax.swing.JLabel name_obj1;
+    private javax.swing.JLabel news1;
+    private javax.swing.JLabel news2;
+    private javax.swing.JLabel news3;
     private javax.swing.JRadioButton optionA;
     private javax.swing.JRadioButton optionB;
     private javax.swing.JRadioButton optionC;
@@ -691,6 +942,8 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel p_displayQuiz;
     private javax.swing.JPanel p_donation;
     private javax.swing.JPanel p_home;
+    private javax.swing.JPanel p_img_merchandise;
+    private javax.swing.JPanel p_img_plantTree;
     private javax.swing.JPanel p_menu;
     private javax.swing.JPanel p_merchandise;
     private javax.swing.JPanel p_news;
@@ -699,10 +952,14 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel p_plantTree;
     private javax.swing.JPanel p_question;
     private javax.swing.JPanel p_quiz;
+    private javax.swing.JPanel p_quizHistory;
     private javax.swing.JPanel p_result;
     private javax.swing.JPanel p_store;
     private javax.swing.JPanel parent_p;
     private javax.swing.JLabel point_obj1;
     private javax.swing.JLabel quantity_obj1;
+    private javax.swing.JPanel store;
     // End of variables declaration//GEN-END:variables
+
+   
 }
