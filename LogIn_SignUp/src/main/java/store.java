@@ -10,9 +10,9 @@
  */
 
 
-public class gui extends javax.swing.JFrame {
+public class store extends javax.swing.JFrame {
     
-    public gui() {
+    public store() {
         initComponents();
         news1.setText("halo");
             
