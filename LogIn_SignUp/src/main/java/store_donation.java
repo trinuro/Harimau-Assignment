@@ -17,46 +17,28 @@ import java.util.logging.Logger;
  */
 public class store_donation {
     
-    public static void getMerchandise(double point,String userName){
-        Scanner s=new Scanner(System.in);
+    public static int getMerchandisePoint(String userName, int id, int amount, String address){
+    //this method is used to get the new point when user check out to buy merchandise
         
         //example of prize of merchanidise
-        double [] prize=new double [3];
+        int [] prize=new int [3];
         prize[0]=100;
         prize[1]=150;
         prize[2]=50;
               
         //declare checkOut;
-        int checkOut;
-        
-        //do-while loop for merchandise
-        do
-        {
-            //enter id of merchandise
-            System.out.println("Enter merchandise_id: ");
-            int id=s.nextInt();
-            
-            //enter amount of the merchandise picked
-            System.out.println("Enter amount:");
-            int amount =s.nextInt();
-            
-            //to store useless space
-            s.nextLine();
-            
-            // User address
-            System.out.println("Enter address:");
-            String address=s.nextLine(); 
-            
-            //Confirmation of check out
-            System.out.println("Do you want to check out(yes(1),no(0),exit(-1)):");
-            checkOut =s.nextInt();
-            
+        int points= Integer.parseInt(login.getUserData(userName, "current_points"));
+        int  pointUsed=prize[id]*amount;    
             //check out
-            if(checkOut==1)
+            if(points>=pointUsed)
             {
-                //save to point database && merchandise history
-                point=point-prize[id]*amount;
-                System.out.println(userName+" orders "+amount+" merch-"+id+" to "+address);
+                //update new point             
+                login.increasePoints(userName, pointUsed*-1);
+                
+                //update purchase history in database
+                Utilities.buyMerch(userName, Integer.toString(id), Integer.toString(amount), address);
+                
+                //update purchase history in txt file
                 try {
                     BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt",true));
                     writer.write(userName+" orders "+amount+" merch-"+id+" to "+address);
@@ -65,34 +47,11 @@ public class store_donation {
                     Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
-            //not checking out, return to enter merchandise id
-            else if(checkOut==0)
-            {
-                System.out.println();
-            }
-            
-            //exit, return to home page
-            else if (checkOut==-1)
-            {
-                break;
-            }            
             else
-                System.out.println("error");
-            }while (checkOut!=1);
+                System.out.println("Too poor, sorry");
         
-        // print point
-        System.out.println("New Point: "+point);
-             
-        //history (need to connect to databse)
-        System.out.println("Do you want to show payment history for merchandise: (yes(1)/no(2))");
-        int history=s.nextInt();
-        
-        if(history==1)
-        {
-            //show history of merchandise
-            System.out.println("History of merchandise");
-        }
+        // return point
+        return Integer.parseInt(login.getUserData(userName, "current_points"));        
     }
     
     public static void getPlantATree(double point, String userName){
