@@ -46,21 +46,21 @@ public class HarimauGmailer {
                 .build();
     }
 
-//    private static Credential getCredentials(final NetHttpTransport httpTransport, GsonFactory jsonFactory)
-//            throws IOException {
-//        // Set path to your secret JSON
-//        System.out.println("1");
-//        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(HarimauGmailer.class.getResourceAsStream(Secrets.getJSON())));
-//        System.out.println("2");
-//        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-//                httpTransport, jsonFactory, clientSecrets, Set.of(GMAIL_SEND))
-//                .setDataStoreFactory(new FileDataStoreFactory(Paths.get("tokens").toFile()))
-//                .setAccessType("offline")
-//                .build();
-//
-//        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-//        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-//    }
+    private static Credential getCredentials(final NetHttpTransport httpTransport, GsonFactory jsonFactory)
+            throws IOException {
+        // Set path to your secret JSON
+        System.out.println("1");
+        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(HarimauGmailer.class.getResourceAsStream(Secrets.getJSON())));
+        System.out.println("2");
+        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+                httpTransport, jsonFactory, clientSecrets, Set.of(GMAIL_SEND))
+                .setDataStoreFactory(new FileDataStoreFactory(Paths.get("tokens").toFile()))
+                .setAccessType("offline")
+                .build();
+
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+    }
 
     public void sendMail(String sender_email, String recipient_email, String subject, String message) throws Exception {
         Properties props = new Properties();
