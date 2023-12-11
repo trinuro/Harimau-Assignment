@@ -87,6 +87,7 @@ public class store_donation {
         return Integer.parseInt(login.getUserData(userName, "current_points")); 
     }
     
+    
     public static void getDonation(double point, String userName){
         Scanner s=new Scanner(System.in);
         
