@@ -171,7 +171,7 @@ public class login {
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");
             ex.printStackTrace();
-        }
+        }     
     }
     
     public static void increasePoints(String username, int increment){
