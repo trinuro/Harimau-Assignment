@@ -118,8 +118,6 @@ public class signup {
             return false;
         }
             
-            
-//        System.out.println(email+" "+username+" "+encryptedPassword);
         return true;
     }
 

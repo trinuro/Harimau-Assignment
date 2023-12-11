@@ -1,4 +1,12 @@
--- Create user_table (User.txt)
+--Delete all tables (Ignore any errors)
+DROP TABLE user_table;
+DROP TABLE NewsSample;
+DROP TABLE TriviaSample;
+DROP TABLE MerchandiseOrder;
+DROP TABLE trees;
+DROP TABLE donations_history;
+
+-- Create all tables
 CREATE TABLE user_table (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     -- Auto-increment the student_id for each entry
@@ -9,10 +17,9 @@ CREATE TABLE user_table (
     second_trail TINYINT(1) DEFAULT 0,
     current_points INT DEFAULT 0,
     last_checked_in TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
---Create NewsSample table
 CREATE TABLE NewsSample(
     news_id INT PRIMARY KEY AUTO_INCREMENT,
     news_title VARCHAR(100),
@@ -20,7 +27,6 @@ CREATE TABLE NewsSample(
     news_date DATE
 );
 
---Create TriviaSample table
 CREATE TABLE TriviaSample(
     question_id INT PRIMARY KEY AUTO_INCREMENT,
     question VARCHAR(200),
@@ -29,14 +35,30 @@ CREATE TABLE TriviaSample(
 
 );
 
+CREATE TABLE MerchandiseOrder(
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    buyer_id INT,
+    merchandise_id VARCHAR(100),
+    purchase_amount INT,
+    delivery_address VARCHAR(200),
+    FOREIGN KEY (buyer_id) REFERENCES user_table(user_id) ON DELETE SET NULL
+);
 
--- Check whether the user has all column names correct
-DESCRIBE user_table;
-DESCRIBE NewsSample;
-DESCRIBE TriviaSample;
+CREATE TABLE trees(
+    tree_id INT PRIMARY KEY  AUTO_INCREMENT,
+    buyer_id INT,
+    tree_name VARCHAR(30),
+    FOREIGN KEY (buyer_id) REFERENCES user_table(user_id) ON DELETE SET NULL
+);
 
--- Insert information into user_table
-INSERT INTO user_table(email, username, password) VALUES('example2@gmail.com','Mr Example 2','aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+CREATE TABLE donations_history(
+    donations_id INT PRIMARY KEY AUTO_INCREMENT,
+    donor_id INT,
+    donation_amount INT,
+    organisation VARCHAR(100),
+    FOREIGN KEY (donor_id) REFERENCES user_table(user_id) ON DELETE SET NULL
+);
+
 
 --Insert Information into NewsSample table
 INSERT INTO NewsSample(news_title, news_link, news_date) VALUES("Air Selangor: Water cut in 162 areas extended to Oct 13", "https://www.thestar.com.my/metro/metro-news/2023/10/12/air-selangor-water-cut-in-162-areas-extended-to-oct-13", "2023-10-12");
@@ -62,23 +84,12 @@ INSERT INTO TriviaSample(question, options, answer) VALUES("Why are pollinators 
 INSERT INTO TriviaSample(question, options, answer) VALUES("Which of these species doesn't have a home in the forest?","Grizzly bear,Great hornbill,Cheetah,Ring tailed lemur","Cheetah");
 INSERT INTO TriviaSample(question, options, answer) VALUES("On land which animal only ever moves their hind legs together, however in the water they kick each leg independently to swim?","Rhinoceros,Kangaroo,Hornbill,Hippopotamus","Kangaroo");
 
--- To update last_checked_in after a user with id 1 checked in
-UPDATE user_table SET last_checked_in = now() WHERE user_id = 1;
-
--- To change password
-UPDATE user_table SET password = "new password" WHERE user_id = 1;
-
 -- SELECT all information from table
 SELECT * FROM user_table;
 SELECT * FROM NewsSample;
 SELECT * FROM TriviaSample;
+SELECT * FROM trees;
+SELECT * FROM donations_history;
 
--- SELECT certain information from table
-SELECT current_points,last_checked_in FROM user_table;
-
--- Select certain information from table
-SELECT question_id, question FROM TriviaSample;
-SELECT question FROM TriviaSample;
-
--- Delete table
-DROP TABLE NewsSample;
+-- Delete certain rows
+DELETE FROM user_table WHERE user_id = 4;
