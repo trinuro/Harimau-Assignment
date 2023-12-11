@@ -313,7 +313,6 @@ public class login {
         // Get last_checked_in date from database
         while(rset.next()){
             userPassword = rset.getString("password");
-            System.out.println(userPassword);
             rowCount++;
         } 
         }catch(SQLException ex){
