@@ -9,12 +9,12 @@
  *
  * @author user
  */
-public class gui_home extends javax.swing.JFrame {
+public class gui_quiz extends javax.swing.JFrame {
 
     /**
      * Creates new form gui_home
      */
-    public gui_home() {
+    public gui_quiz() {
         initComponents();
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
@@ -30,10 +30,18 @@ public class gui_home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         panel_menu = new javax.swing.JPanel();
         label_home = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        panel_dailyTrivia = new javax.swing.JPanel();
+        dailyTrivia = new javax.swing.JLabel();
+        optA = new javax.swing.JRadioButton();
+        optB = new javax.swing.JRadioButton();
+        optC = new javax.swing.JRadioButton();
+        optD = new javax.swing.JRadioButton();
+        panel_quizMessage = new javax.swing.JPanel();
+        quizMessage = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -48,35 +56,87 @@ public class gui_home extends javax.swing.JFrame {
         panel_menu.setMinimumSize(new java.awt.Dimension(1960, 1080));
 
         label_home.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        label_home.setText("HOME");
+        label_home.setText("QUIZ");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Quiz Attempt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        dailyTrivia.setText("jLabel1");
+
+        javax.swing.GroupLayout panel_dailyTriviaLayout = new javax.swing.GroupLayout(panel_dailyTrivia);
+        panel_dailyTrivia.setLayout(panel_dailyTriviaLayout);
+        panel_dailyTriviaLayout.setHorizontalGroup(
+            panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_dailyTriviaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dailyTrivia, javax.swing.GroupLayout.PREFERRED_SIZE, 1079, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        panel_dailyTriviaLayout.setVerticalGroup(
+            panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dailyTriviaLayout.createSequentialGroup()
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(dailyTrivia)
+                .addGap(44, 44, 44))
+        );
+
+        optA.setText("A");
+
+        optB.setText("B");
+
+        optC.setText("C");
+
+        optD.setText("D");
+
+        quizMessage.setText("jLabel1");
+
+        javax.swing.GroupLayout panel_quizMessageLayout = new javax.swing.GroupLayout(panel_quizMessage);
+        panel_quizMessage.setLayout(panel_quizMessageLayout);
+        panel_quizMessageLayout.setHorizontalGroup(
+            panel_quizMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_quizMessageLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(quizMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panel_quizMessageLayout.setVerticalGroup(
+            panel_quizMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_quizMessageLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(quizMessage)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(optD)
+                    .addComponent(optC)
+                    .addComponent(optB)
+                    .addComponent(optA)
+                    .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(optA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(optB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(optC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(optD)
+                .addGap(18, 18, 18)
+                .addComponent(panel_quizMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
@@ -86,16 +146,16 @@ public class gui_home extends javax.swing.JFrame {
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1718, Short.MAX_VALUE))
+                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(932, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -230,10 +290,6 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -251,21 +307,23 @@ public class gui_home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gui_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gui_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gui_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gui_home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui_home().setVisible(true);
+                new gui_quiz().setVisible(true);
             }
         });
     }
@@ -275,10 +333,18 @@ public class gui_home extends javax.swing.JFrame {
     private javax.swing.JButton btn_donation;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_store;
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel dailyTrivia;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_home;
+    private javax.swing.JRadioButton optA;
+    private javax.swing.JRadioButton optB;
+    private javax.swing.JRadioButton optC;
+    private javax.swing.JRadioButton optD;
+    private javax.swing.JPanel panel_dailyTrivia;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_menu;
+    private javax.swing.JPanel panel_quizMessage;
+    private javax.swing.JLabel quizMessage;
     // End of variables declaration//GEN-END:variables
 }
