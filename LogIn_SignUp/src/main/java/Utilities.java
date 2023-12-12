@@ -194,7 +194,7 @@ public class Utilities {
         return output;  
     }
     
-    public static boolean makeNewDonations(String username, int donationAmount, String organisationName){
+    public static boolean makeNewDonations(String username, double donationAmount, String organisationName){
         // Get user ID given username
         String userID = login.getUserData(username, "user_id");
         // Check whether user exists

@@ -181,7 +181,7 @@ public class login {
         }     
     }
     
-    public static void increasePoints(String username, int increment){
+    public static void increasePoints(String username, double increment){
         // This method receives username and increment as input. 
         // It will search the database for this user and increase his/her marks by the increment.
         
