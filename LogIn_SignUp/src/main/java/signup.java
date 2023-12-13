@@ -106,7 +106,7 @@ public class signup {
             ){
 
         // SQL command to be executed
-        String sqlInsert = String.format("INSERT INTO user_table(email, username, password, registration_date) VALUES(\'%s\',\'%s\',\'%s\',\'%s\');", email, username, encryptedPassword, formattedDateTime);
+        String sqlInsert = String.format("INSERT INTO user_table(email, username, password, registration_date,current_points) VALUES(\'%s\',\'%s\',\'%s\',\'%s\',\'%d\');", email, username, encryptedPassword, formattedDateTime,1);
         System.out.println("SQL Statement to be executed: "+sqlInsert);
         // Insert information into database
         int countInserted = stmt.executeUpdate(sqlInsert);
