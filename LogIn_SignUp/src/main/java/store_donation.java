@@ -2,7 +2,6 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,11 +38,10 @@ public class store_donation {
                 Utilities.buyMerch(userName, Integer.toString(id), amount, address);
                 
                 //update purchase history in txt file
-                try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt",true));
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt",true))) {
                     writer.write(userName+" orders "+amount+" merch-"+id+" to "+address);
-                    writer.close();
-                } catch (IOException ex) {
+                    }
+                catch (IOException ex) {
                     Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -72,10 +70,9 @@ public class store_donation {
                 Utilities.plantNewTree(userName, nameTree);
                 
                 //update purchase history in txt file
-                try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt",true));
-                    writer.write(userName+" plant a tree with the name \""+nameTree+"\"");
-                    writer.close();
+                
+                try (BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt",true))) {
+                    writer.write(userName+" plant a tree with the name \""+nameTree+"\"");                
                 } catch (IOException ex) {
                     Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -101,13 +98,11 @@ public class store_donation {
         Utilities.makeNewDonations(userName, donationToNGO, NGO);
        
         //update donation history in txt file
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt",true));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt",true))) {
             writer.write(userName+" has donated $ "+donationToNGO+" to "+NGO);
-            writer.close();
-            } catch (IOException ex) {
-                Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (IOException ex) {
+            Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         // return point
         return Double.parseDouble(login.getUserData(userName, "current_points"));   
