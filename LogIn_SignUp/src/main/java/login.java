@@ -222,7 +222,7 @@ public class login {
             
             
             // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET current_points= %d WHERE username = \'%s\';", initialPoints+increment, username);
+            String sqlInsert = String.format("UPDATE user_table SET current_points= %f WHERE username = \'%s\';", initialPoints+increment, username);
             System.out.println("SQL Statement to be executed: "+sqlInsert);
             
             // Insert information into database
