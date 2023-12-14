@@ -25,7 +25,7 @@ CREATE TABLE NewsSample(
     news_id INT PRIMARY KEY AUTO_INCREMENT,
     news_title VARCHAR(100),
     news_link VARCHAR(150),
-    news_date DATE
+    news_date VARCHAR(20)
 );
 
 CREATE TABLE TriviaSample(
