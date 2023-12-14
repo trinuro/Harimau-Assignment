@@ -146,6 +146,7 @@ public class dailyTrivia {
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).isCorrect = true;
         } 
         updateNoOfAttempt(noOFQuestion, getNoOfAttempt(noOFQuestion), getQuestionSetCanBeAnswered().get(noOFQuestion-1).isCorrect);
+        
     }
     // ************************************Until here*****************************************
     //**************************************************************************************
