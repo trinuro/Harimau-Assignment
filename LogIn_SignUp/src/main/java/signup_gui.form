@@ -128,16 +128,13 @@
                                       <Component id="emailEnter" alignment="0" max="32767" attributes="0"/>
                                       <Component id="passwordEnter1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="cfPasswordEnter" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="ifDetailsWrong" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="iconDisable1" max="32767" attributes="0"/>
                                       <Component id="iconShow1" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="iconDisable2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="iconShow2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="iconDisable2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="iconShow2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -150,7 +147,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="emailEnter" min="-2" pref="30" max="-2" attributes="0"/>
@@ -172,9 +169,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="cfPasswordEnter" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ifDetailsWrong" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="back" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="signupbtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -185,7 +180,7 @@
                                   <Component id="iconShow2" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="319" max="32767" attributes="0"/>
+                          <EmptySpace pref="341" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -241,6 +236,12 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="back">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="89" green="a7" red="86" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e8" green="f3" red="eb" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Back"/>
                   </Properties>
                   <Events>
@@ -249,22 +250,17 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="signupbtn">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="89" green="a7" red="86" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e8" green="f3" red="eb" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Sign Up"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signupbtnActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="ifDetailsWrong">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="14" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="0" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Make sure your details are correctly filled"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="iconDisable1">
                   <Properties>
