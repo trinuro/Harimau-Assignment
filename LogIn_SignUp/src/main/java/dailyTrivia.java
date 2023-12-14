@@ -27,7 +27,6 @@ public class dailyTrivia {
         private  String specificAnswer = "";
         
         private int numberOfAttempt = 0;
-        private int totalMarks = 0;
         private static int noOfDayLogin = 1;
         private boolean isCorrect = false;
         
@@ -138,7 +137,7 @@ public class dailyTrivia {
         if (getQuestionSetCanBeAnswered().get(noOfQuestion-1).numberOfAttempt >= 2 || getQuestionSetCanBeAnswered().get(noOfQuestion-1).isCorrect) {
             return "Day " + noOfQuestion + " Trivia ( Attempt without marks increment )";
         }
-        return "Day " + noOfQuestion + " Trivia ( Attempt #" + (getQuestionSetCanBeAnswered().get(noOfQuestion-1).numberOfAttempt+1) + " )";
+        return "Day " + noOfQuestion + " Trivia ( Attempt #" + (getNoOfAttempt(noOfQuestion)+1) + " )";
     }
     
     // has to be run to update isCorrect and numberOfAttempt
@@ -146,8 +145,7 @@ public class dailyTrivia {
         if (selectedAnswer.equals(getAnswer(noOFQuestion))) {
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).isCorrect = true;
         } 
-        updateNoOfAttempt(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).numberOfAttempt, getQuestionSetCanBeAnswered().get(noOFQuestion-1).isCorrect);
-        totalMarks += markAllocated(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).numberOfAttempt);
+        updateNoOfAttempt(noOFQuestion, getNoOfAttempt(noOFQuestion), getQuestionSetCanBeAnswered().get(noOFQuestion-1).isCorrect);
     }
     // ************************************Until here*****************************************
     //**************************************************************************************
@@ -169,9 +167,9 @@ public class dailyTrivia {
     }
     
     public int markAllocated(int noOfQuestion, int noOfAttempt) {
-        if(getQuestionSetCanBeAnswered().get(noOfQuestion-1).isCorrect && noOfAttempt ==0){
+        if(isCorrectAnswer(noOfQuestion) && noOfAttempt ==0){
             return 2;
-        } else if (getQuestionSetCanBeAnswered().get(noOfQuestion-1).isCorrect && noOfAttempt == 1){
+        } else if (isCorrectAnswer(noOfQuestion) && noOfAttempt == 1){
             return 1;
         } return 0;
     }
@@ -180,17 +178,6 @@ public class dailyTrivia {
         if (!isCorrect) {
             this.numberOfAttempt = ++noOfAttempt;
         }
-    }
-    
-    // create a method to read file as list by using TriviaSample.txt file
-    public static ArrayList<String> readFileInArrayList(String filepath) {
-        List<String> fileList = new ArrayList<>();
-        try {
-            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
-        } catch (Exception e) {
-            System.out.println("No such file directory. Question cannot be obtained");
-        }
-        return (ArrayList<String>)fileList;
     }
     
     // by connecting to database
@@ -219,6 +206,17 @@ public class dailyTrivia {
         return newArray;
     }
     
+    // create a method to read file as list by using TriviaSample.txt file
+    public static ArrayList<String> readFileInArrayList(String filepath) {
+        List<String> fileList = new ArrayList<>();
+        try {
+            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            System.out.println("No such file directory. Question cannot be obtained");
+        }
+        return (ArrayList<String>)fileList;
+    }
+    
 //    // create a method to create questionList/answerList/optionsList
 //    public static ArrayList<String> getArrayList(ArrayList<String> originalArrayList, int multipleOfLine) {
 //        ArrayList<String> newArray = new ArrayList<>();
@@ -245,36 +243,7 @@ public class dailyTrivia {
 //        return newArray;
 //    }
     
-    public static String getData(String username, String columnTitle){
-        // This function returns data from database based on username and column title
-        String output="";
-        // Connect to database
-        try(
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-            Statement stmt = conn.createStatement();
-            ){
-        // Create SQL query
-        String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
-        System.out.println("The SQL statement is "+strSelect);
-        
-        // Execute query
-        ResultSet rset = stmt.executeQuery(strSelect);
-
-        int rowCount = 0;
-        // Get last_checked_in date from database
-        while(rset.next()){
-            output = rset.getString(columnTitle);
-            rowCount++;
-        } 
-        }catch(SQLException ex){
-            System.out.println("SQL query failed.");
-            ex.printStackTrace();
-        }    
-        
-        return output;
-        
-        
-    }
+    
     public static void increasePoints(String username, int increment){
         int initialPoints=0;
         
