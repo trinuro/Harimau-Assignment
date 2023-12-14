@@ -5,7 +5,6 @@
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.net.URL;
 
 /**
  *
@@ -17,9 +16,7 @@ public class real_login_gui extends javax.swing.JFrame {
      * Creates new form real_login_gui
      */
     public real_login_gui() {
-        initComponents();
-        ifWrong.setVisible(false);
-        
+        initComponents();       
     }
 
     /**
@@ -47,7 +44,8 @@ public class real_login_gui extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         iconDisable = new javax.swing.JLabel();
         iconShow = new javax.swing.JLabel();
-        ifWrong = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        resetPasswordbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +84,6 @@ public class real_login_gui extends javax.swing.JFrame {
         });
 
         signup.setBackground(new java.awt.Color(235, 243, 232));
-        signup.setForeground(new java.awt.Color(255, 51, 51));
         signup.setText("Sign Up");
         signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,9 +120,14 @@ public class real_login_gui extends javax.swing.JFrame {
             }
         });
 
-        ifWrong.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ifWrong.setForeground(new java.awt.Color(255, 0, 0));
-        ifWrong.setText("Make sure your details are correctly filled");
+        jLabel7.setText("Forgotten password?");
+
+        resetPasswordbtn.setText("Reset");
+        resetPasswordbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetPasswordbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout middleLayout = new javax.swing.GroupLayout(middle);
         middle.setLayout(middleLayout);
@@ -134,28 +136,29 @@ public class real_login_gui extends javax.swing.JFrame {
             .addGroup(middleLayout.createSequentialGroup()
                 .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(middleLayout.createSequentialGroup()
-                        .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(middleLayout.createSequentialGroup()
-                                        .addGap(535, 535, 535)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(middleLayout.createSequentialGroup()
-                                        .addGap(415, 415, 415)
-                                        .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(middleLayout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(signup))
-                                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(usernameEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(passwordEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(middleLayout.createSequentialGroup()
-                                .addGap(415, 415, 415)
-                                .addComponent(ifWrong)))
+                        .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(middleLayout.createSequentialGroup()
+                                    .addGap(535, 535, 535)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(middleLayout.createSequentialGroup()
+                                    .addGap(415, 415, 415)
+                                    .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(middleLayout.createSequentialGroup()
+                                            .addComponent(jLabel4)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(signup))
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(usernameEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(middleLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(resetPasswordbtn))
+                                .addComponent(passwordEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(iconDisable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,8 +192,10 @@ public class real_login_gui extends javax.swing.JFrame {
                         .addComponent(passwordEnter, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                     .addComponent(iconShow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ifWrong, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(resetPasswordbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +203,7 @@ public class real_login_gui extends javax.swing.JFrame {
                 .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
@@ -264,15 +269,9 @@ public class real_login_gui extends javax.swing.JFrame {
             login.checkIn(username);
         }
         else{
-            //return to login page
+            //if got error
             setVisible(false);
-            
-            //should be connect to homepage
-            new login_gui().setVisible(true);
-
-            //say gt something wrong
-            //jlabel.setVisible(true)
-            ifWrong.setVisible(true);
+            new ifRealLoginWrong().setVisible(true);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -290,6 +289,10 @@ public class real_login_gui extends javax.swing.JFrame {
     private void emailEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailEnterActionPerformed
 
     }//GEN-LAST:event_emailEnterActionPerformed
+
+    private void resetPasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordbtnActionPerformed
+        
+    }//GEN-LAST:event_resetPasswordbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,7 +334,6 @@ public class real_login_gui extends javax.swing.JFrame {
     private javax.swing.JTextField emailEnter;
     private javax.swing.JLabel iconDisable;
     private javax.swing.JLabel iconShow;
-    private javax.swing.JLabel ifWrong;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -339,9 +341,11 @@ public class real_login_gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel middle;
     private javax.swing.JPasswordField passwordEnter;
+    private javax.swing.JButton resetPasswordbtn;
     private javax.swing.JButton signup;
     private javax.swing.JTextField usernameEnter;
     // End of variables declaration//GEN-END:variables
