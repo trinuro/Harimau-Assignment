@@ -14,6 +14,9 @@ public class gui_quiz extends javax.swing.JFrame {
     /**
      * Creates new form gui_home
      */
+    
+    
+    
     public gui_quiz() {
         initComponents();
 //        this.setResizable(false);

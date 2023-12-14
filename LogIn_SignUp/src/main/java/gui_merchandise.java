@@ -506,15 +506,22 @@ public class gui_merchandise extends javax.swing.JFrame {
 
     private void text_obj3QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj3QuantityActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_text_obj3QuantityActionPerformed
-
+   String username="ren";
+   
+   public gui_merchandise(String username){
+       this.username=username;
+   }
+    
     private void add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_obj2ActionPerformed
         // TODO add your handling code here:
+        int id_obj2 = 1;
         if(evt.getSource() == add_obj1){
-             String obj2_quantity = text_obj2Quantity.getText();
-             String obj2_address = text_obj2Address.getText();
+             store_donation.getMerchandisePoint(username, id_obj2, Integer.parseInt(text_obj2Quantity.getText()), text_obj2Address.getText());
+             
+             Utilities.getMerchandiseData(username);
             
-             int point_obj2 = 200;
             
         }
     }//GEN-LAST:event_add_obj2ActionPerformed
