@@ -156,8 +156,11 @@
             </Component>
             <Component class="javax.swing.JLabel" name="img_merchandise">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="img_merchandise.setIcon(new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+(&quot;\\src\\main\\Images\\imgStore.jpg&quot;)));"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -217,9 +220,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="img_plantTree">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
-              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="img_plantTree.setIcon(new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+(&quot;\\src\\main\\Images\\imgTree.jpg&quot;)));"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

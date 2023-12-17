@@ -66,7 +66,8 @@ public class gui_store extends javax.swing.JFrame {
             }
         });
 
-        img_merchandise.setText("jLabel1");
+        img_merchandise.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgStore.jpg")));
+        img_merchandise.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,7 +105,7 @@ public class gui_store extends javax.swing.JFrame {
             }
         });
 
-        img_plantTree.setText("jLabel1");
+        img_plantTree.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgTree.jpg")));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

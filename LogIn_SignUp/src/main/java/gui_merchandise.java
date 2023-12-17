@@ -1,5 +1,9 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
+
+//import javax.swing.JOptionPane;
 
 
 
@@ -43,7 +47,8 @@ public class gui_merchandise extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         text_obj1Address = new javax.swing.JTextField();
-        add_obj1 = new javax.swing.JButton();
+        btn_add_obj1 = new javax.swing.JButton();
+        msg_obj1 = new javax.swing.JLabel();
         panel_obj2 = new javax.swing.JPanel();
         name_obj2 = new javax.swing.JLabel();
         img_obj2 = new javax.swing.JLabel();
@@ -52,7 +57,8 @@ public class gui_merchandise extends javax.swing.JFrame {
         text_obj2Quantity = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         text_obj2Address = new javax.swing.JTextField();
-        add_obj2 = new javax.swing.JButton();
+        btn_add_obj2 = new javax.swing.JButton();
+        msg_obj2 = new javax.swing.JLabel();
         panel_obj3 = new javax.swing.JPanel();
         name_obj3 = new javax.swing.JLabel();
         img_obj3 = new javax.swing.JLabel();
@@ -61,7 +67,9 @@ public class gui_merchandise extends javax.swing.JFrame {
         text_obj3Quantity = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         text_obj3Address = new javax.swing.JTextField();
-        add_obj3 = new javax.swing.JButton();
+        btn_add_obj3 = new javax.swing.JButton();
+        msg_obj3 = new javax.swing.JLabel();
+        btn_purchaseHistory = new javax.swing.JButton();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -80,17 +88,26 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         panel_obj1.setBackground(new java.awt.Color(255, 255, 255));
 
+        img_obj1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgObj1.jpg")));
         img_obj1.setText("jLabel1");
 
         name_obj1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         name_obj1.setText("      canvas bag");
 
         point_obj1.setText("100 points");
-        int pointObj1 = point_obj1;
+        //int pointObj1 = Integer.parseInt(point_obj1);
 
         text_obj1Quantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_obj1QuantityActionPerformed(evt);
+            }
+        });
+        text_obj1Quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_obj1QuantityKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_obj1QuantityKeyTyped(evt);
             }
         });
 
@@ -104,22 +121,24 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
-        add_obj1.setBackground(new java.awt.Color(0, 0, 0));
-        add_obj1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        add_obj1.setForeground(new java.awt.Color(255, 255, 255));
-        add_obj1.setText("Add");
-        add_obj1.addActionListener(new java.awt.event.ActionListener() {
+        btn_add_obj1.setBackground(new java.awt.Color(0, 0, 0));
+        btn_add_obj1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_add_obj1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add_obj1.setText("Add");
+        btn_add_obj1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_obj1ActionPerformed(evt);
+                btn_add_obj1ActionPerformed(evt);
             }
         });
+
+        msg_obj1.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout panel_obj1Layout = new javax.swing.GroupLayout(panel_obj1);
         panel_obj1.setLayout(panel_obj1Layout);
         panel_obj1Layout.setHorizontalGroup(
             panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                         .addComponent(point_obj1)
@@ -129,41 +148,45 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addGap(107, 107, 107))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                         .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(add_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_add_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel_obj1Layout.createSequentialGroup()
                                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
-                                .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(text_obj1Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_obj1Address, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(40, 40, 40))))
+                                .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panel_obj1Layout.createSequentialGroup()
+                                        .addComponent(text_obj1Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(msg_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(text_obj1Address))))
+                        .addGap(36, 36, 36))))
             .addGroup(panel_obj1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(img_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(img_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel_obj1Layout.setVerticalGroup(
             panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_obj1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(img_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name_obj1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(point_obj1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(text_obj1Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(msg_obj1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(text_obj1Address, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(add_obj1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_add_obj1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panel_obj2.setBackground(new java.awt.Color(255, 255, 255));
@@ -182,71 +205,89 @@ public class gui_merchandise extends javax.swing.JFrame {
                 text_obj2QuantityActionPerformed(evt);
             }
         });
+        text_obj2Quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_obj2QuantityKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_obj2QuantityKeyTyped(evt);
+            }
+        });
 
         jLabel8.setText("Address");
 
-        add_obj2.setBackground(new java.awt.Color(0, 0, 0));
-        add_obj2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        add_obj2.setForeground(new java.awt.Color(255, 255, 255));
-        add_obj2.setText("Add");
-        add_obj2.addActionListener(new java.awt.event.ActionListener() {
+        text_obj2Address.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_obj2ActionPerformed(evt);
+                text_obj2AddressActionPerformed(evt);
             }
         });
+
+        btn_add_obj2.setBackground(new java.awt.Color(0, 0, 0));
+        btn_add_obj2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_add_obj2.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add_obj2.setText("Add");
+        btn_add_obj2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_add_obj2ActionPerformed(evt);
+            }
+        });
+
+        msg_obj2.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout panel_obj2Layout = new javax.swing.GroupLayout(panel_obj2);
         panel_obj2.setLayout(panel_obj2Layout);
         panel_obj2Layout.setHorizontalGroup(
             panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
                         .addComponent(name_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(110, 110, 110))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
+                        .addComponent(point_obj2)
+                        .addGap(140, 140, 140))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
                         .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel_obj2Layout.createSequentialGroup()
                                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_obj2Address, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(30, 30, 30))))
+                                    .addGroup(panel_obj2Layout.createSequentialGroup()
+                                        .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(msg_obj2))
+                                    .addComponent(text_obj2Address)))
+                            .addComponent(btn_add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39))))
             .addGroup(panel_obj2Layout.createSequentialGroup()
-                .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_obj2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(img_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_obj2Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(point_obj2)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(img_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         panel_obj2Layout.setVerticalGroup(
             panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(img_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name_obj2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(point_obj2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(msg_obj2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(text_obj2Address, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panel_obj3.setBackground(new java.awt.Color(255, 255, 255));
@@ -265,71 +306,92 @@ public class gui_merchandise extends javax.swing.JFrame {
                 text_obj3QuantityActionPerformed(evt);
             }
         });
+        text_obj3Quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_obj3QuantityKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                text_obj3QuantityKeyTyped(evt);
+            }
+        });
 
         jLabel9.setText("Address");
 
-        add_obj3.setBackground(new java.awt.Color(0, 0, 0));
-        add_obj3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        add_obj3.setForeground(new java.awt.Color(255, 255, 255));
-        add_obj3.setText("Add");
-        add_obj3.addActionListener(new java.awt.event.ActionListener() {
+        btn_add_obj3.setBackground(new java.awt.Color(0, 0, 0));
+        btn_add_obj3.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_add_obj3.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add_obj3.setText("Add");
+        btn_add_obj3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_obj3ActionPerformed(evt);
+                btn_add_obj3ActionPerformed(evt);
             }
         });
+
+        msg_obj3.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout panel_obj3Layout = new javax.swing.GroupLayout(panel_obj3);
         panel_obj3.setLayout(panel_obj3Layout);
         panel_obj3Layout.setHorizontalGroup(
             panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_obj3Layout.createSequentialGroup()
+                .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_obj3Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_obj3Address, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_obj3Layout.createSequentialGroup()
+                                .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(msg_obj3)))))
+                .addContainerGap(39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                         .addComponent(name_obj3)
                         .addGap(154, 154, 154))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                         .addComponent(point_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(142, 142, 142))))
-            .addGroup(panel_obj3Layout.createSequentialGroup()
-                .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panel_obj3Layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(img_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel_obj3Layout.createSequentialGroup()
-                            .addGap(67, 67, 67)
-                            .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel6))
-                            .addGap(18, 18, 18)
-                            .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(text_obj3Address)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(140, 140, 140))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(img_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel_obj3Layout.setVerticalGroup(
             panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(img_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(name_obj3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(point_obj3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(msg_obj3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(text_obj3Address, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        btn_purchaseHistory.setText("View Purchase History");
+        btn_purchaseHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_purchaseHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
@@ -342,22 +404,26 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
+                        .addGap(41, 41, 41)
                         .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(1008, Short.MAX_VALUE))
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(819, 819, 819)
+                        .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(954, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_purchaseHistory))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(panel_obj2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panel_obj1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panel_obj2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_obj1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -458,10 +524,10 @@ public class gui_merchandise extends javax.swing.JFrame {
 
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
-        QuizFrame.setVisible(true);
-        QuizFrame.pack();
-        QuizFrame.setLocationRelativeTo(null);
+        gui_store StoreFrame = new gui_store();
+        StoreFrame.setVisible(true);
+        StoreFrame.pack();
+        StoreFrame.setLocationRelativeTo(null);
         this.dispose();
         
     }//GEN-LAST:event_btn_storeActionPerformed
@@ -496,17 +562,22 @@ public class gui_merchandise extends javax.swing.JFrame {
 
     private void text_obj1QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1QuantityActionPerformed
         // TODO add your handling code here:
-        //String obj1_quantity = text_obj1Quantity.getText(); 
+        String obj1_quantity = text_obj1Quantity.getText(); 
+        System.out.println("User entered: " + obj1_quantity);
+        
         
     }//GEN-LAST:event_text_obj1QuantityActionPerformed
 
     private void text_obj2QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj2QuantityActionPerformed
         // TODO add your handling code here:
+        String obj2_quantity = text_obj2Quantity.getText(); 
+        System.out.println("User entered: " + obj2_quantity);
     }//GEN-LAST:event_text_obj2QuantityActionPerformed
 
     private void text_obj3QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj3QuantityActionPerformed
         // TODO add your handling code here:
-        
+        String obj3_quantity = text_obj3Quantity.getText(); 
+        System.out.println("User entered: " + obj3_quantity);
     }//GEN-LAST:event_text_obj3QuantityActionPerformed
    String username="ren";
    
@@ -514,47 +585,187 @@ public class gui_merchandise extends javax.swing.JFrame {
        this.username=username;
    }
     
-    private void add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_obj2ActionPerformed
-        // TODO add your handling code here:
+    private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
+        
         int id_obj2 = 1;
-        if(evt.getSource() == add_obj1){
-             store_donation.getMerchandisePoint(username, id_obj2, Integer.parseInt(text_obj2Quantity.getText()), text_obj2Address.getText());
-             
-             Utilities.getMerchandiseData(username);
-            
-            
-        }
-    }//GEN-LAST:event_add_obj2ActionPerformed
+        int point_obj2 = 200;
+        if (evt.getSource() == btn_add_obj2) {
+            String obj2_quantity = text_obj2Quantity.getText().trim();
 
-    private void add_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_obj1ActionPerformed
-        // TODO add your handling code here:
-        if(evt.getSource() == add_obj1){
-             String obj1_quantity = text_obj1Quantity.getText();
-             String obj1_address = text_obj1Address.getText();
-            
-             int point_obj1 = 100;
-             
-             
-             Utilities.getMerchandiseData("ss");
+            if (!obj2_quantity.isEmpty()) {
+                try {
+                    int quantity2 = Integer.parseInt(obj2_quantity);
+                    Utilities.getMerchandiseData(username);
+                    Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
+                    store_donation.getMerchandisePoint("hzw", id_obj2,(int)quantity2, text_obj2Address.getText());
+                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
+                
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
+                    // Print the exception details for debugging purposes
+                }
+            } else {
+                // Handle the case where the quantity is empty
+                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                // Show an error message or take appropriate action.
+            }
+
         }
-    }//GEN-LAST:event_add_obj1ActionPerformed
+    }//GEN-LAST:event_btn_add_obj2ActionPerformed
+
+    private void btn_add_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj1ActionPerformed
+        // TODO add your handling code here:
+        
+        int id_obj1 = 0;
+        int point_obj1 = 100;
+        /*
+        if(evt.getSource() == btn_add_obj1){
+            String quantityText = text_obj1Quantity.getText().trim()    ;
+            if (!quantityText.isEmpty()) {
+                // Parse the non-empty string to double
+                double quantity = Double.parseDouble(quantityText);
+                store_donation.getMerchandisePoint("hzw", id_obj1, Integer.parseInt(text_obj1Quantity.getText().trim()), text_obj1Address.getText());
+                //ArrayList<String> merchandiseData = Utilities.getMerchandiseData("hzw");
+                //Utilities.getMerchandiseData("ss");
+            } else {
+                // Handle the case where the quantity is empty
+                // show an error message or take appropriate action.
+                System.out.println("Error");
+            }
+        */
+        
+         if (evt.getSource() == btn_add_obj1) {
+            String obj1_quantity = text_obj1Quantity.getText().trim();
+
+            if (!obj1_quantity.isEmpty()) {
+                try {
+                    int quantity1 = Integer.parseInt(obj1_quantity);
+                    Utilities.getMerchandiseData(username);
+                    Utilities.buyMerch(username, "name_obj1", (int)quantity1, text_obj1Address.getText());
+                    store_donation.getMerchandisePoint("hzw", id_obj1,(int)quantity1, text_obj1Address.getText());
+                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
+                
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
+                    // Print the exception details for debugging purposes
+                }
+            } else {
+                // Handle the case where the quantity is empty
+                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                // Show an error message or take appropriate action.
+            }
+
+        }
+    }//GEN-LAST:event_btn_add_obj1ActionPerformed
 
     private void text_obj1AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1AddressActionPerformed
         // TODO add your handling code here:
-        //String obj1_address = text_obj1Address.getText();
+        String obj1_address = text_obj1Address.getText();
+        System.out.println("User entered: " + obj1_address);
+        
     }//GEN-LAST:event_text_obj1AddressActionPerformed
 
-    private void add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_obj3ActionPerformed
+    private void btn_add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj3ActionPerformed
         // TODO add your handling code here:
-        if(evt.getSource() == add_obj1){
-             String obj3_quantity = text_obj3Quantity.getText();
-             String obj3_address = text_obj3Address.getText();
-            
-             int point_obj3 = 80;
-             
-            
+        int id_obj3 = 2;
+        int point_obj3 = 80;
+        if (evt.getSource() == btn_add_obj3) {
+            String obj3_quantity = text_obj3Quantity.getText().trim();
+
+            if (!obj3_quantity.isEmpty()) {
+                try {
+                    int quantity3 = Integer.parseInt(obj3_quantity);
+                    Utilities.getMerchandiseData(username);
+                    Utilities.buyMerch(username, "name_obj1", (int)quantity3, text_obj3Address.getText());
+                    store_donation.getMerchandisePoint("hzw", id_obj3,(int)quantity3, text_obj3Address.getText());
+                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
+                
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
+                    // Print the exception details for debugging purposes
+                }
+            } else {
+                // Handle the case where the quantity is empty
+                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                // Show an error message or take appropriate action.
+            }
+
         }
-    }//GEN-LAST:event_add_obj3ActionPerformed
+    }//GEN-LAST:event_btn_add_obj3ActionPerformed
+
+    private void text_obj1QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj1QuantityKeyTyped
+        
+        char c = evt.getKeyChar();
+
+        // Allow only numeric input
+        if (!Character.isDigit(c)) {
+        evt.consume(); // Consume the event to prevent the character from being entered
+    }
+    }//GEN-LAST:event_text_obj1QuantityKeyTyped
+
+    private void text_obj1QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj1QuantityKeyPressed
+        
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+            msg_obj1.setText("Enter number only");
+        }
+        else{
+            msg_obj1.setText("");
+        }
+    }//GEN-LAST:event_text_obj1QuantityKeyPressed
+
+    private void text_obj2AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj2AddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_obj2AddressActionPerformed
+
+    private void text_obj2QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj2QuantityKeyPressed
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+            msg_obj2.setText("Enter number only");
+        }
+        else{
+            msg_obj2.setText("");
+        }
+    }//GEN-LAST:event_text_obj2QuantityKeyPressed
+
+    private void text_obj3QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj3QuantityKeyPressed
+        char c = evt.getKeyChar();
+        if(Character.isLetter(c)){
+            msg_obj3.setText("Enter number only");
+        }
+        else{
+            msg_obj3.setText("");
+        }
+    }//GEN-LAST:event_text_obj3QuantityKeyPressed
+
+    private void text_obj2QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj2QuantityKeyTyped
+        char c = evt.getKeyChar();
+
+        // Allow only numeric input
+        if (!Character.isDigit(c)) {
+        evt.consume(); // Consume the event to prevent the character from being entered
+    }
+    }//GEN-LAST:event_text_obj2QuantityKeyTyped
+
+    private void text_obj3QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj3QuantityKeyTyped
+        char c = evt.getKeyChar();
+
+        // Allow only numeric input
+        if (!Character.isDigit(c)) {
+        evt.consume(); // Consume the event to prevent the character from being entered
+    }
+    }//GEN-LAST:event_text_obj3QuantityKeyTyped
+
+    private void btn_purchaseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_purchaseHistoryActionPerformed
+//        if (evt.getSource() == btn_purchaseHistory) {
+//            System.out.println(Utilities.getMerchandiseData("hzw"));
+//            System.out.println(store_donation.getMerchandisePoint("hzw", id_obj3,(int)quantity3, text_obj3Address.getText()));
+//            //JOptionPane.showMessageDialog(null, username+" order "+ (int)purchase_amount+ " to "+delivery address);
+//        }
+    }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,12 +806,13 @@ public class gui_merchandise extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_obj1;
-    private javax.swing.JButton add_obj2;
-    private javax.swing.JButton add_obj3;
     private javax.swing.JButton btn_Quiz;
+    private javax.swing.JButton btn_add_obj1;
+    private javax.swing.JButton btn_add_obj2;
+    private javax.swing.JButton btn_add_obj3;
     private javax.swing.JButton btn_donation;
     private javax.swing.JButton btn_home;
+    private javax.swing.JButton btn_purchaseHistory;
     private javax.swing.JButton btn_store;
     private javax.swing.JLabel img_obj1;
     private javax.swing.JLabel img_obj2;
@@ -612,6 +824,9 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel label_home;
+    private javax.swing.JLabel msg_obj1;
+    private javax.swing.JLabel msg_obj2;
+    private javax.swing.JLabel msg_obj3;
     private javax.swing.JLabel name_obj1;
     private javax.swing.JLabel name_obj2;
     private javax.swing.JLabel name_obj3;
@@ -624,7 +839,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel point_obj2;
     private javax.swing.JLabel point_obj3;
     private javax.swing.JTextField text_obj1Address;
-    private javax.swing.JTextField text_obj1Quantity;
+    public static javax.swing.JTextField text_obj1Quantity;
     private javax.swing.JTextField text_obj2Address;
     private javax.swing.JTextField text_obj2Quantity;
     private javax.swing.JTextField text_obj3Address;

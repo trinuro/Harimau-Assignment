@@ -42,4 +42,11 @@
             <version>1.4.7</version>
         </dependency>
     </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>scr/main/java</directory>
+            </resource>
+        </resources>
+    </build>
 </project>

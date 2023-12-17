@@ -45,6 +45,7 @@ public class gui_quiz extends javax.swing.JFrame {
         optD = new javax.swing.JRadioButton();
         panel_quizMessage = new javax.swing.JPanel();
         quizMessage = new javax.swing.JLabel();
+        btn_submitAnswer = new javax.swing.JButton();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -87,6 +88,11 @@ public class gui_quiz extends javax.swing.JFrame {
         optB.setText("B");
 
         optC.setText("C");
+        optC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCActionPerformed(evt);
+            }
+        });
 
         optD.setText("D");
 
@@ -142,6 +148,16 @@ public class gui_quiz extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        btn_submitAnswer.setBackground(new java.awt.Color(0, 0, 0));
+        btn_submitAnswer.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_submitAnswer.setForeground(new java.awt.Color(255, 255, 255));
+        btn_submitAnswer.setText("Submit Answer");
+        btn_submitAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_submitAnswerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
@@ -150,7 +166,8 @@ public class gui_quiz extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_submitAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(932, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
@@ -160,6 +177,8 @@ public class gui_quiz extends javax.swing.JFrame {
                 .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_submitAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -293,6 +312,17 @@ public class gui_quiz extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
+    private void btn_submitAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitAnswerActionPerformed
+        // TODO add your handling code here:
+        if(evt.getSource()==btn_submitAnswer){
+            
+        }
+    }//GEN-LAST:event_btn_submitAnswerActionPerformed
+
+    private void optCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optCActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,6 +366,7 @@ public class gui_quiz extends javax.swing.JFrame {
     private javax.swing.JButton btn_donation;
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_store;
+    private javax.swing.JButton btn_submitAnswer;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel dailyTrivia;
     private javax.swing.JPanel jPanel1;
