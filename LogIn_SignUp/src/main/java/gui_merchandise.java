@@ -26,6 +26,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
+
     }
 
     /**
@@ -760,11 +761,13 @@ public class gui_merchandise extends javax.swing.JFrame {
     }//GEN-LAST:event_text_obj3QuantityKeyTyped
 
     private void btn_purchaseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_purchaseHistoryActionPerformed
-//        if (evt.getSource() == btn_purchaseHistory) {
-//            System.out.println(Utilities.getMerchandiseData("hzw"));
-//            System.out.println(store_donation.getMerchandisePoint("hzw", id_obj3,(int)quantity3, text_obj3Address.getText()));
-//            //JOptionPane.showMessageDialog(null, username+" order "+ (int)purchase_amount+ " to "+delivery address);
-//        }
+        if (evt.getSource() == btn_purchaseHistory) {
+            
+            Utilities.getMerchandiseData("hzw");
+            store_donation.getMerchandisePoint("hzw", id_obj3,(int)quantity3, text_obj3Address.getText());
+            
+            //JOptionPane.showMessageDialog(null, username+" order "+ (int)purchase_amount+ " to "+delivery address);
+        }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
     /**
