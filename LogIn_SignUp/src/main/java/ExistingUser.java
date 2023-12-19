@@ -23,12 +23,13 @@ public class ExistingUser extends User{
     private static String username;
     
     // Constructor method
-    public ExistingUser(String name){
-        this.username = name;
+    public ExistingUser(String name, String email){
+        setUsername(name);
         // Check if user exists. Will throw exception if user does not exist
         if(this.getUserData("email").equals("")){
             throw new IllegalArgumentException("User does not exist");
         }
+        setEmail(email);
     }
     
 //    // copy constructor
