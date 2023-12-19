@@ -207,7 +207,7 @@ public class ExistingUser extends User{
         System.out.printf("Updated last_checked_in of %s in database\n",username);
     }
     
-    public static boolean checkPassword(String email, String username, String password) throws NoSuchAlgorithmException{
+    public boolean checkPassword(String password) throws NoSuchAlgorithmException{
         // Static method: Can be called without instantiating an object
         // This function will check whether the user password is the same as password in the database
         // It receives three input: email, username and password
