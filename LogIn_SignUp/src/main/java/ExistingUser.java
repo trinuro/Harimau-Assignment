@@ -20,7 +20,7 @@ import java.util.Date;
  * @author Khiew
  */
 public class ExistingUser extends User{
-    private String username;
+    private static String username;
     
     // Constructor method
     public ExistingUser(String name){
