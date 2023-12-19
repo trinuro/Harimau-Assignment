@@ -1,4 +1,7 @@
 
+import java.util.ArrayList;
+
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,8 +17,6 @@ public class gui_quiz extends javax.swing.JFrame {
     /**
      * Creates new form gui_home
      */
-    
-    
     
     public gui_quiz() {
         initComponents();
@@ -38,7 +39,7 @@ public class gui_quiz extends javax.swing.JFrame {
         label_home = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panel_dailyTrivia = new javax.swing.JPanel();
-        dailyTrivia = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         optA = new javax.swing.JRadioButton();
         optB = new javax.swing.JRadioButton();
         optC = new javax.swing.JRadioButton();
@@ -64,7 +65,14 @@ public class gui_quiz extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        dailyTrivia.setText("jLabel1");
+        ArrayList<String> questionList = dailyTrivia.getQuestionArrayList();
+        StringBuilder questionText = new StringBuilder();
+
+        for (String question : questionList) {
+            questionText.append(question).append("\n");
+        }
+        jLabel1.setText(questionText.toString());
+        // Assuming jLabel1 is a JLabel or similar componen
 
         javax.swing.GroupLayout panel_dailyTriviaLayout = new javax.swing.GroupLayout(panel_dailyTrivia);
         panel_dailyTrivia.setLayout(panel_dailyTriviaLayout);
@@ -72,15 +80,15 @@ public class gui_quiz extends javax.swing.JFrame {
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_dailyTriviaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(dailyTrivia, javax.swing.GroupLayout.PREFERRED_SIZE, 1079, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_dailyTriviaLayout.setVerticalGroup(
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dailyTriviaLayout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(dailyTrivia)
-                .addGap(44, 44, 44))
+            .addGroup(panel_dailyTriviaLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         optA.setText("A");
@@ -105,7 +113,7 @@ public class gui_quiz extends javax.swing.JFrame {
             .addGroup(panel_quizMessageLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(quizMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 1068, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         panel_quizMessageLayout.setVerticalGroup(
             panel_quizMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +185,7 @@ public class gui_quiz extends javax.swing.JFrame {
                 .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_submitAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -323,6 +331,21 @@ public class gui_quiz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_optCActionPerformed
 
+//    private void showRandomQuestion() {
+//        // Implement this method to update questionTextArea with a random question
+//        // Use trivia object to get the question
+//        String randomQuestion = "Question: " + dailyTrivia + "\nOptions: " + String.join(", ", trivia.getOptions(1));
+//        JTextArea questionTextArea = (JTextArea) getContentPane().getComponent(1);
+//        questionTextArea.setText(randomQuestion);
+//    }
+//
+//    private void submitAnswer(String answer) {
+//        // Implement this method to handle the user's submitted answer
+//        // Use trivia object to check the answer and update the GUI accordingly
+//        trivia.isCorrect(1, answer);
+//        JOptionPane.showMessageDialog(this, "Is Correct: " + trivia.isCorrectAnswer(1));
+//    }
+
     /**
      * @param args the command line arguments
      */
@@ -368,7 +391,7 @@ public class gui_quiz extends javax.swing.JFrame {
     private javax.swing.JButton btn_store;
     private javax.swing.JButton btn_submitAnswer;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel dailyTrivia;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_home;
     private javax.swing.JRadioButton optA;

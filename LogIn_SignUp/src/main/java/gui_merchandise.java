@@ -1,6 +1,15 @@
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.text.Document;
 
 
 //import javax.swing.JOptionPane;
@@ -17,10 +26,14 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class gui_merchandise extends javax.swing.JFrame {
-
-    /**
-     * Creates new form gui_home
-     */
+//    private int id_obj1 = 0;
+//    private int id_obj2 = 1;
+//    private int id_obj3 = 2;
+//    
+//    private int point_obj1 = 100;
+//    private int point_obj2 = 200;
+//    private int point_obj3 = 80;
+   
     public gui_merchandise() {
         initComponents();
 //        this.setResizable(false);
@@ -193,9 +206,13 @@ public class gui_merchandise extends javax.swing.JFrame {
         panel_obj2.setBackground(new java.awt.Color(255, 255, 255));
 
         name_obj2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        name_obj2.setText("            cap");
+        name_obj2.setText("          bottle");
 
-        img_obj2.setText("jLabel1");
+        img_obj2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\bottle1.jpg")));
+        img_obj2.setText("            ");
+        img_obj2.setToolTipText("");
+        img_obj2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        img_obj2.setAlignmentX(0.5F);
 
         point_obj2.setText(" 200 points");
 
@@ -243,9 +260,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
-                        .addComponent(name_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
                         .addComponent(point_obj2)
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
@@ -267,6 +281,10 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(img_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(name_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(124, 124, 124))
         );
         panel_obj2Layout.setVerticalGroup(
             panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +292,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(img_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(name_obj2)
+                .addComponent(name_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(point_obj2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -296,6 +314,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         name_obj3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         name_obj3.setText("badge");
 
+        img_obj3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\badge.jpg")));
         img_obj3.setText("jLabel1");
 
         point_obj3.setText("80 points");
@@ -335,10 +354,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         panel_obj3Layout.setHorizontalGroup(
             panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_obj3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_obj3Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
                         .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel6))
@@ -608,7 +627,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 }
             } else {
                 // Handle the case where the quantity is empty
-                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
                 // Show an error message or take appropriate action.
             }
 
@@ -642,8 +661,8 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj1_quantity.isEmpty()) {
                 try {
                     int quantity1 = Integer.parseInt(obj1_quantity);
-                    Utilities.getMerchandiseData(username);
-                    Utilities.buyMerch(username, "name_obj1", (int)quantity1, text_obj1Address.getText());
+                    Utilities.getMerchandiseData("hzw");
+                    Utilities.buyMerch("hzw", "name_obj1", (int)quantity1, text_obj1Address.getText());
                     store_donation.getMerchandisePoint("hzw", id_obj1,(int)quantity1, text_obj1Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                 
@@ -654,7 +673,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 }
             } else {
                 // Handle the case where the quantity is empty
-                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
                 // Show an error message or take appropriate action.
             }
 
@@ -690,7 +709,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 }
             } else {
                 // Handle the case where the quantity is empty
-                JOptionPane.showMessageDialog(null, "Quantity cannot be empty. Please enter a valid number.");
+                JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
                 // Show an error message or take appropriate action.
             }
 
@@ -761,15 +780,74 @@ public class gui_merchandise extends javax.swing.JFrame {
     }//GEN-LAST:event_text_obj3QuantityKeyTyped
 
     private void btn_purchaseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_purchaseHistoryActionPerformed
+        
         if (evt.getSource() == btn_purchaseHistory) {
+            // Create a custom JDialog
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Merchandise Purchase History");
+
+        
+        ArrayList<String> data = Utilities.getMerchandiseData("hzw");
+        StringBuilder purchaseData = new StringBuilder();
+
+        for (String dataItem : data) {
+            purchaseData.append(dataItem).append("\n");
+        }
+
+        // Create a JTextArea to display the merchandise data
+        JTextArea textArea = new JTextArea(purchaseData.toString());
+        textArea.setEditable(false);
+
+         // Set the text alignment to center
+        textArea.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Add the JTextArea to a JScrollPane for scrolling, if needed
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        // Set the layout of the dialog to BorderLayout
+        dialog.setLayout(new BorderLayout());
+
+        // Add the JScrollPane to the center of the dialog
+        dialog.add(scrollPane, BorderLayout.CENTER);
+
+        // Set the size of the dialog
+        dialog.setSize(new Dimension(400, 200));
+
+        // Center the dialog on the screen
+        dialog.setLocationRelativeTo(null);
+
+        // Set the dialog to be visible
+        dialog.setVisible(true);
             
-            Utilities.getMerchandiseData("hzw");
-            store_donation.getMerchandisePoint("hzw", id_obj3,(int)quantity3, text_obj3Address.getText());
             
-            //JOptionPane.showMessageDialog(null, username+" order "+ (int)purchase_amount+ " to "+delivery address);
+//            
+//            JPanel panel = new JPanel();
+//            JLabel label = new JLabel("<html>" + Utilities.getMerchandiseData("hzw") + "</html>");
+//            panel.add(label);
+//            // Set the preferred size of the panel (adjust as needed)
+//            panel.setPreferredSize(new Dimension(400, 200));
+//
+//            // Show the JOptionPane with the custom panel
+//            JOptionPane.showMessageDialog(null, panel, "Merchandise Data", JOptionPane.INFORMATION_MESSAGE);
+        
+            
+            
+            //System.out.println(Utilities.getMerchandiseData("hzw"));
+            //Utilities.getMerchandiseData(username);
+            //store_donation.getMerchandisePoint(username, id_obj3,(int)quantity3, text_obj3Address.getText());
+//             String message = "<html><body width='300'>" +
+//                "<h1>Custom-sized JOptionPane</h1>" +
+//                "<p>This is a custom-sized JOptionPane using HTML formatting.</p>" +
+//                "</body></html>";
+//            JOptionPane.showMessageDialog(null,Utilities.getMerchandiseData("hzw"));
         }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
+//     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
+//        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
+//        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
+//    }
+     
     /**
      * @param args the command line arguments
      */

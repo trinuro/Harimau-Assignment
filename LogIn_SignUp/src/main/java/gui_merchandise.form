@@ -278,10 +278,6 @@
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="name_obj2" min="-2" pref="123" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Component id="point_obj2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
                           </Group>
@@ -313,6 +309,11 @@
                       <Component id="img_obj2" min="-2" pref="315" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="name_obj2" min="-2" pref="109" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -321,7 +322,7 @@
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="img_obj2" min="-2" pref="217" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="name_obj2" min="-2" max="-2" attributes="0"/>
+                      <Component id="name_obj2" min="-2" pref="17" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="point_obj2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -348,12 +349,18 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="            cap"/>
+                <Property name="text" type="java.lang.String" value="          bottle"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="img_obj2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel1"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+(&quot;\\src\\main\\Images\\bottle1.jpg&quot;))" type="code"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="            "/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="verticalAlignment" type="int" value="1"/>
+                <Property name="alignmentX" type="float" value="0.5"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="point_obj2">
@@ -499,6 +506,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="img_obj3">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;)+(&quot;\\src\\main\\Images\\badge.jpg&quot;))" type="code"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel1"/>
               </Properties>
             </Component>

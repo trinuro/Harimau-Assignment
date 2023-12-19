@@ -33,7 +33,8 @@ public class gui_home extends javax.swing.JFrame {
         panel_menu = new javax.swing.JPanel();
         label_home = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_quizAttempt = new javax.swing.JButton();
+        img_bulb = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -52,15 +53,17 @@ public class gui_home extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Quiz Attempt");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_quizAttempt.setBackground(new java.awt.Color(0, 0, 0));
+        btn_quizAttempt.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
+        btn_quizAttempt.setForeground(new java.awt.Color(255, 255, 255));
+        btn_quizAttempt.setText("Quiz Attempt");
+        btn_quizAttempt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_quizAttemptActionPerformed(evt);
             }
         });
+
+        img_bulb.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgBulb.jpg")));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,14 +71,20 @@ public class gui_home extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addComponent(btn_quizAttempt, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addComponent(img_bulb, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(img_bulb, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_quizAttempt, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -230,9 +239,14 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_quizAttemptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quizAttemptActionPerformed
+        
+        gui_quiz QuizFrame = new gui_quiz();
+        QuizFrame.setVisible(true);
+        QuizFrame.pack();
+        QuizFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btn_quizAttemptActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,8 +288,9 @@ public class gui_home extends javax.swing.JFrame {
     private javax.swing.JButton btn_Quiz;
     private javax.swing.JButton btn_donation;
     private javax.swing.JButton btn_home;
+    private javax.swing.JButton btn_quizAttempt;
     private javax.swing.JButton btn_store;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel img_bulb;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label_home;
     private javax.swing.JPanel panel_main;
