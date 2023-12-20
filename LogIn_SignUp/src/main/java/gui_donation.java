@@ -161,10 +161,10 @@ public class gui_donation extends javax.swing.JFrame {
 
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
-        QuizFrame.setVisible(true);
-        QuizFrame.pack();
-        QuizFrame.setLocationRelativeTo(null);
+        gui_store StoreFrame = new gui_store();
+        StoreFrame.setVisible(true);
+        StoreFrame.pack();
+        StoreFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
