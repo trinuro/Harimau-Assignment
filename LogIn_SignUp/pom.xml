@@ -17,6 +17,11 @@
             <version>8.2.0</version>
         </dependency>
         <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE190</version>
+        </dependency>
+        <dependency>
           <groupId>com.google.apis</groupId>
           <artifactId>google-api-services-gmail</artifactId>
           <version>v1-rev20211108-1.32.1</version>
@@ -37,4 +42,11 @@
             <version>1.4.7</version>
         </dependency>
     </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>scr/main/java</directory>
+            </resource>
+        </resources>
+    </build>
 </project>

@@ -1,10 +1,8 @@
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,8 +21,13 @@ public class store_donation {
         //example of prize of merchanidise
         double [] prize=new double [3];
         prize[0]=100;
-        prize[1]=150;
-        prize[2]=50;
+        prize[1]=200;
+        prize[2]=80;
+        
+        String [] prizeName=new String [3];
+        prizeName[0]="canvas bag";
+        prizeName[1]="bottle";
+        prizeName[2]="badge";
               
         //declare checkOut;
         double points= Double.parseDouble(login.getUserData(userName, "current_points"));
@@ -36,15 +39,14 @@ public class store_donation {
                 login.increasePoints(userName, pointUsed*-1);
                 
                 //update purchase history in database
-                Utilities.buyMerch(userName, Integer.toString(id), amount, address);
+                Utilities.buyMerch(userName, prizeName[id], amount, address);
                 
                 //update purchase history in txt file
-                try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("MerchandiseOrder.txt",true));
-                    writer.write(userName+" orders "+amount+" merch-"+id+" to "+address);
-                    writer.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+                try (PrintWriter writer = new PrintWriter(new FileOutputStream("MerchandiseOrder.txt",true))) {
+                    writer.println(userName+" orders "+amount+" "+prizeName[id]+" to "+address);
+                    }
+                catch (IOException ex) {
+                    System.out.println("Problems with file output");
                 }
             }
             else
@@ -72,12 +74,11 @@ public class store_donation {
                 Utilities.plantNewTree(userName, nameTree);
                 
                 //update purchase history in txt file
-                try {
-                    BufferedWriter writer = new BufferedWriter(new FileWriter("TreePlantOrder.txt",true));
-                    writer.write(userName+" plant a tree with the name \""+nameTree+"\"");
-                    writer.close();
+                
+                try (PrintWriter writer = new PrintWriter(new FileOutputStream("TreePlantOrder.txt",true))) {
+                    writer.write(userName+" plant a tree with the name \""+nameTree+"\"");                
                 } catch (IOException ex) {
-                    Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Problems with file output");
                 }
             }
             else
@@ -101,13 +102,11 @@ public class store_donation {
         Utilities.makeNewDonations(userName, donationToNGO, NGO);
        
         //update donation history in txt file
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("Donations.txt",true));
+        try (PrintWriter writer = new PrintWriter(new FileOutputStream("Donations.txt",true))) {
             writer.write(userName+" has donated $ "+donationToNGO+" to "+NGO);
-            writer.close();
-            } catch (IOException ex) {
-                Logger.getLogger(store_donation.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (IOException ex) {
+            System.out.println("Problems with file output");
+        }
         
         // return point
         return Double.parseDouble(login.getUserData(userName, "current_points"));   

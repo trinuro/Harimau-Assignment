@@ -3,51 +3,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author Khiew
  */
-
-// Import required modules
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-
-public class signup {
-    private static byte[] getSHA(String input) throws NoSuchAlgorithmException
-    {
-            // Static getInstance method is called with hashing SHA
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-
-            // digest() method called
-            // to calculate message digest of an input
-            // and return array of byte
-            return md.digest(input.getBytes(StandardCharsets.UTF_8));
+public class NewUser extends User{
+    private String username;
+    private String password;
+    private String confirmPassword;
+    
+    // Constructor
+    public NewUser(String email, String username, String password, String confirmPassword){
+        super.email = email;
+        this.username = username;
+        this.password = password;
+        this.confirmPassword = confirmPassword;
     }
     
-    private static String toHexString(byte[] hash)
-     {
-             // Convert byte array into signum representation
-             BigInteger number = new BigInteger(1, hash);
-
-             // Convert message digest into hex value
-             StringBuilder hexString = new StringBuilder(number.toString(16));
-
-             // Pad with leading zeros
-             while (hexString.length() < 64)
-             {
-                     hexString.insert(0, '0');
-             }
-
-             return hexString.toString();
-     }    
+    // toString method
+    @Override
+    public String toString(){
+        return String.format("""
+                          New User created
+                          Username: %s
+                          Email: %s
+                           """,this.getUsername(), this.getEmail());
+    }
     
-    public static boolean createNewUser(String email, String username, String password, String confirmPassword){
+    // Equals method
+    public boolean equals(NewUser person){
+        if(this.getUsername().equals(person.getUsername())&&this.getEmail().equals(person.getEmail())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    // Accessor method to get username
+    public String getUsername(){
+        return this.username;
+    }
+    
+    public boolean createNewUser(){
         // This function creates a new user in database. 
         // It accepts the email, username, password and confirm password string.
         // It will return true if a user is succesfully created.
@@ -68,7 +73,7 @@ public class signup {
             ){
                 // Create SQL query
                 String strSelect = String.format("SELECT username,email FROM user_table WHERE username = \'%s\' OR email = \'%s\';",username,email);
-                System.out.println("The SQL statement is "+strSelect);
+//                System.out.println("The SQL statement is "+strSelect);
 
                 // Execute query
                 ResultSet rset = stmt.executeQuery(strSelect);
@@ -97,7 +102,7 @@ public class signup {
         String formattedDateTime = dateTime.format(formatter);
 
         // Create password hash
-        encryptedPassword = hashPassword(formattedDateTime,password);
+        encryptedPassword = Utils.hashPassword(formattedDateTime,password);
 
         try(
 //              Create connection to database
@@ -107,34 +112,18 @@ public class signup {
 
         // SQL command to be executed
         String sqlInsert = String.format("INSERT INTO user_table(email, username, password, registration_date,current_points) VALUES(\'%s\',\'%s\',\'%s\',\'%s\',\'%d\');", email, username, encryptedPassword, formattedDateTime,1);
-        System.out.println("SQL Statement to be executed: "+sqlInsert);
+//        System.out.println("SQL Statement to be executed: "+sqlInsert);
         // Insert information into database
         int countInserted = stmt.executeUpdate(sqlInsert);
-        System.out.println(countInserted+" records inserted.");
+//        System.out.println(countInserted+" records inserted.");
             
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");
             ex.printStackTrace();
             return false;
         }
-            
+        
+        System.out.printf("User %s successfully created\n",username);
         return true;
-    }
-
-    public static String hashPassword(String dateTime, String password){
-        String encryptedPassword;
-
-        try{
-            // Encrypt password and datetime with SHA hash
-            encryptedPassword = toHexString(getSHA(password+dateTime));
-
-        }catch (NoSuchAlgorithmException e) {
-            System.out.println("Encryption failed.");
-            System.out.println("Exception thrown for incorrect algorithm: " + e);
-            return "Failed";
-        }
-
-        // return hash
-        return encryptedPassword;
     }
 }

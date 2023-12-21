@@ -1,12 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author PC
- */
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.sql.Connection;
@@ -157,38 +148,5 @@ public class news implements Comparable<news>{
         }
         return newArray;
     }
-    
-//    public static String getData(String username, String columnTitle){
-//        // This function returns data from database based on username and column title
-//        String output="";
-//        // Connect to database
-//        try(
-//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-//            Statement stmt = conn.createStatement();
-//            ){
-//        // Create SQL query
-//        String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
-//        System.out.println("The SQL statement is "+strSelect);
-//        
-//        // Execute query
-//        ResultSet rset = stmt.executeQuery(strSelect);
-//
-//        int rowCount = 0;
-//        // Get last_checked_in date from database
-//        while(rset.next()){
-//            output = rset.getString(columnTitle);
-//            rowCount++;
-//        } 
-//        }catch(SQLException ex){
-//            System.out.println("SQL query failed.");
-//            ex.printStackTrace();
-//        }    
-//        return output;
-//    }
-    
    
-    
-
-    
 }
-
