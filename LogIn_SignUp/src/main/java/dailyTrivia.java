@@ -20,9 +20,27 @@ public class dailyTrivia extends Trivia{
     }
     
     public int getDayLogin(String username) {
-        return 3;
+        return (int)login.daysAfterRegistration(username);
     }
     
+    public static void main(String[] args) {
+        dailyTrivia trvia1 = new dailyTrivia("Lim");
+        dailyTrivia trvia2 = new dailyTrivia("Lim");
+        Scanner input = new Scanner(System.in);
+        while (true) {            
+            System.out.println("Enter your username");
+            int user = input.nextInt();
+            System.out.println("Enter the question you want:");
+            int noOfQuestion = input.nextInt();
+            if (user == 1) {
+                System.out.println(trvia1.getNumberOFAttempt());
+                trvia1.displayQuestion(noOfQuestion);
+            }else trvia2.displayQuestion(noOfQuestion);
+            
+        }
+        
+    }
+        
     //***********************************************************************
     // ********************START FROM HERE***********************************
     
@@ -35,10 +53,15 @@ public class dailyTrivia extends Trivia{
     // get string array of options based on the number of qustions (from 1 to 10)
     @Override
     public String[] getOptions(int question) {
-        if (questionSetCanBeAnswered.get(question-1).getNumberOFAttempt()  == 0) {
-            return super.getOptions(question);
+        System.out.println("No of attempt = " + getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt());
+        if (getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt()  == 0) {
+            System.out.println("No shuffle");
+            String[] currentOptionList = super.getOriginalOptions(question);
+            return currentOptionList;
         }
-        return shuffledOptionsArray(super.getOptions(question));
+        System.out.println("shuffled");
+        String[] currentOptionList = shuffledOptionsArray(super.getOptions(question));
+        return currentOptionList;
     }
     
     // get string of answer based on the number of qustions (from 1 to 10)
@@ -116,12 +139,7 @@ public class dailyTrivia extends Trivia{
     
     // ************************************Until here*****************************************
     //**************************************************************************************
-    
-    
-    public void setDayLogin(int noOFDayLogin) {
-        this.noOfDayLogin = noOFDayLogin;
-    }
-    
+   
     private static String[] shuffledOptionsArray(String[] options) {
         List<String> optionsList = Arrays.asList(options);
         Collections.shuffle(optionsList);
@@ -178,56 +196,56 @@ public class dailyTrivia extends Trivia{
 
         
 class Trivia {
-//        // declare filepath
-//        private static String filepath = "C:\\Users\\PC\\Documents\\NetBeansProjects\\harimau_newsTrial\\src\\main\\java\\com\\mycompany\\harimau_newstrial\\TriviaSample.txt";
+//     // declare filepath
+//    private static String filepath = "C:\\Users\\PC\\Documents\\NetBeansProjects\\harimau_newsTrial\\src\\main\\java\\com\\mycompany\\harimau_newstrial\\TriviaSample.txt";
 //    
-//        private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
-        private static final ArrayList<String> questionList = getQuestionArrayList();// create ArraylLst for questions
-        private static final ArrayList<String> answerList = getAnswerArrayList();// create Arraylist for  answer
-        private static final ArrayList<String> optionList = getOptionsArrayList();
-        private static final ArrayList<String[]> trueOptionList =createTrueOptionList();
-        private static final ArrayList<Trivia> totalQuestionSet = createTotalQuestionSet();
-        private  String specificQuestion = "";
-        private  String[] specificOptions = new String[4];
-        private  String specificAnswer = "";
-        private int numberOfAttempt;
-        private boolean isCorrect ;
-        private boolean isCorrectForTrial;
+//    private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
+    private static final ArrayList<String> questionList = getQuestionArrayList();// create ArraylLst for questions
+    private static final ArrayList<String> answerList = getAnswerArrayList();// create Arraylist for  answer
+    private static final ArrayList<String> optionList = getOptionsArrayList();
+    private static final ArrayList<String[]> trueOptionList =createTrueOptionList();
+    private static final ArrayList<Trivia> totalQuestionSet = createTotalQuestionSet();
+    private  String specificQuestion = "";
+    private  String[] specificOptions = new String[4];
+    private  String specificAnswer = "";
+    private int numberOfAttempt;
+    private boolean isCorrect ;
+    private boolean isCorrectForTrial;
         
-        public Trivia() {
+    public Trivia() {
+    }
+        
+    public Trivia(int noOfQuestion){
+        this.specificQuestion = questionList.get(noOfQuestion-1);
+        this.specificOptions = trueOptionList.get(noOfQuestion-1);
+        this.specificAnswer = answerList.get(noOfQuestion-1);
+        this.numberOfAttempt = 0;
+        this.isCorrect = false;
+        this.isCorrectForTrial = false;
+    }
+        
+    public Trivia(String question, String[] options, String answer){
+        this.specificQuestion = question;
+        this.specificOptions = options;
+        this.specificAnswer = answer;
+        this.numberOfAttempt = 0;
+        this.isCorrect = false;
+    }
+        
+    private static ArrayList<Trivia> createTotalQuestionSet() {
+        ArrayList<Trivia> totalquestionset = new ArrayList<>();
+        for (int i = 0; i < questionList.size(); i++) {
+            Trivia trivias = new Trivia(questionList.get(i), trueOptionList.get(i).clone(), answerList.get(i));
+            totalquestionset.add(trivias);
         }
+        return totalquestionset;
+    }
         
-        public Trivia(int noOfQuestion){
-            this.specificQuestion = questionList.get(noOfQuestion-1);
-            this.specificOptions = trueOptionList.get(noOfQuestion-1);
-            this.specificAnswer = answerList.get(noOfQuestion-1);
-            this.numberOfAttempt = 0;
-            this.isCorrect = false;
-            this.isCorrectForTrial = false;
-        }
+    public static ArrayList<Trivia> getTotalQuestionSet() {
+        return totalQuestionSet;
+    } 
         
-        public Trivia(String question, String[] options, String answer){
-            this.specificQuestion = question;
-            this.specificOptions = options;
-            this.specificAnswer = answer;
-            this.numberOfAttempt = 0;
-            this.isCorrect = false;
-        }
-        
-        public static ArrayList<Trivia> createTotalQuestionSet() {
-            ArrayList<Trivia> totalquestionset = new ArrayList<>();
-            for (int i = 0; i < questionList.size(); i++) {
-                Trivia trivias = new Trivia(questionList.get(i), trueOptionList.get(i), answerList.get(i));
-                totalquestionset.add(trivias);
-            }
-            return totalquestionset;
-        }
-        
-        public static ArrayList<Trivia> getTotalQuestionSet() {
-            return totalQuestionSet;
-        } 
-        
-    public static ArrayList<String[]> createTrueOptionList() {
+    private static ArrayList<String[]> createTrueOptionList() {
         ArrayList<String[]> trueoptionList = new ArrayList<>();
         for (int noOfQuestion = 0; noOfQuestion < optionList.size(); noOfQuestion++) {
             String[] optionArray = optionList.get(noOfQuestion).split(",");
@@ -243,6 +261,10 @@ class Trivia {
     // get string array of options based on the number of qustions
     public String[] getOptions(int question) {
         return totalQuestionSet.get(question-1).specificOptions;
+    }
+    
+    public String[] getOriginalOptions(int question) {
+        return trueOptionList.get(question-1);
     }
     
     public String getAnswer(int question) {
@@ -275,7 +297,7 @@ class Trivia {
     
     // by connecting to database
     // create a method to create questionList
-    public static ArrayList<String> getQuestionArrayList() {
+    private static ArrayList<String> getQuestionArrayList() {
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             newArray.add(Utilities.getTrivia(i)[0]);
@@ -283,7 +305,7 @@ class Trivia {
         return newArray;
     }
     // create a method to create optionsList
-    public static ArrayList<String> getOptionsArrayList() {
+    private static ArrayList<String> getOptionsArrayList() {
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             newArray.add(Utilities.getTrivia(i)[1]);
@@ -291,7 +313,7 @@ class Trivia {
         return newArray;
     }
     // create a method to create answerList
-    public static ArrayList<String> getAnswerArrayList() {
+    private static ArrayList<String> getAnswerArrayList() {
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             newArray.add(Utilities.getTrivia(i)[2]);
@@ -321,17 +343,17 @@ class Trivia {
 //        return newArray;
 //    }
 //    // create a method to create questionList
-//    public static ArrayList<String> getQuestionArrayList() {
+//    private static ArrayList<String> getQuestionArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 3);
 //        return newArray;
 //    }
 //    // create a method to create optionsList
-//    public static ArrayList<String> getOptionsArrayList() {
+//    private static ArrayList<String> getOptionsArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 1);
 //        return newArray;
 //    }
 //    // create a method to create answerList
-//    public static ArrayList<String> getAnswerArrayList() {
+//    private static ArrayList<String> getAnswerArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 2);
 //        return newArray;
 //    }
