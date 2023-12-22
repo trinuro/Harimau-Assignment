@@ -82,6 +82,11 @@ public class dailyTrivia extends Trivia{
         return questionSetCanBeAnswered;
     }
     
+     // return int numberOfAttempt
+    public int gatNumberOfAttempt(int question){
+        return getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt();
+    }
+    
     // return the double marks value allocated for the given question
     public double getmarkAllocated(int noOfQuestion) {
         return markAllocated(noOfQuestion, getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt());
