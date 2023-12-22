@@ -173,10 +173,10 @@ public class dailyTrivia extends Trivia{
 
         
 class Trivia {
-     // declare filepath
-    private static String filepath = "src/main/resources/TriviaSample.txt";
-    
-    private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
+//     // declare filepath
+//    private static String filepath = "src/main/resources/TriviaSample.txt";
+//    
+//    private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
     private static final ArrayList<String> questionList = getQuestionArrayList();// create ArraylLst for questions
     private static final ArrayList<String> answerList = getAnswerArrayList();// create Arraylist for  answer
     private static final ArrayList<String> optionList = getOptionsArrayList();
@@ -272,94 +272,66 @@ class Trivia {
         this.numberOfAttempt = noOfAttempt;
     }
     
-//    // by connecting to database
-//    // create a method to create questionList
-//    private static ArrayList<String> getQuestionArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[0]);
-//        }
-//        return newArray;
-//    }
-//    // create a method to create optionsList
-//    private static ArrayList<String> getOptionsArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[1]);
-//        }
-//        return newArray;
-//    }
-//    // create a method to create answerList
-//    private static ArrayList<String> getAnswerArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[2]);
-//        }
-//        return newArray;
-//    }
-//    
-    // create a method to read file as list by using TriviaSample.txt file
-    public static ArrayList<String> readFileInArrayList(String filepath) {
-        List<String> fileList = new ArrayList<>();
-        try {
-            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
-        } catch (Exception e) {
-            System.out.println("No such file directory. Question cannot be obtained");
-        }
-        return (ArrayList<String>)fileList;
-    }
-    
-    // create a method to create questionList/answerList/optionsList
-    public static ArrayList<String> getArrayList(ArrayList<String> originalArrayList, int multipleOfLine) {
-        ArrayList<String> newArray = new ArrayList<>();
-        for (int i = 0; i < originalArrayList.size(); i++) {
-            if ((i-multipleOfLine)%3 == 0) {
-                newArray.add(originalArrayList.get(i));
-            }
-        }
-        return newArray;
-    }
+    // by connecting to database
     // create a method to create questionList
     private static ArrayList<String> getQuestionArrayList() {
-        ArrayList<String> newArray = getArrayList(l1, 3);
+        ArrayList<String> newArray = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            newArray.add(Utilities.getTrivia(i)[0]);
+        }
         return newArray;
     }
     // create a method to create optionsList
     private static ArrayList<String> getOptionsArrayList() {
-        ArrayList<String> newArray = getArrayList(l1, 1);
+        ArrayList<String> newArray = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            newArray.add(Utilities.getTrivia(i)[1]);
+        }
         return newArray;
     }
     // create a method to create answerList
     private static ArrayList<String> getAnswerArrayList() {
-        ArrayList<String> newArray = getArrayList(l1, 2);
+        ArrayList<String> newArray = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            newArray.add(Utilities.getTrivia(i)[2]);
+        }
         return newArray;
     }
-}
     
-//    // by connecting to database
+//    // create a method to read file as list by using TriviaSample.txt file
+//    public static ArrayList<String> readFileInArrayList(String filepath) {
+//        List<String> fileList = new ArrayList<>();
+//        try {
+//            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
+//        } catch (Exception e) {
+//            System.out.println("No such file directory. Question cannot be obtained");
+//        }
+//        return (ArrayList<String>)fileList;
+//    }
+//    
+//    // create a method to create questionList/answerList/optionsList
+//    public static ArrayList<String> getArrayList(ArrayList<String> originalArrayList, int multipleOfLine) {
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 0; i < originalArrayList.size(); i++) {
+//            if ((i-multipleOfLine)%3 == 0) {
+//                newArray.add(originalArrayList.get(i));
+//            }
+//        }
+//        return newArray;
+//    }
 //    // create a method to create questionList
 //    private static ArrayList<String> getQuestionArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[0]);
-//        }
+//        ArrayList<String> newArray = getArrayList(l1, 3);
 //        return newArray;
 //    }
 //    // create a method to create optionsList
 //    private static ArrayList<String> getOptionsArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[1]);
-//        }
+//        ArrayList<String> newArray = getArrayList(l1, 1);
 //        return newArray;
 //    }
 //    // create a method to create answerList
 //    private static ArrayList<String> getAnswerArrayList() {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 1; i <= 10; i++) {
-//            newArray.add(Utilities.getTrivia(i)[2]);
-//        }
+//        ArrayList<String> newArray = getArrayList(l1, 2);
 //        return newArray;
 //    }
-//
-//}
+}
