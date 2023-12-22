@@ -20,7 +20,8 @@ public class dailyTrivia extends Trivia{
     }
     
     public int getDayLogin(String username) {
-        return (int)login.daysAfterRegistration(username);
+//        return (int)login.daysAfterRegistration(username);
+return 3;
     }
     
     public static void main(String[] args) {
@@ -93,13 +94,18 @@ public class dailyTrivia extends Trivia{
     }
     
     // return the boolean value of the answer chosen
-    public boolean isCorrectAnswer(int noOfQuestion) {
+    public boolean getIsCorrectAnswerCurrently(int noOfQuestion) {
         return getQuestionSetCanBeAnswered().get(noOfQuestion-1).getIsCorrectForTrial();
+    }
+    
+    // return the boolean value of the answer chosen
+    public boolean getIsCorrectAnswerFinally(int noOfQuestion) {
+        return getQuestionSetCanBeAnswered().get(noOfQuestion-1).getIsCorrect();
     }
     
     // return string value of the title (not neccesary to be used)
     public String title(int noOfQuestion) {
-        if (getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt() >= 2 || getQuestionSetCanBeAnswered().get(noOfQuestion-1).getIsCorrect()) {
+        if (getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt() >= 2 || getIsCorrectAnswerFinally(noOfQuestion)) {
             return "Day " + noOfQuestion + " Trivia ( Attempt without marks increment )";
         }
         return "Day " + noOfQuestion + " Trivia ( Attempt #" + (getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt()+1) + " )";
@@ -107,10 +113,10 @@ public class dailyTrivia extends Trivia{
     
     // has to be run to update isCorrect, numberOfAttempt and to increasuser marks if any
     public void isCorrect(int noOFQuestion, String selectedAnswer) {
-        if (!getQuestionSetCanBeAnswered().get(noOFQuestion-1).getIsCorrect()) {
+        if (!getIsCorrectAnswerFinally(noOFQuestion)) {
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrect(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
-            updateNoOfAttempt(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).getNumberOFAttempt(), getQuestionSetCanBeAnswered().get(noOFQuestion-1).getIsCorrect());
+            updateNoOfAttempt(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).getNumberOFAttempt(), getIsCorrectAnswerFinally(noOFQuestion));
             increasePoints(username, getmarkAllocated(noOFQuestion));
         } else {
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
@@ -131,7 +137,7 @@ public class dailyTrivia extends Trivia{
         String option = input.nextLine();
         // check if the answer input is correct
         this.isCorrect(noOfQuestion, option);
-        System.out.println(isCorrectAnswer(noOfQuestion));
+        System.out.println(getIsCorrectAnswerCurrently(noOfQuestion));
                 
         System.out.println("Mark allocated : " + getmarkAllocated(noOfQuestion));
                 
@@ -152,9 +158,9 @@ public class dailyTrivia extends Trivia{
     }
     
     private double markAllocated(int noOfQuestion, int noOfAttempt) {
-        if(isCorrectAnswer(noOfQuestion) && noOfAttempt == 0){
+        if(getIsCorrectAnswerFinally(noOfQuestion) && noOfAttempt == 0){
             return 2;
-        } else if (isCorrectAnswer(noOfQuestion) && noOfAttempt == 1){
+        } else if (getIsCorrectAnswerFinally(noOfQuestion) && noOfAttempt == 1){
             return 1;
         } return 0;
     }
@@ -201,10 +207,10 @@ public class dailyTrivia extends Trivia{
 
         
 class Trivia {
-//     // declare filepath
-//    private static String filepath = "C:\\Users\\PC\\Documents\\NetBeansProjects\\harimau_newsTrial\\src\\main\\java\\com\\mycompany\\harimau_newstrial\\TriviaSample.txt";
-//    
-//    private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
+     // declare filepath
+    private static String filepath = "src/main/resources/TriviaSample.txt";
+    
+    private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
     private static final ArrayList<String> questionList = getQuestionArrayList();// create ArraylLst for questions
     private static final ArrayList<String> answerList = getAnswerArrayList();// create Arraylist for  answer
     private static final ArrayList<String> optionList = getOptionsArrayList();
@@ -300,66 +306,94 @@ class Trivia {
         this.numberOfAttempt = noOfAttempt;
     }
     
-    // by connecting to database
-    // create a method to create questionList
-    private static ArrayList<String> getQuestionArrayList() {
-        ArrayList<String> newArray = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            newArray.add(Utilities.getTrivia(i)[0]);
-        }
-        return newArray;
-    }
-    // create a method to create optionsList
-    private static ArrayList<String> getOptionsArrayList() {
-        ArrayList<String> newArray = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            newArray.add(Utilities.getTrivia(i)[1]);
-        }
-        return newArray;
-    }
-    // create a method to create answerList
-    private static ArrayList<String> getAnswerArrayList() {
-        ArrayList<String> newArray = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            newArray.add(Utilities.getTrivia(i)[2]);
-        }
-        return newArray;
-    }
-    
-//    // create a method to read file as list by using TriviaSample.txt file
-//    public static ArrayList<String> readFileInArrayList(String filepath) {
-//        List<String> fileList = new ArrayList<>();
-//        try {
-//            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
-//        } catch (Exception e) {
-//            System.out.println("No such file directory. Question cannot be obtained");
-//        }
-//        return (ArrayList<String>)fileList;
-//    }
-//    
-//    // create a method to create questionList/answerList/optionsList
-//    public static ArrayList<String> getArrayList(ArrayList<String> originalArrayList, int multipleOfLine) {
-//        ArrayList<String> newArray = new ArrayList<>();
-//        for (int i = 0; i < originalArrayList.size(); i++) {
-//            if ((i-multipleOfLine)%3 == 0) {
-//                newArray.add(originalArrayList.get(i));
-//            }
-//        }
-//        return newArray;
-//    }
+//    // by connecting to database
 //    // create a method to create questionList
 //    private static ArrayList<String> getQuestionArrayList() {
-//        ArrayList<String> newArray = getArrayList(l1, 3);
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[0]);
+//        }
 //        return newArray;
 //    }
 //    // create a method to create optionsList
 //    private static ArrayList<String> getOptionsArrayList() {
-//        ArrayList<String> newArray = getArrayList(l1, 1);
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[1]);
+//        }
 //        return newArray;
 //    }
 //    // create a method to create answerList
 //    private static ArrayList<String> getAnswerArrayList() {
-//        ArrayList<String> newArray = getArrayList(l1, 2);
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[2]);
+//        }
 //        return newArray;
 //    }
+//    
+    // create a method to read file as list by using TriviaSample.txt file
+    public static ArrayList<String> readFileInArrayList(String filepath) {
+        List<String> fileList = new ArrayList<>();
+        try {
+            fileList = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
+        } catch (Exception e) {
+            System.out.println("No such file directory. Question cannot be obtained");
+        }
+        return (ArrayList<String>)fileList;
+    }
+    
+    // create a method to create questionList/answerList/optionsList
+    public static ArrayList<String> getArrayList(ArrayList<String> originalArrayList, int multipleOfLine) {
+        ArrayList<String> newArray = new ArrayList<>();
+        for (int i = 0; i < originalArrayList.size(); i++) {
+            if ((i-multipleOfLine)%3 == 0) {
+                newArray.add(originalArrayList.get(i));
+            }
+        }
+        return newArray;
+    }
+    // create a method to create questionList
+    private static ArrayList<String> getQuestionArrayList() {
+        ArrayList<String> newArray = getArrayList(l1, 3);
+        return newArray;
+    }
+    // create a method to create optionsList
+    private static ArrayList<String> getOptionsArrayList() {
+        ArrayList<String> newArray = getArrayList(l1, 1);
+        return newArray;
+    }
+    // create a method to create answerList
+    private static ArrayList<String> getAnswerArrayList() {
+        ArrayList<String> newArray = getArrayList(l1, 2);
+        return newArray;
+    }
 }
+    
+//    // by connecting to database
+//    // create a method to create questionList
+//    private static ArrayList<String> getQuestionArrayList() {
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[0]);
+//        }
+//        return newArray;
+//    }
+//    // create a method to create optionsList
+//    private static ArrayList<String> getOptionsArrayList() {
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[1]);
+//        }
+//        return newArray;
+//    }
+//    // create a method to create answerList
+//    private static ArrayList<String> getAnswerArrayList() {
+//        ArrayList<String> newArray = new ArrayList<>();
+//        for (int i = 1; i <= 10; i++) {
+//            newArray.add(Utilities.getTrivia(i)[2]);
+//        }
+//        return newArray;
+//    }
+//
+//}
