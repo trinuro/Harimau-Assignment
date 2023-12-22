@@ -26,14 +26,10 @@ import javax.swing.text.Document;
  * @author user
  */
 public class gui_merchandise extends javax.swing.JFrame {
-//    private int id_obj1 = 0;
-//    private int id_obj2 = 1;
-//    private int id_obj3 = 2;
-//    
-//    private int point_obj1 = 100;
-//    private int point_obj2 = 200;
-//    private int point_obj3 = 80;
+
    
+    ExistingUser a= new ExistingUser();;
+    
     public gui_merchandise() {
         initComponents();
 //        this.setResizable(false);
@@ -599,11 +595,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         String obj3_quantity = text_obj3Quantity.getText(); 
         System.out.println("User entered: " + obj3_quantity);
     }//GEN-LAST:event_text_obj3QuantityActionPerformed
-   String username="ren";
-   
-   public gui_merchandise(String username){
-       this.username=username;
-   }
+//   
     
     private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
         
@@ -615,9 +607,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj2_quantity.isEmpty()) {
                 try {
                     int quantity2 = Integer.parseInt(obj2_quantity);
-                    Utilities.getMerchandiseData(username);
+                    Utilities.getMerchandiseData(a.getUsername());
                     //Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
-                    store_donation.getMerchandisePoint(username, id_obj2,(int)quantity2, text_obj2Address.getText());
+                    store_donation.getMerchandisePoint(a.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -661,9 +653,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj1_quantity.isEmpty()) {
                 try {
                     int quantity1 = Integer.parseInt(obj1_quantity);
-                    Utilities.getMerchandiseData(username);
-//                    Utilities.buyMerch("hzw", "name_obj1", (int)quantity1, text_obj1Address.getText());
-                    store_donation.getMerchandisePoint(username, id_obj1,(int)quantity1, text_obj1Address.getText());
+                    Utilities.getMerchandiseData(a.getUsername());
+//                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
+                    store_donation.getMerchandisePoint(a.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -697,9 +689,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj3_quantity.isEmpty()) {
                 try {
                     int quantity3 = Integer.parseInt(obj3_quantity);
-                    Utilities.getMerchandiseData(username);
-                    //Utilities.buyMerch(username, "name_obj1", (int)quantity3, text_obj3Address.getText());
-                    store_donation.getMerchandisePoint(username, id_obj3,(int)quantity3, text_obj3Address.getText());
+                    Utilities.getMerchandiseData(a.getUsername());
+                    //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, text_obj3Address.getText());
+                    store_donation.getMerchandisePoint(a.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -787,7 +779,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         dialog.setTitle("Merchandise Purchase History");
 
         
-        ArrayList<String> data = Utilities.getMerchandiseData(username);
+        ArrayList<String> data = Utilities.getMerchandiseData("hzw");
         StringBuilder purchaseData = new StringBuilder();
 
         for (String dataItem : data) {
