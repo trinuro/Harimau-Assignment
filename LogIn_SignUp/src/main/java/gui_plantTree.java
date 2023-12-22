@@ -1,6 +1,10 @@
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 
 
@@ -120,7 +124,7 @@ public class gui_plantTree extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Points needed: 20 points");
+        jLabel3.setText("Points needed: 50 points");
 
         nameOfTree1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +167,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                 .addComponent(nameTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jLabel3)
-                .addGap(37, 37, 37)
+                .addGap(38, 38, 38)
                 .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(nameOfTree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,7 +193,7 @@ public class gui_plantTree extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Points needed: 30 points");
+        jLabel4.setText("Points needed: 60 points");
 
         jLabel10.setText("Name of tree: ");
 
@@ -202,39 +206,37 @@ public class gui_plantTree extends javax.swing.JFrame {
                 .addComponent(tree2btn)
                 .addGap(179, 179, 179))
             .addGroup(plantTree2BGLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(plantTree2BGLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(129, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
-                        .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
-                        .addComponent(nameTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(184, 184, 184))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nameTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(187, 187, 187))
         );
         plantTree2BGLayout.setVerticalGroup(
             plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BGLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameTree2)
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel4)
-                .addGap(30, 30, 30)
+                .addGap(38, 38, 38)
                 .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel10)
+                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addComponent(tree2btn)
-                .addGap(54, 54, 54))
+                .addGap(56, 56, 56))
         );
 
         plantTree2BG1.setBackground(new java.awt.Color(210, 227, 200));
@@ -252,7 +254,7 @@ public class gui_plantTree extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Points needed: 40 points");
+        jLabel5.setText("Points needed: 70 points");
 
         nameOfTree3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,42 +270,44 @@ public class gui_plantTree extends javax.swing.JFrame {
             plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BG1Layout.createSequentialGroup()
                 .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                            .addGap(218, 218, 218)
-                            .addComponent(nameTree3))
-                        .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                            .addGap(118, 118, 118)
-                            .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                            .addGap(151, 151, 151)
-                            .addComponent(jLabel5))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
-                            .addGap(72, 72, 72)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(tree3btn)))
+                        .addGap(118, 118, 118)
+                        .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(plantTree2BG1Layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jLabel5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(118, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
+                        .addComponent(nameTree3)
+                        .addGap(189, 189, 189))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
+                        .addComponent(tree3btn)
+                        .addGap(164, 164, 164))))
         );
         plantTree2BG1Layout.setVerticalGroup(
             plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BG1Layout.createSequentialGroup()
                 .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nameTree3)
-                .addGap(23, 23, 23)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(18, 18, 18)
                 .addComponent(tree3btn)
-                .addGap(60, 60, 60))
+                .addGap(56, 56, 56))
         );
 
         purchaseHistorybtn.setText("View purchase history");
@@ -337,22 +341,20 @@ public class gui_plantTree extends javax.swing.JFrame {
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
+            .addGroup(panel_menuLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(purchaseHistorybtn))
                 .addGap(23, 23, 23)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(plantTree2BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(338, 338, 338))
-            .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         panel_main.setBackground(new java.awt.Color(134, 167, 137));
@@ -486,27 +488,60 @@ public class gui_plantTree extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void tree1btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree1btnActionPerformed
-            if(evt.getSource() == tree1btn){
-                String treename = nameOfTree1.getText();
-
-            store_donation.getPlantATreePoint(a.getUsername(), treename);
+        double points= Double.parseDouble(login.getUserData("maomao", "current_points"));
+        double  pointUsed= 50;
+        if(evt.getSource() == tree1btn){
+            String treename = nameOfTree1.getText();
+            if(treename != null){
+                store_donation.getPlantATreePoint(a.getUsername(), treename); 
+                    if(points >= pointUsed){                    
+                    JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                    }               
             }
+            else{
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+            }
+        }
     }//GEN-LAST:event_tree1btnActionPerformed
 
     private void tree2btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree2btnActionPerformed
+        double points= Double.parseDouble(login.getUserData("maomao", "current_points"));
+        double  pointUsed= 60;
         if(evt.getSource() == tree2btn){
-                String treename = nameOfTree2.getText();
-
-                store_donation.getPlantATreePoint(a.getUsername(), treename);
-                }
+            String treename = nameOfTree2.getText();
+            if(treename != null){
+                store_donation.getPlantATreePoint("maomao", treename); 
+                    if(points >= pointUsed){                    
+                    JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                    }               
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+            }
+        }
     }//GEN-LAST:event_tree2btnActionPerformed
 
     private void tree3btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree3btnActionPerformed
+        double points= Double.parseDouble(login.getUserData(a.getUsername(), "current_points"));
+        double pointUsed= 70;
         if(evt.getSource() == tree3btn){
-                String treename = nameOfTree3.getText();
-
-                    store_donation.getPlantATreePoint(a.getUsername(), treename);
-                }
+            String treename = nameOfTree3.getText();
+            if(treename != null){
+                store_donation.getPlantATreePoint(a.getUsername(), treename); 
+                    if(points >= pointUsed){                    
+                    JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                    }               
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+            }
+        }
     }//GEN-LAST:event_tree3btnActionPerformed
 
     private void nameOfTree1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameOfTree1ActionPerformed
@@ -518,11 +553,36 @@ public class gui_plantTree extends javax.swing.JFrame {
             //getTreePlantedData
             JDialog dialog = new JDialog();
             dialog.setTitle("Tree purchase history");
-            
+        
             ArrayList<String> treePurchaseData = Utilities.getTreePlantedData(a.getUsername());
+            StringBuilder purchaseOfTree = new StringBuilder();
             
-          
-          
+            for(String data: treePurchaseData){
+                purchaseOfTree.append(data).append("\n");
+            }
+            
+            
+            
+            //Create JTextArea to display the purchase history
+            JTextArea textArea = new JTextArea(purchaseOfTree.toString());
+            textArea.setEditable(false);
+            
+            textArea.setAlignmentX(CENTER_ALIGNMENT);
+            
+            //add scroolpane for scrolling down
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            
+            dialog.setLayout(new BorderLayout());
+            
+            dialog.add(scrollPane, BorderLayout.CENTER);
+            
+            dialog.setSize(400,200);
+            
+            //make the dialog at the center of screen
+            dialog.setLocationRelativeTo(null);
+            
+            //make the dialog visible
+            dialog.setVisible(true);        
         }
     }//GEN-LAST:event_purchaseHistorybtnActionPerformed
 
