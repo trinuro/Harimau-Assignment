@@ -20,8 +20,7 @@ public class dailyTrivia extends Trivia{
     }
     
     public int getDayLogin(String username) {
-//        return (int)login.daysAfterRegistration(username);
-return 3;
+        return (int)login.daysAfterRegistration(username);
     }
     
     public static void main(String[] args) {
@@ -117,7 +116,7 @@ return 3;
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrect(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
             updateNoOfAttempt(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).getNumberOFAttempt(), getIsCorrectAnswerFinally(noOFQuestion));
-            increasePoints(username, getmarkAllocated(noOFQuestion));
+            login.increasePoints(username, getmarkAllocated(noOFQuestion));
         } else {
             getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
             System.out.println("Thanks for trying again");
@@ -169,39 +168,6 @@ return 3;
         if (!isCorrect) {
             getQuestionSetCanBeAnswered().get(noOfQuestion-1).setNumberOFAttempt(++noOfAttempt);
         }
-    }
-    
-    private static void increasePoints(String username, double increment){
-//        int initialPoints=0;
-//        
-//        try(
-//        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-//        Statement stmt = conn.createStatement();
-//           ){
-//            // Create SQL Query
-//            String sqlQuery = String.format("SELECT current_points FROM user_table WHERE username=\'%s\';",username);
-//            System.out.println("SQL Statement to be executed: "+sqlQuery);
-//            
-//            // Execute query
-//            ResultSet rset = stmt.executeQuery(sqlQuery);
-//            while(rset.next()){
-//                initialPoints = rset.getInt("current_points");
-//            }
-//            System.out.println(initialPoints);
-//            
-//            
-//            // Create SQL Insert
-//            String sqlInsert = String.format("UPDATE user_table SET current_points= %d WHERE username = \'%s\';", initialPoints+increment, username);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
-//            
-//            // Insert information into database
-//            int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
-//            
-//        }catch(SQLException ex){
-//            System.out.println("SQL failed! Find Khiew");
-//            ex.printStackTrace();
-//        }        
     }
 }
 
