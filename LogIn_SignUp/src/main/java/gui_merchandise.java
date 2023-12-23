@@ -28,7 +28,7 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser a= new ExistingUser();;
+    ExistingUser user = new ExistingUser();;
     
     public gui_merchandise() {
         initComponents();
@@ -607,9 +607,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj2_quantity.isEmpty()) {
                 try {
                     int quantity2 = Integer.parseInt(obj2_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -653,9 +653,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj1_quantity.isEmpty()) {
                 try {
                     int quantity1 = Integer.parseInt(obj1_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
 //                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -689,9 +689,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj3_quantity.isEmpty()) {
                 try {
                     int quantity3 = Integer.parseInt(obj3_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, text_obj3Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
                 
                 } catch (NumberFormatException e) {
