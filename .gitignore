@@ -11,3 +11,4 @@ LogIn_SignUp/target/classes/Secrets.class
 LogIn_SignUp/src/main/resources/nothing-to-see.json
 LogIn_SignUp/target/
 LogIn_SignUp/tokens/StoredCredential
+LogIn_SignUp/target/classes/credentials.json
