@@ -5,6 +5,7 @@
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -83,7 +84,6 @@ public class real_login_gui extends javax.swing.JFrame {
             }
         });
 
-        signup.setBackground(new java.awt.Color(235, 243, 232));
         signup.setText("Sign Up");
         signup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,18 +260,25 @@ public class real_login_gui extends javax.swing.JFrame {
         String username = usernameEnter.getText();
         String password = passwordEnter.getText();
         boolean isPasswordCorrect = false;
+        ExistingUser a = new ExistingUser(username,email);
+        
+        
         try {
-            isPasswordCorrect = login.checkPassword(email, username, password);
+            isPasswordCorrect = a.checkPassword(password);
+            
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(isPasswordCorrect == true){
-            login.checkIn(username);
+            a.checkIn();
+            System.out.println(a.getUsername());
+            //login success and login into home page
+            setVisible(false); 
+            new gui_home().setVisible(true);                     
         }
         else{
-            //if got error
-            setVisible(false);
-            new ifRealLoginWrong().setVisible(true);
+            //if got error when fill in login message
+            JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -291,7 +298,13 @@ public class real_login_gui extends javax.swing.JFrame {
     }//GEN-LAST:event_emailEnterActionPerformed
 
     private void resetPasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordbtnActionPerformed
-        
+        if(evt.getSource() == resetPasswordbtn){
+        //juz create a page then start reset
+//        setVisible(false);
+//        new forgottenPassword().setVisible(true);
+        String m = JOptionPane.showInputDialog("Enter your email");
+            System.out.println(m);
+        }
     }//GEN-LAST:event_resetPasswordbtnActionPerformed
 
     /**
