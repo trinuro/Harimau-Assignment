@@ -86,7 +86,6 @@ public class gui_merchandise extends javax.swing.JFrame {
         name_obj1.setText("      canvas bag");
 
         point_obj1.setText("100 points");
-        int pointObj1 = point_obj1;
 
         text_obj1Quantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

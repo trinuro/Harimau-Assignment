@@ -14,3 +14,4 @@ LogIn_SignUp/tokens/StoredCredential
 LogIn_SignUp/target/classes/credentials.json
 /LogIn_SignUp/src/main/resources/credentials.json
 /LogIn_SignUp/temp.txt
+/LogIn_SignUp/src/main/java/NewMain.java
