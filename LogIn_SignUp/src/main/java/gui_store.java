@@ -10,7 +10,7 @@
  * @author user
  */
 public class gui_store extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form gui_home
      */
