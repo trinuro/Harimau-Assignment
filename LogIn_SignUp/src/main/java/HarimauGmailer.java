@@ -7,89 +7,137 @@
  *
  * @author Khiew
  */
+
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.services.gmail.Gmail;
+import com.google.api.services.gmail.model.Message;
+import com.google.auth.http.HttpCredentialsAdapter;
+import com.google.auth.oauth2.GoogleCredentials;
+import org.apache.commons.codec.binary.Base64;
+
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.GeneralSecurityException;
+import java.util.Properties;
+
+import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.googleapis.json.GoogleJsonError;
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.gmail.Gmail;
-import com.google.api.services.gmail.model.Message;
-import org.apache.commons.codec.binary.Base64;
+import com.google.api.services.gmail.GmailScopes;
 
-import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.file.Paths;
-import java.util.Properties;
-import java.util.Set;
-
-import static com.google.api.services.gmail.GmailScopes.GMAIL_SEND;
-import static javax.mail.Message.RecipientType.TO;
+import java.security.GeneralSecurityException;
+import java.util.Arrays;
 
 public class HarimauGmailer {
-    private final Gmail service;
 
-    public HarimauGmailer() throws Exception {
-        NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-        GsonFactory jsonFactory = GsonFactory.getDefaultInstance();
-        service = new Gmail.Builder(httpTransport, jsonFactory, getCredentials(httpTransport, jsonFactory))
-                .setApplicationName("Test Mailer")
-                .build();
-    }
+    private static final String APPLICATION_NAME = "test-project";
+    private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
-    private static Credential getCredentials(final NetHttpTransport httpTransport, GsonFactory jsonFactory)
-            throws IOException {
-        // Set path to your secret JSON
+    public static void sendEmail(String destinationEmail, String subject, String bodyText) throws IOException, GeneralSecurityException, MessagingException {
+        // Function to send email
+        
+        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         System.out.println("1");
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(HarimauGmailer.class.getResourceAsStream(Secrets.getJSON())));
+        InputStream inputStream = HarimauGmailer.class.getClassLoader()
+                .getResourceAsStream("credentials.json");
+        System.out.println(inputStream);
         System.out.println("2");
-        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-                httpTransport, jsonFactory, clientSecrets, Set.of(GMAIL_SEND))
-                .setDataStoreFactory(new FileDataStoreFactory(Paths.get("tokens").toFile()))
-                .setAccessType("offline")
+        GoogleCredentials googleCredentials = GoogleCredentials.fromStream(inputStream);
+        System.out.println("3");
+        HttpRequestInitializer credentials = new HttpCredentialsAdapter(googleCredentials);
+
+        Gmail service = new Gmail.Builder(HTTP_TRANSPORT, JSON_FACTORY, credentials)
+                .setApplicationName(APPLICATION_NAME)
                 .build();
 
-        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
-        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+//        String attachmentFilePath = HarimauGmailer.class.getClassLoader()
+//                .getResource("attachment.txt")
+//                .getPath();
+
+//        File file = new File(attachmentFilePath);
+        final Message message = createEmail(destinationEmail, Secrets.getSenderEmail(), subject, bodyText);
+        service.users().messages().send("me", message).execute();
     }
 
-    public void sendMail(String sender_email, String recipient_email, String subject, String message) throws Exception {
+    public static Message createEmail(String toEmailAddress,
+                                      String fromEmailAddress,
+                                      String subject,
+                                      String bodyText)
+            throws MessagingException, IOException {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
+
         MimeMessage email = new MimeMessage(session);
-        email.setFrom(new InternetAddress(sender_email));
-        // Set recipient email
-        email.addRecipient(TO, new InternetAddress(recipient_email));
+
+        email.setFrom(new InternetAddress(fromEmailAddress));
+        email.addRecipient(javax.mail.Message.RecipientType.TO,
+                new InternetAddress(toEmailAddress));
         email.setSubject(subject);
-        email.setText(message);
+        email.setText(bodyText);
+
+        MimeBodyPart mimeBodyPart = new MimeBodyPart();
+//        DataSource source = new FileDataSource(file);
+//        mimeBodyPart.setDataHandler(new DataHandler(source));
+//        mimeBodyPart.setFileName(file.getName());
+
+//        Multipart multipart = new MimeMultipart();
+//        multipart.addBodyPart(mimeBodyPart);
+//        email.setContent(multipart);
 
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         email.writeTo(buffer);
         byte[] rawMessageBytes = buffer.toByteArray();
         String encodedEmail = Base64.encodeBase64URLSafeString(rawMessageBytes);
-        Message msg = new Message();
-        msg.setRaw(encodedEmail);
+        final Message message = new Message();
+        message.setRaw(encodedEmail);
 
-        try {
-            msg = service.users().messages().send("me", msg).execute();
-            System.out.println("Message id: " + msg.getId());
-            System.out.println(msg.toPrettyString());
-        } catch (GoogleJsonResponseException e) {
-            GoogleJsonError error = e.getDetails();
-            if (error.getCode() == 403) {
-                System.err.println("Unable to send message: " + e.getDetails());
-            } else {
-                throw e;
-            }
+        return message;
+    }
+    public static void getRefreshToken(){
+        try{
+            final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+            Credential credentials = getCredentials(HTTP_TRANSPORT);
+
+            System.out.println(credentials.getRefreshToken());
+        }catch(Exception e){
+            System.out.println(e);
         }
+    }
+    
+        private static Credential getCredentials(final NetHttpTransport transport) throws IOException {
+        AuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(transport,
+                GsonFactory.getDefaultInstance(),
+                "270478638209-oq8o953vo9gclfo7gvkeb6sjvpgsq0ms.apps.googleusercontent.com", // Client id
+                "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", // Client secrets
+                Arrays.asList(GmailScopes.GMAIL_SEND))
+                .setAccessType("offline")
+                .build();
+
+        LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+
+        return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 }

@@ -47,7 +47,7 @@ public class login {
 
              // Convert message digest into hex value
              StringBuilder hexString = new StringBuilder(number.toString(16));
-
+ 
              // Pad with leading zeros
              while (hexString.length() < 64)
              {
@@ -400,11 +400,11 @@ public class login {
 
         // Send recovery email to user
         try{
-        String sender = Secrets.getSenderEmail();
+//        String sender = Secrets.getSenderEmail();
         String receiver = recipientEmail;
         String subject = "Harimau Account Recovery";
         String message = "Your recovery password is "+recoveryPw;
-        new HarimauGmailer().sendMail(sender, receiver, subject, message);
+        HarimauGmailer.sendEmail(receiver, subject, message);
             
         }catch(Exception e){
             System.out.println(e);
