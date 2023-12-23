@@ -21,6 +21,7 @@ import java.util.Date;
  */
 public class ExistingUser extends User{
     private static String username;
+    private static String currentEmail;
     
     // Constructor method
     public ExistingUser(String name, String email){
@@ -30,6 +31,13 @@ public class ExistingUser extends User{
             throw new IllegalArgumentException("User does not exist");
         }
         setEmail(email);
+        setCurrentEmail(email);
+    }
+    
+    // Empty constructor
+    public ExistingUser(){
+        setUsername(this.getUsername());
+        setEmail(this.getCurrentEmail());
     }
     
 //    // copy constructor
@@ -60,13 +68,23 @@ public class ExistingUser extends User{
     
     // Accessor method to get username
     public String getUsername(){
-        return this.username;
+        return username;
+    }
+    
+    // Accessor method to get current email
+    public String getCurrentEmail(){
+        return this.currentEmail;
     }
     
     // Mutator method to set username
     private void setUsername(String u){
         this.username = u;
     }
+    
+    // Mutator method to set currentEmail
+    private void setCurrentEmail(String email){
+        this.currentEmail = email;
+        }
     
     // Mutator method to set email
     private void setEmail(String email){
