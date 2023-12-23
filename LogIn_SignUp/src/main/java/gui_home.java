@@ -425,7 +425,7 @@ public class gui_home extends javax.swing.JFrame {
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
@@ -452,7 +452,7 @@ public class gui_home extends javax.swing.JFrame {
 
     private void btn_quizAttemptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quizAttemptActionPerformed
         
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
