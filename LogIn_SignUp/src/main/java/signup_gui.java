@@ -8,7 +8,7 @@
  * @author Tan Zhi Wei
  */
 public class signup_gui extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
     /**
      * Creates new form signup_gui
      */
