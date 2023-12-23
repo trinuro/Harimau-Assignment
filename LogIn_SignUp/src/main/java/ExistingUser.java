@@ -23,7 +23,6 @@ public class ExistingUser extends User{
     private static String username;
     private static String currentEmail;
     
-    
     // Constructor method
     public ExistingUser(String name, String email){
         setUsername(name);
@@ -33,6 +32,10 @@ public class ExistingUser extends User{
         }
         setEmail(email);
         setCurrentEmail(email);
+    }
+
+    ExistingUser(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     // Empty constructor

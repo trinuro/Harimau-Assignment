@@ -66,7 +66,10 @@ public class news implements Comparable<news>{
     
     
     //***********************************************************************
+
+  
     // *******************START FROM HERE**********************************
+
     
     public static String getSpecificDate (int noOFNews) {
         return newsArrayList.get(noOFNews).returnSpecificDate();
@@ -78,7 +81,11 @@ public class news implements Comparable<news>{
         return newsArrayList.get(noOFNews).returnSpecificURL();
     }
     
+
+  
     // ***********************************Until here****************************************
+
+  
     //**************************************************************************************
     
 
@@ -204,4 +211,6 @@ public class news implements Comparable<news>{
 //        }
 //        return newArray;
 //    }
+
 }
+

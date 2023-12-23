@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -26,11 +26,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="panel_menu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
           <Component id="panel_main" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="panel_menu" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -38,8 +39,8 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="panel_main" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panel_menu" min="-2" pref="1010" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Component id="panel_menu" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,10 +65,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <Component id="label_home" min="-2" pref="103" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="1718" max="32767" attributes="0"/>
+                  <EmptySpace pref="11175" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -76,9 +81,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="label_home" min="-2" pref="55" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Component id="jPanel2" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="643" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -103,14 +111,14 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                       <Component id="btn_quizAttempt" min="-2" pref="184" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                       <Component id="img_bulb" min="-2" pref="380" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -118,7 +126,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="img_bulb" pref="274" max="32767" attributes="0"/>
+                      <Component id="img_bulb" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_quizAttempt" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -151,6 +159,161 @@
                 </Property>
               </Properties>
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="249" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane7" pref="917" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" min="-2" pref="459" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial Rounded MT Bold" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Top 5 News about Nature"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="jPanel5">
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane3" pref="893" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane6" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane5" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane6" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane4" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JEditorPane" name="jEditorPaneN2">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jEditorPaneN2.setContentType(&quot;text/html&quot;);&#xa;jEditorPaneN2.setEditable(false);&#xa;String titleN2 = news.getSpecificTitle(1);&#xa;        String urlN2 = news.getSpecificURL(1);&#xa;        String dateN2 = news.getSpecificDate(1);&#xa;&#xa;        String htmlTextN2 = &quot;&lt;html&gt;&quot; +&#xa;                &quot;&lt;h1&gt;&quot; + titleN2 + &quot;&lt;/h1&gt;&quot; +&#xa;                &quot;&lt;p&gt;&lt;a href=\&quot;&quot; + urlN2 + &quot;\&quot;&gt;&quot;+ urlN2 +&quot;&lt;/a&gt;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;p&gt;Date: &quot; + dateN2 + &quot;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;/html&gt;&quot;;&#xa;        jEditorPaneN2.setText(htmlTextN2);&#xa;&#xa;jEditorPaneN2.addHyperlinkListener(new HyperlinkListener() {&#xa;            @Override&#xa;            public void hyperlinkUpdate(HyperlinkEvent e) {&#xa;                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {&#xa;                    openURL(e.getURL().toString());&#xa;                }&#xa;            }&#xa;        });"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JEditorPane" name="jEditorPaneN1">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jEditorPaneN1.setContentType(&quot;text/html&quot;);&#xa;jEditorPaneN1.setEditable(false);&#xa;String titleN1 = news.getSpecificTitle(0);&#xa;        String urlN1 = news.getSpecificURL(0);&#xa;        String dateN1 = news.getSpecificDate(0);&#xa;&#xa;        String htmlTextN1 = &quot;&lt;html&gt;&quot; +&#xa;                &quot;&lt;h1&gt;&quot; + titleN1 + &quot;&lt;/h1&gt;&quot; +&#xa;                &quot;&lt;p&gt;&lt;a href=\&quot;&quot; + urlN1 + &quot;\&quot;&gt;&quot;+urlN1+&quot;&lt;/a&gt;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;p&gt;Date: &quot; + dateN1 + &quot;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;/html&gt;&quot;;&#xa;        jEditorPaneN1.setText(htmlTextN1);&#xa;&#xa;jEditorPaneN1.addHyperlinkListener(new HyperlinkListener() {&#xa;            @Override&#xa;            public void hyperlinkUpdate(HyperlinkEvent e) {&#xa;                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {&#xa;                    openURL(e.getURL().toString());&#xa;                }&#xa;            }&#xa;        });"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JEditorPane" name="jEditorPaneN5">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jEditorPaneN5.setContentType(&quot;text/html&quot;);&#xa;jEditorPaneN5.setEditable(false);&#xa;String titleN5 = news.getSpecificTitle(4);&#xa;        String urlN5 = news.getSpecificURL(4);&#xa;        String dateN5 = news.getSpecificDate(4);&#xa;&#xa;        String htmlTextN5 = &quot;&lt;html&gt;&quot; +&#xa;                &quot;&lt;h1&gt;&quot; + titleN5 + &quot;&lt;/h1&gt;&quot; +&#xa;                &quot;&lt;p&gt;&lt;a href=\&quot;&quot; + urlN5 + &quot;\&quot;&gt;&quot;+ urlN5 +&quot;&lt;/a&gt;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;p&gt;Date: &quot; + dateN5 + &quot;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;/html&gt;&quot;;&#xa;        jEditorPaneN5.setText(htmlTextN5);&#xa;&#xa;jEditorPaneN5.addHyperlinkListener(new HyperlinkListener() {&#xa;            @Override&#xa;            public void hyperlinkUpdate(HyperlinkEvent e) {&#xa;                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {&#xa;                    openURL(e.getURL().toString());&#xa;                }&#xa;            }&#xa;        });"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JEditorPane" name="jEditorPaneN3">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jEditorPaneN3.setContentType(&quot;text/html&quot;);&#xa;jEditorPaneN3.setEditable(false);&#xa;String titleN3 = news.getSpecificTitle(2);&#xa;        String urlN3 = news.getSpecificURL(2);&#xa;        String dateN3 = news.getSpecificDate(2);&#xa;&#xa;        String htmlTextN3 = &quot;&lt;html&gt;&quot; +&#xa;                &quot;&lt;h1&gt;&quot; + titleN3 + &quot;&lt;/h1&gt;&quot; +&#xa;                &quot;&lt;p&gt;&lt;a href=\&quot;&quot; + urlN3 + &quot;\&quot;&gt;&quot;+ urlN3 +&quot;&lt;/a&gt;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;p&gt;Date: &quot; + dateN3 + &quot;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;/html&gt;&quot;;&#xa;        jEditorPaneN3.setText(htmlTextN3);&#xa;&#xa;jEditorPaneN3.addHyperlinkListener(new HyperlinkListener() {&#xa;            @Override&#xa;            public void hyperlinkUpdate(HyperlinkEvent e) {&#xa;                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {&#xa;                    openURL(e.getURL().toString());&#xa;                }&#xa;            }&#xa;        });"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane6">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JEditorPane" name="jEditorPaneN4">
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jEditorPaneN4.setContentType(&quot;text/html&quot;);&#xa;jEditorPaneN4.setEditable(false);&#xa;String titleN4 = news.getSpecificTitle(3);&#xa;        String urlN4 = news.getSpecificURL(3);&#xa;        String dateN4 = news.getSpecificDate(3);&#xa;&#xa;        String htmlTextN4 = &quot;&lt;html&gt;&quot; +&#xa;                &quot;&lt;h1&gt;&quot; + titleN4 + &quot;&lt;/h1&gt;&quot; +&#xa;                &quot;&lt;p&gt;&lt;a href=\&quot;&quot; + urlN4 + &quot;\&quot;&gt;&quot; + urlN4 + &quot;&lt;/a&gt;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;p&gt;Date: &quot; + dateN4 + &quot;&lt;/p&gt;&quot; +&#xa;                &quot;&lt;/html&gt;&quot;;&#xa;        jEditorPaneN4.setText(htmlTextN4);&#xa;&#xa;jEditorPaneN4.addHyperlinkListener(new HyperlinkListener() {&#xa;            @Override&#xa;            public void hyperlinkUpdate(HyperlinkEvent e) {&#xa;                if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED) {&#xa;                    openURL(e.getURL().toString());&#xa;                }&#xa;            }&#xa;        });"/>
+                          </AuxValues>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
