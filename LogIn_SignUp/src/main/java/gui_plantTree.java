@@ -18,14 +18,14 @@ import javax.swing.JTextArea;
  * @author user
  */
 public class gui_plantTree extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form gui_home
      */
-    private ExistingUser a;
+    //private ExistingUser a;
     
     public gui_plantTree() {
-        a = new ExistingUser();
+        //a = new ExistingUser();
         
         initComponents();
         
@@ -457,16 +457,16 @@ public class gui_plantTree extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -475,7 +475,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
@@ -484,7 +484,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void tree1btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree1btnActionPerformed
@@ -493,7 +493,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         if(evt.getSource() == tree1btn){
             String treename = nameOfTree1.getText();
             if(treename != null){
-                store_donation.getPlantATreePoint(a.getUsername(), treename); 
+                store_donation.getPlantATreePoint(user.getUsername(), treename,0); 
                     if(points >= pointUsed){                    
                     JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
                     }else{
@@ -512,7 +512,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         if(evt.getSource() == tree2btn){
             String treename = nameOfTree2.getText();
             if(treename != null){
-                store_donation.getPlantATreePoint("maomao", treename); 
+                store_donation.getPlantATreePoint(user.getUsername(), treename,1); 
                     if(points >= pointUsed){                    
                     JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
                     }else{
@@ -526,12 +526,12 @@ public class gui_plantTree extends javax.swing.JFrame {
     }//GEN-LAST:event_tree2btnActionPerformed
 
     private void tree3btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree3btnActionPerformed
-        double points= Double.parseDouble(login.getUserData(a.getUsername(), "current_points"));
+        double points= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double pointUsed= 70;
         if(evt.getSource() == tree3btn){
             String treename = nameOfTree3.getText();
             if(treename != null){
-                store_donation.getPlantATreePoint(a.getUsername(), treename); 
+                store_donation.getPlantATreePoint(user.getUsername(),treename,2); 
                     if(points >= pointUsed){                    
                     JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
                     }else{
@@ -554,7 +554,7 @@ public class gui_plantTree extends javax.swing.JFrame {
             JDialog dialog = new JDialog();
             dialog.setTitle("Tree purchase history");
         
-            ArrayList<String> treePurchaseData = Utilities.getTreePlantedData(a.getUsername());
+            ArrayList<String> treePurchaseData = Utilities.getTreePlantedData(user.getUsername());
             StringBuilder purchaseOfTree = new StringBuilder();
             
             for(String data: treePurchaseData){
@@ -623,7 +623,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui_donation().setVisible(true);
+                new gui_plantTree().setVisible(true);
             }
         });
     }

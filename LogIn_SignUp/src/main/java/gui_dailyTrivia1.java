@@ -16,11 +16,12 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    ExistingUser a = new ExistingUser();
+    //ExistingUser a = new ExistingUser();
+    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
     
-    dailyTrivia t1 = new dailyTrivia(a.getUsername());
+    dailyTrivia t1 = new dailyTrivia(user.getUsername());
     //static int question =1;
-    int question =t1.getDayLogin(a.getUsername());
+    int question =t1.getDayLogin(user.getUsername());
     String[]optionList=t1.getOptions(question);
     
     
@@ -312,14 +313,14 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         );
         panel_mainLayout.setVerticalGroup(
             panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_donation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -349,16 +350,16 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -367,7 +368,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
@@ -376,7 +377,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
@@ -409,9 +410,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 if (t1.getIsCorrectAnswerCurrently(question) && t1.gatNumberOfAttempt(question)<=1) {
                     panel_quizMessage.setBackground(new Color(193, 225, 193));
                     quizMessage.setText("Congratulations! Your answer is correct. You have been awarded "+
-                        t1.getmarkAllocated(question)+" . You now have " +login.getUserData(a.getUsername(), "current_points")+ " points.");
+                        t1.getmarkAllocated(question)+" . You now have " +login.getUserData(user.getUsername(), "current_points")+ " points.");
                     messageInfo = new MessageInfo("Congratulations! Your answer is correct. You have been awarded " +
-                            t1.getmarkAllocated(question) + ". You now have " +login.getUserData(a.getUsername(), "current_points")+ "D points.", new Color(193, 225, 193));
+                            t1.getmarkAllocated(question) + ". You now have " +login.getUserData(user.getUsername(), "current_points")+ "D points.", new Color(193, 225, 193));
                 
                 }else if (!t1.getIsCorrectAnswerCurrently(question) && t1.gatNumberOfAttempt(question)<=1){
                     panel_quizMessage.setBackground(new Color(250, 160, 160));

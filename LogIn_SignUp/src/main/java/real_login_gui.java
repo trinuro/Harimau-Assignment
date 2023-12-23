@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Tan Zhi Wei
  */
 public class real_login_gui extends javax.swing.JFrame {
-    
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form real_login_gui
      */
@@ -300,8 +300,10 @@ public class real_login_gui extends javax.swing.JFrame {
     private void resetPasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordbtnActionPerformed
         if(evt.getSource() == resetPasswordbtn){
         //juz create a page then start reset
-        setVisible(false);
-        new forgottenPassword().setVisible(true);
+//        setVisible(false);
+//        new forgottenPassword().setVisible(true);
+        String m = JOptionPane.showInputDialog("Enter your email");
+            System.out.println(m);
         }
     }//GEN-LAST:event_resetPasswordbtnActionPerformed
 
