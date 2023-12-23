@@ -16,11 +16,12 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    ExistingUser a = new ExistingUser();
+    //ExistingUser a = new ExistingUser();
+    ExistingUser user = new ExistingUser();
     
-    dailyTrivia t1 = new dailyTrivia(a.getUsername());
+    dailyTrivia t1 = new dailyTrivia(user.getUsername());
     //static int question =1;
-    int question =t1.getDayLogin(a.getUsername());
+    int question =t1.getDayLogin(user.getUsername());
     String[]optionList=t1.getOptions(question);
     
     
@@ -409,9 +410,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 if (t1.getIsCorrectAnswerCurrently(question) && t1.gatNumberOfAttempt(question)<=1) {
                     panel_quizMessage.setBackground(new Color(193, 225, 193));
                     quizMessage.setText("Congratulations! Your answer is correct. You have been awarded "+
-                        t1.getmarkAllocated(question)+" . You now have " +login.getUserData(a.getUsername(), "current_points")+ " points.");
+                        t1.getmarkAllocated(question)+" . You now have " +login.getUserData(user.getUsername(), "current_points")+ " points.");
                     messageInfo = new MessageInfo("Congratulations! Your answer is correct. You have been awarded " +
-                            t1.getmarkAllocated(question) + ". You now have " +login.getUserData(a.getUsername(), "current_points")+ "D points.", new Color(193, 225, 193));
+                            t1.getmarkAllocated(question) + ". You now have " +login.getUserData(user.getUsername(), "current_points")+ "D points.", new Color(193, 225, 193));
                 
                 }else if (!t1.getIsCorrectAnswerCurrently(question) && t1.gatNumberOfAttempt(question)<=1){
                     panel_quizMessage.setBackground(new Color(250, 160, 160));
