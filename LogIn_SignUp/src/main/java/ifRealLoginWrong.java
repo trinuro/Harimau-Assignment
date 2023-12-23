@@ -8,7 +8,7 @@
  * @author Tan Zhi Wei
  */
 public class ifRealLoginWrong extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form ifRealLoginWrong
      */

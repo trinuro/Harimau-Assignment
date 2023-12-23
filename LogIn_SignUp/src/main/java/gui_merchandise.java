@@ -28,7 +28,7 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser a= new ExistingUser();;
+    ExistingUser user = new ExistingUser();;
     
     public gui_merchandise() {
         initComponents();
@@ -506,14 +506,14 @@ public class gui_merchandise extends javax.swing.JFrame {
         );
         panel_mainLayout.setVerticalGroup(
             panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_donation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -544,17 +544,17 @@ public class gui_merchandise extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
         
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -563,7 +563,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
         
     }//GEN-LAST:event_btn_homeActionPerformed
 
@@ -573,7 +573,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void text_obj1QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1QuantityActionPerformed
@@ -607,9 +607,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj2_quantity.isEmpty()) {
                 try {
                     int quantity2 = Integer.parseInt(obj2_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -653,9 +653,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj1_quantity.isEmpty()) {
                 try {
                     int quantity1 = Integer.parseInt(obj1_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
 //                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -689,9 +689,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             if (!obj3_quantity.isEmpty()) {
                 try {
                     int quantity3 = Integer.parseInt(obj3_quantity);
-                    Utilities.getMerchandiseData(a.getUsername());
+                    Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, text_obj3Address.getText());
-                    store_donation.getMerchandisePoint(a.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
                     JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
                 
                 } catch (NumberFormatException e) {
@@ -873,7 +873,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui_donation().setVisible(true);
+                new gui_merchandise().setVisible(true);
             }
         });
     }
