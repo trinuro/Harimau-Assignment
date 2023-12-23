@@ -59,9 +59,9 @@ public class store_donation {
     public static double getPlantATreePoint(String userName, String nameTree,int id){
         //example of prize of tree
         double [] prizeTree=new double [3];
-        prizeTree[0]=100;
-        prizeTree[1]=200;
-        prizeTree[2]=80;
+        prizeTree[0]=50;
+        prizeTree[1]=60;
+        prizeTree[2]=70;
         
         //get current point from user;
         double points= Double.parseDouble(login.getUserData(userName, "current_points"));
