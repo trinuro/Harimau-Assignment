@@ -544,17 +544,17 @@ public class gui_merchandise extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
         
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -563,7 +563,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
         
     }//GEN-LAST:event_btn_homeActionPerformed
 
@@ -573,7 +573,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void text_obj1QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1QuantityActionPerformed
@@ -873,7 +873,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui_donation().setVisible(true);
+                new gui_merchandise().setVisible(true);
             }
         });
     }
