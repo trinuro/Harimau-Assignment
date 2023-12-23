@@ -23,10 +23,6 @@ public class ExistingUser extends User{
     private static String username;
     private static String currentEmail;
     
-    
-    public ExistingUser(){
-        
-    }
     // Constructor method
     public ExistingUser(String name, String email){
         setUsername(name);
