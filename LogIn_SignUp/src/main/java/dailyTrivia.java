@@ -173,10 +173,12 @@ public class dailyTrivia extends Trivia{
 
         
 class Trivia {
+
      // declare filepath
     private static String filepath = "src/main/resources/TriviaSample.txt";
     
     private static final ArrayList<String> l1 = readFileInArrayList(filepath);// convert the file into arrrayList
+
     private static final ArrayList<String> questionList = getQuestionArrayList();// create ArraylLst for questions
     private static final ArrayList<String> answerList = getAnswerArrayList();// create Arraylist for  answer
     private static final ArrayList<String> optionList = getOptionsArrayList();
@@ -272,29 +274,35 @@ class Trivia {
         this.numberOfAttempt = noOfAttempt;
     }
     
+
 //    // by connecting to database
 //    // create a method to create questionList
 //    private static ArrayList<String> getQuestionArrayList() {
+
 //        ArrayList<String> newArray = new ArrayList<>();
 //        for (int i = 1; i <= 10; i++) {
 //            newArray.add(Utilities.getTrivia(i)[0]);
 //        }
 //        return newArray;
 //    }
+
 //    // create a method to create optionsList
 //    private static ArrayList<String> getOptionsArrayList() {
 //        ArrayList<String> newArray = new ArrayList<>();
 //        for (int i = 1; i <= 10; i++) {
 //            newArray.add(Utilities.getTrivia(i)[1]);
 //        }
+
 //        return newArray;
 //    }
 //    // create a method to create answerList
 //    private static ArrayList<String> getAnswerArrayList() {
+
 //        ArrayList<String> newArray = new ArrayList<>();
 //        for (int i = 1; i <= 10; i++) {
 //            newArray.add(Utilities.getTrivia(i)[2]);
 //        }
+
 //        return newArray;
 //    }
 //    

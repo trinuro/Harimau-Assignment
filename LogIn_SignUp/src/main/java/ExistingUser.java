@@ -21,6 +21,8 @@ import java.util.Date;
  */
 public class ExistingUser extends User{
     private static String username;
+    private static String currentEmail;
+    
     
     public ExistingUser(){
         
@@ -33,19 +35,27 @@ public class ExistingUser extends User{
             throw new IllegalArgumentException("User does not exist");
         }
         setEmail(email);
+        setCurrentEmail(email);
     }
 
     ExistingUser(String username) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-//    // copy constructor
-//    public ExistingUser(ExistingUser p){
-//        if(p==null){
-//            System.exit(0);
-//        }
-//        
-//    }
+    // Empty constructor
+    public ExistingUser(){
+        setUsername(this.getUsername());
+        setEmail(this.getCurrentEmail());
+    }
+    
+    // copy constructor
+    public ExistingUser(ExistingUser p){
+        if(p==null){
+            System.exit(0);
+        }
+        setUsername(p.getUsername());
+        setEmail(p.getEmail());
+    }
     
     // toString method
     public String toString(){
@@ -70,6 +80,11 @@ public class ExistingUser extends User{
         return this.username;
     }
     
+    // Accessor method to get current email
+    public String getCurrentEmail(){
+        return this.currentEmail;
+    }
+    
     // Mutator method to set username
     private void setUsername(String u){
         this.username = u;
@@ -78,6 +93,11 @@ public class ExistingUser extends User{
     // Mutator method to set email
     private void setEmail(String email){
         this.email = email;
+    }
+    
+    // Mutator method to set currentEmail
+    private void setCurrentEmail(String email){
+        this.currentEmail = email;
     }
     
     public void checkIn(){
