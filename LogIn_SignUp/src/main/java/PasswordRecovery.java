@@ -116,11 +116,10 @@ public class PasswordRecovery extends User{
 
         // Send recovery email to user
         try{
-        String sender = Secrets.getSenderEmail();
         String receiver = recipientEmail;
         String subject = "Harimau Account Recovery";
         String message = "Your recovery password is "+recoveryPw;
-        new HarimauGmailer().sendMail(sender, receiver, subject, message);
+        HarimauGmailer.sendEmail( receiver, subject, message);
             
         }catch(Exception e){
             System.out.println(e);
