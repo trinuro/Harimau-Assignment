@@ -2,12 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Tan Zhi Wei
  */
+
 public class signup_gui extends javax.swing.JFrame {
+    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
 
     /**
      * Creates new form signup_gui
@@ -256,15 +258,18 @@ public class signup_gui extends javax.swing.JFrame {
             String username = usernameEnter.getText();
             String password = passwordEnter1.getText();
             String cfPassword = cfPasswordEnter.getText();
-            boolean isUserCreated = signup.createNewUser(email, username, password, cfPassword);
+            NewUser usern = new NewUser(email,username,password,cfPassword);
+
+            boolean isUserCreated = usern.createNewUser();
             if(isUserCreated == true){
-                login.checkIn(username);
+                ExistingUser userm = new ExistingUser(username, email);
+                userm.checkIn();
+                setVisible(false);
+                new gui_home().setVisible(true);
             }
             else{
-                //return to sign up page
-                //if got error
-                setVisible(false);
-                new ifRealSignupWrong().setVisible(true);                
+                //if got error when fill in signup message
+                JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");               
             }
         }
     }//GEN-LAST:event_signupbtnActionPerformed
@@ -331,4 +336,5 @@ public class signup_gui extends javax.swing.JFrame {
     private javax.swing.JButton signupbtn;
     private javax.swing.JTextField usernameEnter;
     // End of variables declaration//GEN-END:variables
+
 }

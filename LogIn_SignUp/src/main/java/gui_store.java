@@ -10,7 +10,7 @@
  * @author user
  */
 public class gui_store extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form gui_home
      */
@@ -66,7 +66,8 @@ public class gui_store extends javax.swing.JFrame {
             }
         });
 
-        img_merchandise.setText("jLabel1");
+        img_merchandise.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgStore.jpg")));
+        img_merchandise.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,7 +105,7 @@ public class gui_store extends javax.swing.JFrame {
             }
         });
 
-        img_plantTree.setText("jLabel1");
+        img_plantTree.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgTree.jpg")));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -256,16 +257,16 @@ public class gui_store extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -274,7 +275,7 @@ public class gui_store extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
@@ -283,7 +284,7 @@ public class gui_store extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void btn_plantTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_plantTreeActionPerformed
@@ -292,7 +293,7 @@ public class gui_store extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_plantTreeActionPerformed
 
     private void btn_merchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_merchandiseActionPerformed
@@ -301,7 +302,7 @@ public class gui_store extends javax.swing.JFrame {
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_merchandiseActionPerformed
 
     /**

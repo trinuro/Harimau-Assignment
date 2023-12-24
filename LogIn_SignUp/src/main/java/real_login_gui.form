@@ -245,9 +245,6 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="signup">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="e8" green="f3" red="eb" type="rgb"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Sign Up"/>
                   </Properties>
                   <Events>

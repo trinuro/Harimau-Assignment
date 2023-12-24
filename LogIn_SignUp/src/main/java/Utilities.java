@@ -30,7 +30,7 @@ public class Utilities {
             ){
         // Create SQL query
         String strSelect = String.format("""
-            SELECT user_table.username, MerchandiseOrder.merchandise_id, MerchandiseOrder.purchase_amount, MerchandiseOrder.delivery_address 
+            SELECT user_table.username, MerchandiseOrder.purchase_amount, MerchandiseOrder.merchandise_id, MerchandiseOrder.delivery_address 
             FROM user_table
             JOIN MerchandiseOrder
             ON MerchandiseOrder.buyer_id = user_table.user_id
@@ -44,7 +44,7 @@ public class Utilities {
         int rowCount = 0;
         // Get purchase history of a user from database
         while(rset.next()){
-            outputString = String.format("%s orders %s %s to %s", rset.getString("username"), rset.getString("merchandise_id"), rset.getString("purchase_amount"),rset.getString("delivery_address"));
+            outputString = String.format("%s orders %s %s to %s", rset.getString("username"), rset.getString("purchase_amount"), rset.getString("merchandise_id"),rset.getString("delivery_address"));
             output.add(outputString);
             rowCount++;
         } 
@@ -208,7 +208,7 @@ public class Utilities {
         ){
 
         // SQL command to be executed
-        String sqlInsert = String.format("INSERT INTO donations_history(donor_id,donation_amount,organisation) VALUES(%s,%d,\"%s\");", userID, donationAmount,organisationName);
+        String sqlInsert = String.format("INSERT INTO donations_history(donor_id,donation_amount,organisation) VALUES(%s,%f,\"%s\");", userID, donationAmount,organisationName);
         System.out.println("SQL Statement to be executed: "+sqlInsert);
         // Insert information into database
         int countInserted = stmt.executeUpdate(sqlInsert);
