@@ -130,8 +130,8 @@ public class HarimauGmailer {
         private static Credential getCredentials(final NetHttpTransport transport) throws IOException {
         AuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(transport,
                 GsonFactory.getDefaultInstance(),
-                "270478638209-oq8o953vo9gclfo7gvkeb6sjvpgsq0ms.apps.googleusercontent.com", // Client id
-                "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", // Client secrets
+                Secrets.getClientID(), // Client id
+                Secrets.getClientSecret(), // Client secrets
                 Arrays.asList(GmailScopes.GMAIL_SEND))
                 .setAccessType("offline")
                 .build();
