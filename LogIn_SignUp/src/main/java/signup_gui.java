@@ -7,11 +7,10 @@ import javax.swing.JOptionPane;
  *
  * @author Tan Zhi Wei
  */
-public class signup_gui extends javax.swing.JFrame {    
-//check .getUsername same or not
-    
-    
-    
+
+public class signup_gui extends javax.swing.JFrame {
+    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
+
     /**
      * Creates new form signup_gui
      */

@@ -33,20 +33,27 @@ public class ExistingUser extends User{
         setEmail(email);
         setCurrentEmail(email);
     }
+
     
     // Empty constructor
     public ExistingUser(){
         setUsername(this.getUsername());
         setEmail(this.getCurrentEmail());
     }
+
+    ExistingUser(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+    }
     
-//    // copy constructor
-//    public ExistingUser(ExistingUser p){
-//        if(p==null){
-//            System.exit(0);
-//        }
-//        
-//    }
+    // copy constructor
+    public ExistingUser(ExistingUser p){
+        if(p==null){
+            System.exit(0);
+        }
+        setUsername(p.getUsername());
+        setEmail(p.getEmail());
+    }
     
     // toString method
     public String toString(){

@@ -16,15 +16,19 @@ import javax.swing.JPanel;
  * @author user
  */
 public class gui_donation extends javax.swing.JFrame {
-    
+
+    ExistingUser user = new ExistingUser();
+
     /**
      * Creates new form gui_home
      */
-    private ExistingUser a;
+    
     
     public gui_donation() {
         initComponents();
-        a = new ExistingUser("Wei","zhiwei123@gmail.com");
+        //a = new ExistingUser("Wei","zhiwei123@gmail.com");
+        
+
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
@@ -221,14 +225,14 @@ public class gui_donation extends javax.swing.JFrame {
         );
         panel_mainLayout.setVerticalGroup(
             panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_mainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_donation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,20 +258,20 @@ public class gui_donation extends javax.swing.JFrame {
 
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
-        QuizFrame.setVisible(true);
-        QuizFrame.pack();
-        QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        gui_store StoreFrame = new gui_store();
+        StoreFrame.setVisible(true);
+        StoreFrame.pack();
+        StoreFrame.setLocationRelativeTo(null);
+        //this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
         // TODO add your handling code here:
-        gui_quiz QuizFrame = new gui_quiz();
+        gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
@@ -276,7 +280,7 @@ public class gui_donation extends javax.swing.JFrame {
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_homeActionPerformed
 
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
@@ -285,7 +289,7 @@ public class gui_donation extends javax.swing.JFrame {
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void cfDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfDonateActionPerformed
@@ -300,7 +304,7 @@ public class gui_donation extends javax.swing.JFrame {
             else{
                 try{                   
                     double donationAmount = Double.parseDouble(donationValue);
-                    store_donation.getDonationPoint(a.getUsername(), (double)donationAmount, organisationName); 
+                    store_donation.getDonationPoint(user.getUsername(), (double)donationAmount, organisationName); 
                     JOptionPane.showMessageDialog(null,"Congrats, you successfully donate to " + jComboBox1.getSelectedItem());
                 }catch(NumberFormatException e){
                     //catch if the entered messsage is not a numeric String, then will show this message                    
