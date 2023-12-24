@@ -32,6 +32,7 @@ public class ExistingUser extends User{
         }
         setEmail(email);
         setCurrentEmail(email);
+        System.out.println(this.toString());
     }
 
     
@@ -39,6 +40,7 @@ public class ExistingUser extends User{
     public ExistingUser(){
         setUsername(this.getUsername());
         setEmail(this.getCurrentEmail());
+        System.out.println(this.toString());
     }
 
     ExistingUser(String username) {
@@ -53,6 +55,7 @@ public class ExistingUser extends User{
         }
         setUsername(p.getUsername());
         setEmail(p.getEmail());
+        System.out.println(this.toString());
     }
     
     // toString method
