@@ -18,15 +18,16 @@ import javax.swing.JTextArea;
  * @author user
  */
 public class gui_plantTree extends javax.swing.JFrame {
-    ExistingUser user = new ExistingUser();
+    ExistingUser user;
     /**
      * Creates new form gui_home
      */
     //private ExistingUser a;
     
     public gui_plantTree() {
-        //a = new ExistingUser();
-        
+        user = new ExistingUser();
+        Utilities.getTreePlantedData(user.getUsername());
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
         initComponents();
         
 //        this.setResizable(false);
@@ -55,7 +56,6 @@ public class gui_plantTree extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         nameOfTree1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         plantTree2BG = new javax.swing.JPanel();
         tree2 = new javax.swing.JLabel();
         nameTree2 = new javax.swing.JLabel();
@@ -71,6 +71,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         nameOfTree3 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         purchaseHistorybtn = new javax.swing.JButton();
+        showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -113,7 +114,7 @@ public class gui_plantTree extends javax.swing.JFrame {
 
         plantTree1BG.setBackground(new java.awt.Color(210, 227, 200));
 
-        tree1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/tree1.jpg"))); // NOI18N
+        tree1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree1.jpg"));
 
         nameTree1.setText("Cottonwood");
 
@@ -176,11 +177,9 @@ public class gui_plantTree extends javax.swing.JFrame {
                 .addGap(56, 56, 56))
         );
 
-        jLabel2.setText("Point:  ");
-
         plantTree2BG.setBackground(new java.awt.Color(210, 227, 200));
 
-        tree2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/tree2.jpg"))); // NOI18N
+        tree2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree2.jpg"));
         tree2.setMaximumSize(new java.awt.Dimension(200, 356));
         tree2.setMinimumSize(new java.awt.Dimension(200, 356));
 
@@ -241,7 +240,7 @@ public class gui_plantTree extends javax.swing.JFrame {
 
         plantTree2BG1.setBackground(new java.awt.Color(210, 227, 200));
 
-        tree3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/tree3.jpg"))); // NOI18N
+        tree3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree3.jpg"));
         tree3.setMaximumSize(new java.awt.Dimension(200, 356));
         tree3.setMinimumSize(new java.awt.Dimension(200, 356));
 
@@ -323,21 +322,21 @@ public class gui_plantTree extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(purchaseHistorybtn)
-                        .addGap(107, 107, 107)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(883, 883, 883))
+                        .addGap(77, 77, 77)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
-                        .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(831, Short.MAX_VALUE))))
+                        .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(831, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,8 +348,8 @@ public class gui_plantTree extends javax.swing.JFrame {
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(purchaseHistorybtn))
+                    .addComponent(purchaseHistorybtn)
+                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -488,13 +487,13 @@ public class gui_plantTree extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void tree1btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree1btnActionPerformed
-        double points= Double.parseDouble(login.getUserData("maomao", "current_points"));
+        double points= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double  pointUsed= 50;
         if(evt.getSource() == tree1btn){
-            String treename = nameOfTree1.getText();
-            if(treename != null){
-                store_donation.getPlantATreePoint(user.getUsername(), treename,0); 
-                    if(points >= pointUsed){                    
+            String treename1 = nameOfTree1.getText();
+            if(treename1 != null){                
+                    if(points >= pointUsed){    
+                    store_donation.getPlantATreePoint(user.getUsername(), treename1, 0); 
                     JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
@@ -504,16 +503,17 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree1btnActionPerformed
 
     private void tree2btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree2btnActionPerformed
-        double points= Double.parseDouble(login.getUserData("maomao", "current_points"));
+        double points= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double  pointUsed= 60;
         if(evt.getSource() == tree2btn){
-            String treename = nameOfTree2.getText();
-            if(treename != null){
-                store_donation.getPlantATreePoint(user.getUsername(), treename,1); 
-                    if(points >= pointUsed){                    
+            String treename2 = nameOfTree2.getText();
+            if(treename2 != null){               
+                    if(points >= pointUsed){   
+                    store_donation.getPlantATreePoint(user.getUsername(), treename2,1); 
                     JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
@@ -523,16 +523,17 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree2btnActionPerformed
 
     private void tree3btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tree3btnActionPerformed
         double points= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double pointUsed= 70;
         if(evt.getSource() == tree3btn){
-            String treename = nameOfTree3.getText();
-            if(treename != null){
-                store_donation.getPlantATreePoint(user.getUsername(),treename,2); 
+            String treename3 = nameOfTree3.getText();
+            if(treename3 != null){                
                     if(points >= pointUsed){                    
+                    store_donation.getPlantATreePoint(user.getUsername(),treename3,2);     
                     JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
@@ -542,6 +543,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree3btnActionPerformed
 
     private void nameOfTree1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameOfTree1ActionPerformed
@@ -635,7 +637,6 @@ public class gui_plantTree extends javax.swing.JFrame {
     private javax.swing.JButton btn_store;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -656,6 +657,7 @@ public class gui_plantTree extends javax.swing.JFrame {
     private javax.swing.JPanel plantTree2BG;
     private javax.swing.JPanel plantTree2BG1;
     private javax.swing.JButton purchaseHistorybtn;
+    private javax.swing.JLabel showCurrentPoint;
     private javax.swing.JLabel tree1;
     private javax.swing.JButton tree1btn;
     private javax.swing.JLabel tree2;

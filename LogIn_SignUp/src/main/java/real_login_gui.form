@@ -287,8 +287,8 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="iconDisable">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/icon/closeeye.png"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) + &quot;\\src\\main\\java\\icon\\closeeye.png&quot;)" type="code"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -297,8 +297,8 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="iconShow">
                   <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/icon/openeye.png"/>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new javax.swing.ImageIcon(System.getProperty(&quot;user.dir&quot;) + &quot;\\src\\main\\java\\icon\\openeye.png&quot;)" type="code"/>
                     </Property>
                   </Properties>
                   <Events>
