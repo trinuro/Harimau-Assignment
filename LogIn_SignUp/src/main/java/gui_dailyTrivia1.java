@@ -17,11 +17,11 @@ import java.util.Map;
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
     //ExistingUser a = new ExistingUser();
-    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
+    ExistingUser user = new ExistingUser("ziwei","weiwei");
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
     //static int question =1;
-    int question =t1.getDayLogin(user.getUsername());
+    int question =t1.getQuestionSetCanBeAnswered().size();
     String[]optionList=t1.getOptions(question);
     
     
@@ -34,7 +34,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
-        ExistingUser a;
+//        ExistingUser a;
     
         
     }
@@ -61,6 +61,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         panel_quizMessage = new javax.swing.JPanel();
         quizMessage = new javax.swing.JLabel();
         label_Day = new javax.swing.JLabel();
+        showCorrectAns = new javax.swing.JLabel();
         btn_submit = new javax.swing.JButton();
         btn_next = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
@@ -95,9 +96,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         panel_dailyTriviaLayout.setHorizontalGroup(
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_dailyTriviaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label_Question, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(label_Question, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_dailyTriviaLayout.setVerticalGroup(
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,6 +112,11 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         buttonGroup.add(optA);
         optA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         optA.setText(optionList[0]);
+        optA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAActionPerformed(evt);
+            }
+        });
 
         buttonGroup.add(optB);
         optB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -151,20 +157,27 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         //dailyTrivia trivia = new dailyTrivia("hzw");
         label_Day.setText(t1.title(question));
 
+        showCorrectAns.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optD)
-                    .addComponent(optC)
-                    .addComponent(optB)
-                    .addComponent(optA)
-                    .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(showCorrectAns, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(optD)
+                            .addComponent(optC)
+                            .addComponent(optB)
+                            .addComponent(optA)
+                            .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -182,7 +195,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 .addComponent(optC)
                 .addGap(18, 18, 18)
                 .addComponent(optD)
-                .addGap(24, 24, 24)
+                .addGap(2, 2, 2)
+                .addComponent(showCorrectAns)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(9, 9, 9))
         );
@@ -576,6 +591,10 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
          
     }//GEN-LAST:event_btn_backActionPerformed
 
+    private void optAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optAActionPerformed
+
 //    private void showRandomQuestion() {
 //        // Implement this method to update questionTextArea with a random question
 //        // Use trivia object to get the question
@@ -655,5 +674,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_menu;
     private javax.swing.JPanel panel_quizMessage;
     private javax.swing.JLabel quizMessage;
+    private javax.swing.JLabel showCorrectAns;
     // End of variables declaration//GEN-END:variables
 }
