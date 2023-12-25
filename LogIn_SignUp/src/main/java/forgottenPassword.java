@@ -15,11 +15,11 @@ public class forgottenPassword extends javax.swing.JFrame {
     /**
      * Creates new form forgottenPassword
      */
-    private PasswordRecovery person;
     
     public forgottenPassword() {
         
         initComponents();
+        
     }
 
     /**
@@ -32,71 +32,82 @@ public class forgottenPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        oldEmail = new javax.swing.JTextField();
-        resetPSbtn = new javax.swing.JButton();
-        backLoginbtn = new javax.swing.JButton();
+        newPasswordEntered = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        cfNewPassword = new javax.swing.JTextField();
+        resetPWbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 243, 232));
 
-        jLabel1.setText("Email");
-
-        resetPSbtn.setText("Reset password");
-        resetPSbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetPSbtnActionPerformed(evt);
-            }
-        });
-
-        backLoginbtn.setText("back");
-        backLoginbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backLoginbtnActionPerformed(evt);
-            }
-        });
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Reset Password");
+
+        jLabel2.setText("New Password");
+
+        jLabel1.setText("Confirm New Password");
+
+        cfNewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cfNewPasswordActionPerformed(evt);
+            }
+        });
+
+        resetPWbtn.setText("Reset Password");
+        resetPWbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetPWbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(501, 501, 501)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(564, Short.MAX_VALUE))
+                .addGap(693, 693, 693)
+                .addComponent(jLabel4)
+                .addGap(0, 777, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(551, 551, 551)
-                        .addComponent(backLoginbtn)
-                        .addGap(281, 281, 281)
-                        .addComponent(resetPSbtn))
+                        .addGap(509, 509, 509)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(newPasswordEntered, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+                            .addComponent(jLabel1)
+                            .addComponent(cfNewPassword)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(693, 693, 693)
-                        .addComponent(jLabel4)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(704, 704, 704)
+                        .addComponent(resetPWbtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(511, 511, 511)
+                    .addComponent(jLabel2)
+                    .addContainerGap(1014, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(119, 119, 119)
                 .addComponent(jLabel4)
-                .addGap(71, 71, 71)
+                .addGap(99, 99, 99)
+                .addComponent(newPasswordEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(oldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backLoginbtn)
-                    .addComponent(resetPSbtn))
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cfNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(resetPWbtn)
+                .addContainerGap(599, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(225, 225, 225)
+                    .addComponent(jLabel2)
+                    .addContainerGap(776, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,30 +123,27 @@ public class forgottenPassword extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void resetPSbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPSbtnActionPerformed
-//        String email = oldEmail.getText();
-//        String newPassword = newPSFilled.getText();
-//        String confirmPassword = cfPSFilled.getText();
-//        person = new PasswordRecovery(email);
-//        person.sendRecoveryEmail();
-//        if(PasswordRecovery.isRecoveryPasswordCorrect(newPassword))
-//        boolean isResetPassword = login.updateUserPassword(email, newPassword, confirmPassword);
-//        if(isResetPassword == true){
-//            login.sendRecoveryEmail(email);
-//        }
-//        else{
-//            JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");
-//        }
-            
-    }//GEN-LAST:event_resetPSbtnActionPerformed
     
-    private void backLoginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backLoginbtnActionPerformed
-        if(evt.getSource() == backLoginbtn){
-                    setVisible(false);
-                    new real_login_gui().setVisible(true);
-                }       
-    }//GEN-LAST:event_backLoginbtnActionPerformed
+    private void cfNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfNewPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cfNewPasswordActionPerformed
+
+    private void resetPWbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPWbtnActionPerformed
+        PasswordRecovery recover = new PasswordRecovery();
+        if(evt.getSource() == resetPWbtn){
+            String newPassword = newPasswordEntered.getText();
+            String confirmPassword = cfNewPassword.getText();
+            if(recover.updateUserPassword(newPassword, confirmPassword)){
+                JOptionPane.showMessageDialog(null,"You had reset your password successfully.");   
+                setVisible(false);
+                new real_login_gui().setVisible(true);
+                }
+            else{
+                JOptionPane.showMessageDialog(null,"Please make sure your new password same with comfirm new password.");  
+            }
+            
+        }
+    }//GEN-LAST:event_resetPWbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,11 +181,12 @@ public class forgottenPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backLoginbtn;
+    private javax.swing.JTextField cfNewPassword;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField oldEmail;
-    private javax.swing.JButton resetPSbtn;
+    private javax.swing.JTextField newPasswordEntered;
+    private javax.swing.JButton resetPWbtn;
     // End of variables declaration//GEN-END:variables
 }
