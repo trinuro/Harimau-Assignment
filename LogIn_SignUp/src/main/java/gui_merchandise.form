@@ -28,9 +28,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="panel_main" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
               <Component id="panel_menu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,31 +61,28 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="panel_obj1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="panel_obj2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="panel_obj3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="label_home" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="819" max="-2" attributes="0"/>
-                                  <Component id="btn_purchaseHistory" min="-2" pref="182" max="-2" attributes="0"/>
-                              </Group>
+
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="showCurrentPoint" alignment="1" min="-2" pref="172" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="panel_obj1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="panel_obj2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="panel_obj3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="1070" max="-2" attributes="0"/>
-                          <Component id="showCurrentPoint" min="-2" pref="162" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="label_home" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="819" max="-2" attributes="0"/>
+                              <Component id="btn_purchaseHistory" min="-2" pref="182" max="-2" attributes="0"/>
+                          </Group>
+
                       </Group>
                   </Group>
-                  <EmptySpace pref="954" max="32767" attributes="0"/>
+                  <EmptySpace pref="960" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -131,7 +127,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="point_obj1" min="-2" max="-2" attributes="0"/>
@@ -167,7 +163,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="img_obj1" min="-2" pref="298" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -456,7 +452,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -474,7 +470,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="img_obj3" min="-2" pref="310" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -582,7 +578,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="showCurrentPoint">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Points"/>
+
           </Properties>
         </Component>
       </SubComponents>
@@ -606,8 +602,10 @@
                   <Component id="btn_store" min="-2" pref="109" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btn_donation" min="-2" pref="131" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="537" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" pref="112" max="-2" attributes="0"/>
+
+                  <EmptySpace min="-2" pref="475" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -627,6 +625,11 @@
                           <Component id="btn_store" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

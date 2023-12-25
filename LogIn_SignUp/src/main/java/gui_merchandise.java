@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,13 +33,19 @@ public class gui_merchandise extends javax.swing.JFrame {
     
     public gui_merchandise() {
         initComponents();
-        user = new ExistingUser();
-        Utilities.getMerchandiseData(user.getUsername());
-        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
-//        this.setResizable(false);
-//        this.setLocationRelativeTo(null);
-//        this.setSize(1960,1080);
 
+        this.setResizable(false);
+        // Make the frame fullscreen
+//        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        // Remove window decorations
+//        this.setUndecorated(true); 
+//        // Make the frame visible
+//        this.setVisible(true);
+
+        //this.setLocationRelativeTo(null);
+
+//        this.setSize(1960,1080);
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }
 
     /**
@@ -153,7 +160,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         panel_obj1Layout.setHorizontalGroup(
             panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                         .addComponent(point_obj1)
@@ -179,7 +186,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addGroup(panel_obj1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(img_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
         panel_obj1Layout.setVerticalGroup(
             panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +376,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                                 .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(msg_obj3)))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +389,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(img_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         panel_obj3Layout.setVerticalGroup(
             panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,31 +421,32 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
-        showCurrentPoint.setText("Points");
+
+        showCurrentPoint.setText("point");
+
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panel_menuLayout.createSequentialGroup()
-                                .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel_menuLayout.createSequentialGroup()
-                                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(819, 819, 819)
-                                .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addGap(1070, 1070, 1070)
-                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(954, Short.MAX_VALUE))
+
+                .addGap(42, 42, 42)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panel_menuLayout.createSequentialGroup()
+                            .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(41, 41, 41)
+                            .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(41, 41, 41)
+                            .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panel_menuLayout.createSequentialGroup()
+                            .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(819, 819, 819)
+                            .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(960, Short.MAX_VALUE))
+
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -523,8 +531,10 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(537, 537, 537)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+
+                .addGap(475, 475, 475)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
@@ -539,6 +549,10 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(panel_mainLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -547,9 +561,8 @@ public class gui_merchandise extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel_main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -625,17 +638,28 @@ public class gui_merchandise extends javax.swing.JFrame {
     private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
         
         int id_obj2 = 1;
-        int point_obj2 = 200;
+        double currentPoints= Double.parseDouble(login.getUserData("hzw", "current_points"));
+        double point_obj2_Need = 200;
+        
         if (evt.getSource() == btn_add_obj2) {
             String obj2_quantity = text_obj2Quantity.getText().trim();
-
-            if (!obj2_quantity.isEmpty()) {
+            String obj2_addresss = text_obj2Address.getText().trim();
+        
+            if (!obj2_quantity.isEmpty()&&!obj2_addresss.isEmpty()) {
+                int quantity2 = Integer.parseInt(obj2_quantity);
+                double total_point_obj2_need = quantity2*point_obj2_Need;
+        
                 try {
-                    int quantity2 = Integer.parseInt(obj2_quantity);
+                    
                     Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
-                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
+                    if(currentPoints>=total_point_obj2_need){
+                        JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "You do not have enough point.");
+                    }
+                    
                 
                 } catch (NumberFormatException e) {
                     // Handle the case where parsing fails
@@ -656,7 +680,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int id_obj1 = 0;
-        int point_obj1 = 100;
+        double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
+        double point_obj1_Need = 100;
+        
+        
         /*
         if(evt.getSource() == btn_add_obj1){
             String quantityText = text_obj1Quantity.getText().trim()    ;
@@ -675,21 +702,30 @@ public class gui_merchandise extends javax.swing.JFrame {
         
          if (evt.getSource() == btn_add_obj1) {
             String obj1_quantity = text_obj1Quantity.getText().trim();
-
-            if (!obj1_quantity.isEmpty()) {
+            String obj1_addresss = text_obj1Address.getText().trim();
+            
+            if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()) {
+                
+                int quantity1 = Integer.parseInt(obj1_quantity);
+                double total_point_obj1_Need = quantity1*point_obj1_Need;
+                
                 try {
-                    int quantity1 = Integer.parseInt(obj1_quantity);
+                    
                     Utilities.getMerchandiseData(user.getUsername());
 //                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
-                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
+                    if(currentPoints>=total_point_obj1_Need){
+                        JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "You do not have enough point.");
+                    }
                 
                 } catch (NumberFormatException e) {
                     // Handle the case where parsing fails
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-            } else {
+            }else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
                 // Show an error message or take appropriate action.
@@ -710,17 +746,28 @@ public class gui_merchandise extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int id_obj3 = 2;
-        int point_obj3 = 80;
+        double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
+        double point_obj3_Need = 80;
+        
+        
         if (evt.getSource() == btn_add_obj3) {
             String obj3_quantity = text_obj3Quantity.getText().trim();
-
-            if (!obj3_quantity.isEmpty()) {
+            String obj3_addresss = text_obj3Address.getText().trim();
+        
+            if (!obj3_quantity.isEmpty()&&!obj3_addresss.isEmpty()) {
+                int quantity3 = Integer.parseInt(obj3_quantity);
+                double total_point_obj3_Need = quantity3*point_obj3_Need;
+        
                 try {
-                    int quantity3 = Integer.parseInt(obj3_quantity);
+                    
                     Utilities.getMerchandiseData(user.getUsername());
                     //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, text_obj3Address.getText());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
-                    JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
+                    if(currentPoints>=total_point_obj3_Need){
+                        JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
+                    }else{
+                        JOptionPane.showMessageDialog(null, "You do not have enough point.");
+                    }
                 
                 } catch (NumberFormatException e) {
                     // Handle the case where parsing fails
@@ -868,13 +915,8 @@ public class gui_merchandise extends javax.swing.JFrame {
         String selectedOption = (String) jComboBox1.getSelectedItem();
         if("Log out".equals(selectedOption)){
             login.checkOut(user.getUsername());
-            setVisible(false);
-            new login_gui().setVisible(true);
-        }
-        if("Home".equals(selectedOption)){
-            setVisible(false);
-            new gui_home().setVisible(true);
-        }
+                    }
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
