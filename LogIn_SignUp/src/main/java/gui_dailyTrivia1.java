@@ -16,12 +16,14 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    //ExistingUser a = new ExistingUser();
-    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
+    ExistingUser user;
+//    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
+    //user.getUsername()
     //static int question =1;
     int question =t1.getDayLogin(user.getUsername());
+    //user.getUsername()
     String[]optionList=t1.getOptions(question);
     
     
@@ -34,7 +36,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
-        ExistingUser a;
+        user = new ExistingUser();
     
         
     }
@@ -608,13 +610,13 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gui_quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

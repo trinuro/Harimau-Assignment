@@ -61,6 +61,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -78,6 +79,7 @@
                               <EmptySpace min="-2" pref="819" max="-2" attributes="0"/>
                               <Component id="btn_purchaseHistory" min="-2" pref="182" max="-2" attributes="0"/>
                           </Group>
+
                       </Group>
                   </Group>
                   <EmptySpace pref="960" max="32767" attributes="0"/>
@@ -576,7 +578,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="showCurrentPoint">
           <Properties>
-            <Property name="text" type="java.lang.String" value="point"/>
+
           </Properties>
         </Component>
       </SubComponents>
@@ -600,8 +602,10 @@
                   <Component id="btn_store" min="-2" pref="109" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btn_donation" min="-2" pref="131" max="-2" attributes="0"/>
+
                   <EmptySpace min="-2" pref="475" max="-2" attributes="0"/>
                   <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -611,7 +615,10 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="27" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_donation" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="btn_donation" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_home" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="btn_Quiz" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>

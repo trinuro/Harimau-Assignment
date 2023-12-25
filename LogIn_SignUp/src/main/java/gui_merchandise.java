@@ -29,10 +29,11 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser user = new ExistingUser();;
+    ExistingUser user;
     
     public gui_merchandise() {
         initComponents();
+
         this.setResizable(false);
         // Make the frame fullscreen
 //        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -42,6 +43,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 //        this.setVisible(true);
 
         //this.setLocationRelativeTo(null);
+
 //        this.setSize(1960,1080);
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }
@@ -419,13 +421,16 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
+
         showCurrentPoint.setText("point");
+
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
+
                 .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -441,6 +446,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                             .addGap(819, 819, 819)
                             .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(960, Short.MAX_VALUE))
+
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,8 +531,10 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addGap(475, 475, 475)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
@@ -534,7 +542,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -734,6 +744,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 
     private void btn_add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj3ActionPerformed
         // TODO add your handling code here:
+        
         int id_obj3 = 2;
         double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double point_obj3_Need = 80;
@@ -905,6 +916,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         if("Log out".equals(selectedOption)){
             login.checkOut(user.getUsername());
                     }
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
