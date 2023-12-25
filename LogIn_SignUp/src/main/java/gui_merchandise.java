@@ -28,10 +28,13 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser user = new ExistingUser();
+    ExistingUser user;
     
     public gui_merchandise() {
         initComponents();
+        user = new ExistingUser();
+        Utilities.getMerchandiseData(user.getUsername());
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
@@ -80,11 +83,13 @@ public class gui_merchandise extends javax.swing.JFrame {
         btn_add_obj3 = new javax.swing.JButton();
         msg_obj3 = new javax.swing.JLabel();
         btn_purchaseHistory = new javax.swing.JButton();
+        showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
         btn_Quiz = new javax.swing.JButton();
         btn_donation = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(235, 243, 232));
@@ -409,29 +414,38 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
+        showCurrentPoint.setText("Points");
+
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)
+                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel_menuLayout.createSequentialGroup()
+                                .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panel_menuLayout.createSequentialGroup()
+                                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(819, 819, 819)
+                                .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(819, 819, 819)
-                        .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(1070, 1070, 1070)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(954, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
+                .addComponent(showCurrentPoint)
+                .addGap(2, 2, 2)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_purchaseHistory))
@@ -489,6 +503,13 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home", "Log out" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_mainLayout = new javax.swing.GroupLayout(panel_main);
         panel_main.setLayout(panel_mainLayout);
         panel_mainLayout.setHorizontalGroup(
@@ -502,6 +523,8 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(537, 537, 537)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
@@ -509,7 +532,9 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -624,6 +649,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj2ActionPerformed
 
     private void btn_add_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj1ActionPerformed
@@ -670,6 +696,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj1ActionPerformed
 
     private void text_obj1AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1AddressActionPerformed
@@ -681,6 +708,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 
     private void btn_add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj3ActionPerformed
         // TODO add your handling code here:
+        
         int id_obj3 = 2;
         int point_obj3 = 80;
         if (evt.getSource() == btn_add_obj3) {
@@ -706,6 +734,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj3ActionPerformed
 
     private void text_obj1QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj1QuantityKeyTyped
@@ -835,6 +864,19 @@ public class gui_merchandise extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String selectedOption = (String) jComboBox1.getSelectedItem();
+        if("Log out".equals(selectedOption)){
+            login.checkOut(user.getUsername());
+            setVisible(false);
+            new login_gui().setVisible(true);
+        }
+        if("Home".equals(selectedOption)){
+            setVisible(false);
+            new gui_home().setVisible(true);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
 //        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
@@ -890,6 +932,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel img_obj1;
     private javax.swing.JLabel img_obj2;
     private javax.swing.JLabel img_obj3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -911,6 +954,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel point_obj1;
     private javax.swing.JLabel point_obj2;
     private javax.swing.JLabel point_obj3;
+    private javax.swing.JLabel showCurrentPoint;
     private javax.swing.JTextField text_obj1Address;
     public static javax.swing.JTextField text_obj1Quantity;
     private javax.swing.JTextField text_obj2Address;
