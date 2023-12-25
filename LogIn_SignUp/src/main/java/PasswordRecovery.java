@@ -21,8 +21,25 @@ import java.util.Scanner;
  * @author Khiew
  */
 public class PasswordRecovery extends User{
+    static String currentEmail;
+    
     PasswordRecovery(String email){
         super.email = email;
+        this.currentEmail = email;
+        System.out.println(this);
+    }
+    
+    // Empty constructor
+    PasswordRecovery(){
+        super.email = this.currentEmail;
+        System.out.println(this);
+    }
+    
+    public String toString(){
+        return String.format("""
+                             Password Recovery Object created
+                             Email: %s
+                             """, this.email);
     }
     
     private String generateRecoveryPassword(){
