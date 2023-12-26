@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Tan Zhi Wei
  */
 public class real_login_gui extends javax.swing.JFrame {
-    ExistingUser user = new ExistingUser();
+//    ExistingUser user = new ExistingUser();
     /**
      * Creates new form real_login_gui
      */
