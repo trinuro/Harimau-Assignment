@@ -123,14 +123,17 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panel_quizMessage" alignment="0" max="32767" attributes="0"/>
-                          <Component id="optD" min="-2" max="-2" attributes="0"/>
-                          <Component id="optC" min="-2" max="-2" attributes="0"/>
-                          <Component id="optB" min="-2" max="-2" attributes="0"/>
-                          <Component id="optA" min="-2" max="-2" attributes="0"/>
-                          <Component id="panel_dailyTrivia" max="32767" attributes="0"/>
-                          <Component id="label_Day" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="showCorrectAns" min="-2" pref="210" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="panel_quizMessage" alignment="0" max="32767" attributes="0"/>
+                              <Component id="optD" min="-2" max="-2" attributes="0"/>
+                              <Component id="optC" min="-2" max="-2" attributes="0"/>
+                              <Component id="optB" min="-2" max="-2" attributes="0"/>
+                              <Component id="optA" min="-2" max="-2" attributes="0"/>
+                              <Component id="panel_dailyTrivia" max="32767" attributes="0"/>
+                              <Component id="label_Day" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
@@ -151,7 +154,9 @@
                       <Component id="optC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="optD" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="showCorrectAns" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="panel_quizMessage" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
@@ -170,9 +175,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="label_Question" min="-2" pref="1077" max="-2" attributes="0"/>
-                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="label_Question" min="-2" pref="1067" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -195,7 +200,7 @@
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="// Assuming label_Question is a JLabel or similar componen"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="int i=1;&#xa;dailyTrivia trivia = new dailyTrivia(&quot;hzw&quot;);&#xa;label_Question.setText(trivia.getQuestion(i));"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="int i=1;&#xa;dailyTrivia trivia = new dailyTrivia(user.getUsername());&#xa;label_Question.setText(trivia.getQuestion(i));"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -212,6 +217,9 @@
                   <Connection code="optionList[0]" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optAActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[]opt = trivia.getOptions(i);"/>
               </AuxValues>
@@ -295,11 +303,18 @@
             </Container>
             <Component class="javax.swing.JLabel" name="label_Day">
               <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="//int i=1;&#xa;//dailyTrivia trivia = new dailyTrivia(&quot;hzw&quot;);">
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="t1.title(question)" type="code"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="showCorrectAns">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;&quot;" type="code"/>
                 </Property>
               </Properties>
             </Component>
