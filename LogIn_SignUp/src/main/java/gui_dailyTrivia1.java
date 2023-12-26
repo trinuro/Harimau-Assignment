@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    ExistingUser user;
+    ExistingUser user=new ExistingUser();
 //    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
