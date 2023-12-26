@@ -16,9 +16,7 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    //ExistingUser a = new ExistingUser();
-    ExistingUser user;
-
+    ExistingUser user= new ExistingUser();
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
     //user.getUsername()
@@ -37,10 +35,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         initComponents();
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
-//        this.setSize(1960,1080);
-
-        user = new ExistingUser();
-    
+//        this.setSize(1960,1080);    
         
     }
    
