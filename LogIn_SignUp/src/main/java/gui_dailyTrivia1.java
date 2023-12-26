@@ -16,18 +16,18 @@ import java.util.Map;
 
 public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
-    ExistingUser user=new ExistingUser();
-//    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
+    ExistingUser user;
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
     //user.getUsername()
     //static int question =1;
-    int question =t1.getDayLogin(user.getUsername());
-    //user.getUsername()
+    int question =t1.getQuestionSetCanBeAnswered().size();
+
     String[]optionList=t1.getOptions(question);
     
     
     private Map<Integer, String> userSelectedAnswers = new HashMap<>();
+    private Map<Integer, String> correctAnswerMessagesMap = new HashMap<>();
     private Map<Integer, String> questionMessages = new HashMap<>();
     private Map<Integer, MessageInfo> messageMap = new HashMap<>();
     
@@ -36,11 +36,14 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
+
         user = new ExistingUser();
     
         
     }
-
+   
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +66,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         panel_quizMessage = new javax.swing.JPanel();
         quizMessage = new javax.swing.JLabel();
         label_Day = new javax.swing.JLabel();
+        showCorrectAns = new javax.swing.JLabel();
         btn_submit = new javax.swing.JButton();
         btn_next = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
@@ -87,7 +91,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         panel_dailyTrivia.setBackground(new java.awt.Color(245, 245, 245));
 
         int i=1;
-        dailyTrivia trivia = new dailyTrivia("hzw");
+        dailyTrivia trivia = new dailyTrivia(user.getUsername());
         label_Question.setText(trivia.getQuestion(i));
         label_Question.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         // Assuming label_Question is a JLabel or similar componen
@@ -97,9 +101,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         panel_dailyTriviaLayout.setHorizontalGroup(
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_dailyTriviaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label_Question, javax.swing.GroupLayout.PREFERRED_SIZE, 1077, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(label_Question, javax.swing.GroupLayout.PREFERRED_SIZE, 1067, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_dailyTriviaLayout.setVerticalGroup(
             panel_dailyTriviaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,6 +117,11 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         buttonGroup.add(optA);
         optA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         optA.setText(optionList[0]);
+        optA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAActionPerformed(evt);
+            }
+        });
 
         buttonGroup.add(optB);
         optB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -149,9 +158,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         );
 
         label_Day.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        //int i=1;
-        //dailyTrivia trivia = new dailyTrivia("hzw");
         label_Day.setText(t1.title(question));
+
+        showCorrectAns.setText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -159,14 +168,16 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optD)
-                    .addComponent(optC)
-                    .addComponent(optB)
-                    .addComponent(optA)
-                    .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(showCorrectAns, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(optD)
+                        .addComponent(optC)
+                        .addComponent(optB)
+                        .addComponent(optA)
+                        .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,7 +195,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 .addComponent(optC)
                 .addGap(18, 18, 18)
                 .addComponent(optD)
-                .addGap(24, 24, 24)
+                .addGap(2, 2, 2)
+                .addComponent(showCorrectAns)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(9, 9, 9))
         );
@@ -386,7 +399,10 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        if(evt.getSource()==btn_submit){
         
-        label_Day.setText(t1.title(question));
+            
+        //btn_submit.getAction(label_Day.setText(t1.title(question));
+          
+        
         MessageInfo messageInfo = null;
          
         if ((optA.isSelected() || optB.isSelected() || optC.isSelected() || optD.isSelected())){
@@ -409,6 +425,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             if(! t1.getIsCorrectAnswerFinally(question)){ // if originally not correct
                 // has to be run to update isCorrect, numberOfAttempt and to increasuser marks if any
                 t1.isCorrect(question, userAnswer);
+                label_Day.setText(t1.title(question));
                 if (t1.getIsCorrectAnswerCurrently(question) && t1.gatNumberOfAttempt(question)<=1) {
                     panel_quizMessage.setBackground(new Color(193, 225, 193));
                     quizMessage.setText("Congratulations! Your answer is correct. You have been awarded "+
@@ -423,6 +440,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                     
                     // Reset radio buttons
                     buttonGroup.clearSelection();
+                    
+                    //Update title
+                    label_Day.setText(t1.title(question));
                     
                     //Shuffle the options
                     String [] newOptionList = t1.getOptions(question);
@@ -448,7 +468,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             }else{ // if originally answered correctly
                 // has to be run to update isCorrect, numberOfAttempt and to increasuser marks if any
                 t1.isCorrect(question, userAnswer);
-                 
+                label_Day.setText(t1.title(question));
                 if (t1.getIsCorrectAnswerCurrently(question)) {
                     panel_quizMessage.setBackground(new Color(193, 225, 193));
                     quizMessage.setText("Congratulations! Your answer is correct. Thank you for trying again~");
@@ -461,6 +481,17 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             }
             
         }
+
+        
+    String correctAnswerMessageText=""; 
+    if (t1.getIsCorrectAnswerFinally(question) || t1.gatNumberOfAttempt(question) >= 2) {
+        correctAnswerMessageText = "Correct answer: " + t1.getAnswer(question);
+        showCorrectAns.setText(correctAnswerMessageText);
+    }
+    // Store the correct answer message in the map
+    correctAnswerMessagesMap.put(question, correctAnswerMessageText);
+    
+        
         messageMap.put(question, messageInfo);
     }//GEN-LAST:event_btn_submitActionPerformed
 
@@ -477,6 +508,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 panel_quizMessage.setBackground(new Color(245,245,245)); 
                 String storedMessage = "";
                 Color storedColor = null;
+                
+                //Reset showCorrectAns message
+                showCorrectAns.setText("");
 
                 // Check if there's a stored message for the current question
                 if (messageMap.containsKey(question)) {
@@ -518,7 +552,13 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         }
             }
         
-        
+        if (t1.getIsCorrectAnswerFinally(question) || t1.gatNumberOfAttempt(question) >= 2) {
+        String correctAnswerMessageText = "Correct answer: " + t1.getAnswer(question);
+        showCorrectAns.setText(correctAnswerMessageText);
+
+        // Store the correct answer message in the map
+        correctAnswerMessagesMap.put(question, correctAnswerMessageText);
+    }
     }//GEN-LAST:event_btn_nextActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -534,7 +574,10 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 panel_quizMessage.setBackground(new Color(245,245,245)); 
                 String storedMessage = "";
                 Color storedColor = null;
-
+                
+                 //Reset showCorrectAns message
+                showCorrectAns.setText("");
+                
                 // Check if there's a stored message for the current question
                 if (messageMap.containsKey(question)) {
                     MessageInfo storedMessageInfo = messageMap.get(question);
@@ -576,7 +619,18 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 }
             }
          
+         if (t1.getIsCorrectAnswerFinally(question) || t1.gatNumberOfAttempt(question) >= 2) {
+        String correctAnswerMessageText = "Correct answer: " + t1.getAnswer(question);
+        showCorrectAns.setText(correctAnswerMessageText);
+
+        // Store the correct answer message in the map
+        correctAnswerMessagesMap.put(question, correctAnswerMessageText);
+    }
     }//GEN-LAST:event_btn_backActionPerformed
+
+    private void optAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_optAActionPerformed
 
 //    private void showRandomQuestion() {
 //        // Implement this method to update questionTextArea with a random question
@@ -657,5 +711,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_menu;
     private javax.swing.JPanel panel_quizMessage;
     private javax.swing.JLabel quizMessage;
+    private javax.swing.JLabel showCorrectAns;
     // End of variables declaration//GEN-END:variables
 }
