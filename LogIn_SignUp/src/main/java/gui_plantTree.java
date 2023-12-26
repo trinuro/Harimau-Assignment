@@ -25,10 +25,11 @@ public class gui_plantTree extends javax.swing.JFrame {
     //private ExistingUser a;
     
     public gui_plantTree() {
+        initComponents();
         user = new ExistingUser();
         Utilities.getTreePlantedData(user.getUsername());
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
-        initComponents();
+        
         
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
