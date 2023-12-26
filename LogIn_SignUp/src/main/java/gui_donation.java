@@ -1,5 +1,6 @@
 
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -325,7 +326,7 @@ public class gui_donation extends javax.swing.JFrame {
     }//GEN-LAST:event_cfDonateActionPerformed
 
     private void donateMoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateMoneyActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
     }//GEN-LAST:event_donateMoneyActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
