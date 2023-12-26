@@ -35,15 +35,17 @@ public class ExistingUser extends User{
         System.out.println(this.toString());
     }
 
-    ExistingUser(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
     // Empty constructor
     public ExistingUser(){
         setUsername(this.getUsername());
         setEmail(this.getCurrentEmail());
         System.out.println(this.toString());
+    }
+
+    ExistingUser(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
     
     // copy constructor
@@ -76,7 +78,7 @@ public class ExistingUser extends User{
     
     // Accessor method to get username
     public String getUsername(){
-        return this.username;
+        return username;
     }
     
     // Accessor method to get current email
@@ -89,14 +91,14 @@ public class ExistingUser extends User{
         this.username = u;
     }
     
-    // Mutator method to set email
-    private void setEmail(String email){
-        this.email = email;
-    }
-    
     // Mutator method to set currentEmail
     private void setCurrentEmail(String email){
         this.currentEmail = email;
+        }
+    
+    // Mutator method to set email
+    private void setEmail(String email){
+        this.email = email;
     }
     
     public void checkIn(){
