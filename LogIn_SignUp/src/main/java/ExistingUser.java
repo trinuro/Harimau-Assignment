@@ -222,11 +222,11 @@ public class ExistingUser extends User{
            ){
             // Create SQL Insert
             String sqlInsert = String.format("UPDATE user_table SET last_checked_in= \'%s\' WHERE username = \'%s\';", formattedDateTime, username);
-            System.out.println("SQL Statement to be executed: "+sqlInsert);
+//            System.out.println("SQL Statement to be executed: "+sqlInsert);
             
             // Insert information into database
             int countInserted = stmt.executeUpdate(sqlInsert);
-            System.out.println(countInserted+" records inserted.");
+//            System.out.println(countInserted+" records inserted.");
             
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");
