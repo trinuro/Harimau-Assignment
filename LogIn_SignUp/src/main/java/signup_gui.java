@@ -7,11 +7,9 @@ import javax.swing.JOptionPane;
  *
  * @author Tan Zhi Wei
  */
-public class signup_gui extends javax.swing.JFrame {    
-//check .getUsername same or not
-    
-    
-    
+
+public class signup_gui extends javax.swing.JFrame {
+
     /**
      * Creates new form signup_gui
      */
@@ -92,28 +90,28 @@ public class signup_gui extends javax.swing.JFrame {
             }
         });
 
-        iconDisable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/closeeye.png"))); // NOI18N
+        iconDisable1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\closeeye.png"));
         iconDisable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconDisable1MousePressed(evt);
             }
         });
 
-        iconShow1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/openeye.png"))); // NOI18N
+        iconShow1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\openeye.png"));
         iconShow1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconShow1MousePressed(evt);
             }
         });
 
-        iconDisable2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/closeeye.png"))); // NOI18N
+        iconDisable2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\closeeye.png"));
         iconDisable2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconDisable2MousePressed(evt);
             }
         });
 
-        iconShow2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/openeye.png"))); // NOI18N
+        iconShow2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\openeye.png"));
         iconShow2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconShow2MousePressed(evt);

@@ -6,18 +6,19 @@ import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author Tan Zhi Wei
  */
 public class real_login_gui extends javax.swing.JFrame {
-    
     /**
      * Creates new form real_login_gui
      */
     public real_login_gui() {
-        initComponents();       
+        initComponents();  
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); 
     }
 
     /**
@@ -106,14 +107,14 @@ public class real_login_gui extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         jLabel5.setText("Username");
 
-        iconDisable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/closeeye.png"))); // NOI18N
+        iconDisable.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\closeeye.png"));
         iconDisable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconDisableMousePressed(evt);
             }
         });
 
-        iconShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/openeye.png"))); // NOI18N
+        iconShow.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\openeye.png"));
         iconShow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconShowMousePressed(evt);
@@ -259,19 +260,21 @@ public class real_login_gui extends javax.swing.JFrame {
         String email = emailEnter.getText();
         String username = usernameEnter.getText();
         String password = passwordEnter.getText();
+        System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
-        ExistingUser a = new ExistingUser(username,email);
+        ExistingUser user = new ExistingUser(username, email);
         
         
         try {
-            isPasswordCorrect = a.checkPassword(password);
+            isPasswordCorrect = user.checkPassword(password);
             
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(isPasswordCorrect == true){
-            a.checkIn();
-            System.out.println(a.getUsername());
+            user.checkIn();
+            System.out.println(user.getUsername());
+            
             //login success and login into home page
             setVisible(false); 
             new gui_home().setVisible(true);                     
@@ -299,11 +302,24 @@ public class real_login_gui extends javax.swing.JFrame {
 
     private void resetPasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordbtnActionPerformed
         if(evt.getSource() == resetPasswordbtn){
-        //juz create a page then start reset
-//        setVisible(false);
-//        new forgottenPassword().setVisible(true);
-        String m = JOptionPane.showInputDialog("Enter your email");
-            System.out.println(m);
+            String emailToReset = JOptionPane.showInputDialog("Enter your email");
+            PasswordRecovery recover = new PasswordRecovery(emailToReset);
+            
+                // Send recovery email
+                boolean doesEmailExist = recover.sendRecoveryEmail();
+                if(!doesEmailExist){
+                    JOptionPane.showMessageDialog(null,"This email does not exist.");               
+                    
+                }
+                String recoveryPassword = JOptionPane.showInputDialog("Enter your recovery password.");
+                if(PasswordRecovery.isRecoveryPasswordCorrect(recoveryPassword)){
+                    var cfbtn = JOptionPane.showConfirmDialog(null, "Correct recovery password!");
+                    if(cfbtn == 0){
+                        setVisible(false);
+                        new forgottenPassword().setVisible(true);
+                    }       
+                }
+            
         }
     }//GEN-LAST:event_resetPasswordbtnActionPerformed
 

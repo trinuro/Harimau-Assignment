@@ -21,8 +21,26 @@ import java.util.Scanner;
  * @author Khiew
  */
 public class PasswordRecovery extends User{
+    static String currentEmail;
+
     PasswordRecovery(String email){
         super.email = email;
+        this.currentEmail = email;
+        System.out.println(this);
+    }
+    
+
+    // Empty constructor
+    PasswordRecovery(){
+        super.email = this.currentEmail;
+        System.out.println(this);
+    }
+    
+    public String toString(){
+        return String.format("""
+                             Password Recovery Object created
+                             Email: %s
+                             """, this.email);
     }
     
     private String generateRecoveryPassword(){
@@ -116,11 +134,10 @@ public class PasswordRecovery extends User{
 
         // Send recovery email to user
         try{
-        String sender = Secrets.getSenderEmail();
         String receiver = recipientEmail;
         String subject = "Harimau Account Recovery";
         String message = "Your recovery password is "+recoveryPw;
-        new HarimauGmailer().sendMail(sender, receiver, subject, message);
+        HarimauGmailer.sendEmail( receiver, subject, message);
             
         }catch(Exception e){
             System.out.println(e);
