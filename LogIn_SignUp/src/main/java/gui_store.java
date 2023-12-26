@@ -298,11 +298,19 @@ public class gui_store extends javax.swing.JFrame {
 
     private void btn_merchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_merchandiseActionPerformed
         // TODO add your handling code here:
+
+//        gui_merchandise StoreFrame = new gui_merchandise();
+//        StoreFrame.setVisible(true);
+//        StoreFrame.pack();
+//        StoreFrame.setLocationRelativeTo(null);
+//        this.dispose();
+
         gui_merchandise StoreFrame = new gui_merchandise();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
         //this.dispose();
+
     }//GEN-LAST:event_btn_merchandiseActionPerformed
 
     /**

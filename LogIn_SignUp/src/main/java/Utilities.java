@@ -208,7 +208,7 @@ public class Utilities {
         ){
 
         // SQL command to be executed
-        String sqlInsert = String.format("INSERT INTO donations_history(donor_id,donation_amount,organisation) VALUES(%s,%d,\"%s\");", userID, donationAmount,organisationName);
+        String sqlInsert = String.format("INSERT INTO donations_history(donor_id,donation_amount,organisation) VALUES(%s,%f,\"%s\");", userID, donationAmount,organisationName);
         System.out.println("SQL Statement to be executed: "+sqlInsert);
         // Insert information into database
         int countInserted = stmt.executeUpdate(sqlInsert);
