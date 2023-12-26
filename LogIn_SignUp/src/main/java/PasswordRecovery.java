@@ -22,12 +22,15 @@ import java.util.Scanner;
  */
 public class PasswordRecovery extends User{
     static String currentEmail;
+
     PasswordRecovery(String email){
         super.email = email;
         this.currentEmail = email;
         System.out.println(this);
     }
     
+
+    // Empty constructor
     PasswordRecovery(){
         super.email = this.currentEmail;
         System.out.println(this);
