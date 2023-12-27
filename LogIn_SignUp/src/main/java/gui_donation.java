@@ -1,9 +1,15 @@
 
+import java.awt.BorderLayout;
+import static java.awt.Component.CENTER_ALIGNMENT;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 
 
@@ -58,6 +64,7 @@ public class gui_donation extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         showCurrentPoint = new javax.swing.JLabel();
+        donateHistory = new javax.swing.JButton();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -142,31 +149,40 @@ public class gui_donation extends javax.swing.JFrame {
                 .addContainerGap(220, Short.MAX_VALUE))
         );
 
-        showCurrentPoint.setText("Points: ");
+        donateHistory.setText("View donate history");
+        donateHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                donateHistoryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
                         .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1014, 1014, 1014)
+                        .addGap(640, 640, 640)
+                        .addComponent(donateHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(216, 216, 216)
                         .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_menuLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(855, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showCurrentPoint))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(donateHistory))
+                    .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -333,6 +349,42 @@ public class gui_donation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void donateHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateHistoryActionPerformed
+        if(evt.getSource() == donateHistory){
+            //getTreePlantedData
+            JDialog dialog = new JDialog();
+            dialog.setTitle("Donate history");
+        
+            ArrayList<String> DonationsData = Utilities.getDonationsData(user.getUsername());
+            StringBuilder Donation = new StringBuilder();
+            
+            for(String data: DonationsData){
+                Donation.append(data).append("\n");
+            }          
+            
+            //Create JTextArea to display the purchase history
+            JTextArea textArea = new JTextArea(Donation.toString());
+            textArea.setEditable(false);
+            
+            textArea.setAlignmentX(CENTER_ALIGNMENT);
+            
+            //add scroolpane for scrolling down
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            
+            dialog.setLayout(new BorderLayout());
+            
+            dialog.add(scrollPane, BorderLayout.CENTER);
+            
+            dialog.setSize(400,200);
+            
+            //make the dialog at the center of screen
+            dialog.setLocationRelativeTo(null);
+            
+            //make the dialog visible
+            dialog.setVisible(true);        
+        }
+    }//GEN-LAST:event_donateHistoryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -377,6 +429,7 @@ public class gui_donation extends javax.swing.JFrame {
     private javax.swing.JButton btn_home;
     private javax.swing.JButton btn_store;
     private javax.swing.JButton cfDonate;
+    private javax.swing.JButton donateHistory;
     private javax.swing.JTextField donateMoney;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
