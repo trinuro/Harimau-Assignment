@@ -149,24 +149,6 @@ public class ExistingUser extends User{
         //Update last_checked_in
         updateLast_checked_in();
 
-        // Update logged_in boolean variable in database
-        try(
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-        Statement stmt = conn.createStatement();
-           ){
-            // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET logged_in= \'%d\' WHERE username = \'%s\';", 1, this.username);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
-
-            // Insert information into database
-            int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
-
-        }catch(SQLException ex){
-            System.out.println("SQL failed! Find Khiew");
-            ex.printStackTrace();
-        }
-        
         System.out.println("User logged in successfully");
     }
     
@@ -357,31 +339,5 @@ public class ExistingUser extends User{
         
         System.out.println("Successfully querried database for user data");
         return output;
-    }
-    
-    public void checkOut(){
-        // This method signs a user out
-        // It updates the database to show that the user is currently logged out
-        // Returns nothing
-        
-        // Update logged_in boolean variable in database
-        try(
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-        Statement stmt = conn.createStatement();
-           ){
-            // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET logged_in= \'%d\' WHERE username = \'%s\';", 0, username);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
-            
-            // Insert information into database
-            int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
-            
-        }catch(SQLException ex){
-            System.out.println("SQL failed! Find Khiew");
-            ex.printStackTrace();
-        }
-        
-        System.out.println("User successfully logged out");
     }
 }
