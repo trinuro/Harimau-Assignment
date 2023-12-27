@@ -70,7 +70,7 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT email,password,registration_date FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -125,7 +125,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT last_checked_in FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -248,7 +247,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -284,7 +282,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT registration_date FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -322,7 +319,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT password FROM user_table WHERE email = \'%s\';",email);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -372,7 +369,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT email FROM user_table WHERE email = \'%s\';",recipientEmail);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -458,7 +455,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT registration_date FROM user_table WHERE email = \'%s\';",email);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
