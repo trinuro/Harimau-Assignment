@@ -29,7 +29,7 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser user;
+    ExistingUser user = new ExistingUser();
     
     public gui_merchandise() {
         initComponents();
@@ -110,8 +110,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         panel_obj1.setBackground(new java.awt.Color(255, 255, 255));
 
-        img_obj1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgObj1.jpg")));
-        img_obj1.setText("jLabel1");
+        img_obj1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\canvasbag.jpg")));
 
         name_obj1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         name_obj1.setText("      canvas bag");
@@ -421,16 +420,11 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
-
-        showCurrentPoint.setText("point");
-
-
         javax.swing.GroupLayout panel_menuLayout = new javax.swing.GroupLayout(panel_menu);
         panel_menu.setLayout(panel_menuLayout);
         panel_menuLayout.setHorizontalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-
                 .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,7 +440,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                             .addGap(819, 819, 819)
                             .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(960, Short.MAX_VALUE))
-
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -531,10 +524,8 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addGap(475, 475, 475)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
@@ -549,10 +540,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(panel_mainLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -855,7 +842,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         dialog.setTitle("Merchandise Purchase History");
 
         
-        ArrayList<String> data = Utilities.getMerchandiseData("hzw");
+        ArrayList<String> data = Utilities.getMerchandiseData(user.getUsername());
         StringBuilder purchaseData = new StringBuilder();
 
         for (String dataItem : data) {
