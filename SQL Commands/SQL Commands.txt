@@ -17,7 +17,7 @@ CREATE TABLE user_table (
     password VARCHAR(64),
     current_points DECIMAL(10,2) DEFAULT 0,
     last_checked_in TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE NewsSample(
