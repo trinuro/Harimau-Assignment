@@ -70,7 +70,7 @@ public class signup_gui extends javax.swing.JFrame {
         jLabel4.setText("Password");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        jLabel5.setText("Comfirmed Password");
+        jLabel5.setText("Confirmed Password");
 
         back.setBackground(new java.awt.Color(134, 167, 137));
         back.setForeground(new java.awt.Color(235, 243, 232));
