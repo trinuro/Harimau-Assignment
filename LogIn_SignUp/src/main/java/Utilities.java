@@ -388,7 +388,7 @@ public class Utilities {
             // Returns true if method is succussful
             
             // Check if entry alrady exist in the table
-            boolean doesEntryExist = true;
+            boolean doesEntryExist = false;
             try(
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
                 Statement stmt = conn.createStatement();
@@ -408,8 +408,10 @@ public class Utilities {
             // Get questions, options and answer from the database
             while(rset.next()){
                 String user_id = rset.getString("user_id");
-                if(user_id.equals("")){
-                    doesEntryExist = false;
+                System.out.println(user_id);
+                if(!user_id.equals("")){
+                    System.out.println("User exist");
+                    doesEntryExist = true;
                 }
             } 
             }catch(SQLException ex){
@@ -417,6 +419,7 @@ public class Utilities {
                 ex.printStackTrace();   
                 return false;
             }            
+//            System.out.println(doesEntryExist);
             
             // Check if there is an entry for this user and this question in trial_history
             if(!doesEntryExist){
