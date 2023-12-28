@@ -339,7 +339,7 @@ public class Utilities {
             ){
 
             // SQL command to be executed
-            String sqlInsert = String.format("INSERT INTO trial_history VALUES(%s,%d,%d);", userID, questionID,numberOfTries);
+            String sqlInsert = String.format("INSERT INTO trial_history VALUES(%s,%d,%d,0,0);", userID, questionID,numberOfTries);
             // Insert information into database
             int countInserted = stmt.executeUpdate(sqlInsert);
 
@@ -387,9 +387,39 @@ public class Utilities {
             // It will update entry if the entry exists in trial_history
             // Returns true if method is succussful
             
+            // Check if entry alrady exist in the table
+            boolean doesEntryExist = true;
+            try(
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+                Statement stmt = conn.createStatement();
+                ){
+            // Create SQL query
+            String strSelect = String.format("""
+                                             SELECT trial_history.user_id
+                                             FROM user_table
+                                             JOIN trial_history
+                                             ON trial_history.user_id = user_table.user_id
+                                             WHERE username = "%s" and trivia_id = %d;
+                                             """,username,question_id);
+
+            // Execute query
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Get questions, options and answer from the database
+            while(rset.next()){
+                String user_id = rset.getString("user_id");
+                if(user_id.equals("")){
+                    doesEntryExist = false;
+                }
+            } 
+            }catch(SQLException ex){
+                System.out.printf("Failed to query database for number_of_tries of %s for question %d\n",username,question_id);
+                ex.printStackTrace();   
+                return false;
+            }            
             
             // Check if there is an entry for this user and this question in trial_history
-            if(getNumberOfTries(username, question_id)<=0){
+            if(!doesEntryExist){
                 System.out.printf("No entry found for this combination. Create new entry for user %s, question %d\n",username,question_id);
                 // Create a new entry for this user if entry does not exist
                 boolean insertSuccessful = insertNewQuestionAttempt(username, question_id,numberOfTries);
@@ -408,9 +438,144 @@ public class Utilities {
                     return true;
                 }
                 else{
-                    System.out.println("Failed to update entryin trial_history");
+                    System.out.println("Failed to update entry in trial_history");
                     return false;
                 }
             }
         }
+        
+        public static boolean getIsCorrectFinally(String username, int question_id){
+            // This method returns the boolean value of isCorrectCurrently for a certain user and question
+            // This method assumes that user already exist.
+            // This method will also return false if query fails. Check terminal output
+            
+            boolean isCorrectFinally = false;
+            try(
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+                Statement stmt = conn.createStatement();
+                ){
+            // Create SQL query
+            String strSelect = String.format("""
+                                             SELECT isCorrectFinally
+                                             FROM user_table
+                                             JOIN trial_history
+                                             ON trial_history.user_id = user_table.user_id
+                                             WHERE username = "%s" and trivia_id = %d;
+                                             """,username,question_id);
+
+            // Execute query
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Get questions, options and answer from the database
+            while(rset.next()){
+                isCorrectFinally = rset.getBoolean("isCorrectFinally");
+            } 
+            }catch(SQLException ex){
+                System.out.printf("Failed to query database for number_of_tries of %s for question %d\n",username,question_id);
+                ex.printStackTrace();   
+                return false;
+            }            
+            
+            System.out.printf("Database query successful: isCorrectFinally is %b\n",isCorrectFinally);
+            return isCorrectFinally;
+        }
+        
+        public static boolean getIsCorrectCurrently(String username, int question_id){
+         // This method returns the boolean value of isCorrectCurrently for a certain user and question
+         // This method assumes that user already exist.
+         // This method will also return false if query fails. Check terminal output
+
+            boolean isCorrectCurrently = false;
+            try(
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+                Statement stmt = conn.createStatement();
+                ){
+            // Create SQL query
+            String strSelect = String.format("""
+                                             SELECT isCorrectCurrently
+                                             FROM user_table
+                                             JOIN trial_history
+                                             ON trial_history.user_id = user_table.user_id
+                                             WHERE username = "%s" and trivia_id = %d;
+                                             """,username,question_id);
+
+            // Execute query
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Get questions, options and answer from the database
+            while(rset.next()){
+                isCorrectCurrently = rset.getBoolean("isCorrectCurrently");
+            } 
+            }catch(SQLException ex){
+                System.out.printf("Failed to query database for number_of_tries of %s for question %d\n",username,question_id);
+                ex.printStackTrace();   
+                return false;
+            }            
+
+            System.out.printf("Database query successful: isCorrectCurrently is %b\n",isCorrectCurrently);
+            return isCorrectCurrently;
+    }
+           
+        public static boolean setIsCorrectFinally(String username, int question_id, boolean newValue){
+            // This method set isCorrectFinally of a specified user and question_id
+            // Returns true if update successful
+            
+            String userID = login.getUserData(username, "user_id");
+            int isCorrectFinallyValue;
+            if(newValue)
+                isCorrectFinallyValue = 1;
+            else
+                isCorrectFinallyValue = 0;
+            
+            try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+               ){
+                // Create SQL Insert
+                String sqlInsert = String.format("UPDATE trial_history SET isCorrectFinally = %d WHERE user_id = %s and trivia_id = %d;", isCorrectFinallyValue, userID,question_id);
+
+                // Insert information into database
+                int countInserted = stmt.executeUpdate(sqlInsert);
+
+            }catch(SQLException ex){
+                System.out.println("SQL failed! Find Khiew");
+                ex.printStackTrace();
+                return false;
+            }              
+            
+            System.out.println("Successful Update: Updated isCorrectFinally of "+username+" for question "+question_id);
+            return true;
+        }
+        
+        public static boolean setIsCorrectCurrently(String username, int question_id, boolean newValue){
+            // This method set isCorrectFinally of a specified user and question_id
+            // Returns true if update successful
+            
+            String userID = login.getUserData(username, "user_id");
+            int isCorrectCurrentlyValue;
+            if(newValue)
+                isCorrectCurrentlyValue = 1;
+            else
+                isCorrectCurrentlyValue = 0;
+            
+            try(
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+               ){
+                // Create SQL Insert
+                String sqlInsert = String.format("UPDATE trial_history SET isCorrectCurrently = %d WHERE user_id = %s and trivia_id = %d;", isCorrectCurrentlyValue, userID,question_id);
+
+                // Insert information into database
+                int countInserted = stmt.executeUpdate(sqlInsert);
+
+            }catch(SQLException ex){
+                System.out.println("SQL failed! Find Khiew");
+                ex.printStackTrace();
+                return false;
+            }              
+            
+            System.out.println("Successful Update: Updated isCorrectCurrently of "+username+" for question "+question_id);
+            return true;
+        }
+        
 }
