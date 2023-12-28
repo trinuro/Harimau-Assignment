@@ -305,23 +305,31 @@ public class real_login_gui extends javax.swing.JFrame {
         if(evt.getSource() == resetPasswordbtn){
             String emailToReset = JOptionPane.showInputDialog("Enter your email");
             PasswordRecovery recover = new PasswordRecovery(emailToReset);
-            
-                // Send recovery email
-                boolean doesEmailExist = recover.sendRecoveryEmail();
-                if(!doesEmailExist){
-                    JOptionPane.showMessageDialog(null,"This email does not exist.");               
-                    
+                            
+            // Send recovery email    
+            boolean doesEmailExist = recover.sendRecoveryEmail();          
+                //Check email exist or not
+                if(doesEmailExist == false){
+                    JOptionPane.showMessageDialog(null,"This email does not exist.");                                   
                 }
-                String recoveryPassword = JOptionPane.showInputDialog("Enter your recovery password.");
-                if(PasswordRecovery.isRecoveryPasswordCorrect(recoveryPassword)){
-                    var cfbtn = JOptionPane.showConfirmDialog(null, "Correct recovery password!");
-                    if(cfbtn == 0){
+                else{
+                    //email exist             
+                    String recoveryPassword = JOptionPane.showInputDialog("Enter your recovery password.");
+                    boolean isRecoveryPasswordCorrect = PasswordRecovery.isRecoveryPasswordCorrect(recoveryPassword);
+                    //if recovery password correct
+                    if(isRecoveryPasswordCorrect){                        
+                        JOptionPane.showMessageDialog(null,"Now, reset your password."); 
                         setVisible(false);
                         new forgottenPassword().setVisible(true);
-                    }       
-                }
-            
-        }
+                    }
+                    else{                              
+                            JOptionPane.showMessageDialog(null,"Oops! You entered a wrong recovery password. Please do the same steps again to reset your password and make sure you enter the recovery password correctly");
+                    }
+                
+                    
+            }
+        }       
+        
     }//GEN-LAST:event_resetPasswordbtnActionPerformed
 
     /**
