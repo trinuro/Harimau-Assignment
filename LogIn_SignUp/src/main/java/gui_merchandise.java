@@ -29,7 +29,7 @@ import javax.swing.text.Document;
 public class gui_merchandise extends javax.swing.JFrame {
 
    
-    ExistingUser user;
+    ExistingUser user = new ExistingUser();
     
     public gui_merchandise() {
         initComponents();
@@ -109,8 +109,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         panel_obj1.setBackground(new java.awt.Color(255, 255, 255));
 
-        img_obj1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\imgObj1.jpg")));
-        img_obj1.setText("jLabel1");
+        img_obj1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\Images\\canvasbag.jpg")));
 
         name_obj1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         name_obj1.setText("      canvas bag");
@@ -517,6 +516,11 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
+=======
+                .addGap(475, 475, 475)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> aa4ee874b778649c9334677f5ca956696e16a9a2
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
@@ -831,7 +835,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         dialog.setTitle("Merchandise Purchase History");
 
         
-        ArrayList<String> data = Utilities.getMerchandiseData("hzw");
+        ArrayList<String> data = Utilities.getMerchandiseData(user.getUsername());
         StringBuilder purchaseData = new StringBuilder();
 
         for (String dataItem : data) {

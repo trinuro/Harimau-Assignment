@@ -70,7 +70,7 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT email,password,registration_date FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -125,7 +125,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT last_checked_in FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -153,24 +152,6 @@ public class login {
         
         //Update last_checked_in
         updateLast_checked_in(username);
-        
-        // Update logged_in boolean variable in database
-        try(
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-        Statement stmt = conn.createStatement();
-           ){
-            // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET logged_in= \'%d\' WHERE username = \'%s\';", 1, username);
-            System.out.println("SQL Statement to be executed: "+sqlInsert);
-            
-            // Insert information into database
-            int countInserted = stmt.executeUpdate(sqlInsert);
-            System.out.println(countInserted+" records inserted.");
-            
-        }catch(SQLException ex){
-            System.out.println("SQL failed! Find Khiew");
-            ex.printStackTrace();
-        }
     }
     
     private static void updateLast_checked_in(String username){
@@ -248,7 +229,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -284,7 +264,6 @@ public class login {
             ){
         // Create SQL query
         String strSelect = String.format("SELECT registration_date FROM user_table WHERE username = \'%s\';",username);
-        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -322,7 +301,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT password FROM user_table WHERE email = \'%s\';",email);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -372,7 +351,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT email FROM user_table WHERE email = \'%s\';",recipientEmail);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -458,7 +437,7 @@ public class login {
         ){
         // Create SQL query
         String strSelect = String.format("SELECT registration_date FROM user_table WHERE email = \'%s\';",email);
-        System.out.println("The SQL statement is "+strSelect);
+        
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -498,27 +477,4 @@ public class login {
         return true;
     }
     
-    public static void checkOut(String username){
-        // This method signs a user out
-        // It updates the database to show that the user is currently logged out
-        // Returns nothing
-        
-        // Update logged_in boolean variable in database
-        try(
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
-        Statement stmt = conn.createStatement();
-           ){
-            // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET logged_in= \'%d\' WHERE username = \'%s\';", 0, username);
-            System.out.println("SQL Statement to be executed: "+sqlInsert);
-            
-            // Insert information into database
-            int countInserted = stmt.executeUpdate(sqlInsert);
-            System.out.println(countInserted+" records inserted.");
-            
-        }catch(SQLException ex){
-            System.out.println("SQL failed! Find Khiew");
-            ex.printStackTrace();
-        }
-    }
 }
