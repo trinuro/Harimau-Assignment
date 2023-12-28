@@ -80,7 +80,7 @@ public class store_donation {
                 //update purchase history in txt file
                 
                 try (PrintWriter writer = new PrintWriter(new FileOutputStream("TreePlantOrder.txt",true))) {
-                    writer.write(userName+" plant a tree with the name \""+nameTree+"\"");                
+                    writer.println(userName+" plant a tree with the name \""+nameTree+"\"");                
                 } catch (IOException ex) {
                     System.out.println("Problems with file output");
                 }
@@ -107,7 +107,7 @@ public class store_donation {
        
         //update donation history in txt file
         try (PrintWriter writer = new PrintWriter(new FileOutputStream("Donations.txt",true))) {
-            writer.write(userName+" has donated $ "+donationToNGO+" to "+NGO);
+            writer.println(userName+" has donated $ "+donationToNGO+" to "+NGO);
         } catch (IOException ex) {
             System.out.println("Problems with file output");
         }

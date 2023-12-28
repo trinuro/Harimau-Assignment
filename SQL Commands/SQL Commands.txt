@@ -1,10 +1,12 @@
 --Delete all tables (Ignore any errors)
-DROP TABLE user_table;
-DROP TABLE NewsSample;
-DROP TABLE TriviaSample;
 DROP TABLE MerchandiseOrder;
 DROP TABLE trees;
 DROP TABLE donations_history;
+DROP TABLE trial_history;
+DROP TABLE user_table;
+DROP TABLE NewsSample;
+DROP TABLE TriviaSample;
+
 
 -- Create all tables
 CREATE TABLE user_table (
@@ -13,12 +15,9 @@ CREATE TABLE user_table (
     email VARCHAR(60),
     username VARCHAR(30),
     password VARCHAR(64),
-    first_trail TINYINT(1) DEFAULT 0,
-    second_trail TINYINT(1) DEFAULT 0,
-    current_points DECIMAL(10,5) DEFAULT 0,
+    current_points DECIMAL(10,2) DEFAULT 0,
     last_checked_in TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    logged_in TINYINT(1) DEFAULT 0
+    registration_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE NewsSample(
@@ -55,9 +54,20 @@ CREATE TABLE trees(
 CREATE TABLE donations_history(
     donations_id INT PRIMARY KEY AUTO_INCREMENT,
     donor_id INT,
-    donation_amount INT,
+    donation_amount DECIMAL(10,2),
     organisation VARCHAR(100),
     FOREIGN KEY (donor_id) REFERENCES user_table(user_id) ON DELETE SET NULL
+);
+
+CREATE TABLE trial_history(
+    user_id INT,
+    trivia_id INT,
+    number_of_tries INT,
+    isCorrectFinally TINYINT(1),
+    isCorrectCurrently TINYINT(1),
+    PRIMARY KEY (user_id, trivia_id),
+    FOREIGN KEY (user_id) REFERENCES user_table(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (trivia_id) REFERENCES TriviaSample(question_id) ON DELETE CASCADE
 );
 
 
@@ -91,6 +101,7 @@ SELECT * FROM NewsSample;
 SELECT * FROM TriviaSample;
 SELECT * FROM trees;
 SELECT * FROM donations_history;
+SELECT * FROM trial_history;
 
 -- Delete certain rows
 DELETE FROM user_table WHERE user_id = 4;
