@@ -63,6 +63,8 @@ CREATE TABLE trial_history(
     user_id INT,
     trivia_id INT,
     number_of_tries INT,
+    isCorrectFinally TINYINT(1),
+    isCorrectCurrently TINYINT(1),
     PRIMARY KEY (user_id, trivia_id),
     FOREIGN KEY (user_id) REFERENCES user_table(user_id) ON DELETE CASCADE,
     FOREIGN KEY (trivia_id) REFERENCES TriviaSample(question_id) ON DELETE CASCADE
