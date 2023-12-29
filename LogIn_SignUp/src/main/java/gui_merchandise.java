@@ -899,11 +899,12 @@ public class gui_merchandise extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        /* Checkout method no longer exist
         String selectedOption = (String) jComboBox1.getSelectedItem();
         if("Log out".equals(selectedOption)){
             login.checkOut(user.getUsername());
                     }
-
+        */
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
