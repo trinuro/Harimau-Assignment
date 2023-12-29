@@ -148,6 +148,9 @@ public class ExistingUser extends User{
 
         //Update last_checked_in
         updateLast_checked_in();
+        
+        // Update trial_history table
+        this.updateTrialHistory();
 
         System.out.println("User logged in successfully");
     }
@@ -339,5 +342,88 @@ public class ExistingUser extends User{
         
         System.out.println("Successfully querried database for user data");
         return output;
+    }
+    
+    private boolean insertNewQuestionAttempt(int questionID, int numberOfTries){
+        // This method will create a new row for in trial_history table for specified user and question
+        // Returns true if successful
+
+        String userID = login.getUserData(this.username, "user_id");
+
+        try(
+    //          Create connection to database
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+            Statement stmt = conn.createStatement();
+        ){
+
+        // SQL command to be executed
+        String sqlInsert = String.format("INSERT INTO trial_history VALUES(%s,%d,%d,0,0);", userID, questionID,numberOfTries);
+        // Insert information into database
+        int countInserted = stmt.executeUpdate(sqlInsert);
+
+        }catch(SQLException ex){
+            System.out.println("SQL failed! Find Khiew");
+            ex.printStackTrace();
+            return false;
+        }
+        System.out.println("Successful Insert: New row in trial_history created.");
+        return true;
+    }
+    
+    private boolean isTrialHistoryUpdated(int questionID){
+            // Check if entry alrady exist in the table
+            boolean doesEntryExist = false;
+            try(
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+                Statement stmt = conn.createStatement();
+                ){
+            // Create SQL query
+            String strSelect = String.format("""
+                                             SELECT trial_history.user_id
+                                             FROM user_table
+                                             JOIN trial_history
+                                             ON trial_history.user_id = user_table.user_id
+                                             WHERE username = "%s" and trivia_id = %d;
+                                             """,username,questionID);
+
+            // Execute query
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Get questions, options and answer from the database
+            while(rset.next()){
+                String user_id = rset.getString("user_id");
+                System.out.println(user_id);
+                if(!user_id.equals("")){
+                    doesEntryExist = true;
+                }
+            } 
+            }catch(SQLException ex){
+                System.out.printf("Failed to query database for number_of_tries of %s for question %d\n",username,questionID);
+                ex.printStackTrace();   
+                return false;
+            }           
+            if(doesEntryExist)
+                System.out.println("User and question combination already exist");
+            else
+                System.out.println("User and question combination does not exist");
+            
+            return doesEntryExist;
+    }
+    
+    public void updateTrialHistory(){
+        int daysAfterRegister = (int) this.daysAfterRegistration();
+        System.out.println(daysAfterRegister);
+        int questionToday = daysAfterRegister+1;
+        
+        // Create loop that checks whether there is a entry for today's and yesterday's question
+        while(questionToday>0){
+            if(!this.isTrialHistoryUpdated(questionToday)){
+                // Trial history not updated yet, so insert today's question
+                this.insertNewQuestionAttempt(questionToday, 0);
+            }
+            // Check for previous day's questions
+            questionToday--;
+        }
+
     }
 }

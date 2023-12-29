@@ -24,6 +24,15 @@ public class dailyTrivia extends Trivia{
     }
     
     public static void main(String[] args) {
+        String username = "J";
+        int questionID = 1;
+        int numberOfTries = 0;
+                
+        // Create new entry for this user and question in history 
+        if(Utilities.setNumberOfTries(username, questionID, Utilities.getNumberOfTries(username, questionID))){
+            int tries = Utilities.getNumberOfTries(username, questionID);
+            System.out.println("Initial Number of tries: "+tries);
+        }
         dailyTrivia trvia1 = new dailyTrivia("Lim");
         dailyTrivia trvia2 = new dailyTrivia("Lim");
         Scanner input = new Scanner(System.in);
@@ -41,8 +50,8 @@ public class dailyTrivia extends Trivia{
         
     }
         
-    //***********************************************************************
-    // ******************START FROM HERE*********************************
+    //*************************
+    // *******START FROM HERE************
     
     // get string of specific question based on the number of qustions (from 1 to 10)
     @Override
@@ -53,8 +62,8 @@ public class dailyTrivia extends Trivia{
     // get string array of options based on the number of qustions (from 1 to 10)
     @Override
     public String[] getOptions(int question) {
-        System.out.println("No of attempt = " + getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt());
-        if (getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt()  == 0) {
+        System.out.println("No of attempt for" + question +" = " + Utilities.getNumberOfTries(getUsername(), question));
+        if (Utilities.getNumberOfTries(getUsername(), question) == 0) {
             System.out.println("No shuffle");
             String[] currentOptionList = super.getOriginalOptions(question);
             return currentOptionList;
@@ -77,6 +86,7 @@ public class dailyTrivia extends Trivia{
             int differenceOfDay = noOfDayLogin +1 - questionSetCanBeAnswered.size();
             for (int i = 0; i < differenceOfDay; i++) {
                 questionSetCanBeAnswered.add(new Trivia(questionSetCanBeAnswered.size()+1));
+                Utilities.setNumberOfTries(getUsername(), i, 0);
             }
         }
         return questionSetCanBeAnswered;
@@ -84,44 +94,58 @@ public class dailyTrivia extends Trivia{
     
      // return int numberOfAttempt
     public int gatNumberOfAttempt(int question){
-        return getQuestionSetCanBeAnswered().get(question-1).getNumberOFAttempt();
+        return Utilities.getNumberOfTries(getUsername(), question);
     }
     
     // return the double marks value allocated for the given question
     public double getmarkAllocated(int noOfQuestion) {
-        return markAllocated(noOfQuestion, getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt());
+        return markAllocated(noOfQuestion, gatNumberOfAttempt(noOfQuestion));
     }
     
     // return the boolean value of the answer chosen
     public boolean getIsCorrectAnswerCurrently(int noOfQuestion) {
-        return getQuestionSetCanBeAnswered().get(noOfQuestion-1).getIsCorrectForTrial();
+        return Utilities.getIsCorrectCurrently(getUsername(), noOfQuestion);
     }
     
     // return the boolean value of the answer chosen
     public boolean getIsCorrectAnswerFinally(int noOfQuestion) {
-        return getQuestionSetCanBeAnswered().get(noOfQuestion-1).getIsCorrect();
+        return Utilities.getIsCorrectFinally(getUsername(), noOfQuestion);
     }
     
     // return string value of the title (not neccesary to be used)
     public String title(int noOfQuestion) {
-        if (getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt() >= 2 || getIsCorrectAnswerFinally(noOfQuestion)) {
+        if (gatNumberOfAttempt(noOfQuestion) >= 2 || getIsCorrectAnswerFinally(noOfQuestion)) {
             return "Day " + noOfQuestion + " Trivia ( Attempt without marks increment )";
         }
-        return "Day " + noOfQuestion + " Trivia ( Attempt #" + (getQuestionSetCanBeAnswered().get(noOfQuestion-1).getNumberOFAttempt()+1) + " )";
+        return "Day " + noOfQuestion + " Trivia ( Attempt #" + (gatNumberOfAttempt(noOfQuestion)+1) + " )";
     }
     
     // has to be run to update isCorrect, numberOfAttempt and to increasuser marks if any
     public void isCorrect(int noOFQuestion, String selectedAnswer) {
+        System.out.println("no of qustion"+ noOFQuestion);
+        System.out.println("ans "+getAnswer(noOFQuestion));
+        System.out.println("selectedAnswer "+ selectedAnswer);
+        System.out.println(selectedAnswer.equals(getAnswer(noOFQuestion)));
+        updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), true);
+
         if (!getIsCorrectAnswerFinally(noOFQuestion)) {
-            getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrect(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
-            getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
-            updateNoOfAttempt(noOFQuestion, getQuestionSetCanBeAnswered().get(noOFQuestion-1).getNumberOFAttempt(), getIsCorrectAnswerFinally(noOFQuestion));
+            System.out.println("i am wrong initially");
+            //updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), true);
+            Utilities.setIsCorrectCurrently(getUsername(), noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
+
+            Utilities.setIsCorrectFinally(getUsername(), noOFQuestion,selectedAnswer.equals(getAnswer(noOFQuestion)));
+            System.out.println("after immediate update" + getIsCorrectAnswerCurrently(noOFQuestion));
+            System.out.println("after immediate update" + getIsCorrectAnswerFinally(noOFQuestion));
+
+            updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), selectedAnswer.equals(getAnswer(noOFQuestion)));
+
+            System.out.println("after update no of attempt" + getIsCorrectAnswerCurrently(noOFQuestion));
             login.increasePoints(username, getmarkAllocated(noOFQuestion));
         } else {
-            getQuestionSetCanBeAnswered().get(noOFQuestion-1).setIsCorrectForTrial(noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
+            Utilities.setIsCorrectCurrently(getUsername(), noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
             System.out.println("Thanks for trying again");
         }
-        
+        System.out.println("getiscorrectansfinally = " + getIsCorrectAnswerFinally(noOFQuestion));
     }
     
     // can be run for tesing the output
@@ -147,8 +171,8 @@ public class dailyTrivia extends Trivia{
         return this.username;
     }
     
-    // **********************************Until here***************************************
-    //**************************************************************************************
+    // ***********Until here**************
+    //******************************
    
     private static String[] shuffledOptionsArray(String[] options) {
         List<String> optionsList = Arrays.asList(options);
@@ -166,7 +190,11 @@ public class dailyTrivia extends Trivia{
     
     private void updateNoOfAttempt(int noOfQuestion, int noOfAttempt, boolean isCorrect) {
         if (!isCorrect) {
-            getQuestionSetCanBeAnswered().get(noOfQuestion-1).setNumberOFAttempt(++noOfAttempt);
+            System.out.println("original attempt time = "+ noOfAttempt);
+            int latestNoOfAttempt = noOfAttempt +1;
+            System.out.println("latest attempt time = "+ latestNoOfAttempt);
+            Utilities.setNumberOfTries(getUsername(), noOfQuestion, latestNoOfAttempt);
+            System.out.println("the number of trial is updated");
         }
     }
 }
