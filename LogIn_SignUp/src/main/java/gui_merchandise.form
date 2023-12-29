@@ -596,8 +596,6 @@
                   <Component id="btn_store" min="-2" pref="109" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btn_donation" min="-2" pref="131" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="475" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
