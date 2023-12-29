@@ -346,6 +346,7 @@ public class Utilities {
             }catch(SQLException ex){
                 System.out.println("SQL failed! Find Khiew");
                 ex.printStackTrace();
+                
                 return false;
             }
             System.out.println("Successful Insert: New row in trial_history created.");
@@ -422,19 +423,7 @@ public class Utilities {
 //            System.out.println(doesEntryExist);
             
             // Check if there is an entry for this user and this question in trial_history
-            if(!doesEntryExist){
-                System.out.printf("No entry found for this combination. Create new entry for user %s, question %d\n",username,question_id);
-                // Create a new entry for this user if entry does not exist
-                boolean insertSuccessful = insertNewQuestionAttempt(username, question_id,numberOfTries);
-                if(insertSuccessful){
-                    System.out.printf("Succesfully set number of tries for %s and question %d\n",username,question_id);
-                    return true;
-
-                }else{
-                    System.out.println("Failed to insert new entry. User/question does not exist");
-                    return false;
-                }
-            }else{
+            if(doesEntryExist){
                 boolean updateSuccessful = updateNumberOfTries(username, question_id,numberOfTries);
                 if(updateSuccessful){
                     System.out.printf("Succesfully set number of tries for %s and question %d\n",username,question_id);
@@ -444,8 +433,12 @@ public class Utilities {
                     System.out.println("Failed to update entry in trial_history");
                     return false;
                 }
+            }else{
+                System.out.println("User and question combination does not exist. Update table first.");
+                return false;
             }
         }
+        
         
         public static boolean getIsCorrectFinally(String username, int question_id){
             // This method returns the boolean value of isCorrectCurrently for a certain user and question
