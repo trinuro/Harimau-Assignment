@@ -96,7 +96,6 @@ public class gui_merchandise extends javax.swing.JFrame {
         btn_store = new javax.swing.JButton();
         btn_Quiz = new javax.swing.JButton();
         btn_donation = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(235, 243, 232));
@@ -504,13 +503,6 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home", "Log out" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout panel_mainLayout = new javax.swing.GroupLayout(panel_main);
         panel_main.setLayout(panel_mainLayout);
         panel_mainLayout.setHorizontalGroup(
@@ -525,17 +517,15 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(475, 475, 475)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                )
+
         );
         panel_mainLayout.setVerticalGroup(
             panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_mainLayout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_Quiz, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -625,7 +615,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
         
         int id_obj2 = 1;
-        double currentPoints= Double.parseDouble(login.getUserData("hzw", "current_points"));
+        double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double point_obj2_Need = 200;
         
         if (evt.getSource() == btn_add_obj2) {
@@ -898,14 +888,6 @@ public class gui_merchandise extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String selectedOption = (String) jComboBox1.getSelectedItem();
-        if("Log out".equals(selectedOption)){
-            login.checkOut(user.getUsername());
-                    }
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
 //        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
@@ -961,7 +943,6 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel img_obj1;
     private javax.swing.JLabel img_obj2;
     private javax.swing.JLabel img_obj3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

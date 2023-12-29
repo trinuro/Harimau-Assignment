@@ -14,6 +14,7 @@ public class login_gui extends javax.swing.JFrame {
      */
     public login_gui() {
         initComponents();
+        //test
     }
 
     /**
