@@ -11,11 +11,13 @@
  */
 public class gui_store extends javax.swing.JFrame {
     ExistingUser user = new ExistingUser();
+    
     /**
      * Creates new form gui_home
      */
     public gui_store() {
         initComponents();
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
@@ -38,6 +40,7 @@ public class gui_store extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btn_plantTree = new javax.swing.JButton();
         img_plantTree = new javax.swing.JLabel();
+        showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -138,18 +141,23 @@ public class gui_store extends javax.swing.JFrame {
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(716, 716, 716)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1370, Short.MAX_VALUE))
+                .addContainerGap(1216, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,5 +335,6 @@ public class gui_store extends javax.swing.JFrame {
     private javax.swing.JLabel label_home;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_menu;
+    private javax.swing.JLabel showCurrentPoint;
     // End of variables declaration//GEN-END:variables
 }

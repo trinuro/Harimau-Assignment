@@ -199,13 +199,13 @@ public class real_login_gui extends javax.swing.JFrame {
                     .addComponent(resetPasswordbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
@@ -266,21 +266,21 @@ public class real_login_gui extends javax.swing.JFrame {
         try{
             ExistingUser user = new ExistingUser(username, email);
         
-            try {
-                isPasswordCorrect = user.checkPassword(password);
-
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        
+        try {
+            isPasswordCorrect = user.checkPassword(password);
+            
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);   
+        }
             if(isPasswordCorrect == true){
                 user.checkIn();
                 System.out.println(user.getUsername());
-
-                //login success and login into home page
-                setVisible(false); 
-                new gui_home().setVisible(true);                     
+            
+            //login success and login into home page
+            setVisible(false); 
+            new gui_home().setVisible(true);                     
             }
-
             else{
                 //if got error when fill in login message
                 JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");

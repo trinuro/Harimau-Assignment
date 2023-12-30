@@ -93,7 +93,7 @@ public class gui_donation extends javax.swing.JFrame {
             }
         });
 
-        cfDonate.setText("Comfirm");
+        cfDonate.setText("Confirm");
         cfDonate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cfDonateActionPerformed(evt);
@@ -338,6 +338,7 @@ public class gui_donation extends javax.swing.JFrame {
                 }
             }
         }
+        donateMoney.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_cfDonateActionPerformed
 

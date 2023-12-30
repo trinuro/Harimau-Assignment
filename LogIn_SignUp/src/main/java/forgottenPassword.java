@@ -32,16 +32,26 @@ public class forgottenPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        newPasswordEntered = new javax.swing.JTextField();
+        newPasswordEntered1 = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        cfNewPassword = new javax.swing.JTextField();
         resetPWbtn = new javax.swing.JButton();
+        cfNewPassword1 = new javax.swing.JPasswordField();
+        iconDisable1 = new javax.swing.JLabel();
+        iconShow1 = new javax.swing.JLabel();
+        iconDisable2 = new javax.swing.JLabel();
+        iconShow2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 243, 232));
+
+        newPasswordEntered1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPasswordEntered1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Reset Password");
@@ -50,16 +60,38 @@ public class forgottenPassword extends javax.swing.JFrame {
 
         jLabel1.setText("Confirm New Password");
 
-        cfNewPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cfNewPasswordActionPerformed(evt);
-            }
-        });
-
         resetPWbtn.setText("Reset Password");
         resetPWbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetPWbtnActionPerformed(evt);
+            }
+        });
+
+        iconDisable1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\closeeye.png"));
+        iconDisable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iconDisable1MousePressed(evt);
+            }
+        });
+
+        iconShow1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\openeye.png"));
+        iconShow1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iconShow1MousePressed(evt);
+            }
+        });
+
+        iconDisable2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\closeeye.png"));
+        iconDisable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iconDisable2MousePressed(evt);
+            }
+        });
+
+        iconShow2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\openeye.png"));
+        iconShow2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iconShow2MousePressed(evt);
             }
         });
 
@@ -70,24 +102,30 @@ public class forgottenPassword extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(693, 693, 693)
                 .addComponent(jLabel4)
-                .addGap(0, 777, Short.MAX_VALUE))
+                .addGap(0, 1142, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(509, 509, 509)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(newPasswordEntered, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
+                            .addComponent(cfNewPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
                             .addComponent(jLabel1)
-                            .addComponent(cfNewPassword)))
+                            .addComponent(newPasswordEntered1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(iconDisable1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iconShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iconDisable2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iconShow2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(704, 704, 704)
+                        .addGap(731, 731, 731)
                         .addComponent(resetPWbtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(511, 511, 511)
                     .addComponent(jLabel2)
-                    .addContainerGap(1014, Short.MAX_VALUE)))
+                    .addContainerGap(1379, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,14 +133,21 @@ public class forgottenPassword extends javax.swing.JFrame {
                 .addGap(119, 119, 119)
                 .addComponent(jLabel4)
                 .addGap(99, 99, 99)
-                .addComponent(newPasswordEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newPasswordEntered1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconShow1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconDisable1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cfNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cfNewPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(iconShow2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iconDisable2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(60, 60, 60)
                 .addComponent(resetPWbtn)
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addContainerGap(549, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(225, 225, 225)
@@ -124,15 +169,11 @@ public class forgottenPassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void cfNewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfNewPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cfNewPasswordActionPerformed
-
     private void resetPWbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPWbtnActionPerformed
         PasswordRecovery recover = new PasswordRecovery();
         if(evt.getSource() == resetPWbtn){
-            String newPassword = newPasswordEntered.getText();
-            String confirmPassword = cfNewPassword.getText();
+            String newPassword = newPasswordEntered1.getText();
+            String confirmPassword = cfNewPassword1.getText();
             if(recover.updateUserPassword(newPassword, confirmPassword)){
                 JOptionPane.showMessageDialog(null,"You had reset your password successfully.");   
                 setVisible(false);
@@ -145,13 +186,80 @@ public class forgottenPassword extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_resetPWbtnActionPerformed
 
+    private void newPasswordEntered1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPasswordEntered1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newPasswordEntered1ActionPerformed
+
+    private void iconDisable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDisable1MousePressed
+        iconDisable1.setVisible(false);
+        iconShow1.setEnabled(true);
+        newPasswordEntered1.setEchoChar((char)0);
+    }//GEN-LAST:event_iconDisable1MousePressed
+
+    private void iconShow1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconShow1MousePressed
+        iconDisable1.setVisible(true);
+        iconShow1.setEnabled(false);
+        newPasswordEntered1.setEchoChar('*');
+    }//GEN-LAST:event_iconShow1MousePressed
+
+    private void iconDisable2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDisable2MousePressed
+        iconDisable2.setVisible(false);
+        iconShow2.setEnabled(true);
+        cfNewPassword1.setEchoChar((char)0);
+    }//GEN-LAST:event_iconDisable2MousePressed
+
+    private void iconShow2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconShow2MousePressed
+        iconDisable2.setVisible(true);
+        iconShow2.setEnabled(false);
+        cfNewPassword1.setEchoChar('*');
+    }//GEN-LAST:event_iconShow2MousePressed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(forgottenPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(forgottenPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(forgottenPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(forgottenPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new forgottenPassword().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cfNewPassword;
+    private javax.swing.JPasswordField cfNewPassword1;
+    private javax.swing.JLabel iconDisable1;
+    private javax.swing.JLabel iconDisable2;
+    private javax.swing.JLabel iconShow1;
+    private javax.swing.JLabel iconShow2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField newPasswordEntered;
+    private javax.swing.JPasswordField newPasswordEntered1;
     private javax.swing.JButton resetPWbtn;
     // End of variables declaration//GEN-END:variables
 }

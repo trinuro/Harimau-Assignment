@@ -643,10 +643,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj2Quantity.setText("");
-                text_obj2Address.setText("");
-                
             } else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -700,17 +696,12 @@ public class gui_merchandise extends javax.swing.JFrame {
                     }else{
                         JOptionPane.showMessageDialog(null, "You do not have enough point.");
                     }
-                    
                 
                 } catch (NumberFormatException e) {
                     // Handle the case where parsing fails
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj1Quantity.setText("");
-                text_obj1Address.setText("");
-                
             }else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -760,10 +751,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj3Quantity.setText("");
-                text_obj3Address.setText("");
-                
             } else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -905,6 +892,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
 //        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
 //    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;

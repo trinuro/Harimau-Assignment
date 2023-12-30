@@ -20,12 +20,13 @@ import javax.swing.event.HyperlinkListener;
  */
 
 public class gui_home extends javax.swing.JFrame {
-
+    ExistingUser user = new ExistingUser();
     /**
      * Creates new form gui_home
      */
     public gui_home() {
         initComponents();
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);
@@ -59,6 +60,7 @@ public class gui_home extends javax.swing.JFrame {
         jEditorPaneN3 = new javax.swing.JEditorPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         jEditorPaneN4 = new javax.swing.JEditorPane();
+        showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -291,8 +293,11 @@ public class gui_home extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
@@ -303,7 +308,9 @@ public class gui_home extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(label_home, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -484,5 +491,6 @@ public class gui_home extends javax.swing.JFrame {
     private javax.swing.JLabel label_home;
     private javax.swing.JPanel panel_main;
     private javax.swing.JPanel panel_menu;
+    private javax.swing.JLabel showCurrentPoint;
     // End of variables declaration//GEN-END:variables
 }
