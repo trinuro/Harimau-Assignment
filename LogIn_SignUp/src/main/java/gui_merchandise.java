@@ -892,10 +892,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
 //        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
 //    }
-     
-    /**
-     * @param args the command line arguments
-     */
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;

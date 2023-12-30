@@ -83,14 +83,6 @@ public class news implements Comparable<news>{
     
 
     
-    public static void main(String[] args) {
-        //SEE THE DEMO HERE
-        for (int i = 0; i < newsArrayList.size(); i++) {
-            System.out.println(getSpecificTitle(i));
-            System.out.println(getSpecificURL(i));
-            System.out.println(getSpecificDate(i));
-        }
-    }
     
     // by connecting to database
     public static ArrayList<news> createNewsArrayList(){
