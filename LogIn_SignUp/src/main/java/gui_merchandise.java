@@ -614,7 +614,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
         
         int id_obj2 = 1;
-        double currentPoints= Double.parseDouble(login.getUserData("hzw", "current_points"));
+        double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double point_obj2_Need = 200;
         
         if (evt.getSource() == btn_add_obj2) {
