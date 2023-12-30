@@ -263,25 +263,29 @@ public class real_login_gui extends javax.swing.JFrame {
         String password = passwordEnter.getText();
         System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
-        ExistingUser user = new ExistingUser(username, email);
+        try{
+            ExistingUser user = new ExistingUser(username, email);
         
-        
-        try {
-            isPasswordCorrect = user.checkPassword(password);
-            
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if(isPasswordCorrect == true){
-            user.checkIn();
-            System.out.println(user.getUsername());
-            
-            //login success and login into home page
-            setVisible(false); 
-            new gui_home().setVisible(true);                     
-        }
-        else{
-            //if got error when fill in login message
+            try {
+                isPasswordCorrect = user.checkPassword(password);
+
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(isPasswordCorrect == true){
+                user.checkIn();
+                System.out.println(user.getUsername());
+
+                //login success and login into home page
+                setVisible(false); 
+                new gui_home().setVisible(true);                     
+            }
+
+            else{
+                //if got error when fill in login message
+                JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
+            }
+        }catch(IllegalArgumentException e){
             JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
