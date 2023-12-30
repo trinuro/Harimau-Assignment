@@ -235,7 +235,6 @@ public class ExistingUser extends User{
             ){
         // Create SQL query
         String strSelect = String.format("SELECT email,password,registration_date FROM user_table WHERE username = \'%s\';",username);
-//        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);

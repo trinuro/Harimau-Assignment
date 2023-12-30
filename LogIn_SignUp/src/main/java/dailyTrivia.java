@@ -50,9 +50,8 @@ public class dailyTrivia extends Trivia{
         
     }
         
-
-    //***********************************************************************
-    // *****************START FROM HERE********************************
+    //*********
+    // **START FROM HERE*****
     
     // get string of specific question based on the number of qustions (from 1 to 10)
     @Override
@@ -172,10 +171,8 @@ public class dailyTrivia extends Trivia{
         return this.username;
     }
     
-
-    // *********************************Until here**************************************
-    //**************************************************************************************
-
+    // ****Until here*****
+    //**********
    
     private static String[] shuffledOptionsArray(String[] options) {
         List<String> optionsList = Arrays.asList(options);
