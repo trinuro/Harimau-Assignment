@@ -263,7 +263,8 @@ public class real_login_gui extends javax.swing.JFrame {
         String password = passwordEnter.getText();
         System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
-        ExistingUser user = new ExistingUser(username, email);
+        try{
+            ExistingUser user = new ExistingUser(username, email);
         
         
         try {
@@ -284,6 +285,9 @@ public class real_login_gui extends javax.swing.JFrame {
                 //if got error when fill in login message
                 JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
             }
+        }catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
