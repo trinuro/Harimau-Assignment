@@ -86,7 +86,6 @@ public class dailyTrivia extends Trivia{
             int differenceOfDay = noOfDayLogin +1 - questionSetCanBeAnswered.size();
             for (int i = 0; i < differenceOfDay; i++) {
                 questionSetCanBeAnswered.add(new Trivia(questionSetCanBeAnswered.size()+1));
-                Utilities.setNumberOfTries(getUsername(), i, 0);
             }
         }
         return questionSetCanBeAnswered;
