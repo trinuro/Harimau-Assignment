@@ -504,6 +504,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        nameOfTree1.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree1btnActionPerformed
 
@@ -524,6 +525,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        nameOfTree2.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree2btnActionPerformed
 
@@ -544,6 +546,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
             }
         }
+        nameOfTree3.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree3btnActionPerformed
 
