@@ -115,24 +115,23 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="label_home" min="-2" pref="151" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="878" max="-2" attributes="0"/>
                           <Component id="purchaseHistorybtn" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                           <Component id="showCurrentPoint" min="-2" pref="149" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="plantTree1BG" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                           <Component id="plantTree2BG" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="plantTree2BG1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="831" max="32767" attributes="0"/>
+                  <EmptySpace pref="832" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -152,8 +151,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="plantTree2BG1" min="-2" max="-2" attributes="0"/>
                       <Component id="plantTree2BG" min="-2" max="-2" attributes="0"/>
+                      <Component id="plantTree2BG1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -238,6 +237,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="nameTree1">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI Semibold" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cottonwood"/>
               </Properties>
             </Component>
@@ -298,8 +300,8 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="nameTree2" min="-2" pref="56" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
+                      <Component id="nameTree2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -340,6 +342,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="nameTree2">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI Semibold" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Magnolia"/>
               </Properties>
             </Component>
@@ -446,6 +451,9 @@
             </Component>
             <Component class="javax.swing.JLabel" name="nameTree3">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI Semibold" size="18" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Beech"/>
               </Properties>
             </Component>
