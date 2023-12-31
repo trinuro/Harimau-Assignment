@@ -114,6 +114,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         label_home.setText("Plant A Tree");
 
         plantTree1BG.setBackground(new java.awt.Color(210, 227, 200));
+        plantTree1BG.setToolTipText("");
 
         tree1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree1.jpg"));
 
@@ -143,43 +144,46 @@ public class gui_plantTree extends javax.swing.JFrame {
             plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree1BGLayout.createSequentialGroup()
                 .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree1BGLayout.createSequentialGroup()
+                            .addGap(93, 93, 93)
+                            .addComponent(nameTree1)
+                            .addGap(29, 29, 29))
+                        .addGroup(plantTree1BGLayout.createSequentialGroup()
+                            .addGap(40, 40, 40)
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(nameOfTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(plantTree1BGLayout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(tree1btn))
+                        .addGap(91, 91, 91)
+                        .addComponent(tree1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(plantTree1BGLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tree1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(plantTree1BGLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(nameOfTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(plantTree1BGLayout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(nameTree1)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                        .addGap(149, 149, 149)
+                        .addComponent(tree1btn)))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         plantTree1BGLayout.setVerticalGroup(
             plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree1BGLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(tree1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nameTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tree1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nameTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel3)
-                .addGap(38, 38, 38)
-                .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(nameOfTree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plantTree1BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nameOfTree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(28, 28, 28)
                 .addComponent(tree1btn)
-                .addGap(56, 56, 56))
+                .addGap(20, 20, 20))
         );
 
         plantTree2BG.setBackground(new java.awt.Color(210, 227, 200));
+        plantTree2BG.setPreferredSize(new java.awt.Dimension(385, 596));
 
         tree2.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree2.jpg"));
         tree2.setMaximumSize(new java.awt.Dimension(200, 356));
@@ -203,45 +207,47 @@ public class gui_plantTree extends javax.swing.JFrame {
         plantTree2BG.setLayout(plantTree2BGLayout);
         plantTree2BGLayout.setHorizontalGroup(
             plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tree2btn)
-                .addGap(179, 179, 179))
             .addGroup(plantTree2BGLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(plantTree2BGLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nameTree2)
-                .addGap(178, 178, 178))
+                .addContainerGap(105, Short.MAX_VALUE)
+                .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
+                        .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
+                        .addComponent(tree2btn)
+                        .addGap(145, 145, 145))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
+                        .addComponent(nameTree2)
+                        .addGap(143, 143, 143))))
         );
         plantTree2BGLayout.setVerticalGroup(
             plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BGLayout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tree2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nameTree2)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(nameOfTree2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(28, 28, 28)
                 .addComponent(tree2btn)
-                .addGap(56, 56, 56))
+                .addGap(20, 20, 20))
         );
 
         plantTree2BG1.setBackground(new java.awt.Color(210, 227, 200));
+        plantTree2BG1.setPreferredSize(new java.awt.Dimension(385, 596));
 
         tree3.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree3.jpg"));
         tree3.setMaximumSize(new java.awt.Dimension(200, 356));
@@ -272,45 +278,42 @@ public class gui_plantTree extends javax.swing.JFrame {
         plantTree2BG1Layout.setHorizontalGroup(
             plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BG1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel5))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(118, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
-                        .addComponent(nameTree3)
-                        .addGap(189, 189, 189))
+                        .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(93, 93, 93))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
                         .addComponent(tree3btn)
-                        .addGap(164, 164, 164))))
+                        .addGap(145, 145, 145))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BG1Layout.createSequentialGroup()
+                        .addComponent(nameTree3)
+                        .addGap(165, 165, 165))))
         );
         plantTree2BG1Layout.setVerticalGroup(
             plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plantTree2BG1Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
+                .addComponent(tree3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(nameTree3)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(plantTree2BG1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameOfTree3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(tree3btn)
-                .addGap(56, 56, 56))
+                .addGap(20, 20, 20))
         );
 
         purchaseHistorybtn.setText("View purchase history");
@@ -329,34 +332,37 @@ public class gui_plantTree extends javax.swing.JFrame {
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(878, 878, 878)
+                        .addGap(774, 774, 774)
                         .addComponent(purchaseHistorybtn)
                         .addGap(77, 77, 77)
                         .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addGap(45, 45, 45)
                         .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
+                        .addGap(45, 45, 45)
                         .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(832, Short.MAX_VALUE))
+                .addContainerGap(955, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(purchaseHistorybtn)
-                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(purchaseHistorybtn)
+                            .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(plantTree2BG, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+                    .addComponent(plantTree1BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE))
+                .addGap(410, 410, 410))
         );
 
         panel_main.setBackground(new java.awt.Color(134, 167, 137));
@@ -494,16 +500,16 @@ public class gui_plantTree extends javax.swing.JFrame {
         double  pointUsed= 50;
         if(evt.getSource() == tree1btn){
             String treename1 = nameOfTree1.getText();
-            if(treename1 != null){                
-                    if(points >= pointUsed){    
+            if(treename1.equals("")){
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                               
+            }
+            else{
+                if(points >= pointUsed){    
                     store_donation.getPlantATreePoint(user.getUsername(), treename1, 0); 
                     JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
-                    }               
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+                    }   
             }
         }
         nameOfTree1.setText("");
@@ -515,16 +521,16 @@ public class gui_plantTree extends javax.swing.JFrame {
         double  pointUsed= 60;
         if(evt.getSource() == tree2btn){
             String treename2 = nameOfTree2.getText();
-            if(treename2 != null){               
-                    if(points >= pointUsed){   
+            if(treename2.equals("")){
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                           
+            }
+            else{
+                if(points >= pointUsed){   
                     store_donation.getPlantATreePoint(user.getUsername(), treename2,1); 
                     JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
-                    }               
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+                    }        
             }
         }
         nameOfTree2.setText("");
@@ -536,16 +542,16 @@ public class gui_plantTree extends javax.swing.JFrame {
         double pointUsed= 70;
         if(evt.getSource() == tree3btn){
             String treename3 = nameOfTree3.getText();
-            if(treename3 != null){                
-                    if(points >= pointUsed){                    
+            if(treename3.equals("")){
+                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                          
+            }
+            else{
+                if(points >= pointUsed){                    
                     store_donation.getPlantATreePoint(user.getUsername(),treename3,2);     
                     JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
-                    }               
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "Enter a name for your tree.");
+                    }        
             }
         }
         nameOfTree3.setText("");
