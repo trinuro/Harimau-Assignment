@@ -66,9 +66,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         text_obj1Quantity = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        text_obj1Address = new javax.swing.JTextField();
         btn_add_obj1 = new javax.swing.JButton();
         msg_obj1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         panel_obj2 = new javax.swing.JPanel();
         name_obj2 = new javax.swing.JLabel();
         img_obj2 = new javax.swing.JLabel();
@@ -76,9 +77,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         text_obj2Quantity = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        text_obj2Address = new javax.swing.JTextField();
         btn_add_obj2 = new javax.swing.JButton();
         msg_obj2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
         panel_obj3 = new javax.swing.JPanel();
         name_obj3 = new javax.swing.JLabel();
         img_obj3 = new javax.swing.JLabel();
@@ -86,9 +88,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         text_obj3Quantity = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        text_obj3Address = new javax.swing.JTextField();
         btn_add_obj3 = new javax.swing.JButton();
         msg_obj3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
         btn_purchaseHistory = new javax.swing.JButton();
         showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
@@ -135,12 +138,6 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         jLabel7.setText("Address");
 
-        text_obj1Address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_obj1AddressActionPerformed(evt);
-            }
-        });
-
         btn_add_obj1.setBackground(new java.awt.Color(0, 0, 0));
         btn_add_obj1.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         btn_add_obj1.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +150,12 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         msg_obj1.setForeground(new java.awt.Color(255, 0, 51));
 
+        jTextArea1.setColumns(10);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setAutoscrolls(false);
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout panel_obj1Layout = new javax.swing.GroupLayout(panel_obj1);
         panel_obj1.setLayout(panel_obj1Layout);
         panel_obj1Layout.setHorizontalGroup(
@@ -160,31 +163,34 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_obj1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(text_obj1Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(msg_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_obj1Layout.createSequentialGroup()
+                        .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_add_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panel_obj1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(16, 16, 16))
+            .addGroup(panel_obj1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                         .addComponent(point_obj1)
                         .addGap(146, 146, 146))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
                         .addComponent(name_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj1Layout.createSequentialGroup()
-                        .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_add_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel_obj1Layout.createSequentialGroup()
-                                .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel7))
-                                .addGap(18, 18, 18)
-                                .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panel_obj1Layout.createSequentialGroup()
-                                        .addComponent(text_obj1Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(msg_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(text_obj1Address))))
-                        .addGap(36, 36, 36))))
+                        .addGap(107, 107, 107))))
             .addGroup(panel_obj1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(img_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panel_obj1Layout.setVerticalGroup(
             panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +209,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(text_obj1Address, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_add_obj1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -240,12 +246,6 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         jLabel8.setText("Address");
 
-        text_obj2Address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                text_obj2AddressActionPerformed(evt);
-            }
-        });
-
         btn_add_obj2.setBackground(new java.awt.Color(0, 0, 0));
         btn_add_obj2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         btn_add_obj2.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,6 +258,12 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         msg_obj2.setForeground(new java.awt.Color(255, 0, 51));
 
+        jTextArea2.setColumns(10);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setAutoscrolls(false);
+        jScrollPane2.setViewportView(jTextArea2);
+
         javax.swing.GroupLayout panel_obj2Layout = new javax.swing.GroupLayout(panel_obj2);
         panel_obj2.setLayout(panel_obj2Layout);
         panel_obj2Layout.setHorizontalGroup(
@@ -269,7 +275,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addComponent(point_obj2)
                         .addGap(140, 140, 140))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj2Layout.createSequentialGroup()
-                        .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel_obj2Layout.createSequentialGroup()
                                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
@@ -279,9 +285,10 @@ public class gui_merchandise extends javax.swing.JFrame {
                                     .addGroup(panel_obj2Layout.createSequentialGroup()
                                         .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(msg_obj2))
-                                    .addComponent(text_obj2Address)))
-                            .addComponent(btn_add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(msg_obj2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane2)))
+                            .addComponent(btn_add_obj2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39))))
             .addGroup(panel_obj2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
@@ -309,7 +316,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(text_obj2Address, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_add_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -355,6 +362,12 @@ public class gui_merchandise extends javax.swing.JFrame {
 
         msg_obj3.setForeground(new java.awt.Color(255, 0, 51));
 
+        jTextArea3.setColumns(10);
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setRows(5);
+        jTextArea3.setAutoscrolls(false);
+        jScrollPane3.setViewportView(jTextArea3);
+
         javax.swing.GroupLayout panel_obj3Layout = new javax.swing.GroupLayout(panel_obj3);
         panel_obj3.setLayout(panel_obj3Layout);
         panel_obj3Layout.setHorizontalGroup(
@@ -367,13 +380,13 @@ public class gui_merchandise extends javax.swing.JFrame {
                         .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_obj3Address, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel_obj3Layout.createSequentialGroup()
                                 .addComponent(text_obj3Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(msg_obj3)))))
+                                .addComponent(msg_obj3))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_obj3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -405,9 +418,11 @@ public class gui_merchandise extends javax.swing.JFrame {
                     .addComponent(msg_obj3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_obj3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(text_obj3Address, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panel_obj3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_add_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -430,15 +445,15 @@ public class gui_merchandise extends javax.swing.JFrame {
                     .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel_menuLayout.createSequentialGroup()
                             .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(41, 41, 41)
+                            .addGap(51, 51, 51)
                             .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(41, 41, 41)
+                            .addGap(39, 39, 39)
                             .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(panel_menuLayout.createSequentialGroup()
                             .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(819, 819, 819)
                             .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(960, Short.MAX_VALUE))
+                .addContainerGap(981, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,9 +531,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 .addComponent(btn_store, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btn_donation, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(475, 475, 475)
-                )
-
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panel_mainLayout.setVerticalGroup(
             panel_mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,7 +633,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         
         if (evt.getSource() == btn_add_obj2) {
             String obj2_quantity = text_obj2Quantity.getText().trim();
-            String obj2_addresss = text_obj2Address.getText().trim();
+            String obj2_addresss = jTextArea2.getText().trim();
         
             if (!obj2_quantity.isEmpty()&&!obj2_addresss.isEmpty()) {
                 int quantity2 = Integer.parseInt(obj2_quantity);
@@ -629,8 +642,8 @@ public class gui_merchandise extends javax.swing.JFrame {
                 try {
                     
                     Utilities.getMerchandiseData(user.getUsername());
-                    //Utilities.buyMerch(username, "name_obj1", (int)quantity2, text_obj2Address.getText());
-                    store_donation.getMerchandisePoint(user.getUsername(), id_obj2,(int)quantity2, text_obj2Address.getText());
+                    //Utilities.buyMerch(username, "name_obj1", (int)quantity2, jTextArea2.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj2,(int)quantity2, jTextArea2.getText());
                     if(currentPoints>=total_point_obj2_need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity2+ " item/items");
                     }else{
@@ -643,10 +656,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj2Quantity.setText("");
-                text_obj2Address.setText("");
-                
             } else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -654,6 +663,8 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+        text_obj2Quantity.setText("");
+        jTextArea2.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj2ActionPerformed
 
@@ -683,7 +694,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         
          if (evt.getSource() == btn_add_obj1) {
             String obj1_quantity = text_obj1Quantity.getText().trim();
-            String obj1_addresss = text_obj1Address.getText().trim();
+            String obj1_addresss = jTextArea1.getText().trim();
             
             if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()) {
                 
@@ -694,23 +705,18 @@ public class gui_merchandise extends javax.swing.JFrame {
                     
                     Utilities.getMerchandiseData(user.getUsername());
 //                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
-                    store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, text_obj1Address.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, jTextArea1.getText());
                     if(currentPoints>=total_point_obj1_Need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                     }else{
                         JOptionPane.showMessageDialog(null, "You do not have enough point.");
                     }
-                    
                 
                 } catch (NumberFormatException e) {
                     // Handle the case where parsing fails
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj1Quantity.setText("");
-                text_obj1Address.setText("");
-                
             }else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -718,15 +724,10 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+         text_obj1Quantity.setText("");
+         jTextArea1.setText("");
          showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj1ActionPerformed
-
-    private void text_obj1AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1AddressActionPerformed
-        // TODO add your handling code here:
-        String obj1_address = text_obj1Address.getText();
-        System.out.println("User entered: " + obj1_address);
-        
-    }//GEN-LAST:event_text_obj1AddressActionPerformed
 
     private void btn_add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj3ActionPerformed
         // TODO add your handling code here:
@@ -738,7 +739,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         
         if (evt.getSource() == btn_add_obj3) {
             String obj3_quantity = text_obj3Quantity.getText().trim();
-            String obj3_addresss = text_obj3Address.getText().trim();
+            String obj3_addresss = jTextArea3.getText().trim();
         
             if (!obj3_quantity.isEmpty()&&!obj3_addresss.isEmpty()) {
                 int quantity3 = Integer.parseInt(obj3_quantity);
@@ -747,8 +748,8 @@ public class gui_merchandise extends javax.swing.JFrame {
                 try {
                     
                     Utilities.getMerchandiseData(user.getUsername());
-                    //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, text_obj3Address.getText());
-                    store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, text_obj3Address.getText());
+                    //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, jTextArea3.getText());
+                    store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, jTextArea3.getText());
                     if(currentPoints>=total_point_obj3_Need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
                     }else{
@@ -760,10 +761,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid quantity format. Please enter a valid number.");
                     // Print the exception details for debugging purposes
                 }
-                
-                text_obj3Quantity.setText("");
-                text_obj3Address.setText("");
-                
             } else {
                 // Handle the case where the quantity is empty
                 JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
@@ -771,6 +768,8 @@ public class gui_merchandise extends javax.swing.JFrame {
             }
 
         }
+        text_obj3Quantity.setText("");
+        jTextArea3.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj3ActionPerformed
 
@@ -794,10 +793,6 @@ public class gui_merchandise extends javax.swing.JFrame {
             msg_obj1.setText("");
         }
     }//GEN-LAST:event_text_obj1QuantityKeyPressed
-
-    private void text_obj2AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj2AddressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_text_obj2AddressActionPerformed
 
     private void text_obj2QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj2QuantityKeyPressed
         char c = evt.getKeyChar();
@@ -905,44 +900,7 @@ public class gui_merchandise extends javax.swing.JFrame {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
 //        JOptionPane.showMessageDialog(this, purchaseInfo, "Purchase History", JOptionPane.INFORMATION_MESSAGE);
 //    }
-     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gui_donation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gui_donation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gui_donation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gui_donation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new gui_merchandise().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;
@@ -962,6 +920,12 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JLabel label_home;
     private javax.swing.JLabel msg_obj1;
     private javax.swing.JLabel msg_obj2;
@@ -978,11 +942,8 @@ public class gui_merchandise extends javax.swing.JFrame {
     private javax.swing.JLabel point_obj2;
     private javax.swing.JLabel point_obj3;
     private javax.swing.JLabel showCurrentPoint;
-    private javax.swing.JTextField text_obj1Address;
     public static javax.swing.JTextField text_obj1Quantity;
-    private javax.swing.JTextField text_obj2Address;
     private javax.swing.JTextField text_obj2Quantity;
-    private javax.swing.JTextField text_obj3Address;
     private javax.swing.JTextField text_obj3Quantity;
     // End of variables declaration//GEN-END:variables
 }

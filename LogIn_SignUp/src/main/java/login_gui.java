@@ -8,7 +8,6 @@
  * @author Tan Zhi Wei
  */
 public class login_gui extends javax.swing.JFrame {
-    ExistingUser user = new ExistingUser("hzw","weiwei20110016@gmail.com");
     /**
      * Creates new form login_gui
      */
@@ -59,7 +58,7 @@ public class login_gui extends javax.swing.JFrame {
         jLabel3.setText("Thus, lets use our small energy to make a big change to this world");
 
         jLabel5.setForeground(new java.awt.Color(235, 243, 232));
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/nature1redo.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\java\\icon\\nature1redo.jpg")));
 
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
@@ -110,7 +109,7 @@ public class login_gui extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/harimaulogobdgreenredo.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\java\\icon\\harimaulogobdgreenredo.jpg")));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -124,12 +123,12 @@ public class login_gui extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(345, 345, 345)
                         .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(374, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(189, Short.MAX_VALUE)
+                .addContainerGap(489, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(60, 60, 60)
                 .addComponent(login)

@@ -199,13 +199,13 @@ public class real_login_gui extends javax.swing.JFrame {
                     .addComponent(resetPasswordbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(middleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout backLayout = new javax.swing.GroupLayout(back);
@@ -263,25 +263,29 @@ public class real_login_gui extends javax.swing.JFrame {
         String password = passwordEnter.getText();
         System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
-        ExistingUser user = new ExistingUser(username, email);
+        try{
+            ExistingUser user = new ExistingUser(username, email);
         
         
         try {
             isPasswordCorrect = user.checkPassword(password);
             
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);   
         }
-        if(isPasswordCorrect == true){
-            user.checkIn();
-            System.out.println(user.getUsername());
+            if(isPasswordCorrect == true){
+                user.checkIn();
+                System.out.println(user.getUsername());
             
             //login success and login into home page
             setVisible(false); 
             new gui_home().setVisible(true);                     
-        }
-        else{
-            //if got error when fill in login message
+            }
+            else{
+                //if got error when fill in login message
+                JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
+            }
+        }catch(IllegalArgumentException e){
             JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -331,41 +335,6 @@ public class real_login_gui extends javax.swing.JFrame {
         }       
         
     }//GEN-LAST:event_resetPasswordbtnActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(real_login_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(real_login_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(real_login_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(real_login_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new real_login_gui().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel back;

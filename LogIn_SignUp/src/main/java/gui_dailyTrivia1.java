@@ -33,6 +33,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
     public gui_dailyTrivia1() {
         initComponents();
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
 //        this.setSize(1960,1080);    
@@ -67,6 +68,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         btn_submit = new javax.swing.JButton();
         btn_next = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
+        showCurrentPoint = new javax.swing.JLabel();
         panel_main = new javax.swing.JPanel();
         btn_home = new javax.swing.JButton();
         btn_store = new javax.swing.JButton();
@@ -235,23 +237,31 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(panel_menuLayout.createSequentialGroup()
-                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_submit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(945, 945, 945)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_submit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(938, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -490,6 +500,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     
         
         messageMap.put(question, messageInfo);
+        
+        //update the current point
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_submitActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
@@ -644,48 +657,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
 //        JOptionPane.showMessageDialog(this, "Is Correct: " + trivia.isCorrectAnswer(1));
 //    }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gui_dailyTrivia1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-//        int i=1;
-//        dailyTrivia trivia = new dailyTrivia("hzw");
-//        
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new gui_dailyTrivia1().setVisible(true);
-            }
-        });
-        
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;
     private javax.swing.JButton btn_back;
@@ -709,5 +680,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     private javax.swing.JPanel panel_quizMessage;
     private javax.swing.JLabel quizMessage;
     private javax.swing.JLabel showCorrectAns;
+    private javax.swing.JLabel showCurrentPoint;
     // End of variables declaration//GEN-END:variables
 }

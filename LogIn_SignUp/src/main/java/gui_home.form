@@ -63,11 +63,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="label_home" min="-2" pref="103" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="1211" max="-2" attributes="0"/>
+
                           <Component id="showCurrentPoint" min="-2" pref="126" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -84,6 +85,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="label_home" pref="55" max="32767" attributes="0"/>
                       <Component id="showCurrentPoint" max="32767" attributes="0"/>
