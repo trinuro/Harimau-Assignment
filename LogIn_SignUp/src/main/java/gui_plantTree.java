@@ -117,6 +117,7 @@ public class gui_plantTree extends javax.swing.JFrame {
 
         tree1.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir") + "\\src\\main\\java\\icon\\tree1.jpg"));
 
+        nameTree1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         nameTree1.setText("Cottonwood");
 
         tree1btn.setText("Plant");
@@ -184,6 +185,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         tree2.setMaximumSize(new java.awt.Dimension(200, 356));
         tree2.setMinimumSize(new java.awt.Dimension(200, 356));
 
+        nameTree2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         nameTree2.setText("Magnolia");
 
         tree2btn.setText("Plant");
@@ -218,8 +220,8 @@ public class gui_plantTree extends javax.swing.JFrame {
                 .addContainerGap(129, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plantTree2BGLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nameTree2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187))
+                .addComponent(nameTree2)
+                .addGap(178, 178, 178))
         );
         plantTree2BGLayout.setVerticalGroup(
             plantTree2BGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +247,7 @@ public class gui_plantTree extends javax.swing.JFrame {
         tree3.setMaximumSize(new java.awt.Dimension(200, 356));
         tree3.setMinimumSize(new java.awt.Dimension(200, 356));
 
+        nameTree3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         nameTree3.setText("Beech");
 
         tree3btn.setText("Plant");
@@ -323,21 +326,20 @@ public class gui_plantTree extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(878, 878, 878)
                         .addComponent(purchaseHistorybtn)
                         .addGap(77, 77, 77)
-                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel_menuLayout.createSequentialGroup()
                         .addComponent(plantTree1BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addGap(59, 59, 59)
                         .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(831, Short.MAX_VALUE))
+                .addContainerGap(832, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,8 +355,8 @@ public class gui_plantTree extends javax.swing.JFrame {
                     .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(plantTree2BG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(plantTree2BG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         panel_main.setBackground(new java.awt.Color(134, 167, 137));

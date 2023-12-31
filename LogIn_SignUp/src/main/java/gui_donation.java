@@ -336,6 +336,7 @@ public class gui_donation extends javax.swing.JFrame {
         String donationValue = donateMoney1.getText();
 
         
+        
         if(evt.getSource() == cfDonate){ 
             if(donationValue.isEmpty() || jComboBox1.getSelectedItem() == null){
                 JOptionPane.showMessageDialog(null, "Pleanse enter a valid donation amount and select an organization");
