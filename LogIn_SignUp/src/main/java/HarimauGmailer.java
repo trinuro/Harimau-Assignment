@@ -96,7 +96,7 @@ public class HarimauGmailer {
      * @param fromEmailAddress  Email address that will receive email
      * @param subject   Subject/title of email
      * @param bodyText  Content of email
-     * @return
+     * @return Message object
      * @throws MessagingException
      * @throws IOException 
      */

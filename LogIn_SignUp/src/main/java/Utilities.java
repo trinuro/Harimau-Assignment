@@ -19,7 +19,7 @@ public class Utilities {
     /**
      * This method accepts a username and returns all rows in tables about the user
      * @param username
-     * @return 
+     * @return returns all rows in tables about the user
      */
     public static ArrayList<String> getMerchandiseData(String username){
         String outputString = "";
@@ -63,7 +63,7 @@ public class Utilities {
      * @param merchName
      * @param numberOfMerch
      * @param deliveryAddress
-     * @return 
+     * @return Boolean value whether update is successful
      */
     public static boolean buyMerch(String username, String merchName, int numberOfMerch, String deliveryAddress){
         String userID = login.getUserData(username, "user_id");
@@ -94,7 +94,7 @@ public class Utilities {
     /**
      * This method accepts a username and returns all rows in tree table about the user
      * @param username
-     * @return 
+     * @return returns all rows in tree table about the user
      */
     public static ArrayList<String> getTreePlantedData(String username){
         String outputString = "";
@@ -137,7 +137,7 @@ public class Utilities {
      * This method will add a new entry into the trees table for that user.
      * @param username
      * @param treeName
-     * @return 
+     * @return Boolean value whether update is successful
      */
     public static boolean plantNewTree(String username, String treeName){
 
@@ -170,7 +170,7 @@ public class Utilities {
     /**
      * This method retrieves all donations a user has made given his username
      * @param username
-     * @return 
+     * @return Returns all donations a user has made given his username
      */
     public static ArrayList<String> getDonationsData(String username){
         
@@ -214,7 +214,7 @@ public class Utilities {
      * @param username
      * @param donationAmount
      * @param organisationName
-     * @return 
+     * @return Boolean value whether update is successful
      */
     public static boolean makeNewDonations(String username, double donationAmount, String organisationName){
         // Get user ID given username
@@ -250,7 +250,7 @@ public class Utilities {
      * 2nd element: link
      * 3rd element: date
      * @param newsIdentifier
-     * @return 
+     * @return returns a 3 element String array.
      */
     public static String[] getNews(int newsIdentifier){
 
@@ -290,7 +290,7 @@ public class Utilities {
      * 2nd element: options.
      * 3rd element: answers.
      * @param triviaNumber
-     * @return 
+     * @return This method returns a 3 element String array. 
      */
     public static String[] getTrivia(int triviaNumber){
         // This method returns a row given the position of news in TriviaSample.txt
@@ -333,7 +333,7 @@ public class Utilities {
      * Will return -1 if user/question does not exist
      * @param username
      * @param question_id
-     * @return 
+     * @return It returns the number of times the user attempted the question. Will return -1 if user/question does not exist
      */
     public static int getNumberOfTries(String username, int question_id){
 
@@ -429,11 +429,10 @@ public class Utilities {
     /**
      * This method receives username, question_id and numberOfTries.
      * It will update entry if the entry exists in trial_history
-     * Returns true if update is succussful
      * @param username
      * @param question_id
      * @param numberOfTries
-     * @return 
+     * @return Returns true if update is successful
      */
     public static boolean setNumberOfTries(String username, int question_id, int numberOfTries){
         // Check if entry alrady exist in the table
@@ -491,7 +490,7 @@ public class Utilities {
      * This method returns the boolean value of isCorrectCurrently for a certain user and question.
      * This method assumes that user already exist.
      * This method will also return false if query fails. Check terminal output.
-     * 
+     * @return returns the boolean value of isCorrectCurrently for a certain user and question.
      */ 
     public static boolean getIsCorrectFinally(String username, int question_id){
 
@@ -532,7 +531,7 @@ public class Utilities {
      * This method will also return false if query fails. Check terminal output
      * @param username
      * @param question_id
-     * @return 
+     * @return returns the boolean value of isCorrectCurrently for a certain user and question.
      */
     public static boolean getIsCorrectCurrently(String username, int question_id){
 
@@ -573,7 +572,7 @@ public class Utilities {
      * @param username
      * @param question_id
      * @param newValue
-     * @return 
+     * @return Returns true if update successful
      */
     public static boolean setIsCorrectFinally(String username, int question_id, boolean newValue){
 
@@ -610,7 +609,7 @@ public class Utilities {
      * @param username
      * @param question_id
      * @param newValue
-     * @return 
+     * @return Returns true if update successful
      */
     public static boolean setIsCorrectCurrently(String username, int question_id, boolean newValue){
 

@@ -35,7 +35,7 @@ public class NewUser extends User{
     }
 
     /**
-     * Method to convert ExistingUser into String
+     * Method to convert NewUser into String
      * @return 
      */    
     @Override

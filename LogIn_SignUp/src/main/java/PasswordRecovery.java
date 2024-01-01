@@ -17,25 +17,34 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
- *
+ * This class represents a user who forgot his/her password
  * @author Khiew
  */
 public class PasswordRecovery extends User{
     static String currentEmail;
-
+    
+    /**
+     * Create a PasswordRecovery object
+     * @param email 
+     */
     PasswordRecovery(String email){
         super.email = email;
         this.currentEmail = email;
         System.out.println(this);
     }
-    
 
-    // Empty constructor
+    /**
+     * Create a PasswordRecovery object referring to the same person as previous PasswordRecovery instance
+     */
     PasswordRecovery(){
         super.email = this.currentEmail;
         System.out.println(this);
     }
     
+    /**
+     * Method to convert PasswordRecovery into String
+     * @return 
+     */
     public String toString(){
         return String.format("""
                              Password Recovery Object created
@@ -91,10 +100,13 @@ public class PasswordRecovery extends User{
         return recoveryPassword;
     }
     
+    /**
+     * This method sends a recovery email to the email address of recipient.
+     * This method returns true if email was sent successfully. Else, returns false.
+     * @return 
+     */
     public boolean sendRecoveryEmail(){
         String recipientEmail = this.email;
-        // This method sends a recovery email to the email address of recipient.
-        // This method returns true if email was sent successfully. Else, returns false
         
         String databaseEmail="";
         String recoveryPw;
@@ -106,7 +118,6 @@ public class PasswordRecovery extends User{
         ){
         // Create SQL query
         String strSelect = String.format("SELECT email FROM user_table WHERE email = \'%s\';",recipientEmail);
-//        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -115,7 +126,6 @@ public class PasswordRecovery extends User{
         // Get last_checked_in date from database
         while(rset.next()){
             databaseEmail = rset.getString("email");
-//            System.out.println(databaseEmail);
             rowCount++;
         } 
         }catch(SQLException ex){
@@ -148,10 +158,14 @@ public class PasswordRecovery extends User{
         return true;
     }
     
+    /**
+     * This method checks whether the recovery password is correct.
+     * Return true if password is correct.
+     * Will delete temp.txt.
+     * @param userPassword
+     * @return 
+     */
     public static boolean isRecoveryPasswordCorrect(String userPassword){
-        // This method checks whether the recovery password is correct.
-        // Return true if password is correct
-        // Will delete temp.txt
         String recoveryPassword="";
         try{
             Scanner scanObj = new Scanner(new FileInputStream("temp.txt"));
@@ -182,6 +196,13 @@ public class PasswordRecovery extends User{
         }
     }
     
+    /**
+     * Update password of a user in database.
+     * Return true if update is successful.
+     * @param newPassword
+     * @param confirmPassword
+     * @return 
+     */
     public boolean updateUserPassword(String newPassword, String confirmPassword){
         // Checks if password and confirmPassword are the same
         if(!newPassword.equals(confirmPassword)){
@@ -221,11 +242,9 @@ public class PasswordRecovery extends User{
            ){
             // Create SQL Insert
             String sqlInsert = String.format("UPDATE user_table SET password= \'%s\' WHERE email = \'%s\';", hash, email);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
             
             // Insert information into database
             int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
             
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");

@@ -63,8 +63,7 @@ public class ExistingUser extends User{
     /**
      * Method to convert ExistingUser into String
      * @return 
-     */
-    
+     */  
     public String toString(){
         return String.format("""
                              Existing user
