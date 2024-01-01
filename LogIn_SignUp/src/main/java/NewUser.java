@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- *
+ * NewUser represents a User that just registered into the system
  * @author Khiew
  */
 public class NewUser extends User{
@@ -20,15 +20,24 @@ public class NewUser extends User{
     private String password;
     private String confirmPassword;
     
-    // Constructor
+    /**
+     * Constructor to create a NewUser object
+     * @param email
+     * @param username
+     * @param password
+     * @param confirmPassword 
+     */
     public NewUser(String email, String username, String password, String confirmPassword){
         super.email = email;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
-    
-    // toString method
+
+    /**
+     * Method to convert ExistingUser into String
+     * @return 
+     */    
     @Override
     public String toString(){
         return String.format("""
@@ -38,7 +47,11 @@ public class NewUser extends User{
                            """,this.getUsername(), this.getEmail());
     }
     
-    // Equals method
+    /**
+     * Check if two NewUser are the same
+     * @param person
+     * @return 
+     */
     public boolean equals(NewUser person){
         if(this.getUsername().equals(person.getUsername())&&this.getEmail().equals(person.getEmail())){
             return true;
@@ -47,16 +60,21 @@ public class NewUser extends User{
         }
     }
     
-    // Accessor method to get username
+    /**
+     * Accessor method to get username
+     * @return 
+     */
     public String getUsername(){
         return this.username;
     }
     
+    /**
+     * This method creates a new user in database. 
+     * It accepts the email, username, password and confirm password string.
+     * It will return true if a user is successfully created.
+     * @return 
+     */
     public boolean createNewUser(){
-        // This function creates a new user in database. 
-        // It accepts the email, username, password and confirm password string.
-        // It will return true if a user is succesfully created.
-        
         //Initialise variables
         String encryptedPassword;
         String database_email="", database_username="";
@@ -112,10 +130,8 @@ public class NewUser extends User{
 
         // SQL command to be executed
         String sqlInsert = String.format("INSERT INTO user_table(email, username, password, registration_date,current_points) VALUES(\'%s\',\'%s\',\'%s\',\'%s\',\'%d\');", email, username, encryptedPassword, formattedDateTime,1);
-//        System.out.println("SQL Statement to be executed: "+sqlInsert);
         // Insert information into database
         int countInserted = stmt.executeUpdate(sqlInsert);
-//        System.out.println(countInserted+" records inserted.");
             
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");

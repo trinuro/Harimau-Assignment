@@ -16,14 +16,18 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 /**
- *
+ * ExistingUser class represents a user that is currently interacting with the program
  * @author Khiew
  */
 public class ExistingUser extends User{
     private static String username;
     private static String currentEmail;
     
-    // Constructor method
+    /**
+     * Constructor method that creates a user with a name and email address
+     * @param name
+     * @param email 
+     */
     public ExistingUser(String name, String email){
         setUsername(name);
         // Check if user exists. Will throw exception if user does not exist
@@ -35,20 +39,18 @@ public class ExistingUser extends User{
         System.out.println(this.toString());
     }
 
-    
-    // Empty constructor
+    /**
+     * Empty constructor that is used to initialise an object referencing the previous ExistingUser
+     */
     public ExistingUser(){
         setUsername(this.getUsername());
         setEmail(this.getCurrentEmail());
         System.out.println(this.toString());
     }
-
-    ExistingUser(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-
-    }
     
-    // copy constructor
+    /**
+     * Copy constructor
+     */ 
     public ExistingUser(ExistingUser p){
         if(p==null){
             System.exit(0);
@@ -58,7 +60,11 @@ public class ExistingUser extends User{
         System.out.println(this.toString());
     }
     
-    // toString method
+    /**
+     * Method to convert ExistingUser into String
+     * @return 
+     */
+    
     public String toString(){
         return String.format("""
                              Existing user
@@ -67,7 +73,11 @@ public class ExistingUser extends User{
                              """,this.getUsername(),this.getEmail());
     }
     
-    // Equals method
+    /**
+     * Check if two ExistingUser are the same
+     * @param person
+     * @return 
+     */
     public boolean equals(ExistingUser person){
         if(this.getUsername().equals(person.getUsername())&&this.getEmail().equals(person.getEmail())){
             return true;
@@ -76,36 +86,52 @@ public class ExistingUser extends User{
         }
     }
     
-    // Accessor method to get username
+    /**
+     * Accessor method to get username
+     * @return 
+     */
     public String getUsername(){
         return username;
     }
     
-    // Accessor method to get current email
+    /**
+     * Accessor method to get current email
+     * @return 
+     */
     public String getCurrentEmail(){
         return this.currentEmail;
     }
     
-    // Mutator method to set username
+    /**
+     * Mutator method to set username
+     * @param u 
+     */
     private void setUsername(String u){
         this.username = u;
     }
     
-    // Mutator method to set currentEmail
+    /**
+     * Mutator method to set currentEmail
+     * @param email 
+     */
     private void setCurrentEmail(String email){
         this.currentEmail = email;
         }
     
-    // Mutator method to set email
+    /**
+     * Mutator method to set email
+     * @param email 
+     */
     private void setEmail(String email){
         this.email = email;
     }
     
+    /**
+     * This function checks in a user.
+     * It will update the last checked in of user and give 1 mark to user if the user checked in for the first time.
+     * It will update the database to show that the user is currently logged in.
+     */
     public void checkIn(){
-        // This function checks in a user
-        // It will update the last checked in of user and give 1 mark to user if the user checked in for the first time
-        // It will update the database to show that the user is currently logged in
-        // Does not return anything
 
         // Initialise variables
         String dateString, last_checked_in_date="";
@@ -155,9 +181,12 @@ public class ExistingUser extends User{
         System.out.println("User logged in successfully");
     }
     
+    /**
+     * This method receives username and increment as input. 
+     * It will search the database for this user and increase his/her marks by the increment.
+     * @param increment 
+     */
     public void increasePoints(double increment){
-        // This method receives username and increment as input. 
-        // It will search the database for this user and increase his/her marks by the increment.
 
         double initialPoints=0;
         
@@ -167,23 +196,18 @@ public class ExistingUser extends User{
            ){
             // Create SQL Query
             String sqlQuery = String.format("SELECT current_points FROM user_table WHERE username=\'%s\';",username);
-//            System.out.println("SQL Statement to be executed: "+sqlQuery);
 
             // Execute query
             ResultSet rset = stmt.executeQuery(sqlQuery);
             while(rset.next()){
                 initialPoints = rset.getDouble("current_points");
             }
-//            System.out.println(initialPoints);
-
 
             // Create SQL Insert
             String sqlInsert = String.format("UPDATE user_table SET current_points= %f WHERE username = \'%s\';", initialPoints+increment, username);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
 
             // Insert information into database
             int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
 
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");
@@ -200,18 +224,14 @@ public class ExistingUser extends User{
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = dateTime.format(formatter);
         
-//        System.out.println(formattedDateTime);
         try(
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
         Statement stmt = conn.createStatement();
            ){
             // Create SQL Insert
-            String sqlInsert = String.format("UPDATE user_table SET last_checked_in= \'%s\' WHERE username = \'%s\';", formattedDateTime, username);
-//            System.out.println("SQL Statement to be executed: "+sqlInsert);
-            
+            String sqlInsert = String.format("UPDATE user_table SET last_checked_in= \'%s\' WHERE username = \'%s\';", formattedDateTime, username);            
             // Insert information into database
             int countInserted = stmt.executeUpdate(sqlInsert);
-//            System.out.println(countInserted+" records inserted.");
             
         }catch(SQLException ex){
             System.out.println("SQL failed! Find Khiew");
@@ -220,11 +240,14 @@ public class ExistingUser extends User{
         System.out.printf("Updated last_checked_in of %s in database\n",username);
     }
     
+    /**
+     * This method will check whether the user password is the same as password in the database.
+     * It receives three input: email, username and password
+     * @param password
+     * @return
+     * @throws NoSuchAlgorithmException 
+     */
     public boolean checkPassword(String password) throws NoSuchAlgorithmException{
-        // Static method: Can be called without instantiating an object
-        // This function will check whether the user password is the same as password in the database
-        // It receives three input: email, username and password
-        // It will return true if password is correct
         
         String database_email="", database_hash="", userHash, registration_date="";
         
@@ -269,9 +292,11 @@ public class ExistingUser extends User{
         return true;
     }
     
+    /**
+     * This method receives a username and returns the number of days the user has logged in
+     * @return 
+     */
     public long daysAfterRegistration(){
-        // This method receives a username and returns the number of days the user has logged in
-        // Returns a long variable
         
         LocalDate startDate, endDate;
         startDate = LocalDate.now();
@@ -309,11 +334,14 @@ public class ExistingUser extends User{
         
     }
     
+    /**
+     * This method returns data from database based on table name, username and column title
+     * @param columnTitle
+     * @return 
+     */
     public String getUserData(String columnTitle){
-        // This function returns data from database based on table name, username and column title
         
         String output="";
-
         
         // Connect to database
         try(
@@ -322,7 +350,6 @@ public class ExistingUser extends User{
             ){
         // Create SQL query
         String strSelect = String.format("SELECT %s FROM user_table WHERE username = \'%s\';",columnTitle,username);
-//        System.out.println("The SQL statement is "+strSelect);
         
         // Execute query
         ResultSet rset = stmt.executeQuery(strSelect);
@@ -409,6 +436,9 @@ public class ExistingUser extends User{
             return doesEntryExist;
     }
     
+    /**
+     * This method will determine how many questions a user can answer and create the corresponding number of entries in Trial History table
+     */
     public void updateTrialHistory(){
         int daysAfterRegister = (int) this.daysAfterRegistration();
         System.out.println(daysAfterRegister);

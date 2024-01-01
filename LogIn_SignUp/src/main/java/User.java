@@ -5,13 +5,16 @@
  */
 
 /**
- *
+ * User class is used as a template for all user_related classes
  * @author Khiew
  */
 public class User {
     protected String email;
     
-    // Accessor method to get email
+    /**
+     * Accessor method to get email
+     * @return 
+     */
     public String getEmail(){
         return this.email;
     }

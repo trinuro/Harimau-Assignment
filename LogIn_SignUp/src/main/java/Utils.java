@@ -13,7 +13,12 @@ import java.security.NoSuchAlgorithmException;
  * @author Khiew
  */
 public class Utils {
-    
+    /**
+     * Hash a string into SHA
+     * @param input
+     * @return
+     * @throws NoSuchAlgorithmException 
+     */
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException{
         // Static getInstance method is called with hashing SHA
         MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -40,6 +45,12 @@ public class Utils {
          return hexString.toString();
     }  
     
+    /**
+     * Method to hash password based on SHA-256 
+     * @param dateTime
+     * @param password
+     * @return 
+     */
     public static String hashPassword(String dateTime, String password){
         String encryptedPassword;
 
