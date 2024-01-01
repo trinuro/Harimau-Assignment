@@ -51,11 +51,24 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Arrays;
 
+/**
+ * Class that contains all methods to communicate with Google API
+ * @author Khiew
+ */
 public class HarimauGmailer {
 
     private static final String APPLICATION_NAME = "test-project";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
+    /**
+     * Method to send gmail
+     * @param destinationEmail  The email address that receives this email
+     * @param subject   The subject/ title of email
+     * @param bodyText  The contents of email
+     * @throws IOException
+     * @throws GeneralSecurityException
+     * @throws MessagingException 
+     */
     public static void sendEmail(String destinationEmail, String subject, String bodyText) throws IOException, GeneralSecurityException, MessagingException {
         // Function to send email
         
@@ -73,15 +86,20 @@ public class HarimauGmailer {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
-//        String attachmentFilePath = HarimauGmailer.class.getClassLoader()
-//                .getResource("attachment.txt")
-//                .getPath();
-
-//        File file = new File(attachmentFilePath);
         final Message message = createEmail(destinationEmail, Secrets.getSenderEmail(), subject, bodyText);
         service.users().messages().send("me", message).execute();
     }
 
+    /**
+     * Method to create email
+     * @param toEmailAddress    Email address to send email to
+     * @param fromEmailAddress  Email address that will receive email
+     * @param subject   Subject/title of email
+     * @param bodyText  Content of email
+     * @return
+     * @throws MessagingException
+     * @throws IOException 
+     */
     public static Message createEmail(String toEmailAddress,
                                       String fromEmailAddress,
                                       String subject,
@@ -99,13 +117,6 @@ public class HarimauGmailer {
         email.setText(bodyText);
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
-//        DataSource source = new FileDataSource(file);
-//        mimeBodyPart.setDataHandler(new DataHandler(source));
-//        mimeBodyPart.setFileName(file.getName());
-
-//        Multipart multipart = new MimeMultipart();
-//        multipart.addBodyPart(mimeBodyPart);
-//        email.setContent(multipart);
 
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         email.writeTo(buffer);
@@ -116,6 +127,10 @@ public class HarimauGmailer {
 
         return message;
     }
+    
+    /**
+     *  Method to get refresh token from user (Run once)
+     */
     public static void getRefreshToken(){
         try{
             final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
@@ -127,7 +142,13 @@ public class HarimauGmailer {
         }
     }
     
-        private static Credential getCredentials(final NetHttpTransport transport) throws IOException {
+    /**
+     * Method to prompt user to give permission to app to send email on behalf of user
+     * @param transport
+     * @return
+     * @throws IOException 
+     */
+    private static Credential getCredentials(final NetHttpTransport transport) throws IOException {
         AuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(transport,
                 GsonFactory.getDefaultInstance(),
                 Secrets.getClientID(), // Client id
