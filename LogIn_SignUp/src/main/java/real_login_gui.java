@@ -263,7 +263,7 @@ public class real_login_gui extends javax.swing.JFrame {
         System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
 
-        if(email.matches(".*[@com].*")){
+        if(email.matches(".*[@com].*") || email.matches(".*[@edu.my].*")){
             try{
                 //try whether user exist or not
                 ExistingUser user = new ExistingUser(username, email);
