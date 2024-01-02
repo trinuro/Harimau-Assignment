@@ -295,7 +295,7 @@ public class real_login_gui extends javax.swing.JFrame {
             }
         }
         else{
-            JOptionPane.showMessageDialog(null,"Enter a valid email.");
+            JOptionPane.showMessageDialog(null,"Please enter a valid email.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

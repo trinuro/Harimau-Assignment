@@ -226,46 +226,31 @@ public class signup_gui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-/**
- * To show the hidden confirm password
- * @param evt 
- */
+
     private void iconShow2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconShow2MousePressed
         iconDisable2.setVisible(true);
         iconShow2.setEnabled(false);
         cfPasswordEnter.setEchoChar('*');
     }//GEN-LAST:event_iconShow2MousePressed
-/**
- * To hide the shown confirm password
- * @param evt 
- */
+
     private void iconDisable2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDisable2MousePressed
         iconDisable2.setVisible(false);
         iconShow2.setEnabled(true);
         cfPasswordEnter.setEchoChar((char)0);
     }//GEN-LAST:event_iconDisable2MousePressed
-/**
- * To show the hidden password
- * @param evt 
- */
+
     private void iconShow1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconShow1MousePressed
         iconDisable1.setVisible(true);
         iconShow1.setEnabled(false);
         passwordEnter1.setEchoChar('*');
     }//GEN-LAST:event_iconShow1MousePressed
-/**
- * To hide the shown password
- * @param evt 
- */
+
     private void iconDisable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDisable1MousePressed
         iconDisable1.setVisible(false);
         iconShow1.setEnabled(true);
         passwordEnter1.setEchoChar((char)0);
     }//GEN-LAST:event_iconDisable1MousePressed
-/**
- * Button to sign up an account
- * @param evt 
- */
+
     private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
         if(evt.getSource() == signupbtn){
             String email = emailEnter.getText();
@@ -275,15 +260,20 @@ public class signup_gui extends javax.swing.JFrame {
             NewUser usern = new NewUser(email,username,password,cfPassword);
 
             boolean isUserCreated = usern.createNewUser();
-            if(isUserCreated == true){
-                ExistingUser userm = new ExistingUser(username, email);
-                userm.checkIn();
-                setVisible(false);
-                new gui_home().setVisible(true);
+            if(email.matches(".*[@com].*")){
+                if(isUserCreated == true){
+                    ExistingUser userm = new ExistingUser(username, email);
+                    userm.checkIn();
+                    setVisible(false);
+                    new gui_home().setVisible(true);
+                }
+                else{
+                    //if got error when fill in signup message
+                    JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");               
+                }
             }
             else{
-                //if got error when fill in signup message
-                JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");               
+                JOptionPane.showMessageDialog(null,"Please enter a valid email.");
             }
         }
     }//GEN-LAST:event_signupbtnActionPerformed
