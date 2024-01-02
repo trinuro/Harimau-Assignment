@@ -11,11 +11,12 @@ import java.io.PrintWriter;
  */
 
 /**
- *
- * @author Asus
+ This class is use to update the points if user use the Point Shop
  */
 public class store_donation {
-    
+    /**
+     This method is used to get the new point when user check out to buy merchandise
+     */
     public static double getMerchandisePoint(String userName, int id, int amount, String address){
     //this method is used to get the new point when user check out to buy merchandise
         
@@ -57,6 +58,9 @@ public class store_donation {
         return Double.parseDouble(login.getUserData(userName, "current_points"));        
     }
     
+    /**
+     This method is used to get the new point when user check out to plant a tree
+     */
     public static double getPlantATreePoint(String userName, String nameTree,int id){
         //example of prize of tree
         double [] prizeTree=new double [3];
@@ -92,6 +96,9 @@ public class store_donation {
         return Double.parseDouble(login.getUserData(userName, "current_points")); 
     }
     
+    /**
+     This method is used to get the new point when user donate money to NGO
+     */
     public static double getDonationPoint(String userName, double donation, String NGO){
         
         //calculate the point will get
