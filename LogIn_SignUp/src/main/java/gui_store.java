@@ -18,9 +18,7 @@ public class gui_store extends javax.swing.JFrame {
     public gui_store() {
         initComponents();
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
-//        this.setResizable(false);
-//        this.setLocationRelativeTo(null);
-//        this.setSize(1960,1080);
+
     }
 
     /**
@@ -259,65 +257,63 @@ public class gui_store extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //handle action when store button is pressed
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
-        // TODO add your handling code here:
+        
         gui_store StoreFrame = new gui_store();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_storeActionPerformed
 
+    //handle action when quiz button is pressed
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
-        // TODO add your handling code here:
+        
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_QuizActionPerformed
 
+    //handle action when home button is pressed
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
+        
         gui_home HomeFrame = new gui_home();
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_homeActionPerformed
 
+    //handle action when donation button is pressed
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
-        // TODO add your handling code here:
+        
         gui_donation DonationFrame = new gui_donation();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_donationActionPerformed
 
+    //handle action when plant a tree button is pressed
     private void btn_plantTreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_plantTreeActionPerformed
-        // TODO add your handling code here:
+        
         gui_plantTree DonationFrame = new gui_plantTree();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_plantTreeActionPerformed
 
+    //handle action when merchandise button is pressed
     private void btn_merchandiseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_merchandiseActionPerformed
-        // TODO add your handling code here:
-
-//        gui_merchandise StoreFrame = new gui_merchandise();
-//        StoreFrame.setVisible(true);
-//        StoreFrame.pack();
-//        StoreFrame.setLocationRelativeTo(null);
-//        this.dispose();
-
+        
         gui_merchandise StoreFrame = new gui_merchandise();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        //this.dispose();
 
     }//GEN-LAST:event_btn_merchandiseActionPerformed
 
