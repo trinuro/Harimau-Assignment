@@ -420,8 +420,9 @@ public class gui_home extends javax.swing.JFrame {
         }
     }
     
+    //handle action when store button is pressed
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
-        // TODO add your handling code here:
+        
         gui_store StoreFrame = new gui_store();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
@@ -429,8 +430,9 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_storeActionPerformed
 
+    //handle action when quiz button is pressed
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
-        // TODO add your handling code here:
+        
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
@@ -438,8 +440,9 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_QuizActionPerformed
 
+    //handle action when home button is pressed
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
+        
         gui_home HomeFrame = new gui_home();
         HomeFrame.setVisible(true);
         HomeFrame.pack();
@@ -447,8 +450,9 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_homeActionPerformed
 
+    //handle action when donation button is pressed
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
-        // TODO add your handling code here:
+        
         gui_donation DonationFrame = new gui_donation();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
@@ -456,6 +460,7 @@ public class gui_home extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_donationActionPerformed
 
+    //handle action when quiz button is pressed
     private void btn_quizAttemptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_quizAttemptActionPerformed
         
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();

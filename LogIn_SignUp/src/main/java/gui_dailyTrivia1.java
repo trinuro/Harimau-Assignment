@@ -19,24 +19,23 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     ExistingUser user= new ExistingUser();
     
     dailyTrivia t1 = new dailyTrivia(user.getUsername());
-    //user.getUsername()
-    //static int question =1;
+    
     int question =t1.getQuestionSetCanBeAnswered().size();
 
     String[]optionList=t1.getOptions(question);
     
+    /**This map store user-selected answers for current answer*/
+    private final Map<Integer, String> userSelectedAnswers = new HashMap<>();
+    /**This map store messages about correct answers*/
+    private final Map<Integer, String> correctAnswerMessagesMap = new HashMap<>();
+    /**This map store messages about questionMessage*/
+    private final Map<Integer, String> questionMessages = new HashMap<>();
     
-    private Map<Integer, String> userSelectedAnswers = new HashMap<>();
-    private Map<Integer, String> correctAnswerMessagesMap = new HashMap<>();
-    private Map<Integer, String> questionMessages = new HashMap<>();
-    private Map<Integer, MessageInfo> messageMap = new HashMap<>();
+    private final Map<Integer, MessageInfo> messageMap = new HashMap<>();
     
     public gui_dailyTrivia1() {
         initComponents();
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
-//        this.setResizable(false);
-//        this.setLocationRelativeTo(null);
-//        this.setSize(1960,1080);    
         
     }
    
@@ -116,11 +115,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         buttonGroup.add(optA);
         optA.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         optA.setText(optionList[0]);
-        optA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optAActionPerformed(evt);
-            }
-        });
 
         buttonGroup.add(optB);
         optB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -153,7 +147,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             .addGroup(panel_quizMessageLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(quizMessage)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         label_Day.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -167,8 +161,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(showCorrectAns, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(optD)
@@ -176,7 +169,8 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                         .addComponent(optB)
                         .addComponent(optA)
                         .addComponent(panel_dailyTrivia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(label_Day, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(showCorrectAns, javax.swing.GroupLayout.PREFERRED_SIZE, 1062, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -194,10 +188,10 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                 .addComponent(optC)
                 .addGap(18, 18, 18)
                 .addComponent(optD)
-                .addGap(2, 2, 2)
+                .addGap(14, 14, 14)
                 .addComponent(showCorrectAns)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panel_quizMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panel_quizMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9))
         );
 
@@ -244,7 +238,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                         .addComponent(showCurrentPoint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_menuLayout.createSequentialGroup()
                         .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_submit, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,13 +256,12 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_submit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_next, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_submit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -366,49 +359,51 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //handle action when store button is pressed in menu bar
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
-        // TODO add your handling code here:
+        
         gui_store StoreFrame = new gui_store();
+        // Set the visibility of the gui_store frame to true
         StoreFrame.setVisible(true);
+        // Adjust the size of the gui_store frame
         StoreFrame.pack();
+        // Set the location of the gui_store frame to be in the center of the screen
         StoreFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_storeActionPerformed
-
+    
+    //handle action when quiz button is pressed in menu bar
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
-        // TODO add your handling code here:
+        
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_QuizActionPerformed
 
+    //handle action when home button is pressed in menu bar
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
+        
         gui_home HomeFrame = new gui_home();
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_homeActionPerformed
 
+    //handle action when donation button is pressed in menu bar
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
-        // TODO add your handling code here:
+        
         gui_donation DonationFrame = new gui_donation();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_donationActionPerformed
 
+    //handle action when submit button is pressed
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
-        // TODO add your handling code here:
-//        if(evt.getSource()==btn_submit){
-        
-            
-        //btn_submit.getAction(label_Day.setText(t1.title(question));
-          
         
         MessageInfo messageInfo = null;
          
@@ -495,7 +490,7 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         correctAnswerMessageText = "Correct answer: " + t1.getAnswer(question);
         showCorrectAns.setText(correctAnswerMessageText);
     }
-    // Store the correct answer message in the map
+    //Store the correct answer message in the map
     correctAnswerMessagesMap.put(question, correctAnswerMessageText);
     
         
@@ -505,8 +500,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_submitActionPerformed
 
+    //handle action when next button is pressed
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
-        // TODO add your handling code here:
+        
         if(question<t1.getQuestionSetCanBeAnswered().size()){
                 ++question;
                 System.out.println("Question = "+question);
@@ -571,8 +567,9 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btn_nextActionPerformed
 
+    //handle action when back button is pressed
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        // TODO add your handling code here:
+        
          if(question>1){
                 --question;
                 System.out.println("Question = "+question);
@@ -637,25 +634,6 @@ public class gui_dailyTrivia1 extends javax.swing.JFrame {
         correctAnswerMessagesMap.put(question, correctAnswerMessageText);
     }
     }//GEN-LAST:event_btn_backActionPerformed
-
-    private void optAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optAActionPerformed
-
-//    private void showRandomQuestion() {
-//        // Implement this method to update questionTextArea with a random question
-//        // Use trivia object to get the question
-//        String randomQuestion = "Question: " + dailyTrivia + "\nOptions: " + String.join(", ", trivia.getOptions(1));
-//        JTextArea questionTextArea = (JTextArea) getContentPane().getComponent(1);
-//        questionTextArea.setText(randomQuestion);
-//    }
-//
-//    private void submitAnswer(String answer) {
-//        // Implement this method to handle the user's submitted answer
-//        // Use trivia object to check the answer and update the GUI accordingly
-//        trivia.isCorrect(1, answer);
-//        JOptionPane.showMessageDialog(this, "Is Correct: " + trivia.isCorrectAnswer(1));
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;

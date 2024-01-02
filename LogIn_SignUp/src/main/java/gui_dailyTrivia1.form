@@ -75,7 +75,7 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="btn_back" min="-2" pref="128" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="btn_next" min="-2" pref="128" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btn_submit" min="-2" pref="197" max="-2" attributes="0"/>
@@ -100,13 +100,12 @@
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_submit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btn_next" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="btn_back" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btn_next" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btn_submit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -134,8 +133,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="showCorrectAns" min="-2" pref="210" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="panel_quizMessage" alignment="0" max="32767" attributes="0"/>
                               <Component id="optD" min="-2" max="-2" attributes="0"/>
@@ -145,6 +143,7 @@
                               <Component id="panel_dailyTrivia" max="32767" attributes="0"/>
                               <Component id="label_Day" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="showCorrectAns" min="-2" pref="1062" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="31" max="32767" attributes="0"/>
                   </Group>
@@ -165,10 +164,10 @@
                       <Component id="optC" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="optD" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Component id="showCorrectAns" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panel_quizMessage" max="32767" attributes="0"/>
+                      <Component id="panel_quizMessage" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -228,9 +227,6 @@
                   <Connection code="optionList[0]" type="code"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optAActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String[]opt = trivia.getOptions(i);"/>
               </AuxValues>
@@ -296,7 +292,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="quizMessage" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

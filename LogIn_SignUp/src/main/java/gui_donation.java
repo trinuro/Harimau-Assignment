@@ -33,13 +33,11 @@ public class gui_donation extends javax.swing.JFrame {
     
     public gui_donation() {
         initComponents();
+
+
         user = new ExistingUser();
-        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));              
-
-//        this.setResizable(false);
-//        this.setLocationRelativeTo(null);
-//        this.setSize(1960,1080);
-
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));       
+        
 
     }
 
@@ -292,47 +290,50 @@ public class gui_donation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //handle action when store button is pressed
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
-        // TODO add your handling code here:
+        
         gui_store StoreFrame = new gui_store();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_storeActionPerformed
 
+    //handle action when quiz button is pressed
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
-        // TODO add your handling code here:
+       
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_QuizActionPerformed
 
+    //handle action when home button is pressed
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
+        
         gui_home HomeFrame = new gui_home();
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_homeActionPerformed
 
+    //handle action when donation button is pressed
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
-        // TODO add your handling code here:
+        
         gui_donation DonationFrame = new gui_donation();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_donationActionPerformed
 
+    //handle action when back button is pressed
     private void cfDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfDonateActionPerformed
         String organisationName = jComboBox1.getSelectedItem().toString();
         String donationValue = donateMoney1.getText();
-
-        
 
         if(evt.getSource() == cfDonate){ 
             if(donationValue.isEmpty() || jComboBox1.getSelectedItem() == null){
@@ -360,9 +361,10 @@ public class gui_donation extends javax.swing.JFrame {
     }//GEN-LAST:event_donateMoney1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
-
+    
+    //handle action when donate history button is pressed
     private void donateHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateHistoryActionPerformed
         if(evt.getSource() == donateHistory){
             JDialog dialog = new JDialog();
