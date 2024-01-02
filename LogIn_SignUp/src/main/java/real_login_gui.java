@@ -13,7 +13,6 @@ import javax.swing.WindowConstants;
  * @author Tan Zhi Wei
  */
 public class real_login_gui extends javax.swing.JFrame {
-//lala
     /**
      * Creates new form real_login_gui
      */
@@ -263,34 +262,45 @@ public class real_login_gui extends javax.swing.JFrame {
         String password = passwordEnter.getText();
         System.out.println(email + " " + username + " " + password);
         boolean isPasswordCorrect = false;
-        try{
-            ExistingUser user = new ExistingUser(username, email);
-        
-        
-        try {
-            isPasswordCorrect = user.checkPassword(password);
-            
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);   
-        }
-            if(isPasswordCorrect == true){
-                user.checkIn();
-                System.out.println(user.getUsername());
-            
-            //login success and login into home page
-            setVisible(false); 
-            new gui_home().setVisible(true);                     
-            }
-            else{
-                //if got error when fill in login message
+
+        if(email.matches(".*[@com].*")){
+            try{
+                //try whether user exist or not
+                ExistingUser user = new ExistingUser(username, email);
+
+
+                try {
+                    //if user exist, check password correct or not
+                    isPasswordCorrect = user.checkPassword(password);
+
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(real_login_gui.class.getName()).log(Level.SEVERE, null, ex);   
+                }
+                    if(isPasswordCorrect == true){
+                        //if the password correct, update the check in time of user
+                        user.checkIn();
+                        System.out.println(user.getUsername());
+
+                        //login success and login into home page
+                        setVisible(false); 
+                        new gui_home().setVisible(true);                     
+                    }
+                    else{
+                        //if got error when fill in any login message
+                        JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
+                    }
+            }catch(IllegalArgumentException e){
+                //if user does not exist
                 JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
             }
-        }catch(IllegalArgumentException e){
-            JOptionPane.showMessageDialog(null,"Log in failed. Make sure your information are filled correctly.");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please enter a valid email.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
+        //if click sign up button, jump to sign up page
         if(evt.getSource() == signup){
             setVisible(false);
             new signup_gui().setVisible(true);
@@ -307,6 +317,7 @@ public class real_login_gui extends javax.swing.JFrame {
 
     private void resetPasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetPasswordbtnActionPerformed
         if(evt.getSource() == resetPasswordbtn){
+            //pop up a window to let user enter the email
             String emailToReset = JOptionPane.showInputDialog("Enter your email");
             PasswordRecovery recover = new PasswordRecovery(emailToReset);
                             
@@ -326,8 +337,8 @@ public class real_login_gui extends javax.swing.JFrame {
                         setVisible(false);
                         new forgottenPassword().setVisible(true);
                     }
-                    else{                              
-                            JOptionPane.showMessageDialog(null,"Oops! You entered a wrong recovery password. Please do the same steps again to reset your password and make sure you enter the recovery password correctly");
+                    else{                     
+                        JOptionPane.showMessageDialog(null,"Oops! You entered a wrong recovery password. Please do the same steps again to reset your password and make sure you enter the recovery password correctly");
                     }
                 
                     

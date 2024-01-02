@@ -501,18 +501,24 @@ public class gui_plantTree extends javax.swing.JFrame {
         if(evt.getSource() == tree1btn){
             String treename1 = nameOfTree1.getText();
             if(treename1.equals("")){
+                //if user do not enter the name of tree, print out to let user enter the name of tree
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                               
             }
             else{
-                if(points >= pointUsed){    
+                if(points >= pointUsed){
+                    //if points enough, will call the getPlantTreePoint method to decrease the point used to buy tree
                     store_donation.getPlantATreePoint(user.getUsername(), treename1, 0); 
+                    //Print out a message where the user is successfully buy a tree
                     JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
                     }else{
+                        //Print out message where user unsuccessfully buy a tree
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
                     }   
             }
         }
+        //clear the text after the plant button is clicked
         nameOfTree1.setText("");
+        //update current point
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree1btnActionPerformed
 
@@ -522,18 +528,24 @@ public class gui_plantTree extends javax.swing.JFrame {
         if(evt.getSource() == tree2btn){
             String treename2 = nameOfTree2.getText();
             if(treename2.equals("")){
+                //if user do not enter the name of tree, print out to let user enter the name of tree
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                           
             }
             else{
-                if(points >= pointUsed){   
-                    store_donation.getPlantATreePoint(user.getUsername(), treename2,1); 
+                if(points >= pointUsed){
+                    //if points enough, will call the getPlantTreePoint method to decrease the point used to buy tree
+                    store_donation.getPlantATreePoint(user.getUsername(), treename2,1);
+                    //Print out a message where the user is successfully buy a tree
                     JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
                     }else{
+                    //Print out message where user unsuccessfully buy a tree
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
                     }        
             }
         }
+        //clear the text after the plant button is clicked
         nameOfTree2.setText("");
+        //update current point
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree2btnActionPerformed
 
@@ -543,18 +555,23 @@ public class gui_plantTree extends javax.swing.JFrame {
         if(evt.getSource() == tree3btn){
             String treename3 = nameOfTree3.getText();
             if(treename3.equals("")){
+                //if user do not enter the name of tree, print out to let user enter the name of tree
                 JOptionPane.showMessageDialog(null, "Enter a name for your tree.");                          
             }
             else{
-                if(points >= pointUsed){                    
-                    store_donation.getPlantATreePoint(user.getUsername(),treename3,2);     
+                if(points >= pointUsed){
+                    //if points enough, will call the getPlantTreePoint method to decrease the point used to buy tree                    
+                    store_donation.getPlantATreePoint(user.getUsername(),treename3,2);
+                    //Print out message where user unsuccessfully buy a tree
                     JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
                     }else{
                         JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
                     }        
             }
         }
+        //clear the text after the plant button is clicked
         nameOfTree3.setText("");
+        //update current point
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_tree3btnActionPerformed
 

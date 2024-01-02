@@ -260,15 +260,20 @@ public class signup_gui extends javax.swing.JFrame {
             NewUser usern = new NewUser(email,username,password,cfPassword);
 
             boolean isUserCreated = usern.createNewUser();
-            if(isUserCreated == true){
-                ExistingUser userm = new ExistingUser(username, email);
-                userm.checkIn();
-                setVisible(false);
-                new gui_home().setVisible(true);
+            if(email.matches(".*[@com].*")){
+                if(isUserCreated == true){
+                    ExistingUser userm = new ExistingUser(username, email);
+                    userm.checkIn();
+                    setVisible(false);
+                    new gui_home().setVisible(true);
+                }
+                else{
+                    //if got error when fill in signup message
+                    JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");               
+                }
             }
             else{
-                //if got error when fill in signup message
-                JOptionPane.showMessageDialog(null,"Error! Please make sure your information are filled correctly.");               
+                JOptionPane.showMessageDialog(null,"Please enter a valid email.");
             }
         }
     }//GEN-LAST:event_signupbtnActionPerformed

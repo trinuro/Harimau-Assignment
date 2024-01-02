@@ -13,7 +13,6 @@ public class login_gui extends javax.swing.JFrame {
      */
     public login_gui() {
         initComponents();
-        //test
     }
 
     /**
@@ -157,6 +156,7 @@ public class login_gui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        //click login button to go to the login page
         if(evt.getSource() == login){
             setVisible(false);
             new real_login_gui().setVisible(true);
