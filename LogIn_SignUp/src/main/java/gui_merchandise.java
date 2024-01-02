@@ -566,65 +566,67 @@ public class gui_merchandise extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //handle action when store button is pressed
     private void btn_storeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_storeActionPerformed
-        // TODO add your handling code here:
+        
         gui_store StoreFrame = new gui_store();
         StoreFrame.setVisible(true);
         StoreFrame.pack();
         StoreFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
         
     }//GEN-LAST:event_btn_storeActionPerformed
 
+    //handle action when quiz button is pressed
     private void btn_QuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_QuizActionPerformed
-        // TODO add your handling code here:
+        
         gui_dailyTrivia1 QuizFrame = new gui_dailyTrivia1();
         QuizFrame.setVisible(true);
         QuizFrame.pack();
         QuizFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_QuizActionPerformed
 
+    //handle action when home button is pressed
     private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
+        
         gui_home HomeFrame = new gui_home();
         HomeFrame.setVisible(true);
         HomeFrame.pack();
         HomeFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
         
     }//GEN-LAST:event_btn_homeActionPerformed
 
+    //handle action when donation button is pressed
     private void btn_donationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donationActionPerformed
-        // TODO add your handling code here:
+        
         gui_donation DonationFrame = new gui_donation();
         DonationFrame.setVisible(true);
         DonationFrame.pack();
         DonationFrame.setLocationRelativeTo(null);
-        //this.dispose();
+        
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void text_obj1QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj1QuantityActionPerformed
-        // TODO add your handling code here:
+        
         String obj1_quantity = text_obj1Quantity.getText(); 
         System.out.println("User entered: " + obj1_quantity);
-        
-        
     }//GEN-LAST:event_text_obj1QuantityActionPerformed
 
     private void text_obj2QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj2QuantityActionPerformed
-        // TODO add your handling code here:
+        
         String obj2_quantity = text_obj2Quantity.getText(); 
         System.out.println("User entered: " + obj2_quantity);
     }//GEN-LAST:event_text_obj2QuantityActionPerformed
 
     private void text_obj3QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj3QuantityActionPerformed
-        // TODO add your handling code here:
+        
         String obj3_quantity = text_obj3Quantity.getText(); 
         System.out.println("User entered: " + obj3_quantity);
     }//GEN-LAST:event_text_obj3QuantityActionPerformed
-//   
-    
+
+    //handle action when add button is pressed
     private void btn_add_obj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj2ActionPerformed
         
         int id_obj2 = 1;
@@ -667,30 +669,14 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea2.setText("");
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj2ActionPerformed
-
+    
+    //handle action when add button is pressed
     private void btn_add_obj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj1ActionPerformed
-        // TODO add your handling code here:
         
         int id_obj1 = 0;
         double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
         double point_obj1_Need = 100;
         
-        
-        /*
-        if(evt.getSource() == btn_add_obj1){
-            String quantityText = text_obj1Quantity.getText().trim()    ;
-            if (!quantityText.isEmpty()) {
-                // Parse the non-empty string to double
-                double quantity = Double.parseDouble(quantityText);
-                store_donation.getMerchandisePoint("hzw", id_obj1, Integer.parseInt(text_obj1Quantity.getText().trim()), text_obj1Address.getText());
-                //ArrayList<String> merchandiseData = Utilities.getMerchandiseData("hzw");
-                //Utilities.getMerchandiseData("ss");
-            } else {
-                // Handle the case where the quantity is empty
-                // show an error message or take appropriate action.
-                System.out.println("Error");
-            }
-        */
         
          if (evt.getSource() == btn_add_obj1) {
             String obj1_quantity = text_obj1Quantity.getText().trim();
@@ -704,7 +690,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                 try {
                     
                     Utilities.getMerchandiseData(user.getUsername());
-//                    Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity1, text_obj1Address.getText());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, jTextArea1.getText());
                     if(currentPoints>=total_point_obj1_Need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
@@ -729,8 +714,8 @@ public class gui_merchandise extends javax.swing.JFrame {
          showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_btn_add_obj1ActionPerformed
 
+    //handle action when add button is pressed
     private void btn_add_obj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_obj3ActionPerformed
-        // TODO add your handling code here:
         
         int id_obj3 = 2;
         double currentPoints= Double.parseDouble(login.getUserData(user.getUsername(), "current_points"));
@@ -748,7 +733,6 @@ public class gui_merchandise extends javax.swing.JFrame {
                 try {
                     
                     Utilities.getMerchandiseData(user.getUsername());
-                    //Utilities.buyMerch(a.getUsername(), "name_obj1", (int)quantity3, jTextArea3.getText());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj3,(int)quantity3, jTextArea3.getText());
                     if(currentPoints>=total_point_obj3_Need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity3+ " item/items");
@@ -831,7 +815,8 @@ public class gui_merchandise extends javax.swing.JFrame {
         evt.consume(); // Consume the event to prevent the character from being entered
     }
     }//GEN-LAST:event_text_obj3QuantityKeyTyped
-
+    
+    //handle action when purchase history button is pressed
     private void btn_purchaseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_purchaseHistoryActionPerformed
         
         if (evt.getSource() == btn_purchaseHistory) {
