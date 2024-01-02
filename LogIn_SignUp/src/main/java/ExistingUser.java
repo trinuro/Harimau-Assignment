@@ -38,7 +38,35 @@ public class ExistingUser extends User{
         setCurrentEmail(email);
         System.out.println(this.toString());
     }
+    
+    /**
+     * Constructor that uses email only
+     * @param email 
+     */
+    public ExistingUser(String email){
+        setEmail(email);
+        setCurrentEmail(email);
+        // Connect to database and get username
+        try(
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz_data", "root", "harimau");
+        Statement stmt = conn.createStatement();
+           ){
+            // Create SQL Query
+            String sqlQuery = String.format("SELECT username FROM user_table WHERE email=\'%s\';",this.getEmail());
 
+            // Execute query
+            ResultSet rset = stmt.executeQuery(sqlQuery);
+            while(rset.next()){
+                this.setUsername(rset.getString("username"));
+            }
+
+        }catch(SQLException ex){
+            System.out.println("SQL failed! Find Khiew");
+            ex.printStackTrace();
+        }       
+        System.out.println(this);
+    }    
+    
     /**
      * Empty constructor that is used to initialise an object referencing the previous ExistingUser
      */
@@ -162,6 +190,7 @@ public class ExistingUser extends User{
         }catch(SQLException ex){
             System.out.println("SQL query failed.");
             ex.printStackTrace();
+            return;
         }
 
         // Determine if user checked in today. If no, give 1 mark
@@ -178,6 +207,11 @@ public class ExistingUser extends User{
         this.updateTrialHistory();
 
         System.out.println("User logged in successfully");
+//        try{
+//            FileWriter a = new FileWriter();
+//        }catch(IOException e){
+//            System.out.println(e);
+//        }
     }
     
     /**
