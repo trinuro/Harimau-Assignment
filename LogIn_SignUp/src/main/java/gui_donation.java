@@ -33,10 +33,8 @@ public class gui_donation extends javax.swing.JFrame {
     
     public gui_donation() {
         initComponents();
-//        user = new ExistingUser("TanZW","zhiwei.tan2004@gmail.com");
         user = new ExistingUser();
-        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));       
-        
+        showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));              
 
 //        this.setResizable(false);
 //        this.setLocationRelativeTo(null);
@@ -331,18 +329,17 @@ public class gui_donation extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_donationActionPerformed
 
     private void cfDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfDonateActionPerformed
-        
         String organisationName = jComboBox1.getSelectedItem().toString();
         String donationValue = donateMoney1.getText();
 
         
-        
+
         if(evt.getSource() == cfDonate){ 
             if(donationValue.isEmpty() || jComboBox1.getSelectedItem() == null){
                 JOptionPane.showMessageDialog(null, "Pleanse enter a valid donation amount and select an organization");
             }
             else{
-                try{                   
+                try{
                     double donationAmount = Double.parseDouble(donationValue);
                     store_donation.getDonationPoint(user.getUsername(), (double)donationAmount, organisationName); 
                     JOptionPane.showMessageDialog(null,"Congrats, you successfully donate to " + jComboBox1.getSelectedItem());
@@ -352,7 +349,9 @@ public class gui_donation extends javax.swing.JFrame {
                 }
             }
         }
+        //clear the text after the button is clicked
         donateMoney1.setText("");
+        //update the current point
         showCurrentPoint.setText(login.getUserData(user.getUsername(), "current_points"));
     }//GEN-LAST:event_cfDonateActionPerformed
 
@@ -366,7 +365,6 @@ public class gui_donation extends javax.swing.JFrame {
 
     private void donateHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateHistoryActionPerformed
         if(evt.getSource() == donateHistory){
-            //getTreePlantedData
             JDialog dialog = new JDialog();
             dialog.setTitle("Donate history");
         
@@ -377,7 +375,7 @@ public class gui_donation extends javax.swing.JFrame {
                 Donation.append(data).append("\n");
             }          
             
-            //Create JTextArea to display the purchase history
+            //Create JTextArea to display the donation history
             JTextArea textArea = new JTextArea(Donation.toString());
             textArea.setEditable(false);
             
@@ -401,6 +399,7 @@ public class gui_donation extends javax.swing.JFrame {
     }//GEN-LAST:event_donateHistoryActionPerformed
 
     private void donateMoney1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_donateMoney1KeyTyped
+        //To make sure the user not enter alphabet in this JTextField
         char c = evt.getKeyChar();
         
         if(!Character.isDigit(c)){
