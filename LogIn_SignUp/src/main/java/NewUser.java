@@ -36,7 +36,7 @@ public class NewUser extends User{
 
     /**
      * Method to convert NewUser into String
-     * @return 
+     * @return information about object
      */    
     @Override
     public String toString(){
@@ -62,7 +62,7 @@ public class NewUser extends User{
     
     /**
      * Accessor method to get username
-     * @return 
+     * @return  username
      */
     public String getUsername(){
         return this.username;
@@ -71,8 +71,7 @@ public class NewUser extends User{
     /**
      * This method creates a new user in database. 
      * It accepts the email, username, password and confirm password string.
-     * It will return true if a user is successfully created.
-     * @return 
+     * @return Boolean value whether a user is successfully created
      */
     public boolean createNewUser(){
         //Initialise variables
@@ -81,6 +80,12 @@ public class NewUser extends User{
         
         // Check whether confirm password is same as password
         if(!password.equals(confirmPassword)){
+            return false;
+        }
+        
+        // Check if email is valid
+        if(!this.email.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$")){
+            System.out.println("Invalid email");
             return false;
         }
         

@@ -13,7 +13,7 @@ public class User {
     
     /**
      * Accessor method to get email
-     * @return 
+     * @return email address of user
      */
     public String getEmail(){
         return this.email;

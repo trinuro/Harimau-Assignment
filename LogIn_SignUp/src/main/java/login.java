@@ -58,7 +58,7 @@ public class login {
      * This method returns data from database based on table name, username and column title
      * @param username
      * @param columnTitle
-     * @return 
+     * @return data from database 
      */
     public static String getUserData( String username, String columnTitle){        
         String output="";
@@ -92,7 +92,7 @@ public class login {
     /**
      * This method receives a username and returns the number of days the user has logged in
      * @param username
-     * @return 
+     * @return number of days the user has logged in
      */
     
     public static long daysAfterRegistration(String username){

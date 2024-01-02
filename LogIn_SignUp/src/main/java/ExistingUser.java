@@ -62,7 +62,7 @@ public class ExistingUser extends User{
     
     /**
      * Method to convert ExistingUser into String
-     * @return 
+     * @return information about object
      */  
     public String toString(){
         return String.format("""
@@ -75,7 +75,7 @@ public class ExistingUser extends User{
     /**
      * Check if two ExistingUser are the same
      * @param person
-     * @return 
+     * @return whether two objects are the same
      */
     public boolean equals(ExistingUser person){
         if(this.getUsername().equals(person.getUsername())&&this.getEmail().equals(person.getEmail())){
@@ -87,7 +87,7 @@ public class ExistingUser extends User{
     
     /**
      * Accessor method to get username
-     * @return 
+     * @return username
      */
     public String getUsername(){
         return username;
@@ -95,7 +95,7 @@ public class ExistingUser extends User{
     
     /**
      * Accessor method to get current email
-     * @return 
+     * @return current email
      */
     public String getCurrentEmail(){
         return this.currentEmail;
@@ -103,7 +103,7 @@ public class ExistingUser extends User{
     
     /**
      * Mutator method to set username
-     * @param u 
+     * @param u
      */
     private void setUsername(String u){
         this.username = u;
@@ -243,7 +243,7 @@ public class ExistingUser extends User{
      * This method will check whether the user password is the same as password in the database.
      * It receives three input: email, username and password
      * @param password
-     * @return
+     * @return password of user is correct or not
      * @throws NoSuchAlgorithmException 
      */
     public boolean checkPassword(String password) throws NoSuchAlgorithmException{
@@ -293,7 +293,7 @@ public class ExistingUser extends User{
     
     /**
      * This method receives a username and returns the number of days the user has logged in
-     * @return 
+     * @return number of days after registration
      */
     public long daysAfterRegistration(){
         
@@ -336,7 +336,7 @@ public class ExistingUser extends User{
     /**
      * This method returns data from database based on table name, username and column title
      * @param columnTitle
-     * @return 
+     * @return user data
      */
     public String getUserData(String columnTitle){
         

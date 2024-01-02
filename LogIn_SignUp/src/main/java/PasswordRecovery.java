@@ -43,7 +43,7 @@ public class PasswordRecovery extends User{
     
     /**
      * Method to convert PasswordRecovery into String
-     * @return 
+     * @return information about object
      */
     public String toString(){
         return String.format("""
@@ -102,8 +102,7 @@ public class PasswordRecovery extends User{
     
     /**
      * This method sends a recovery email to the email address of recipient.
-     * This method returns true if email was sent successfully. Else, returns false.
-     * @return 
+     * @return This method returns true if email was sent successfully. Else, returns false.
      */
     public boolean sendRecoveryEmail(){
         String recipientEmail = this.email;
@@ -160,10 +159,9 @@ public class PasswordRecovery extends User{
     
     /**
      * This method checks whether the recovery password is correct.
-     * Return true if password is correct.
      * Will delete temp.txt.
      * @param userPassword
-     * @return 
+     * @return Return true if password is correct.
      */
     public static boolean isRecoveryPasswordCorrect(String userPassword){
         String recoveryPassword="";
@@ -198,10 +196,9 @@ public class PasswordRecovery extends User{
     
     /**
      * Update password of a user in database.
-     * Return true if update is successful.
      * @param newPassword
      * @param confirmPassword
-     * @return 
+     * @return Return true if update is successful.
      */
     public boolean updateUserPassword(String newPassword, String confirmPassword){
         // Checks if password and confirmPassword are the same
