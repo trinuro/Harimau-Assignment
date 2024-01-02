@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileOutputStream;
 
 /**
  * ExistingUser class represents a user that is currently interacting with the program
@@ -205,13 +208,21 @@ public class ExistingUser extends User{
         
         // Update trial_history table
         this.updateTrialHistory();
-
+        
+        // Get current date and time
+        LocalDateTime dateTime = LocalDateTime.now();
+        DateTimeFormatter newformatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = dateTime.format(newformatter);
+        try{
+            PrintWriter writeObj = new PrintWriter(new FileOutputStream("Login History.txt",true));
+            writeObj.printf("User %s logged in on %s\n",this.getUsername(),formattedDateTime);
+            writeObj.close();
+        }catch(IOException e){
+            System.out.println(e);
+        }
+        
         System.out.println("User logged in successfully");
-//        try{
-//            FileWriter a = new FileWriter();
-//        }catch(IOException e){
-//            System.out.println(e);
-//        }
+
     }
     
     /**
@@ -252,7 +263,7 @@ public class ExistingUser extends User{
     
     private void updateLast_checked_in(){
 
-        // Get current date
+        // Get current date and time
         LocalDateTime dateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = dateTime.format(formatter);
