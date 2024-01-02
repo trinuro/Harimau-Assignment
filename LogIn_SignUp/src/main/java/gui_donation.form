@@ -28,7 +28,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="panel_menu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="175" max="32767" attributes="0"/>
           </Group>
           <Component id="panel_main" max="32767" attributes="0"/>
       </Group>
@@ -61,19 +61,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="label_home" min="-2" pref="103" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="640" max="-2" attributes="0"/>
                           <Component id="donateHistory" min="-2" pref="158" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="showCurrentPoint" min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="855" max="32767" attributes="0"/>
+                  <EmptySpace pref="993" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -82,13 +82,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="label_home" min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                          <Component id="donateHistory" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="label_home" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="showCurrentPoint" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="showCurrentPoint" min="-2" pref="24" max="-2" attributes="0"/>
+                              <Component id="donateHistory" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -120,16 +120,16 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="734" max="32767" attributes="0"/>
                               <Component id="cfDonate" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="518" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" min="-2" pref="76" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="184" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jComboBox1" min="-2" pref="283" max="-2" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
@@ -143,7 +143,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="389" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="371" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -165,7 +165,7 @@
                       <Component id="warning" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="cfDonate" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="220" max="32767" attributes="0"/>
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -197,7 +197,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="$"/>
+                <Property name="text" type="java.lang.String" value="  $"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBox1">
