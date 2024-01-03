@@ -2,38 +2,50 @@ import java.util.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
+/**
+ *
+ * @author limxinying
+ */
 public class dailyTrivia extends Trivia{
     private String username;
     private ArrayList<Trivia> questionSetCanBeAnswered = new ArrayList<>();
-    private int noOfDayLogin = 1;
+    private int noOfDayLogin;
     
+    /**
+     * constructor
+     * @param username the username for this
+     */
     public dailyTrivia(String username){
         this.username = username;
         this.noOfDayLogin = getDayLogin(username);
         this.questionSetCanBeAnswered = getQuestionSetCanBeAnswered();
     }
     
+    /**
+     * @param username the username for this
+     * @return the number of days since user signed up
+     */
     public int getDayLogin(String username) {
         return (int)login.daysAfterRegistration(username);
     }
 
 
-    //*************************
+    //***********************************
     // *******START FROM HERE************
 
-    // get string of specific question based on the number of qustions (from 1 to 10)
+    /**
+     * @param question the number of question answering
+     * @return the specific question based on the number of questions (from 1 to 10)
+     */
     @Override
     public String getQuestion(int question) {
         return super.getQuestion(question);
     }
     
-    // get string array of options based on the number of qustions (from 1 to 10)
+    /**
+     * @param question the number of question answering
+     * @return the string array of options based on the number of questions (from 1 to 10)
+     */
     @Override
     public String[] getOptions(int question) {
         System.out.println("No of attempt for" + question +" = " + Utilities.getNumberOfTries(getUsername(), question));
@@ -47,14 +59,18 @@ public class dailyTrivia extends Trivia{
         return currentOptionList;
     }
     
-    // get string of answer based on the number of qustions (from 1 to 10)
+    /**
+     * @param question the number of question answering
+     * @return the answer based on the number of questions (from 1 to 10)
+     */    
     @Override
     public String getAnswer(int question) {
         return super.getAnswer(question);
     }
     
-    // get the question set that can be answered by the user in according to their no of day login
-    // getQuestionSetCanBeAnswered().size() will return the size of the ArrayList, which is the same as the no of day login
+    /**
+     * @return the question set that can be answered of this according to user's number of day registered
+     */
     public ArrayList<Trivia> getQuestionSetCanBeAnswered(){
         if (questionSetCanBeAnswered.size() <= noOfDayLogin) {
             int differenceOfDay = noOfDayLogin +1 - questionSetCanBeAnswered.size();
@@ -67,114 +83,125 @@ public class dailyTrivia extends Trivia{
         return questionSetCanBeAnswered;
     }
     
-     // return int numberOfAttempt
+    /**
+     * @param question the number of question answering
+     * @return the number of attempt based on the specific number of questions (from 1 to 10)
+     */
     public int gatNumberOfAttempt(int question){
         return Utilities.getNumberOfTries(getUsername(), question);
     }
     
-    // return the double marks value allocated for the given question
-    public double getmarkAllocated(int noOfQuestion) {
-        return markAllocated(noOfQuestion, gatNumberOfAttempt(noOfQuestion));
+    /**
+     * @param question the number of question answering
+     * @return marks value allocated for the given question (from 1 to 10)
+     */
+    public double getmarkAllocated(int question) {
+        return markAllocated(question, gatNumberOfAttempt(question));
     }
     
-    // return the boolean value of the answer chosen
-    public boolean getIsCorrectAnswerCurrently(int noOfQuestion) {
-        return Utilities.getIsCorrectCurrently(getUsername(), noOfQuestion);
+    /**
+     * @param question the number of question answering
+     * @return the boolean value of the answer chosen currently
+     */
+    public boolean getIsCorrectAnswerCurrently(int question) {
+        return Utilities.getIsCorrectCurrently(getUsername(), question);
     }
     
-    // return the boolean value of the answer chosen
-    public boolean getIsCorrectAnswerFinally(int noOfQuestion) {
-        return Utilities.getIsCorrectFinally(getUsername(), noOfQuestion);
+    /**
+     * @param question the number of question answering
+     * @return the boolean value of the answer chosen finally for the specific question
+     */
+    public boolean getIsCorrectAnswerFinally(int question) {
+        return Utilities.getIsCorrectFinally(getUsername(), question);
     }
     
-    // return string value of the title (not neccesary to be used)
-    public String title(int noOfQuestion) {
-        if (gatNumberOfAttempt(noOfQuestion) >= 2 || getIsCorrectAnswerFinally(noOfQuestion)) {
-            return "Day " + noOfQuestion + " Trivia ( Attempt without marks increment )";
+    /**
+     * @param question the number of question answering
+     * @return the the title for the specific question according to the number of attempts or user's answers
+     */
+    public String title(int question) {
+        if (gatNumberOfAttempt(question) >= 2 || getIsCorrectAnswerFinally(question)) {
+            return "Day " + question + " Trivia ( Attempt without marks increment )";
         }
-        return "Day " + noOfQuestion + " Trivia ( Attempt #" + (gatNumberOfAttempt(noOfQuestion)+1) + " )";
+        return "Day " + question + " Trivia ( Attempt #" + (gatNumberOfAttempt(question)+1) + " )";
     }
     
-    // has to be run to update isCorrect, numberOfAttempt and to increasuser marks if any
-    public void isCorrect(int noOFQuestion, String selectedAnswer) {
-        System.out.println("no of qustion"+ noOFQuestion);
-        System.out.println("ans "+getAnswer(noOFQuestion));
+    /**
+     * <p> has to be run to update isCorrect, numberOfAttempt and to increase user marks if any
+     * @param question the number of question answering
+     * @param selectedAnswer the answer selected by user
+     */
+    public void isCorrect(int question, String selectedAnswer) {
+        System.out.println("no of qustion"+ question);
+        System.out.println("ans "+getAnswer(question));
         System.out.println("selectedAnswer "+ selectedAnswer);
-        System.out.println(selectedAnswer.equals(getAnswer(noOFQuestion)));
-        updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), true);
+        System.out.println(selectedAnswer.equals(getAnswer(question)));
+        updateNoOfAttempt(question, Utilities.getNumberOfTries(getUsername(), question), true);
 
-        if (!getIsCorrectAnswerFinally(noOFQuestion)) {
-            System.out.println("i am wrong initially");
-            //updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), true);
-            Utilities.setIsCorrectCurrently(getUsername(), noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
+        if (!getIsCorrectAnswerFinally(question)) {
+            System.out.println("Wrong initially");
+            Utilities.setIsCorrectCurrently(getUsername(), question, selectedAnswer.equals(getAnswer(question)));
 
-            Utilities.setIsCorrectFinally(getUsername(), noOFQuestion,selectedAnswer.equals(getAnswer(noOFQuestion)));
-            System.out.println("after immediate update" + getIsCorrectAnswerCurrently(noOFQuestion));
-            System.out.println("after immediate update" + getIsCorrectAnswerFinally(noOFQuestion));
-
-            updateNoOfAttempt(noOFQuestion, Utilities.getNumberOfTries(getUsername(), noOFQuestion), selectedAnswer.equals(getAnswer(noOFQuestion)));
-
-            System.out.println("after update no of attempt" + getIsCorrectAnswerCurrently(noOFQuestion));
-            login.increasePoints(username, getmarkAllocated(noOFQuestion));
+            Utilities.setIsCorrectFinally(getUsername(), question,selectedAnswer.equals(getAnswer(question)));
+            updateNoOfAttempt(question, Utilities.getNumberOfTries(getUsername(), question), selectedAnswer.equals(getAnswer(question)));
+            login.increasePoints(username, getmarkAllocated(question));
         } else {
-            Utilities.setIsCorrectCurrently(getUsername(), noOFQuestion, selectedAnswer.equals(getAnswer(noOFQuestion)));
+            Utilities.setIsCorrectCurrently(getUsername(), question, selectedAnswer.equals(getAnswer(question)));
             System.out.println("Thanks for trying again");
         }
-        System.out.println("getiscorrectansfinally = " + getIsCorrectAnswerFinally(noOFQuestion));
     }
     
-    // can be run for tesing the output
-    public void displayQuestion(int noOfQuestion) {
-        Scanner input = new Scanner(System.in); 
-        System.out.println(title(noOfQuestion));                 
-        System.out.println(getQuestion(noOfQuestion));
-        String[] optionList  = getOptions(noOfQuestion);
-        for (int j = 0; j < 4; j++) {
-            System.out.println(optionList[j]);
-        }
-        String option = input.nextLine();
-        // check if the answer input is correct
-        this.isCorrect(noOfQuestion, option);
-        System.out.println(getIsCorrectAnswerCurrently(noOfQuestion));
-                
-        System.out.println("Mark allocated : " + getmarkAllocated(noOfQuestion));
-                
-    }
-    
-    // return the string value of the username
+    /**
+     * @return this username
+     */
     public String getUsername() {
         return this.username;
     }
     
-    // ****Until here*****
-    //**********
+    // *************Until here**************
+    //***********************************
    
+    /**
+     * <p> has to be run to update isCorrect, numberOfAttempt and to increase user marks if any
+     * @param options the string array of the options
+     * @return a shuffled string array of options
+     */
     private static String[] shuffledOptionsArray(String[] options) {
         List<String> optionsList = Arrays.asList(options);
         Collections.shuffle(optionsList);
         return optionsList.toArray(options);
     }
     
-    private double markAllocated(int noOfQuestion, int noOfAttempt) {
-        if(getIsCorrectAnswerFinally(noOfQuestion) && noOfAttempt == 0){
+    /**
+     * <p> has to be run to update isCorrect, numberOfAttempt and to increase user marks if any
+     * @param question the number of question answering
+     * @param noOfAttempt the total number of attempts of the user for the specific question
+     * @return the mark allocated to the user according the the number of attempts
+     */
+    private double markAllocated(int question, int noOfAttempt) {
+        if(getIsCorrectAnswerFinally(question) && noOfAttempt == 0){
             return 2;
-        } else if (getIsCorrectAnswerFinally(noOfQuestion) && noOfAttempt == 1){
+        } else if (getIsCorrectAnswerFinally(question) && noOfAttempt == 1){
             return 1;
         } return 0;
     }
     
+    /**
+     * <p> to update isCorrect, numberOfAttempt and to increase user marks if any
+     * @param question the number of question answering
+     * @param noOfAttempt the previous number of attempts of the user for the specific question
+     * @param isCorrect the boolean value whether the user answered correctly
+     */
     private void updateNoOfAttempt(int noOfQuestion, int noOfAttempt, boolean isCorrect) {
         if (!isCorrect) {
-            System.out.println("original attempt time = "+ noOfAttempt);
-            int latestNoOfAttempt = noOfAttempt +1;
-            System.out.println("latest attempt time = "+ latestNoOfAttempt);
-            Utilities.setNumberOfTries(getUsername(), noOfQuestion, latestNoOfAttempt);
+            Utilities.setNumberOfTries(getUsername(), noOfQuestion, noOfAttempt+1);
             System.out.println("the number of trial is updated");
         }
     }
 }
 
-        
+
+// create a class for obtaining the daily trivia question
 class Trivia {
 
 //     // declare filepath
@@ -190,30 +217,35 @@ class Trivia {
     private  String specificQuestion = "";
     private  String[] specificOptions = new String[4];
     private  String specificAnswer = "";
-    private int numberOfAttempt;
-    private boolean isCorrect ;
-    private boolean isCorrectForTrial;
-        
+    
+    /**
+     * a no-arg constructor
+     */     
     public Trivia() {
     }
-        
-    public Trivia(int noOfQuestion){
-        this.specificQuestion = questionList.get(noOfQuestion-1);
-        this.specificOptions = trueOptionList.get(noOfQuestion-1);
-        this.specificAnswer = answerList.get(noOfQuestion-1);
-        this.numberOfAttempt = 0;
-        this.isCorrect = false;
-        this.isCorrectForTrial = false;
+    
+    /**
+     * a constructor
+     * @param question the number of question answering
+     */     
+    public Trivia(int question){
+        this.specificQuestion = questionList.get(question-1);
+        this.specificOptions = trueOptionList.get(question-1);
+        this.specificAnswer = answerList.get(question-1);
     }
-        
+    
+    /**
+     * a constructor
+     * @param question the number of question answering
+     * @param options the string array that consist of four options for the specific question
+     * @param answer the answer for the specific question
+     */
     public Trivia(String question, String[] options, String answer){
         this.specificQuestion = question;
         this.specificOptions = options;
         this.specificAnswer = answer;
-        this.numberOfAttempt = 0;
-        this.isCorrect = false;
     }
-        
+    
     private static ArrayList<Trivia> createTotalQuestionSet() {
         ArrayList<Trivia> totalquestionset = new ArrayList<>();
         for (int i = 0; i < questionList.size(); i++) {
@@ -222,11 +254,7 @@ class Trivia {
         }
         return totalquestionset;
     }
-        
-    public static ArrayList<Trivia> getTotalQuestionSet() {
-        return totalQuestionSet;
-    } 
-        
+
     private static ArrayList<String[]> createTrueOptionList() {
         ArrayList<String[]> trueoptionList = new ArrayList<>();
         for (int noOfQuestion = 0; noOfQuestion < optionList.size(); noOfQuestion++) {
@@ -236,51 +264,42 @@ class Trivia {
         return trueoptionList;
     }
     
+    /**
+     * @param question the number of question answering
+     * @return the specific question based on the number of questions (from 1 to 10)
+     */
     public String getQuestion(int question) {
         return totalQuestionSet.get(question-1).specificQuestion;
     }
     
-    // get string array of options based on the number of qustions
+    /**
+     * @param question the number of question answering
+     * @return the string array of options based on the number of questions (from 1 to 10)
+     */
     public String[] getOptions(int question) {
         return totalQuestionSet.get(question-1).specificOptions;
     }
     
+    /**
+     * @param question the number of question answering
+     * @return the string array of options based on the number of questions (from 1 to 10) with original sequence
+     */
     public String[] getOriginalOptions(int question) {
         return trueOptionList.get(question-1);
     }
     
+    /**
+     * @param question the number of question answering
+     * @return the answer based on the number of questions (from 1 to 10)
+     */  
     public String getAnswer(int question) {
         return totalQuestionSet.get(question-1).specificAnswer;
     }
-    
-    public int getNumberOFAttempt() {
-        return this.numberOfAttempt;
-    }
-    
-    public boolean getIsCorrect() {
-        return this.isCorrect;
-    }
-    
-    public void setIsCorrect(int question, boolean isCorrect) {
-        this.isCorrect = isCorrect;
-    }
-    
-    public boolean getIsCorrectForTrial() {
-        return this.isCorrectForTrial;
-    }
-    
-    public void setIsCorrectForTrial(int question, boolean isCorrect) {
-        this.isCorrectForTrial = isCorrect;
-    }
-    
-    public void setNumberOFAttempt(int noOfAttempt) {
-        this.numberOfAttempt = noOfAttempt;
-    }
-    
 
-    // by connecting to database
-    // create a method to create questionList
-    private static ArrayList<String> getQuestionArrayList() {
+    /**
+     * @return the questionList for all questions (from 1 to 10) from database
+     */  
+    public static ArrayList<String> getQuestionArrayList() {
 
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
@@ -289,8 +308,10 @@ class Trivia {
         return newArray;
     }
 
-    // create a method to create optionsList
-    private static ArrayList<String> getOptionsArrayList() {
+    /**
+     * @return the optionsList for all questions (from 1 to 10) from database
+     */  
+    public static ArrayList<String> getOptionsArrayList() {
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             newArray.add(Utilities.getTrivia(i)[1]);
@@ -298,8 +319,11 @@ class Trivia {
 
         return newArray;
     }
-    // create a method to create answerList
-    private static ArrayList<String> getAnswerArrayList() {
+    
+    /**
+     * @return the answerList for all questions (from 1 to 10) from database
+     */  
+    public static ArrayList<String> getAnswerArrayList() {
 
         ArrayList<String> newArray = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
@@ -331,17 +355,17 @@ class Trivia {
 //        return newArray;
 //    }
 //    // create a method to create questionList
-//    private static ArrayList<String> getQuestionArrayList() {
+//    public static ArrayList<String> getQuestionArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 3);
 //        return newArray;
 //    }
 //    // create a method to create optionsList
-//    private static ArrayList<String> getOptionsArrayList() {
+//    public static ArrayList<String> getOptionsArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 1);
 //        return newArray;
 //    }
 //    // create a method to create answerList
-//    private static ArrayList<String> getAnswerArrayList() {
+//    public static ArrayList<String> getAnswerArrayList() {
 //        ArrayList<String> newArray = getArrayList(l1, 2);
 //        return newArray;
 //    }
