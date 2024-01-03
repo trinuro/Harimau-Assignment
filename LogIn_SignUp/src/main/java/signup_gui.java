@@ -260,12 +260,13 @@ public class signup_gui extends javax.swing.JFrame {
             NewUser usern = new NewUser(email,username,password,cfPassword);
 
             boolean isUserCreated = usern.createNewUser();
-            if(email.matches(".*[@com].*")){
+            if(email.matches(".*[@com].*") || email.matches(".*[@edu.my].*")){
                 if(isUserCreated == true){
                     ExistingUser userm = new ExistingUser(username, email);
                     userm.checkIn();
                     setVisible(false);
                     new gui_home().setVisible(true);
+                    JOptionPane.showMessageDialog(null,"You successfully sign up an account "); 
                 }
                 else{
                     //if got error when fill in signup message
