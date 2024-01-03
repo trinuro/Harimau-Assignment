@@ -30,6 +30,7 @@ public class login_gui extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         login = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -43,55 +44,61 @@ public class login_gui extends javax.swing.JFrame {
         Right.setMinimumSize(new java.awt.Dimension(800, 1000));
         Right.setPreferredSize(new java.awt.Dimension(800, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(235, 243, 232));
         jLabel1.setText("WELCOME TO CODE FOR NATURE");
 
         jLabel2.setBackground(new java.awt.Color(235, 243, 232));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(235, 243, 232));
-        jLabel2.setText("Nowadays, our earth had facing a lot of issues due to the unhumanical destroy to the environment");
+        jLabel2.setText("Nowadays, our earth had facing a lot of issues due to the unhumanical destroy");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(235, 243, 232));
         jLabel3.setText("Thus, lets use our small energy to make a big change to this world");
 
         jLabel5.setForeground(new java.awt.Color(235, 243, 232));
-        jLabel5.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\java\\icon\\nature1redo.jpg")));
+        jLabel5.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+("\\src\\main\\java\\icon\\bg2.png")));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(235, 243, 232));
+        jLabel6.setText("to the environment");
 
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RightLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
                         .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(RightLayout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jLabel3))
-                            .addGroup(RightLayout.createSequentialGroup()
-                                .addGap(137, 137, 137)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel2))
+                        .addGap(92, 92, 92))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(126, 126, 126))))
         );
         RightLayout.setVerticalGroup(
             RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RightLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(77, 77, 77)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(0, 1, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
         );
 
         jPanel1.add(Right);
@@ -117,21 +124,21 @@ public class login_gui extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jLabel4))
+                        .addGap(327, 327, 327)
+                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(345, 345, 345)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(374, Short.MAX_VALUE))
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(489, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(60, 60, 60)
+                .addContainerGap(210, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(login)
-                .addGap(428, 428, 428))
+                .addGap(427, 427, 427))
         );
 
         jPanel1.add(jPanel2);
@@ -205,6 +212,7 @@ public class login_gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton login;
