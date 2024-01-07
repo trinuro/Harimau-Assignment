@@ -512,7 +512,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "You successfully plant a Cottonwood tree");
                     }else{
                         //Print out message where user unsuccessfully buy a tree
-                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                        JOptionPane.showMessageDialog(null, "You do not have enough point to plant a Cottonwood tree.");
                     }   
             }
         }
@@ -539,7 +539,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "You successfully plant a Magnolia tree");
                     }else{
                     //Print out message where user unsuccessfully buy a tree
-                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                        JOptionPane.showMessageDialog(null, "You do not have enough point to plant a Magnolia tree.");
                     }        
             }
         }
@@ -565,7 +565,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                     //Print out message where user unsuccessfully buy a tree
                     JOptionPane.showMessageDialog(null, "You successfully plant a Beech tree");
                     }else{
-                        JOptionPane.showMessageDialog(null, "Oops! You are too poor.");
+                        JOptionPane.showMessageDialog(null, "You do not have enough point to plant a Beech tree.");
                     }        
             }
         }
