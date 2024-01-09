@@ -1,14 +1,4 @@
---Delete all tables (Ignore any errors)
-DROP TABLE MerchandiseOrder;
-DROP TABLE trees;
-DROP TABLE donations_history;
-DROP TABLE trial_history;
-DROP TABLE user_table;
-DROP TABLE NewsSample;
-DROP TABLE TriviaSample;
-
-
--- Create all tables
+-- Create user_table (User.txt)
 CREATE TABLE user_table (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     -- Auto-increment the student_id for each entry
@@ -20,6 +10,7 @@ CREATE TABLE user_table (
     registration_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+--Create NewsSample table
 CREATE TABLE NewsSample(
     news_id INT PRIMARY KEY AUTO_INCREMENT,
     news_title VARCHAR(100),
@@ -27,6 +18,7 @@ CREATE TABLE NewsSample(
     news_date VARCHAR(20)
 );
 
+--Create TriviaSample table
 CREATE TABLE TriviaSample(
     question_id INT PRIMARY KEY AUTO_INCREMENT,
     question VARCHAR(200),
@@ -40,14 +32,14 @@ CREATE TABLE MerchandiseOrder(
     buyer_id INT,
     merchandise_id VARCHAR(100),
     purchase_amount INT,
-    delivery_address VARCHAR(200),
+    delivery_address VARCHAR(2000),
     FOREIGN KEY (buyer_id) REFERENCES user_table(user_id) ON DELETE SET NULL
 );
 
 CREATE TABLE trees(
     tree_id INT PRIMARY KEY  AUTO_INCREMENT,
     buyer_id INT,
-    tree_name VARCHAR(30),
+    tree_name VARCHAR(500),
     FOREIGN KEY (buyer_id) REFERENCES user_table(user_id) ON DELETE SET NULL
 );
 
@@ -70,6 +62,17 @@ CREATE TABLE trial_history(
     FOREIGN KEY (trivia_id) REFERENCES TriviaSample(question_id) ON DELETE CASCADE
 );
 
+
+-- Check whether the user has all column names correct
+DESCRIBE user_table;
+DESCRIBE NewsSample;
+DESCRIBE TriviaSample;
+DESCRIBE MerchandiseOrder;
+DESCRIBE donations_history;
+DESCRIBE trial_history;
+
+-- Insert information into user_table
+INSERT INTO user_table(email, username, password) VALUES('example2@gmail.com','Mr Example 2','aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
 
 --Insert Information into NewsSample table
 INSERT INTO NewsSample(news_title, news_link, news_date) VALUES("Air Selangor: Water cut in 162 areas extended to Oct 13", "https://www.thestar.com.my/metro/metro-news/2023/10/12/air-selangor-water-cut-in-162-areas-extended-to-oct-13", "12 Oct 2023");
@@ -95,13 +98,112 @@ INSERT INTO TriviaSample(question, options, answer) VALUES("Why are pollinators 
 INSERT INTO TriviaSample(question, options, answer) VALUES("Which of these species doesn't have a home in the forest?","Grizzly bear,Great hornbill,Cheetah,Ring tailed lemur","Cheetah");
 INSERT INTO TriviaSample(question, options, answer) VALUES("On land which animal only ever moves their hind legs together, however in the water they kick each leg independently to swim?","Rhinoceros,Kangaroo,Hornbill,Hippopotamus","Kangaroo");
 
+-- Insert information into merchandise order
+INSERT INTO MerchandiseOrder(buyer_id,merchandise_id,purchase_amount,delivery_address) VALUES(2,"merch-1","10","address-1");
+
+-- Insert information into trees table
+INSERT INTO trees(buyer_id, tree_name) VALUES(1,"I <3 tree");
+
+-- Insert information into donations_history
+INSERT INTO donations_history(donor_id,donation_amount,organisation) VALUES(2,100,"I Love Gays Org");
+
+-- Create new entry in trial_history
+INSERT INTO trial_history VALUES(1,2,1,0,0);
+
+-- To update last_checked_in after a user with id 1 checked in
+UPDATE user_table SET last_checked_in = now() WHERE user_id = 1;
+
+-- To change password
+UPDATE user_table SET password = "new password" WHERE user_id = 1;
+
+-- To update isCorrectFinally and isCorrectCurrently
+UPDATE trial_history SET isCorrectFinally = 0 WHERE user_id = 1 and trivia_id = 2;
+UPDATE trial_history SET isCorrectCurrently = 1 WHERE user_id =1 and trivia_id = 2;
+
+
+-- Update an entry in trial_history
+UPDATE trial_history 
+SET number_of_tries = 2
+WHERE user_id = 1 AND trivia_id = 1;
+
 -- SELECT all information from table
 SELECT * FROM user_table;
 SELECT * FROM NewsSample;
 SELECT * FROM TriviaSample;
+SELECT * FROM MerchandiseOrder;
 SELECT * FROM trees;
 SELECT * FROM donations_history;
 SELECT * FROM trial_history;
 
+-- Show how many items a person bought
+SELECT user_table.username, MerchandiseOrder.merchandise_id, MerchandiseOrder.purchase_amount, MerchandiseOrder.delivery_address 
+FROM user_table
+JOIN MerchandiseOrder
+ON MerchandiseOrder.buyer_id = user_table.user_id
+WHERE username = "KhiewTest";
+
+-- Show which user has bought a tree
+SELECT user_table.username, trees.tree_name
+FROM user_table
+JOIN trees
+ON trees.buyer_id = user_table.user_id
+WHERE username = "KhiewTest";
+
+-- Show how much a user donated
+SELECT user_table.username, donations_history.donation_amount, donations_history.organisation
+FROM user_table
+JOIN donations_history
+ON donations_history.donor_id = user_table.user_id
+WHERE username = "KhiewTest2";
+
+-- Show how many tries a user has for a question
+SELECT number_of_tries
+FROM user_table
+JOIN trial_history
+ON trial_history.user_id = user_table.user_id
+WHERE username = "KhiewTest" and trivia_id = 2;
+
+-- Show isCorrectFinally
+SELECT isCorrectFinally
+FROM user_table
+JOIN trial_history
+ON trial_history.user_id = user_table.user_id
+WHERE username = "a" and trivia_id = 1;
+
+-- Show isCorrectCurrently
+SELECT isCorrectCurrently
+FROM user_table
+JOIN trial_history
+ON trial_history.user_id = user_table.user_id
+WHERE username = "KhiewTest" and trivia_id = 2;
+
+-- Check if user exists in trial_history
+SELECT trial_history.user_id
+FROM user_table
+JOIN trial_history
+ON trial_history.user_id = user_table.user_id
+WHERE username = "KhiewTest2" and trivia_id = 10;
+
+-- SELECT certain information from table
+SELECT current_points,last_checked_in FROM user_table;
+
+-- Select certain information from table
+SELECT question_id, question FROM TriviaSample;
+SELECT question, options, answer FROM TriviaSample WHERE question_id=1;
+SELECT news_title, news_link, news_date FROM NewsSample WHERE news_id=1;
+
+-- Delete table
+DROP TABLE MerchandiseOrder;
+DROP TABLE trees;
+DROP TABLE donations_history;
+DROP TABLE trial_history;
+DROP TABLE user_table;
+DROP TABLE NewsSample;
+DROP TABLE TriviaSample;
+
 -- Delete certain rows
 DELETE FROM user_table WHERE user_id = 4;
+
+SELECT * FROM trial_history WHERE user_id = 5 AND trivia_id = 1;
+SELECT * FROM user_table WHERE username = "";
+UPDATE user_table SET registration_date = "2023-12-19 16:22:00" WHERE username ="a";
