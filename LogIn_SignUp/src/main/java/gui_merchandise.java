@@ -154,6 +154,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setAutoscrolls(false);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout panel_obj1Layout = new javax.swing.GroupLayout(panel_obj1);
@@ -262,6 +267,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setAutoscrolls(false);
+        jTextArea2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea2KeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout panel_obj2Layout = new javax.swing.GroupLayout(panel_obj2);
@@ -285,8 +295,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                                     .addGroup(panel_obj2Layout.createSequentialGroup()
                                         .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(msg_obj2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(msg_obj2))
                                     .addComponent(jScrollPane2)))
                             .addComponent(btn_add_obj2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39))))
@@ -366,6 +375,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
         jTextArea3.setAutoscrolls(false);
+        jTextArea3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea3KeyTyped(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout panel_obj3Layout = new javax.swing.GroupLayout(panel_obj3);
@@ -440,30 +454,33 @@ public class gui_merchandise extends javax.swing.JFrame {
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(panel_menuLayout.createSequentialGroup()
-                            .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51)
-                            .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(39, 39, 39)
-                            .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panel_menuLayout.createSequentialGroup()
-                            .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(819, 819, 819)
-                            .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(981, Short.MAX_VALUE))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(panel_obj1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(panel_obj2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(panel_obj3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_purchaseHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(800, Short.MAX_VALUE))
         );
         panel_menuLayout.setVerticalGroup(
             panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_menuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(showCurrentPoint)
-                .addGap(2, 2, 2)
-                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_purchaseHistory))
+                .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(label_home, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_menuLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_purchaseHistory)
+                            .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(panel_obj2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -552,7 +569,7 @@ public class gui_merchandise extends javax.swing.JFrame {
             .addComponent(panel_main, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 270, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,9 +653,9 @@ public class gui_merchandise extends javax.swing.JFrame {
         if (evt.getSource() == btn_add_obj2) {
             String obj2_quantity = text_obj2Quantity.getText().trim();
             String obj2_addresss = jTextArea2.getText().trim();
+            int quantity2 = Integer.parseInt(obj2_quantity);
         
-            if (!obj2_quantity.isEmpty()&&!obj2_addresss.isEmpty()) {
-                int quantity2 = Integer.parseInt(obj2_quantity);
+            if (!obj2_quantity.isEmpty()&&!obj2_addresss.isEmpty()&&quantity2>=0) {             
                 double total_point_obj2_need = quantity2*point_obj2_Need;
         
                 try {
@@ -681,10 +698,9 @@ public class gui_merchandise extends javax.swing.JFrame {
          if (evt.getSource() == btn_add_obj1) {
             String obj1_quantity = text_obj1Quantity.getText().trim();
             String obj1_addresss = jTextArea1.getText().trim();
+            int quantity1 = Integer.parseInt(obj1_quantity);
             
-            if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()) {
-                
-                int quantity1 = Integer.parseInt(obj1_quantity);
+            if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()&& quantity1 >= 0) {
                 double total_point_obj1_Need = quantity1*point_obj1_Need;
                 
                 try {
@@ -725,9 +741,9 @@ public class gui_merchandise extends javax.swing.JFrame {
         if (evt.getSource() == btn_add_obj3) {
             String obj3_quantity = text_obj3Quantity.getText().trim();
             String obj3_addresss = jTextArea3.getText().trim();
+            int quantity3 = Integer.parseInt(obj3_quantity);
         
-            if (!obj3_quantity.isEmpty()&&!obj3_addresss.isEmpty()) {
-                int quantity3 = Integer.parseInt(obj3_quantity);
+            if (!obj3_quantity.isEmpty()&&!obj3_addresss.isEmpty()&&quantity3>=0) {               
                 double total_point_obj3_Need = quantity3*point_obj3_Need;
         
                 try {
@@ -762,9 +778,10 @@ public class gui_merchandise extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj1Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
-    }
+        }
+
     }//GEN-LAST:event_text_obj1QuantityKeyTyped
 
     private void text_obj1QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj1QuantityKeyPressed
@@ -802,18 +819,18 @@ public class gui_merchandise extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj2Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
-    }
+        }
     }//GEN-LAST:event_text_obj2QuantityKeyTyped
 
     private void text_obj3QuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_obj3QuantityKeyTyped
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj1Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
-    }
+        }
     }//GEN-LAST:event_text_obj3QuantityKeyTyped
     
     //handle action when purchase history button is pressed
@@ -880,6 +897,24 @@ public class gui_merchandise extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null,Utilities.getMerchandiseData("hzw"));
         }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        if(jTextArea1.getText().length()>=200){
+             evt.consume(); 
+        }                                   
+    }//GEN-LAST:event_jTextArea1KeyTyped
+
+    private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
+        if(jTextArea2.getText().length()>=200){
+             evt.consume(); // 
+        }
+    }//GEN-LAST:event_jTextArea2KeyTyped
+
+    private void jTextArea3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea3KeyTyped
+        if(jTextArea3.getText().length()>=200){
+             evt.consume(); // 
+        }
+    }//GEN-LAST:event_jTextArea3KeyTyped
 
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
