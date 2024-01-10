@@ -344,14 +344,14 @@ public class gui_donation extends javax.swing.JFrame {
     private void cfDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfDonateActionPerformed
         String organisationName = jComboBox1.getSelectedItem().toString();
         String donationValue = donateMoney1.getText();
+        double donationAmount = Double.parseDouble(donationValue);
 
         if(evt.getSource() == cfDonate){ 
-            if(donationValue.isEmpty() || jComboBox1.getSelectedItem() == null){
-                JOptionPane.showMessageDialog(null, "Pleanse enter a valid donation amount and select an organization");
+            if(donationValue.isEmpty() || jComboBox1.getSelectedItem() == null || donationAmount <= 0){
+                    JOptionPane.showMessageDialog(null, "Pleanse enter a valid donation amount and select an organization");
             }
             else{
                 try{
-                    double donationAmount = Double.parseDouble(donationValue);
                     store_donation.getDonationPoint(user.getUsername(), (double)donationAmount, organisationName); 
                     JOptionPane.showMessageDialog(null,"Congrats, you successfully donate to " + jComboBox1.getSelectedItem());
                 }catch(NumberFormatException e){

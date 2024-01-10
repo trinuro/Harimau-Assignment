@@ -135,6 +135,11 @@ public class gui_plantTree extends javax.swing.JFrame {
                 nameOfTree1ActionPerformed(evt);
             }
         });
+        nameOfTree1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameOfTree1KeyTyped(evt);
+            }
+        });
 
         jLabel8.setText("Name of tree: ");
 
@@ -200,6 +205,12 @@ public class gui_plantTree extends javax.swing.JFrame {
         });
 
         jLabel4.setText("Points needed: 60 points");
+
+        nameOfTree2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameOfTree2KeyTyped(evt);
+            }
+        });
 
         jLabel10.setText("Name of tree: ");
 
@@ -268,6 +279,11 @@ public class gui_plantTree extends javax.swing.JFrame {
         nameOfTree3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameOfTree3ActionPerformed(evt);
+            }
+        });
+        nameOfTree3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameOfTree3KeyTyped(evt);
             }
         });
 
@@ -357,7 +373,7 @@ public class gui_plantTree extends javax.swing.JFrame {
                         .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(purchaseHistorybtn)
                             .addComponent(showCurrentPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(plantTree2BG, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                     .addComponent(plantTree1BG, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -620,6 +636,24 @@ public class gui_plantTree extends javax.swing.JFrame {
     private void nameOfTree3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameOfTree3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameOfTree3ActionPerformed
+
+    private void nameOfTree1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameOfTree1KeyTyped
+        if(nameOfTree1.getText().length() >= 200){
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameOfTree1KeyTyped
+
+    private void nameOfTree2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameOfTree2KeyTyped
+        if(nameOfTree2.getText().length() >= 200){
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameOfTree2KeyTyped
+
+    private void nameOfTree3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameOfTree3KeyTyped
+        if(nameOfTree3.getText().length() >= 200){
+            evt.consume();
+        }
+    }//GEN-LAST:event_nameOfTree3KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Quiz;
