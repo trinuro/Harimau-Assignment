@@ -154,6 +154,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setAutoscrolls(false);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout panel_obj1Layout = new javax.swing.GroupLayout(panel_obj1);
@@ -262,6 +267,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setAutoscrolls(false);
+        jTextArea2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea2KeyTyped(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout panel_obj2Layout = new javax.swing.GroupLayout(panel_obj2);
@@ -285,8 +295,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                                     .addGroup(panel_obj2Layout.createSequentialGroup()
                                         .addComponent(text_obj2Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(msg_obj2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(msg_obj2))
                                     .addComponent(jScrollPane2)))
                             .addComponent(btn_add_obj2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39))))
@@ -366,6 +375,11 @@ public class gui_merchandise extends javax.swing.JFrame {
         jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
         jTextArea3.setAutoscrolls(false);
+        jTextArea3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextArea3KeyTyped(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTextArea3);
 
         javax.swing.GroupLayout panel_obj3Layout = new javax.swing.GroupLayout(panel_obj3);
@@ -615,7 +629,7 @@ public class gui_merchandise extends javax.swing.JFrame {
     }//GEN-LAST:event_text_obj1QuantityActionPerformed
 
     private void text_obj2QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_obj2QuantityActionPerformed
-        
+         
         String obj2_quantity = text_obj2Quantity.getText(); 
         System.out.println("User entered: " + obj2_quantity);
     }//GEN-LAST:event_text_obj2QuantityActionPerformed
@@ -639,6 +653,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         
             if (!obj2_quantity.isEmpty()&&!obj2_addresss.isEmpty()) {
                 int quantity2 = Integer.parseInt(obj2_quantity);
+                
                 double total_point_obj2_need = quantity2*point_obj2_Need;
         
                 try {
@@ -682,15 +697,17 @@ public class gui_merchandise extends javax.swing.JFrame {
             String obj1_quantity = text_obj1Quantity.getText().trim();
             String obj1_addresss = jTextArea1.getText().trim();
             
-            if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()) {
-                
-                int quantity1 = Integer.parseInt(obj1_quantity);
-                double total_point_obj1_Need = quantity1*point_obj1_Need;
+            int quantity1 = Integer.parseInt(obj1_quantity);
+            double total_point_obj1_Need = quantity1*point_obj1_Need;
+            
+            if (!obj1_quantity.isEmpty()&&!obj1_addresss.isEmpty()&&quantity1>0) {
+               
                 
                 try {
                     
                     Utilities.getMerchandiseData(user.getUsername());
                     store_donation.getMerchandisePoint(user.getUsername(), id_obj1,(int)quantity1, jTextArea1.getText());
+                    
                     if(currentPoints>=total_point_obj1_Need){
                         JOptionPane.showMessageDialog(null, "You successfully adding "+ (int)quantity1+ " item/items");
                     }else{
@@ -704,7 +721,7 @@ public class gui_merchandise extends javax.swing.JFrame {
                 }
             }else {
                 // Handle the case where the quantity is empty
-                JOptionPane.showMessageDialog(null, "Textfield cannot be empty. Please enter a valid number and address.");
+                JOptionPane.showMessageDialog(null, "Textfield cannot be empty or please enter a valid number and address.");
                 // Show an error message or take appropriate action.
             }
 
@@ -762,7 +779,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj1Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
     }
     }//GEN-LAST:event_text_obj1QuantityKeyTyped
@@ -771,10 +788,12 @@ public class gui_merchandise extends javax.swing.JFrame {
         
         char c = evt.getKeyChar();
         if(Character.isLetter(c)){
+            text_obj1Quantity.setEditable(false);
             msg_obj1.setText("Enter number only");
         }
         else{
             msg_obj1.setText("");
+            text_obj1Quantity.setEditable(true);
         }
     }//GEN-LAST:event_text_obj1QuantityKeyPressed
 
@@ -802,7 +821,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj2Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
     }
     }//GEN-LAST:event_text_obj2QuantityKeyTyped
@@ -811,7 +830,7 @@ public class gui_merchandise extends javax.swing.JFrame {
         char c = evt.getKeyChar();
 
         // Allow only numeric input
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c)||text_obj1Quantity.getText().length()>=5) {
         evt.consume(); // Consume the event to prevent the character from being entered
     }
     }//GEN-LAST:event_text_obj3QuantityKeyTyped
@@ -880,6 +899,27 @@ public class gui_merchandise extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null,Utilities.getMerchandiseData("hzw"));
         }
     }//GEN-LAST:event_btn_purchaseHistoryActionPerformed
+
+    private void jTextArea1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyTyped
+        
+        if(jTextArea1.getText().length()>=200){
+             evt.consume(); 
+        }
+    }//GEN-LAST:event_jTextArea1KeyTyped
+
+    private void jTextArea2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyTyped
+        
+        if(jTextArea2.getText().length()>=200){
+             evt.consume(); // 
+        }
+    }//GEN-LAST:event_jTextArea2KeyTyped
+
+    private void jTextArea3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea3KeyTyped
+        
+        if(jTextArea3.getText().length()>=200){
+             evt.consume(); // 
+        }
+    }//GEN-LAST:event_jTextArea3KeyTyped
 
 //     private void displayPurchaseHistory(String username, int purchaseAmount, String deliveryAddress) {
 //        String purchaseInfo = username + " ordered " + purchaseAmount + " to " + deliveryAddress;
